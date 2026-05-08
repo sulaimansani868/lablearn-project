@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — LabLearn</title>
+  <meta name="description" content="Contact Sani Sulaiman, creator of LabLearn — for content corrections, tutorial suggestions, collaboration requests, or general enquiries about the platform." />
+  <meta name="keywords" content="contact LabLearn, laboratory education, Sani Sulaiman, content correction, tutorial suggestion" />
+  <meta name="author" content="Sani Sulaiman" />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="LabLearn" />
+  <meta property="og:title" content="Contact — LabLearn" />
+  <meta property="og:description" content="Send a message to the LabLearn team — for corrections, suggestions, collaboration requests, or general enquiries." />
+  <meta property="og:url" content="https://lablearn.netlify.app/contact.html" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Contact — LabLearn" />
+  <meta name="twitter:description" content="Contact LabLearn for content corrections, tutorial suggestions, or collaboration requests." />
+  <link rel="canonical" href="https://lablearn.netlify.app/contact.html" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="alternate icon" type="image/png" href="favicon.png" />
+  <link rel="stylesheet" href="shared.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <meta name="theme-color" content="#0d1f2d" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="LabLearn" />
+  <style>
+    /* ── PAGE HEADER ── */
+    .page-header { background: var(--navy); padding: 4rem 5% 3rem; position: relative; overflow: hidden; }
+    .page-header::before { content:''; position:absolute; inset:0; background-image:linear-gradient(rgba(11,124,110,0.08) 1px,transparent 1px),linear-gradient(90deg,rgba(11,124,110,0.08) 1px,transparent 1px); background-size:48px 48px; pointer-events:none; }
+    .page-header-inner { position:relative; max-width:1100px; margin:0 auto; }
+    .page-tag { display:inline-block; background:rgba(11,124,110,0.25); border:1px solid rgba(19,168,150,0.4); color:#5ee8d8; font-family:'IBM Plex Mono',monospace; font-size:0.72rem; letter-spacing:0.1em; padding:0.25rem 0.7rem; border-radius:2px; margin-bottom:1rem; text-transform:uppercase; }
+    .page-header h1 { font-family:'Cormorant Garamond',serif; font-size:clamp(2rem,5vw,3rem); font-weight:600; color:#fff; line-height:1.15; margin-bottom:0.6rem; }
+    .page-header p { color:#7a9ab5; font-size:1rem; max-width:540px; line-height:1.75; }
+
+    /* ── MAIN LAYOUT ── */
+    .contact-main { max-width:1100px; margin:0 auto; padding:4rem 5%; display:grid; grid-template-columns:1fr 340px; gap:4rem; align-items:start; }
+    @media (max-width:900px){ .contact-main{ grid-template-columns:1fr; gap:2.5rem; } }
+
+    /* ── CONTACT FORM ── */
+    .form-section h2 { font-family:'Cormorant Garamond',serif; font-size:1.75rem; font-weight:600; color:var(--navy); margin-bottom:0.4rem; }
+    .form-section .form-lead { font-size:0.93rem; color:var(--text-muted); line-height:1.7; margin-bottom:2rem; }
+
+    .contact-form { display:flex; flex-direction:column; gap:1.1rem; }
+    .form-row { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+    @media (max-width:540px){ .form-row{ grid-template-columns:1fr; } }
+
+    .form-group { display:flex; flex-direction:column; gap:0.35rem; }
+    .form-group label { font-size:0.75rem; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:var(--text-muted); }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      padding:0.7rem 0.9rem;
+      border:1.5px solid var(--border);
+      border-radius:5px;
+      font-family:'IBM Plex Sans',sans-serif;
+      font-size:0.93rem;
+      color:var(--text);
+      background:var(--white);
+      transition:border-color 0.18s, box-shadow 0.18s;
+      width:100%;
+      resize:vertical;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline:none;
+      border-color:var(--teal);
+      box-shadow:0 0 0 3px rgba(11,124,110,0.12);
+    }
+    .form-group textarea { min-height:140px; }
+
+    .form-submit { margin-top:0.5rem; }
+    .submit-btn {
+      display:inline-flex; align-items:center; gap:0.5rem;
+      background:var(--teal); color:#fff; border:none;
+      padding:0.8rem 2rem; border-radius:5px;
+      font-family:'IBM Plex Sans',sans-serif; font-size:0.92rem; font-weight:600;
+      cursor:pointer; transition:background 0.18s;
+    }
+    .submit-btn:hover { background:var(--teal-light); }
+    .submit-btn .btn-icon { font-size:1rem; }
+
+    /* Form status messages */
+    #formStatus { display:none; margin-top:1rem; padding:0.85rem 1.1rem; border-radius:5px; font-size:0.9rem; font-weight:500; }
+    #formStatus.success { background:rgba(11,124,110,0.1); border:1px solid rgba(11,124,110,0.3); color:var(--teal); display:block; }
+    #formStatus.error   { background:rgba(192,57,43,0.08); border:1px solid rgba(192,57,43,0.25); color:#c0392b; display:block; }
+
+    /* ── RIGHT SIDEBAR ── */
+    .contact-sidebar { display:flex; flex-direction:column; gap:1.25rem; }
+
+    /* Contact details card */
+    .details-card { background:var(--navy); border-radius:6px; padding:1.4rem 1.5rem; }
+    .details-label { font-family:'IBM Plex Mono',monospace; font-size:0.68rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--amber-light); margin-bottom:1rem; }
+    .detail-row { display:flex; align-items:flex-start; gap:0.85rem; padding:0.65rem 0; border-bottom:1px solid rgba(255,255,255,0.07); }
+    .detail-row:last-child { border-bottom:none; padding-bottom:0; }
+    .detail-icon { width:34px; height:34px; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:1rem; flex-shrink:0; }
+    .detail-icon.email    { background:rgba(11,124,110,0.3); }
+    .detail-icon.phone    { background:rgba(212,134,10,0.3); }
+    .detail-icon.location { background:rgba(19,168,150,0.2); }
+    .detail-icon.dept     { background:rgba(94,232,216,0.15); }
+    .detail-text-label { font-size:0.68rem; color:#5a7a90; letter-spacing:0.05em; text-transform:uppercase; }
+    .detail-text-value { font-size:0.88rem; color:#c8d8e8; font-weight:500; line-height:1.45; }
+    a.detail-text-value { text-decoration:none; transition:color 0.18s; }
+    a.detail-text-value:hover { color:var(--amber-light); }
+
+    /* Response time card */
+    .response-card { background:var(--white); border:1px solid var(--border); border-radius:6px; padding:1.3rem 1.5rem; }
+    .response-label { font-family:'IBM Plex Mono',monospace; font-size:0.68rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--teal); margin-bottom:0.85rem; }
+    .response-row { display:flex; align-items:center; gap:0.7rem; padding:0.45rem 0; border-bottom:1px solid var(--cream-dark); font-size:0.87rem; }
+    .response-row:last-child { border-bottom:none; }
+    .response-dot { width:8px; height:8px; border-radius:50%; flex-shrink:0; }
+    .response-dot.green  { background:#27ae60; }
+    .response-dot.amber  { background:var(--amber); }
+    .response-dot.grey   { background:#aaa; }
+    .response-type { color:var(--navy); font-weight:500; min-width:130px; }
+    .response-time { color:var(--text-muted); font-family:'IBM Plex Mono',monospace; font-size:0.82rem; }
+
+    /* About shortcut card */
+    .about-card { background:linear-gradient(135deg,#0d2a3d 0%,var(--navy) 100%); border-radius:6px; padding:1.4rem 1.5rem; border:1px solid rgba(94,232,216,0.15); }
+    .about-card-inner { display:flex; align-items:center; gap:1rem; margin-bottom:1rem; }
+    .about-mini-avatar { width:48px; height:48px; border-radius:50%; overflow:hidden; border:2px solid rgba(19,168,150,0.4); flex-shrink:0; }
+    .about-mini-avatar img { width:100%; height:100%; object-fit:cover; display:block; }
+    .about-mini-initials { width:100%; height:100%; background:rgba(11,124,110,0.3); display:flex; align-items:center; justify-content:center; font-family:'Cormorant Garamond',serif; font-size:1.1rem; font-weight:600; color:#5ee8d8; }
+    .about-card-name { font-size:0.95rem; font-weight:600; color:#fff; }
+    .about-card-role { font-size:0.8rem; color:#7a9ab5; margin-top:0.1rem; }
+    .about-card p { font-size:0.84rem; color:rgba(255,255,255,0.7); line-height:1.65; margin-bottom:1rem; }
+    .about-card a { display:block; text-align:center; padding:0.6rem; background:rgba(94,232,216,0.12); border:1px solid rgba(94,232,216,0.25); border-radius:4px; color:#5ee8d8; font-family:'IBM Plex Sans',sans-serif; font-size:0.85rem; font-weight:600; text-decoration:none; transition:background 0.18s; }
+    .about-card a:hover { background:rgba(94,232,216,0.22); }
+
+    /* ── FAQ ── */
+    .faq-section { background:var(--cream); padding:4rem 5%; }
+    .faq-inner { max-width:780px; margin:0 auto; }
+    .faq-inner .section-label { font-family:'IBM Plex Mono',monospace; font-size:0.72rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--teal); margin-bottom:0.75rem; }
+    .faq-inner h2 { font-family:'Cormorant Garamond',serif; font-size:2rem; font-weight:600; color:var(--navy); margin-bottom:2rem; }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="nav-logo">Lab<span>Learn</span></a>
+    <ul class="nav-links">
+      <li><a href="tutorials/index.html">Tutorials</a></li>
+      <li><a href="calculator.html">Calculators</a></li>
+      <li><a href="apps.html">Apps</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+      <li><a href="index.html#donate">Donate</a></li>
+      <li><a href="tutorials/index.html" style="background:var(--teal);color:#fff!important;padding:0.4rem 1.1rem;border-radius:3px;">Start Learning</a></li>
+    </ul>
+    <button class="nav-burger" id="navBurger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <div class="nav-mobile" id="navMobile">
+    <a href="tutorials/index.html">Tutorials</a>
+    <a href="calculator.html">Calculators</a>
+    <a href="apps.html">Apps</a>
+    <a href="about.html">About</a>
+    <a href="contact.html" class="active">Contact</a>
+    <a href="index.html#donate">Donate</a>
+    <a href="tutorials/index.html" class="mob-cta">Start Learning</a>
+  </div>
+
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <div class="page-header-inner">
+      <div class="page-tag">Get in touch</div>
+      <h1>Contact LabLearn</h1>
+      <p>Found an error? Have a suggestion? Want to collaborate on a tutorial? Every message is read personally and responded to as soon as possible.</p>
+    </div>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <div class="contact-main">
+
+    <!-- LEFT: Contact form -->
+    <div class="form-section">
+      <h2>Send a message</h2>
+      <p class="form-lead">Use the form below for any enquiry. For urgent corrections to tutorial content or calculator formulas, please select <em>Content correction</em> so I can prioritise your message.</p>
+
+      <form class="contact-form" id="contactForm" novalidate>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="fname">First name <span style="color:var(--teal)">*</span></label>
+            <input type="text" id="fname" name="fname" placeholder="e.g. Amina" required autocomplete="given-name" />
+          </div>
+          <div class="form-group">
+            <label for="lname">Last name <span style="color:var(--teal)">*</span></label>
+            <input type="text" id="lname" name="lname" placeholder="e.g. Ibrahim" required autocomplete="family-name" />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email address <span style="color:var(--teal)">*</span></label>
+          <input type="email" id="email" name="email" placeholder="you@example.com" required autocomplete="email" />
+        </div>
+
+        <div class="form-group">
+          <label for="subject">Subject <span style="color:var(--teal)">*</span></label>
+          <select id="subject" name="subject" required>
+            <option value="" disabled selected>Select a subject&hellip;</option>
+            <option value="correction">Content correction</option>
+            <option value="suggestion">Tutorial or calculator suggestion</option>
+            <option value="collaboration">Collaboration request</option>
+            <option value="teaching">Use in teaching / course material</option>
+            <option value="general">General enquiry</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Message <span style="color:var(--teal)">*</span></label>
+          <textarea id="message" name="message" placeholder="Describe your question or suggestion in as much detail as you like&hellip;" required></textarea>
+        </div>
+
+        <div class="form-submit">
+          <button type="submit" class="submit-btn">
+            <span class="btn-icon">&#x2709;</span> Send message
+          </button>
+        </div>
+
+        <div id="formStatus"></div>
+
+      </form>
+    </div>
+
+    <!-- RIGHT: Sidebar -->
+    <div class="contact-sidebar">
+
+      <!-- Direct contact details -->
+      <div class="details-card">
+        <div class="details-label">Direct contact</div>
+
+        <div class="detail-row">
+          <div class="detail-icon email">&#x2709;</div>
+          <div>
+            <div class="detail-text-label">Email</div>
+            <!-- Replace YOUR_EMAIL@example.com with your real address -->
+            <a class="detail-text-value" href="mailto:YOUR_EMAIL@example.com">YOUR_EMAIL@example.com</a>
+          </div>
+        </div>
+
+        <div class="detail-row">
+          <div class="detail-icon dept">&#x1F52C;</div>
+          <div>
+            <div class="detail-text-label">Department</div>
+            <div class="detail-text-value">Biochemistry, Sa&#x2019;adu Zungur University</div>
+          </div>
+        </div>
+
+        <div class="detail-row">
+          <div class="detail-icon location">&#x1F4CD;</div>
+          <div>
+            <div class="detail-text-label">Location</div>
+            <div class="detail-text-value">Gadau, Bauchi State, Nigeria</div>
+          </div>
+        </div>
+
+        <div class="detail-row">
+          <div class="detail-icon phone">&#x1F4F1;</div>
+          <div>
+            <div class="detail-text-label">Phone / WhatsApp</div>
+            <!-- Replace +000 000 0000 with your real number -->
+            <a class="detail-text-value" href="tel:+000000000">+000 000 0000</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Response times -->
+      <div class="response-card">
+        <div class="response-label">Typical response times</div>
+        <div class="response-row">
+          <div class="response-dot green"></div>
+          <div class="response-type">Content corrections</div>
+          <div class="response-time">24&ndash;48 h</div>
+        </div>
+        <div class="response-row">
+          <div class="response-dot green"></div>
+          <div class="response-type">General enquiries</div>
+          <div class="response-time">1&ndash;3 days</div>
+        </div>
+        <div class="response-row">
+          <div class="response-dot amber"></div>
+          <div class="response-type">Collaboration requests</div>
+          <div class="response-time">3&ndash;7 days</div>
+        </div>
+        <div class="response-row">
+          <div class="response-dot grey"></div>
+          <div class="response-type">Teaching requests</div>
+          <div class="response-time">Up to 2 weeks</div>
+        </div>
+        <p style="font-size:0.78rem;color:var(--text-muted);margin-top:0.85rem;line-height:1.55;">
+          LabLearn is a solo project maintained alongside full-time laboratory work. I read every message personally and respond as promptly as I can.
+        </p>
+      </div>
+
+      <!-- About shortcut card -->
+      <div class="about-card">
+        <div class="about-card-inner">
+          <div class="about-mini-avatar">
+            <img src="sani-sulaiman.jpg" alt="Sani Sulaiman"
+                 onerror="this.parentNode.innerHTML='<div class=\"about-mini-initials\">SS</div>'" />
+          </div>
+          <div>
+            <div class="about-card-name">Sani Sulaiman</div>
+            <div class="about-card-role">Senior Laboratory Technician</div>
+          </div>
+        </div>
+        <p>Learn more about the person behind LabLearn &mdash; background, career history, and the motivation for building this platform.</p>
+        <a href="about.html">&#x1F464; View full profile &rarr;</a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FAQ SECTION -->
+  <div class="faq-section">
+    <div class="faq-inner">
+      <div class="section-label">Frequently asked</div>
+      <h2>Common questions</h2>
+      <div class="faq-list">
+
+        <div class="faq-item">
+          <button class="faq-q">Who is this site for?
+            <div class="faq-icon"><svg viewBox="0 0 10 10"><line x1="5" y1="2" x2="5" y2="8"/><line x1="2" y1="5" x2="8" y2="5"/></svg></div>
+          </button>
+          <div class="faq-a"><div class="faq-a-inner">
+            LabLearn is designed primarily for university students taking laboratory-based chemistry, biochemistry, or biology courses, and for laboratory technicians who want clear, practical references. It is also useful for researchers who need a quick reliable calculator and for professionals who want to refresh or broaden their analytical skills.
+          </div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q">Can I use LabLearn content for teaching?
+            <div class="faq-icon"><svg viewBox="0 0 10 10"><line x1="5" y1="2" x2="5" y2="8"/><line x1="2" y1="5" x2="8" y2="5"/></svg></div>
+          </button>
+          <div class="faq-a"><div class="faq-a-inner">
+            Yes &mdash; all tutorials are freely available and can be shared with students, referenced in lab manuals, or linked from course material. If you want to reproduce substantial content in a publication or training document, please get in touch first and I will be happy to discuss that.
+          </div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q">I found an error in a tutorial or calculator. What should I do?
+            <div class="faq-icon"><svg viewBox="0 0 10 10"><line x1="5" y1="2" x2="5" y2="8"/><line x1="2" y1="5" x2="8" y2="5"/></svg></div>
+          </button>
+          <div class="faq-a"><div class="faq-a-inner">
+            Please report it using the form above, selecting <em>Content correction</em> as the subject. Accuracy is the most important thing on this site. If you spot something wrong &mdash; a calculation error, an outdated value, an incorrect procedure &mdash; I want to know immediately and will correct it as soon as possible. Thank you in advance.
+          </div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q">Can I suggest a new tutorial topic or calculator?
+            <div class="faq-icon"><svg viewBox="0 0 10 10"><line x1="5" y1="2" x2="5" y2="8"/><line x1="2" y1="5" x2="8" y2="5"/></svg></div>
+          </button>
+          <div class="faq-a"><div class="faq-a-inner">
+            Absolutely &mdash; use the contact form above or the feature request form on the Apps page. The most-requested topics are prioritised. Your suggestion will be seriously considered.
+          </div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q">Are the calculators accurate enough for professional use?
+            <div class="faq-icon"><svg viewBox="0 0 10 10"><line x1="5" y1="2" x2="5" y2="8"/><line x1="2" y1="5" x2="8" y2="5"/></svg></div>
+          </button>
+          <div class="faq-a"><div class="faq-a-inner">
+            The calculators implement standard analytical chemistry formulas and are validated against textbook worked examples. They are accurate for the vast majority of routine laboratory calculations. However, for safety-critical or regulatory work &mdash; pharmaceutical batch analysis, clinical reference intervals, environmental compliance &mdash; always verify independently and maintain proper documentation as required by your quality system.
+          </div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q">Is there a way to support the project other than donating?
+            <div class="faq-icon"><svg viewBox="0 0 10 10"><line x1="5" y1="2" x2="5" y2="8"/><line x1="2" y1="5" x2="8" y2="5"/></svg></div>
+          </button>
+          <div class="faq-a"><div class="faq-a-inner">
+            Yes &mdash; sharing the site with colleagues and students is enormously helpful. Reporting errors makes the content more reliable for everyone. And if you are an experienced laboratory scientist who would like to contribute a tutorial in your specialist area, please get in touch &mdash; I would welcome that very much.
+          </div></div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">Lab<span>Learn</span></div>
+    <ul class="footer-links">
+      <li><a href="tutorials/index.html">Tutorials</a></li>
+      <li><a href="calculator.html">Calculators</a></li>
+      <li><a href="apps.html">Apps</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="index.html#donate">Donate</a></li>
+    </ul>
+    <div class="footer-copy">&copy; 2025 LabLearn &mdash; Sani Sulaiman. Free for students &amp; researchers.</div>
+  </footer>
+
+  <!-- FORM SUBMISSION via Formspree -->
+  <script>
+  /* ════════════════════════════════════════════════════════════════
+     HOW TO ACTIVATE THE CONTACT FORM:
+     1. Go to formspree.io and sign up for a free account
+     2. Create a new form — Formspree gives you a form ID like "xpwzabcd"
+     3. Replace YOUR_FORM_ID below with your actual form ID
+     4. The form will then send messages to your registered email
+  ════════════════════════════════════════════════════════════════ */
+  var FORMSPREE_ID = 'YOUR_FORM_ID'; /* ← replace with your Formspree form ID */
+
+  document.getElementById('contactForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    var btn    = this.querySelector('.submit-btn');
+    var status = document.getElementById('formStatus');
+    var form   = this;
+
+    /* Basic validation */
+    var fname   = document.getElementById('fname').value.trim();
+    var lname   = document.getElementById('lname').value.trim();
+    var email   = document.getElementById('email').value.trim();
+    var subject = document.getElementById('subject').value;
+    var message = document.getElementById('message').value.trim();
+
+    if (!fname || !lname || !email || !subject || !message) {
+      status.className = 'error';
+      status.textContent = '⚠ Please fill in all required fields before submitting.';
+      return;
+    }
+    var emailOK = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    if (!emailOK) {
+      status.className = 'error';
+      status.textContent = '⚠ Please enter a valid email address.';
+      return;
+    }
+
+    /* Submit to Formspree */
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+    status.className = '';
+    status.style.display = 'none';
+
+    try {
+      var res = await fetch('https://formspree.io/f/' + FORMSPREE_ID, {
+        method: 'POST',
+        headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+        body: JSON.stringify({ fname, lname, email, subject, message })
+      });
+
+      if (res.ok) {
+        status.className = 'success';
+        status.textContent = '✓ Message sent successfully! I will get back to you as soon as possible.';
+        form.reset();
+      } else {
+        throw new Error('server error');
+      }
+    } catch(err) {
+      status.className = 'error';
+      status.textContent = '⚠ Something went wrong. Please try again or send an email directly.';
+    } finally {
+      btn.disabled = false;
+      btn.innerHTML = '<span class="btn-icon">&#x2709;</span> Send message';
+    }
+  });
+  </script>
+
+  <script src="shared.js" defer></script>
+</body>
+</html>

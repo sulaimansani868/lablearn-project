@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Free Laboratory Mobile Apps — LabCalc, LabStock, LabLog | LabLearn</title>
+  <meta name="description"        content="Download free laboratory apps for Android and iOS. LabCalc for reagent calculations, LabStock for chemical inventory management, LabLog for instrument logbooks. Works offline, no account needed." />
+  <meta name="keywords"           content="laboratory app, lab calculator app, chemical inventory app, instrument logbook, Android lab app, iOS lab app, free lab software" />
+  <meta name="author"             content="Sani Sulaiman" />
+  <meta name="robots"             content="index, follow" />
+  <meta property="og:type"        content="website" />
+  <meta property="og:site_name"   content="LabLearn" />
+  <meta property="og:title"       content="Free Laboratory Mobile Apps — LabCalc, LabStock, LabLog | LabLearn" />
+  <meta property="og:description" content="Download free laboratory apps for Android and iOS. LabCalc for reagent calculations, LabStock for chemical inventory management, LabLog for instrument logbooks. Works offline, no account needed." />
+  <meta property="og:url"         content="https://lablearn.netlify.app/apps.html" />
+  <meta name="twitter:card"        content="summary" />
+  <meta name="twitter:title"       content="Free Laboratory Mobile Apps — LabCalc, LabStock, LabLog | LabLearn" />
+  <meta name="twitter:description" content="Download free laboratory apps for Android and iOS. LabCalc for reagent calculations, LabStock for chemical inventory management, LabLog for instrument logbooks. Works offline, no account needed." />
+  <link rel="canonical" href="https://lablearn.netlify.app/apps.html" />
+  <link rel="icon"             type="image/svg+xml" href="favicon.svg" />
+  <link rel="alternate icon"   type="image/png"     href="favicon.png" />
+    <link rel="stylesheet" href="shared.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    /* ── NAV ── */
+    @media (max-width: 640px) { }
+
+    /* ── PAGE HEADER ── */
+    .page-header { background: var(--navy); padding: 4rem 5% 3.5rem; position: relative; overflow: hidden; }
+    .page-header::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(11,124,110,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(11,124,110,0.08) 1px, transparent 1px); background-size: 48px 48px; pointer-events: none; }
+    .page-header::after { content: ''; position: absolute; right: -80px; top: -80px; width: 400px; height: 400px; border-radius: 50%; background: radial-gradient(circle, rgba(11,124,110,0.12) 0%, transparent 70%); pointer-events: none; }
+    .page-header-inner { position: relative; max-width: 1100px; margin: 0 auto; }
+    .breadcrumb { display: flex; gap: 0.5rem; align-items: center; font-size: 0.78rem; color: #5a7a90; margin-bottom: 1rem; }
+    .breadcrumb a { color: #5a7a90; text-decoration: none; transition: color 0.2s; }
+    .breadcrumb a:hover { color: var(--teal-light); }
+    .page-tag { display: inline-block; background: rgba(11,124,110,0.25); border: 1px solid rgba(19,168,150,0.4); color: #5ee8d8; font-family: 'IBM Plex Mono', monospace; font-size: 0.72rem; letter-spacing: 0.1em; padding: 0.25rem 0.7rem; border-radius: 2px; margin-bottom: 1rem; text-transform: uppercase; }
+    .page-header h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 600; color: var(--white); line-height: 1.15; margin-bottom: 0.75rem; }
+    .page-header p { color: #7a9ab5; font-size: 1rem; max-width: 560px; line-height: 1.75; }
+    .header-badges { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 1.5rem; }
+    .platform-badge { display: inline-flex; align-items: center; gap: 0.45rem; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); color: #c8d8e8; font-size: 0.8rem; font-weight: 500; padding: 0.35rem 0.9rem; border-radius: 3px; }
+
+    /* ── APP CARDS SECTION ── */
+    .apps-section { max-width: 1100px; margin: 0 auto; padding: 4rem 5%; display: flex; flex-direction: column; gap: 5rem; }
+
+    /* ── SINGLE APP BLOCK ── */
+    .app-block { display: grid; grid-template-columns: 1fr 320px; gap: 4rem; align-items: center; }
+    .app-block.reverse { grid-template-columns: 320px 1fr; }
+    .app-block.reverse .app-info { order: 2; }
+    .app-block.reverse .app-phone { order: 1; }
+    @media (max-width: 860px) {
+      .app-block, .app-block.reverse { grid-template-columns: 1fr; }
+      .app-block.reverse .app-info, .app-block.reverse .app-phone { order: unset; }
+      .app-phone { max-width: 260px; margin: 0 auto; }
+    }
+
+    .app-num { font-family: 'IBM Plex Mono', monospace; font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--teal); margin-bottom: 0.5rem; }
+    .app-name { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; font-weight: 600; color: var(--navy); line-height: 1.1; margin-bottom: 0.5rem; }
+    .app-tagline { font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1.5rem; max-width: 460px; line-height: 1.7; }
+    .app-features { list-style: none; margin-bottom: 2rem; display: flex; flex-direction: column; gap: 0.55rem; }
+    .app-features li { display: flex; align-items: flex-start; gap: 0.65rem; font-size: 0.9rem; color: var(--text); }
+    .feat-dot { width: 18px; height: 18px; border-radius: 50%; background: var(--teal); display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
+    .feat-dot svg { width: 10px; height: 10px; fill: none; stroke: #fff; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+    .app-dl-row { display: flex; gap: 0.75rem; flex-wrap: wrap; align-items: center; }
+    .dl-btn { display: inline-flex; align-items: center; gap: 0.6rem; padding: 0.65rem 1.25rem; border-radius: 4px; font-size: 0.85rem; font-weight: 600; text-decoration: none; transition: transform 0.15s, opacity 0.2s; cursor: pointer; border: none; font-family: 'IBM Plex Sans', sans-serif; }
+    .dl-btn:hover { transform: translateY(-2px); opacity: 0.9; }
+    .dl-android { background: #1a6b3a; color: #fff; }
+    .dl-ios { background: var(--navy); color: #fff; border: 1px solid rgba(255,255,255,0.15); }
+    .dl-apk { background: var(--amber); color: var(--navy); }
+    .dl-btn svg { width: 18px; height: 18px; flex-shrink: 0; }
+    .version-note { font-family: 'IBM Plex Mono', monospace; font-size: 0.72rem; color: var(--text-muted); margin-top: 0.75rem; }
+
+    /* ── PHONE MOCKUP ── */
+    .app-phone { position: relative; }
+    .phone-wrap { position: relative; filter: drop-shadow(0 24px 48px rgba(13,31,45,0.22)); }
+
+    /* ── DIVIDER ── */
+    .app-divider { border: none; border-top: 1px solid var(--border); max-width: 1100px; margin: 0 auto; }
+
+    /* ── REQUIREMENTS ── */
+    .requirements { background: var(--navy); padding: 4.5rem 5%; }
+    .req-inner { max-width: 1100px; margin: 0 auto; }
+    .section-label { font-family: 'IBM Plex Mono', monospace; font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--amber-light); margin-bottom: 0.75rem; }
+    .section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 600; line-height: 1.2; color: var(--white); margin-bottom: 2.5rem; }
+    .req-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem; }
+    .req-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 5px; padding: 1.5rem; }
+    .req-platform { display: flex; align-items: center; gap: 0.65rem; margin-bottom: 1.1rem; }
+    .req-platform-icon { width: 36px; height: 36px; border-radius: 8px; display: flex; align-items: center; justify-content: center; }
+    .req-platform-icon.android { background: rgba(26,107,58,0.4); }
+    .req-platform-icon.ios { background: rgba(255,255,255,0.1); }
+    .req-platform-name { font-size: 0.95rem; font-weight: 600; color: var(--white); }
+    .req-rows { display: flex; flex-direction: column; gap: 0.5rem; }
+    .req-row { display: flex; justify-content: space-between; gap: 1rem; font-size: 0.84rem; padding: 0.4rem 0; border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .req-row:last-child { border-bottom: none; }
+    .req-key { color: #7a9ab5; }
+    .req-val { color: var(--white); text-align: right; }
+
+    /* ── FAQ ── */
+    .faq-section { padding: 4.5rem 5%; background: var(--cream-dark); }
+    .faq-inner { max-width: 760px; margin: 0 auto; }
+    .faq-section .section-label { color: var(--teal); }
+    .faq-section .section-title { color: var(--navy); margin-bottom: 2rem; }
+    .faq-list { display: flex; flex-direction: column; gap: 0; border: 1px solid var(--border); border-radius: 5px; overflow: hidden; }
+    .faq-item { background: var(--white); border-bottom: 1px solid var(--border); }
+    .faq-item:last-child { border-bottom: none; }
+    .faq-q { width: 100%; background: none; border: none; text-align: left; padding: 1.2rem 1.5rem; font-family: 'IBM Plex Sans', sans-serif; font-size: 0.95rem; font-weight: 500; color: var(--navy); cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; transition: background 0.18s; }
+    .faq-q:hover { background: var(--cream); }
+    .faq-icon { width: 20px; height: 20px; border-radius: 50%; background: var(--cream-dark); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: background 0.2s, transform 0.25s; }
+    .faq-icon svg { width: 10px; height: 10px; stroke: var(--text-muted); stroke-width: 2.5; stroke-linecap: round; fill: none; transition: transform 0.25s; }
+    .faq-item.open .faq-icon { background: var(--teal); border-color: var(--teal); }
+    .faq-item.open .faq-icon svg { stroke: #fff; transform: rotate(45deg); }
+    .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.3s ease, padding 0.25s; }
+    .faq-a-inner { padding: 0 1.5rem 1.25rem; font-size: 0.91rem; color: var(--text-muted); line-height: 1.75; }
+    .faq-item.open .faq-a { max-height: 400px; }
+
+    /* ── FEATURE REQUEST ── */
+    .request-section { background: var(--cream); padding: 4.5rem 5%; }
+    .request-inner { max-width: 700px; margin: 0 auto; text-align: center; }
+    .request-section .section-label { color: var(--teal); }
+    .request-section .section-title { color: var(--navy); margin-bottom: 0.75rem; }
+    .request-sub { color: var(--text-muted); font-size: 0.97rem; margin-bottom: 2.5rem; }
+    .request-form { background: var(--white); border: 1px solid var(--border); border-radius: 6px; padding: 2rem; text-align: left; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+    @media (max-width: 540px) { .form-row { grid-template-columns: 1fr; } }
+    .form-group { display: flex; flex-direction: column; gap: 0.35rem; }
+    .form-group label { font-size: 0.8rem; font-weight: 500; color: var(--text-muted); letter-spacing: 0.03em; }
+    .form-group input, .form-group select, .form-group textarea { padding: 0.65rem 0.85rem; border: 1px solid var(--border); border-radius: 3px; font-family: 'IBM Plex Sans', sans-serif; font-size: 0.92rem; color: var(--text); background: var(--white); transition: border-color 0.18s; }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: var(--teal); }
+    .form-group textarea { resize: vertical; min-height: 90px; }
+    .form-submit { width: 100%; margin-top: 1.25rem; padding: 0.8rem; background: var(--teal); color: var(--white); border: none; border-radius: 3px; font-family: 'IBM Plex Sans', sans-serif; font-size: 0.95rem; font-weight: 600; cursor: pointer; transition: background 0.2s, transform 0.15s; letter-spacing: 0.02em; }
+    .form-submit:hover { background: var(--teal-light); transform: translateY(-1px); }
+    .form-success { display: none; text-align: center; padding: 1.5rem; }
+    .form-success-icon { font-size: 2rem; margin-bottom: 0.5rem; }
+    .form-success p { color: var(--teal); font-weight: 500; }
+
+    /* ── FOOTER ── */
+    to { opacity:1; transform: none; } }
+    @media (max-width: 640px) { }
+  </style>
+  <meta name="theme-color" content="#0d1f2d" />
+  <meta name="apple-mobile-web-app-capable"          content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title"            content="LabLearn" />
+</head>
+<body>
+
+  <!-- COMING SOON DIALOG -->
+  <div class="cs-overlay" id="csOverlay" role="dialog" aria-modal="true">
+    <div class="cs-box">
+      <div class="cs-icon">📱</div>
+      <h3>Coming Soon</h3>
+      <p>The <span class="cs-page-name" id="csPageName">this download</span> is not yet available. Register your interest using the feature request form below and we'll notify you when it launches.</p>
+      <button class="cs-close" id="csClose">Got it</button>
+    </div>
+  </div>
+
+  <!-- NAV -->
+  <nav>
+    <a href="index.html" class="nav-logo">Lab<span>Learn</span></a>
+    <ul class="nav-links">
+      <li><a href="tutorials/index.html">Tutorials</a></li>
+      <li><a href="calculator.html" class="active">Calculators</a></li>
+      <li><a href="apps.html">Apps</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="index.html#donate">Donate</a></li>
+      <li><a href="tutorials/index.html" style="background:var(--teal);color:#fff!important;padding:0.4rem 1.1rem;border-radius:3px;">Start Learning</a></li>
+    </ul>
+      <button class="nav-burger" id="navBurger" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </nav>
+
+  <div class="nav-mobile" id="navMobile">
+      <a href="tutorials/index.html">Tutorials</a>
+      <a href="calculator.html">Calculators</a>
+      <a href="apps.html">Apps</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="index.html#donate">Donate</a>
+      <a href="tutorials/index.html" class="mob-cta">Start Learning</a>
+  </div>
+
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <div class="page-header-inner">
+      <div class="breadcrumb">
+        <a href="index.html">Home</a>
+        <span>›</span>
+        <span>Mobile Apps</span>
+      </div>
+      <div class="page-tag">Free download</div>
+      <h1>Laboratory Apps for<br />Android &amp; iOS</h1>
+      <p>Take your lab tools off the bench and into your pocket. All apps are free, built from real laboratory workflows, and work offline — no account or internet connection required.</p>
+      <div class="header-badges">
+        <span class="platform-badge">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.523 15.341l1.5-2.598a.75.75 0 00-1.3-.75l-1.52 2.633A9.146 9.146 0 0112 14a9.146 9.146 0 01-4.203 1.026L6.277 12.393a.75.75 0 00-1.3.75l1.5 2.598A9.01 9.01 0 003 21.75h18a9.01 9.01 0 00-3.477-6.409z"/></svg>
+          Android 8.0+
+        </span>
+        <span class="platform-badge">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>
+          iOS 14+
+        </span>
+        <span class="platform-badge">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          Works offline
+        </span>
+        <span class="platform-badge">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+          No account needed
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <!-- APP BLOCKS -->
+  <div class="apps-section">
+
+    <!-- ══ APP 1: LabCalc ══ -->
+    <div class="app-block" id="labcalc">
+      <div class="app-info">
+        <div class="app-num">App 01 / 03</div>
+        <div class="app-name">LabCalc</div>
+        <p class="app-tagline">Your complete reagent calculation toolkit — molarity, dilutions, percent solutions, unit conversions, and buffer preparation, all in one offline app.</p>
+        <ul class="app-features">
+          <li><div class="feat-dot"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>Molarity calculator with built-in molar mass database (500+ compounds)</li>
+          <li><div class="feat-dot"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>C₁V₁ = C₂V₂ dilution solver — find any unknown in seconds</li>
+          <li><div class="feat-dot"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>% w/v, % w/w, % v/v percent solution calculator</li>
+          <li><div class="feat-dot"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>Concentration unit converter across 11 units (mol/L, mg/dL, ppm, and more)</li>
+          <li><div class="feat-dot"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>Buffer preparation guide with Henderson-Hasselbalch calculator</li>
+          <li><div class="feat-dot"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>Calculation history — save and revisit previous results</li>
+          <li><div class="feat-dot"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>Fully offline — no internet connection required</li>
+        </ul>
+        <div class="app-dl-row">
+          <button class="dl-btn dl-android" data-cs="LabCalc for Android (Google Play)">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.523 15.341l1.5-2.598a.75.75 0 00-1.3-.75l-1.52 2.633A9.146 9.146 0 0112 14a9.146 9.146 0 01-4.203 1.026L6.277 12.393a.75.75 0 00-1.3.75l1.5 2.598A9.01 9.01 0 003 21.75h18a9.01 9.01 0 00-3.477-6.409zM8.25 9.75a.75.75 0 100-1.5.75.75 0 000 1.5zm7.5 0a.75.75 0 100-1.5.75.75 0 000 1.5z"/></svg>
+            Google Play
+          </button>
+          <button class="dl-btn dl-ios" data-cs="LabCalc for iOS (App Store)">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+            App Store
+          </button>
+          <button class="dl-btn dl-apk" data-cs="LabCalc APK direct download">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Direct APK
+          </button>
+        </div>
+        <div class="version-note">v1.0.0 · ~8 MB · Last updated Jan 2025</div>
+      </div>
+
+      <!-- PHONE MOCKUP 1 -->
+      <div class="app-phone">
+        <div class="phone-wrap">
+          <svg viewBox="0 0 300 600" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:300px">
+            <!-- Phone shell -->
+            <rect x="8" y="0" width="284" height="600" rx="38" fill="#0d1f2d"/>
+            <rect x="14" y="6" width="272" height="588" rx="33" fill="#12283a"/>
+            <!-- Screen -->
+            <rect x="20" y="40" width="260" height="520" rx="22" fill="#0f2030"/>
+            <!-- Notch -->
+            <rect x="110" y="40" width="80" height="22" rx="11" fill="#0d1f2d"/>
+            <!-- Status bar -->
+            <text x="32" y="58" font-family="monospace" font-size="9" fill="#5a7a90">9:41</text>
+            <text x="240" y="58" font-family="monospace" font-size="9" fill="#5a7a90">●●●</text>
+
+            <!-- App header bar -->
+            <rect x="20" y="62" width="260" height="46" rx="0" fill="#0b7c6e"/>
+            <text x="35" y="81" font-family="Georgia,serif" font-size="13" font-weight="600" fill="#ffffff">LabCalc</text>
+            <text x="35" y="96" font-family="monospace" font-size="8" fill="rgba(255,255,255,0.65)" letter-spacing="1">REAGENT CALCULATOR</text>
+
+            <!-- Tab bar -->
+            <rect x="20" y="108" width="260" height="32" fill="#092233"/>
+            <rect x="20" y="108" width="65" height="32" fill="#0b7c6e"/>
+            <text x="52" y="129" font-family="monospace" font-size="8" fill="#ffffff" text-anchor="middle">Molarity</text>
+            <text x="117" y="129" font-family="monospace" font-size="8" fill="#5a7a90" text-anchor="middle">Dilution</text>
+            <text x="183" y="129" font-family="monospace" font-size="8" fill="#5a7a90" text-anchor="middle">%Soln</text>
+            <text x="248" y="129" font-family="monospace" font-size="8" fill="#5a7a90" text-anchor="middle">Convert</text>
+
+            <!-- Find label -->
+            <text x="35" y="162" font-family="monospace" font-size="8" fill="#5ee8d8" letter-spacing="1">FIND</text>
+            <rect x="35" y="168" width="230" height="28" rx="4" fill="#0a1e2d" stroke="#1a4060" stroke-width="1"/>
+            <text x="47" y="186" font-family="sans-serif" font-size="10" fill="#c8d8e8">Molarity (mol / L)</text>
+            <text x="240" y="186" font-family="sans-serif" font-size="10" fill="#0b7c6e">▾</text>
+
+            <!-- Mass input -->
+            <text x="35" y="215" font-family="monospace" font-size="8" fill="#5a7a90" letter-spacing="1">MASS OF SOLUTE (g)</text>
+            <rect x="35" y="220" width="230" height="28" rx="4" fill="#0a1e2d" stroke="#0b7c6e" stroke-width="1.5"/>
+            <text x="47" y="238" font-family="sans-serif" font-size="11" fill="#ffffff">2.922</text>
+
+            <!-- MW input -->
+            <text x="35" y="266" font-family="monospace" font-size="8" fill="#5a7a90" letter-spacing="1">MOLAR MASS (g / mol)</text>
+            <rect x="35" y="271" width="230" height="28" rx="4" fill="#0a1e2d" stroke="#1a4060" stroke-width="1"/>
+            <text x="47" y="289" font-family="sans-serif" font-size="11" fill="#7a9ab5">58.44</text>
+            <text x="190" y="289" font-family="monospace" font-size="8" fill="#5a7090">NaCl</text>
+
+            <!-- Volume input -->
+            <text x="35" y="317" font-family="monospace" font-size="8" fill="#5a7a90" letter-spacing="1">VOLUME</text>
+            <rect x="35" y="322" width="170" height="28" rx="4" fill="#0a1e2d" stroke="#1a4060" stroke-width="1"/>
+            <text x="47" y="340" font-family="sans-serif" font-size="11" fill="#7a9ab5">500</text>
+            <rect x="212" y="322" width="53" height="28" rx="4" fill="#0a1e2d" stroke="#1a4060" stroke-width="1"/>
+            <text x="238" y="340" font-family="sans-serif" font-size="10" fill="#7a9ab5" text-anchor="middle">mL ▾</text>
+
+            <!-- Calculate button -->
+            <rect x="35" y="365" width="230" height="34" rx="4" fill="#0b7c6e"/>
+            <text x="150" y="387" font-family="sans-serif" font-size="11" font-weight="600" fill="#ffffff" text-anchor="middle">Calculate</text>
+
+            <!-- Result card -->
+            <rect x="35" y="413" width="230" height="68" rx="5" fill="#04342c" stroke="#0b7c6e" stroke-width="1.5"/>
+            <rect x="35" y="413" width="4" height="68" rx="2" fill="#0b7c6e"/>
+            <text x="50" y="431" font-family="monospace" font-size="7" fill="#5ee8d8" letter-spacing="1">MOLARITY</text>
+            <text x="50" y="456" font-family="Georgia,serif" font-size="22" font-weight="600" fill="#ffffff">0.1001</text>
+            <text x="163" y="456" font-family="sans-serif" font-size="10" fill="#7a9ab5">mol / L</text>
+            <text x="50" y="472" font-family="sans-serif" font-size="9" fill="#5a8a70">Moles: 0.04999 mol · 500 mL NaCl</text>
+
+            <!-- History strip -->
+            <text x="35" y="502" font-family="monospace" font-size="7" fill="#5a7a90" letter-spacing="1">RECENT</text>
+            <rect x="35" y="508" width="230" height="22" rx="3" fill="#0a1e2d"/>
+            <text x="47" y="523" font-family="sans-serif" font-size="9" fill="#7a9ab5">0.05 M HCl · 1 L</text>
+            <text x="240" y="523" font-family="monospace" font-size="8" fill="#0b7c6e" text-anchor="end">0.05 M</text>
+            <rect x="35" y="533" width="230" height="22" rx="3" fill="#0a1e2d" opacity="0.6"/>
+            <text x="47" y="548" font-family="sans-serif" font-size="9" fill="#5a7a90">1 M NaOH · 250 mL</text>
+            <text x="240" y="548" font-family="monospace" font-size="8" fill="#5a7a90" text-anchor="end">1.00 M</text>
+
+            <!-- Bottom nav -->
+            <rect x="20" y="528" width="260" height="32" rx="0" fill="#081824"/>
+            <!-- already have content, so leave nav minimal -->
+
+            <!-- Home indicator -->
+            <rect x="115" y="572" width="70" height="4" rx="2" fill="#2a4a60"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <hr class="app-divider" />
+
+    <!-- ══ APP 2: LabStock ══ -->
+    <div class="app-block reverse" id="labstock">
+      <div class="app-info">
+        <div class="app-num">App 02 / 03</div>
+        <div class="app-name">LabStock</div>
+        <p class="app-tagline">Chemical inventory management designed for the real lab bench — track reagents, get low-stock alerts, manage expiry dates, and generate usage reports.</p>
+        <ul class="app-features">
+          <li><div class="feat-dot"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>Barcode and QR code scanning to log chemicals in seconds</li>
+          <li><div class="feat-dot"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>Low-stock threshold alerts with push notifications</li>
+          <li><div class="feat-dot"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>Expiry date tracking — see at a glance what is expiring soon</li>
+          <li><div class="feat-dot"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>Location tagging — record which shelf, fridge, or cabinet</li>
+          <li><div class="feat-dot"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>Usage log — record withdrawals with date, user, and quantity</li>
+          <li><div class="feat-dot"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>Export inventory as CSV or PDF for audits and orders</li>
+          <li><div class="feat-dot"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>GHS hazard class display alongside each chemical record</li>
+        </ul>
+        <div class="app-dl-row">
+          <button class="dl-btn dl-android" data-cs="LabStock for Android (Google Play)">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.523 15.341l1.5-2.598a.75.75 0 00-1.3-.75l-1.52 2.633A9.146 9.146 0 0112 14a9.146 9.146 0 01-4.203 1.026L6.277 12.393a.75.75 0 00-1.3.75l1.5 2.598A9.01 9.01 0 003 21.75h18a9.01 9.01 0 00-3.477-6.409zM8.25 9.75a.75.75 0 100-1.5.75.75 0 000 1.5zm7.5 0a.75.75 0 100-1.5.75.75 0 000 1.5z"/></svg>
+            Google Play
+          </button>
+          <button class="dl-btn dl-ios" data-cs="LabStock for iOS (App Store)">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+            App Store
+          </button>
+          <button class="dl-btn dl-apk" data-cs="LabStock APK direct download">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Direct APK
+          </button>
+        </div>
+        <div class="version-note">v1.0.0 · ~11 MB · Last updated Jan 2025</div>
+      </div>
+
+      <!-- PHONE MOCKUP 2 -->
+      <div class="app-phone">
+        <div class="phone-wrap">
+          <svg viewBox="0 0 300 600" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:300px">
+            <rect x="8" y="0" width="284" height="600" rx="38" fill="#0d1f2d"/>
+            <rect x="14" y="6" width="272" height="588" rx="33" fill="#1a1208"/>
+            <rect x="20" y="40" width="260" height="520" rx="22" fill="#130e06"/>
+            <rect x="110" y="40" width="80" height="22" rx="11" fill="#0d0a05"/>
+            <text x="32" y="58" font-family="monospace" font-size="9" fill="#5a5030">9:41</text>
+            <text x="240" y="58" font-family="monospace" font-size="9" fill="#5a5030">●●●</text>
+
+            <!-- App header -->
+            <rect x="20" y="62" width="260" height="46" rx="0" fill="#d4860a"/>
+            <text x="35" y="81" font-family="Georgia,serif" font-size="13" font-weight="600" fill="#ffffff">LabStock</text>
+            <text x="35" y="96" font-family="monospace" font-size="8" fill="rgba(255,255,255,0.65)" letter-spacing="1">INVENTORY</text>
+            <rect x="240" y="70" width="26" height="26" rx="4" fill="rgba(0,0,0,0.2)"/>
+            <text x="253" y="87" font-family="sans-serif" font-size="14" fill="#fff" text-anchor="middle">⊕</text>
+
+            <!-- Alert banner -->
+            <rect x="20" y="108" width="260" height="26" fill="#7a3a08"/>
+            <text x="35" y="124" font-family="sans-serif" font-size="9" fill="#f5a623">⚠ 3 items low stock · 1 expiring this week</text>
+
+            <!-- Search -->
+            <rect x="28" y="142" width="244" height="26" rx="13" fill="#201508" stroke="#5a3a10" stroke-width="1"/>
+            <text x="50" y="158" font-family="sans-serif" font-size="9" fill="#5a4520">Search chemicals...</text>
+            <text x="36" y="159" font-family="sans-serif" font-size="11" fill="#5a4520">🔍</text>
+
+            <!-- Item list -->
+            <!-- Item 1 - low -->
+            <rect x="28" y="176" width="244" height="52" rx="4" fill="#1a1008" stroke="#5a3a10" stroke-width="1"/>
+            <rect x="28" y="176" width="4" height="52" rx="2" fill="#d4860a"/>
+            <text x="42" y="193" font-family="sans-serif" font-size="10" font-weight="600" fill="#f0d090">Ethanol (96%)</text>
+            <rect x="42" y="198" width="38" height="12" rx="3" fill="rgba(192,57,43,0.3)"/>
+            <text x="61" y="208" font-family="monospace" font-size="7" fill="#e07060" text-anchor="middle">LOW</text>
+            <text x="42" y="219" font-family="sans-serif" font-size="8" fill="#8a7050">Shelf B2 · 500 mL remaining</text>
+            <text x="240" y="193" font-family="sans-serif" font-size="10" fill="#e07060" text-anchor="end">500 mL</text>
+            <text x="240" y="207" font-family="monospace" font-size="7" fill="#5a4520" text-anchor="end">min: 1 L</text>
+
+            <!-- Item 2 - ok -->
+            <rect x="28" y="233" width="244" height="52" rx="4" fill="#1a1008" stroke="#5a3a10" stroke-width="1"/>
+            <rect x="28" y="233" width="4" height="52" rx="2" fill="#0b7c6e"/>
+            <text x="42" y="250" font-family="sans-serif" font-size="10" font-weight="600" fill="#f0d090">Sodium Chloride</text>
+            <rect x="42" y="255" width="32" height="12" rx="3" fill="rgba(11,124,110,0.3)"/>
+            <text x="58" y="265" font-family="monospace" font-size="7" fill="#5ee8d8" text-anchor="middle">OK</text>
+            <text x="42" y="276" font-family="sans-serif" font-size="8" fill="#8a7050">Cabinet 3 · Exp: Dec 2026</text>
+            <text x="240" y="250" font-family="sans-serif" font-size="10" fill="#5ee8d8" text-anchor="end">2.5 kg</text>
+
+            <!-- Item 3 - expiring -->
+            <rect x="28" y="290" width="244" height="52" rx="4" fill="#1a1008" stroke="#5a3a10" stroke-width="1"/>
+            <rect x="28" y="290" width="4" height="52" rx="2" fill="#f5a623"/>
+            <text x="42" y="307" font-family="sans-serif" font-size="10" font-weight="600" fill="#f0d090">KMnO₄ p.a.</text>
+            <rect x="42" y="312" width="50" height="12" rx="3" fill="rgba(212,134,10,0.3)"/>
+            <text x="67" y="322" font-family="monospace" font-size="7" fill="#f5a623" text-anchor="middle">EXPIRING</text>
+            <text x="42" y="333" font-family="sans-serif" font-size="8" fill="#8a7050">Fridge 1 · Exp: Feb 2025</text>
+            <text x="240" y="307" font-family="sans-serif" font-size="10" fill="#f0d090" text-anchor="end">100 g</text>
+
+            <!-- Item 4 -->
+            <rect x="28" y="347" width="244" height="52" rx="4" fill="#1a1008" stroke="#2a1a08" stroke-width="1" opacity="0.8"/>
+            <rect x="28" y="347" width="4" height="52" rx="2" fill="#0b7c6e"/>
+            <text x="42" y="364" font-family="sans-serif" font-size="10" font-weight="600" fill="#c0a070">HCl 37% (conc.)</text>
+            <rect x="42" y="369" width="32" height="12" rx="3" fill="rgba(11,124,110,0.3)"/>
+            <text x="58" y="379" font-family="monospace" font-size="7" fill="#5ee8d8" text-anchor="middle">OK</text>
+            <text x="42" y="390" font-family="sans-serif" font-size="8" fill="#6a5030">Acid cabinet · 2.5 L</text>
+            <text x="240" y="364" font-family="sans-serif" font-size="10" fill="#5ee8d8" text-anchor="end">2.5 L</text>
+
+            <!-- Stats row -->
+            <rect x="28" y="412" width="75" height="48" rx="4" fill="#201508" stroke="#3a2510" stroke-width="1"/>
+            <text x="65" y="432" font-family="Georgia,serif" font-size="16" font-weight="600" fill="#f5a623" text-anchor="middle">48</text>
+            <text x="65" y="447" font-family="monospace" font-size="7" fill="#8a6030" text-anchor="middle">ITEMS</text>
+
+            <rect x="111" y="412" width="75" height="48" rx="4" fill="#201508" stroke="#3a2510" stroke-width="1"/>
+            <text x="148" y="432" font-family="Georgia,serif" font-size="16" font-weight="600" fill="#e07060" text-anchor="middle">3</text>
+            <text x="148" y="447" font-family="monospace" font-size="7" fill="#8a6030" text-anchor="middle">LOW STOCK</text>
+
+            <rect x="194" y="412" width="78" height="48" rx="4" fill="#201508" stroke="#3a2510" stroke-width="1"/>
+            <text x="233" y="432" font-family="Georgia,serif" font-size="16" font-weight="600" fill="#f5c060" text-anchor="middle">1</text>
+            <text x="233" y="447" font-family="monospace" font-size="7" fill="#8a6030" text-anchor="middle">EXPIRING</text>
+
+            <!-- Bottom nav -->
+            <rect x="20" y="528" width="260" height="32" rx="0" fill="#100a04"/>
+            <text x="65" y="549" font-family="monospace" font-size="8" fill="#d4860a" text-anchor="middle">Inventory</text>
+            <text x="150" y="549" font-family="monospace" font-size="8" fill="#5a4020" text-anchor="middle">Usage Log</text>
+            <text x="235" y="549" font-family="monospace" font-size="8" fill="#5a4020" text-anchor="middle">Reports</text>
+            <rect x="115" y="572" width="70" height="4" rx="2" fill="#3a2510"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <hr class="app-divider" />
+
+    <!-- ══ APP 3: LabLog ══ -->
+    <div class="app-block" id="lablog">
+      <div class="app-info">
+        <div class="app-num">App 03 / 03</div>
+        <div class="app-name">LabLog</div>
+        <p class="app-tagline">Digital instrument logbook and maintenance tracker — record usage, log calibrations, schedule servicing, and keep your instruments audit-ready at all times.</p>
+        <ul class="app-features">
+          <li><div class="feat-dot"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>Instrument registry — add any instrument with model, serial, and location</li>
+          <li><div class="feat-dot"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>Digital run log — record every use with operator, date, sample count, and notes</li>
+          <li><div class="feat-dot"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>Calibration records with pass/fail status and certificate attachment</li>
+          <li><div class="feat-dot"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>Maintenance scheduler — set recurring service intervals with reminders</li>
+          <li><div class="feat-dot"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>Fault / incident reporting with photo attachment</li>
+          <li><div class="feat-dot"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>PDF export of full instrument history for audits and accreditation</li>
+          <li><div class="feat-dot"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>Multi-instrument dashboard — see all equipment status at a glance</li>
+        </ul>
+        <div class="app-dl-row">
+          <button class="dl-btn dl-android" data-cs="LabLog for Android (Google Play)">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.523 15.341l1.5-2.598a.75.75 0 00-1.3-.75l-1.52 2.633A9.146 9.146 0 0112 14a9.146 9.146 0 01-4.203 1.026L6.277 12.393a.75.75 0 00-1.3.75l1.5 2.598A9.01 9.01 0 003 21.75h18a9.01 9.01 0 00-3.477-6.409zM8.25 9.75a.75.75 0 100-1.5.75.75 0 000 1.5zm7.5 0a.75.75 0 100-1.5.75.75 0 000 1.5z"/></svg>
+            Google Play
+          </button>
+          <button class="dl-btn dl-ios" data-cs="LabLog for iOS (App Store)">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+            App Store
+          </button>
+          <button class="dl-btn dl-apk" data-cs="LabLog APK direct download">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Direct APK
+          </button>
+        </div>
+        <div class="version-note">v1.0.0 · ~9 MB · Last updated Jan 2025</div>
+      </div>
+
+      <!-- PHONE MOCKUP 3 -->
+      <div class="app-phone">
+        <div class="phone-wrap">
+          <svg viewBox="0 0 300 600" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:300px">
+            <rect x="8" y="0" width="284" height="600" rx="38" fill="#0d1f2d"/>
+            <rect x="14" y="6" width="272" height="588" rx="33" fill="#0a0f1a"/>
+            <rect x="20" y="40" width="260" height="520" rx="22" fill="#08101a"/>
+            <rect x="110" y="40" width="80" height="22" rx="11" fill="#060c14"/>
+            <text x="32" y="58" font-family="monospace" font-size="9" fill="#2a3a50">9:41</text>
+            <text x="240" y="58" font-family="monospace" font-size="9" fill="#2a3a50">●●●</text>
+
+            <!-- App header -->
+            <rect x="20" y="62" width="260" height="46" rx="0" fill="#102030"/>
+            <rect x="20" y="104" width="260" height="4" fill="#1a3a5a"/>
+            <text x="35" y="81" font-family="Georgia,serif" font-size="13" font-weight="600" fill="#ffffff">LabLog</text>
+            <text x="35" y="96" font-family="monospace" font-size="8" fill="rgba(255,255,255,0.45)" letter-spacing="1">INSTRUMENT LOGBOOK</text>
+
+            <!-- Instrument selector -->
+            <text x="35" y="122" font-family="monospace" font-size="7" fill="#3a6080" letter-spacing="1">INSTRUMENT</text>
+            <rect x="35" y="127" width="230" height="26" rx="4" fill="#0d1e30" stroke="#1a3a5a" stroke-width="1"/>
+            <text x="47" y="144" font-family="sans-serif" font-size="10" fill="#c8d8e8">UV-1900 Spectrophotometer</text>
+            <text x="242" y="144" font-family="sans-serif" font-size="10" fill="#3a6080">▾</text>
+
+            <!-- Status strip -->
+            <rect x="35" y="162" width="107" height="44" rx="4" fill="#0d1e30" stroke="#1a3a5a" stroke-width="1"/>
+            <text x="89" y="178" font-family="monospace" font-size="7" fill="#3a6080" text-anchor="middle" letter-spacing="1">STATUS</text>
+            <rect x="60" y="183" width="58" height="13" rx="3" fill="rgba(11,124,110,0.3)"/>
+            <text x="89" y="193" font-family="monospace" font-size="8" fill="#5ee8d8" text-anchor="middle">OPERATIONAL</text>
+
+            <rect x="149" y="162" width="116" height="44" rx="4" fill="#0d1e30" stroke="#1a3a5a" stroke-width="1"/>
+            <text x="207" y="178" font-family="monospace" font-size="7" fill="#3a6080" text-anchor="middle" letter-spacing="1">NEXT SERVICE</text>
+            <text x="207" y="196" font-family="Georgia,serif" font-size="13" fill="#f5a623" text-anchor="middle">Mar 2025</text>
+
+            <!-- Log entries -->
+            <text x="35" y="224" font-family="monospace" font-size="7" fill="#3a6080" letter-spacing="1">RUN LOG</text>
+
+            <!-- Entry 1 -->
+            <rect x="35" y="230" width="230" height="48" rx="4" fill="#0d1e30" stroke="#1a3a5a" stroke-width="1"/>
+            <rect x="35" y="230" width="3" height="48" rx="1.5" fill="#0b7c6e"/>
+            <text x="47" y="245" font-family="sans-serif" font-size="9" font-weight="600" fill="#c8d8e8">Protein assay — Bradford</text>
+            <text x="47" y="258" font-family="sans-serif" font-size="8" fill="#5a7a90">J. Adeyemi · 12 samples · 595 nm</text>
+            <text x="47" y="271" font-family="monospace" font-size="7" fill="#3a5a70">15 Jan 2025, 09:14</text>
+            <rect x="210" y="237" width="42" height="14" rx="3" fill="rgba(11,124,110,0.2)"/>
+            <text x="231" y="248" font-family="monospace" font-size="7" fill="#5ee8d8" text-anchor="middle">PASS</text>
+
+            <!-- Entry 2 -->
+            <rect x="35" y="284" width="230" height="48" rx="4" fill="#0d1e30" stroke="#1a3a5a" stroke-width="1"/>
+            <rect x="35" y="284" width="3" height="48" rx="1.5" fill="#0b7c6e"/>
+            <text x="47" y="299" font-family="sans-serif" font-size="9" font-weight="600" fill="#c8d8e8">DNA quantification</text>
+            <text x="47" y="312" font-family="sans-serif" font-size="8" fill="#5a7a90">O. Chukwu · 8 samples · 260 nm</text>
+            <text x="47" y="325" font-family="monospace" font-size="7" fill="#3a5a70">14 Jan 2025, 14:32</text>
+            <rect x="210" y="291" width="42" height="14" rx="3" fill="rgba(11,124,110,0.2)"/>
+            <text x="231" y="302" font-family="monospace" font-size="7" fill="#5ee8d8" text-anchor="middle">PASS</text>
+
+            <!-- Entry 3 - fault -->
+            <rect x="35" y="338" width="230" height="48" rx="4" fill="#0d1e30" stroke="#1a3a5a" stroke-width="1"/>
+            <rect x="35" y="338" width="3" height="48" rx="1.5" fill="#c0392b"/>
+            <text x="47" y="353" font-family="sans-serif" font-size="9" font-weight="600" fill="#c8d8e8">KMnO₄ scan — 400–700 nm</text>
+            <text x="47" y="366" font-family="sans-serif" font-size="8" fill="#5a7a90">J. Adeyemi · Lamp fault noted</text>
+            <text x="47" y="379" font-family="monospace" font-size="7" fill="#3a5a70">13 Jan 2025, 11:05</text>
+            <rect x="204" y="345" width="48" height="14" rx="3" fill="rgba(192,57,43,0.25)"/>
+            <text x="228" y="356" font-family="monospace" font-size="7" fill="#e07060" text-anchor="middle">FAULT</text>
+
+            <!-- Add log button -->
+            <rect x="35" y="400" width="230" height="32" rx="4" fill="#102030" stroke="#1a4060" stroke-width="1" stroke-dasharray="4 3"/>
+            <text x="150" y="421" font-family="sans-serif" font-size="10" fill="#3a6080" text-anchor="middle">+ Add run entry</text>
+
+            <!-- Calibration row -->
+            <text x="35" y="449" font-family="monospace" font-size="7" fill="#3a6080" letter-spacing="1">LAST CALIBRATION</text>
+            <rect x="35" y="455" width="230" height="32" rx="4" fill="#0d1e30" stroke="#1a3a5a" stroke-width="1"/>
+            <text x="47" y="472" font-family="sans-serif" font-size="9" fill="#c8d8e8">Wavelength accuracy · 3 Nov 2024</text>
+            <rect x="205" y="462" width="48" height="14" rx="3" fill="rgba(11,124,110,0.2)"/>
+            <text x="229" y="473" font-family="monospace" font-size="7" fill="#5ee8d8" text-anchor="middle">PASS</text>
+
+            <!-- Bottom nav -->
+            <rect x="20" y="528" width="260" height="32" rx="0" fill="#060c14"/>
+            <text x="65" y="549" font-family="monospace" font-size="8" fill="#4a8ab0" text-anchor="middle">Dashboard</text>
+            <text x="150" y="549" font-family="monospace" font-size="8" fill="#1a3a5a" text-anchor="middle">Instruments</text>
+            <text x="235" y="549" font-family="monospace" font-size="8" fill="#1a3a5a" text-anchor="middle">Reports</text>
+            <rect x="115" y="572" width="70" height="4" rx="2" fill="#1a3050"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /apps-section -->
+
+  <!-- REQUIREMENTS -->
+  <div class="requirements" id="requirements">
+    <div class="req-inner">
+      <div class="section-label">Technical specifications</div>
+      <h2 class="section-title">System requirements</h2>
+      <div class="req-grid">
+        <div class="req-card">
+          <div class="req-platform">
+            <div class="req-platform-icon android">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="#4caf50"><path d="M17.523 15.341l1.5-2.598a.75.75 0 00-1.3-.75l-1.52 2.633A9.146 9.146 0 0112 14a9.146 9.146 0 01-4.203 1.026L6.277 12.393a.75.75 0 00-1.3.75l1.5 2.598A9.01 9.01 0 003 21.75h18a9.01 9.01 0 00-3.477-6.409zM8.25 9.75a.75.75 0 100-1.5.75.75 0 000 1.5zm7.5 0a.75.75 0 100-1.5.75.75 0 000 1.5z"/></svg>
+            </div>
+            <div class="req-platform-name">Android</div>
+          </div>
+          <div class="req-rows">
+            <div class="req-row"><span class="req-key">OS version</span><span class="req-val">Android 8.0 (Oreo) or later</span></div>
+            <div class="req-row"><span class="req-key">Storage</span><span class="req-val">30–50 MB free</span></div>
+            <div class="req-row"><span class="req-key">RAM</span><span class="req-val">2 GB minimum</span></div>
+            <div class="req-row"><span class="req-key">Internet</span><span class="req-val">Not required (offline)</span></div>
+            <div class="req-row"><span class="req-key">Camera</span><span class="req-val">For barcode scan (LabStock)</span></div>
+            <div class="req-row"><span class="req-key">Download</span><span class="req-val">Google Play / Direct APK</span></div>
+          </div>
+        </div>
+        <div class="req-card">
+          <div class="req-platform">
+            <div class="req-platform-icon ios">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="#ffffff"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+            </div>
+            <div class="req-platform-name">iOS</div>
+          </div>
+          <div class="req-rows">
+            <div class="req-row"><span class="req-key">OS version</span><span class="req-val">iOS 14.0 or later</span></div>
+            <div class="req-row"><span class="req-key">Devices</span><span class="req-val">iPhone 8 and newer</span></div>
+            <div class="req-row"><span class="req-key">Storage</span><span class="req-val">40–60 MB free</span></div>
+            <div class="req-row"><span class="req-key">Internet</span><span class="req-val">Not required (offline)</span></div>
+            <div class="req-row"><span class="req-key">Camera</span><span class="req-val">For barcode scan (LabStock)</span></div>
+            <div class="req-row"><span class="req-key">Download</span><span class="req-val">App Store</span></div>
+          </div>
+        </div>
+        <div class="req-card">
+          <div class="req-platform">
+            <div class="req-platform-icon" style="background:rgba(11,124,110,0.3)">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5ee8d8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <div class="req-platform-name">Data &amp; Privacy</div>
+          </div>
+          <div class="req-rows">
+            <div class="req-row"><span class="req-key">Data storage</span><span class="req-val">Local device only</span></div>
+            <div class="req-row"><span class="req-key">Cloud sync</span><span class="req-val">Not required; optional export</span></div>
+            <div class="req-row"><span class="req-key">Account</span><span class="req-val">No account needed</span></div>
+            <div class="req-row"><span class="req-key">Analytics</span><span class="req-val">None collected</span></div>
+            <div class="req-row"><span class="req-key">Ads</span><span class="req-val">None — completely free</span></div>
+            <div class="req-row"><span class="req-key">Export formats</span><span class="req-val">CSV, PDF</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ -->
+  <div class="faq-section" id="faq">
+    <div class="faq-inner">
+      <div class="section-label">FAQ</div>
+      <h2 class="section-title">Frequently asked questions</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-q">Are the apps really free — permanently?<div class="faq-icon"><svg viewBox="0 0 10 10"><line x1="5" y1="2" x2="5" y2="8"/><line x1="2" y1="5" x2="8" y2="5"/></svg></div></button>
+          <div class="faq-a"><div class="faq-a-inner">Yes, completely free — no in-app purchases, no subscription, no ads. All three apps will remain free. If you find them useful, consider supporting the project via the donation page, but there is no obligation.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Do the apps require an internet connection?<div class="faq-icon"><svg viewBox="0 0 10 10"><line x1="5" y1="2" x2="5" y2="8"/><line x1="2" y1="5" x2="8" y2="5"/></svg></div></button>
+          <div class="faq-a"><div class="faq-a-inner">No. All three apps work completely offline. The molar mass database in LabCalc, the inventory in LabStock, and the log data in LabLog are all stored locally on your device. You only need an internet connection for the initial download.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Can I use LabStock to manage multiple labs or departments?<div class="faq-icon"><svg viewBox="0 0 10 10"><line x1="5" y1="2" x2="5" y2="8"/><line x1="2" y1="5" x2="8" y2="5"/></svg></div></button>
+          <div class="faq-a"><div class="faq-a-inner">Yes — LabStock supports multiple location tags and departments within a single installation. You can assign each chemical to a specific room, cabinet, fridge, or shelf, and filter by location. For full multi-device synchronisation across a department, that feature is on the roadmap for a future update.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">What file formats can I export from the apps?<div class="faq-icon"><svg viewBox="0 0 10 10"><line x1="5" y1="2" x2="5" y2="8"/><line x1="2" y1="5" x2="8" y2="5"/></svg></div></button>
+          <div class="faq-a"><div class="faq-a-inner">LabStock exports inventory lists as CSV (for spreadsheet import) or PDF (for printing and record-keeping). LabLog exports full instrument history, including calibration records and maintenance logs, as PDF — suitable for ISO or GLP audit documentation. LabCalc does not require export functionality but calculation history can be shared as plain text.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">How is my data backed up?<div class="faq-icon"><svg viewBox="0 0 10 10"><line x1="5" y1="2" x2="5" y2="8"/><line x1="2" y1="5" x2="8" y2="5"/></svg></div></button>
+          <div class="faq-a"><div class="faq-a-inner">Data is stored locally on your device and is included in your phone's standard backup (Google Drive backup on Android, iCloud backup on iOS) if you have device backup enabled. You can also manually export your data as CSV or PDF at any time as an additional backup. Cloud sync across devices is planned for a future version.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">I found a bug or have a suggestion — how do I report it?<div class="faq-icon"><svg viewBox="0 0 10 10"><line x1="5" y1="2" x2="5" y2="8"/><line x1="2" y1="5" x2="8" y2="5"/></svg></div></button>
+          <div class="faq-a"><div class="faq-a-inner">Use the feature request and feedback form at the bottom of this page. Describe the issue or suggestion in as much detail as possible — including your device model, OS version, and app version. Bug reports are reviewed and prioritised for the next release.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Will there be more apps added in future?<div class="faq-icon"><svg viewBox="0 0 10 10"><line x1="5" y1="2" x2="5" y2="8"/><line x1="2" y1="5" x2="8" y2="5"/></svg></div></button>
+          <div class="faq-a"><div class="faq-a-inner">Yes — planned future apps include a titration endpoint calculator, a sample preparation tracker, a pH and buffer optimiser, and a chromatography peak calculator. Use the request form below to vote for what you'd like to see next.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FEATURE REQUEST -->
+  <div class="request-section" id="request">
+    <div class="request-inner">
+      <div class="section-label">Help shape the roadmap</div>
+      <h2 class="section-title">Request a feature or report a bug</h2>
+      <p class="request-sub">Your feedback directly influences what gets built next. Every request is read personally.</p>
+
+      <div class="request-form" id="reqForm">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Your name</label>
+            <input type="text" id="rf-name" placeholder="e.g. Amara Osei" />
+          </div>
+          <div class="form-group">
+            <label>Email (optional)</label>
+            <input type="email" id="rf-email" placeholder="For follow-up only" />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>App</label>
+            <select id="rf-app">
+              <option value="">Select an app...</option>
+              <option>LabCalc</option>
+              <option>LabStock</option>
+              <option>LabLog</option>
+              <option>New app idea</option>
+              <option>Website / calculators</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Type</label>
+            <select id="rf-type">
+              <option value="">Select type...</option>
+              <option>Feature request</option>
+              <option>Bug report</option>
+              <option>General feedback</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group" style="margin-bottom:0">
+          <label>Description</label>
+          <textarea id="rf-desc" placeholder="Describe your idea or the issue you encountered — the more detail the better..."></textarea>
+        </div>
+        <button class="form-submit" onclick="submitRequest()">Send request</button>
+      </div>
+
+      <div class="form-success" id="reqSuccess">
+        <div class="form-success-icon">✅</div>
+        <p>Thank you — your request has been received and will be reviewed personally.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">Lab<span>Learn</span></div>
+    <ul class="footer-links">
+      <li><a href="tutorials/index.html">Tutorials</a></li>
+      <li><a href="calculator.html">Calculators</a></li>
+      <li><a href="apps.html">Apps</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="index.html#donate">Donate</a></li>
+    </ul>
+    <div class="footer-copy">© 2025 LabLearn. Free for students &amp; researchers.</div>
+  </footer>
+
+  <script src="shared.js" defer></script>
+</body>
+</html>

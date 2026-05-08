@@ -1,0 +1,1554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Laboratory Calculators — Molarity, Normality, Dilution & More | LabLearn</title>
+  <meta name="description" content="Free laboratory calculators: molarity, normality, dilution, percent solution, unit converter and buffer preparation. Solid and liquid reagent modes with chemical database." />
+  <meta name="keywords" content="molarity calculator, normality calculator, dilution calculator, buffer preparation, percent solution, lab calculator" />
+  <meta name="author" content="Sani Sulaiman" />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="LabLearn" />
+  <meta property="og:title" content="Laboratory Calculators | LabLearn" />
+  <meta property="og:description" content="Free laboratory calculators for molarity, normality, dilution, percent solution and more." />
+  <meta property="og:url" content="https://lablearn.netlify.app/calculator.html" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Laboratory Calculators | LabLearn" />
+  <meta name="twitter:description" content="Free laboratory calculators — solid and liquid reagent modes, chemical database included." />
+  <link rel="canonical" href="https://lablearn.netlify.app/calculator.html" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="alternate icon" type="image/png" href="favicon.png" />
+  <meta name="theme-color" content="#0d1f2d" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="LabLearn" />
+  <link rel="stylesheet" href="shared.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    /* ── PAGE HEADER ── */
+    .page-header { background: var(--navy); padding: 3rem 5% 2.5rem; position: relative; overflow: hidden; }
+    .page-header::before { content:''; position:absolute; inset:0; background-image:linear-gradient(rgba(11,124,110,0.08) 1px,transparent 1px),linear-gradient(90deg,rgba(11,124,110,0.08) 1px,transparent 1px); background-size:48px 48px; pointer-events:none; }
+    .page-header-inner { position:relative; }
+    .page-tag { display:inline-block; background:rgba(11,124,110,0.25); border:1px solid rgba(19,168,150,0.4); color:#5ee8d8; font-family:'IBM Plex Mono',monospace; font-size:0.72rem; letter-spacing:0.1em; padding:0.25rem 0.7rem; border-radius:2px; margin-bottom:1rem; text-transform:uppercase; }
+    .page-header h1 { font-family:'Cormorant Garamond',serif; font-size:clamp(1.8rem,5vw,2.8rem); font-weight:600; color:#fff; line-height:1.15; margin-bottom:0.5rem; }
+    .page-header p { color:#7a9ab5; font-size:0.95rem; max-width:540px; }
+
+    /* ── TAB NAV ── */
+    .tab-nav { background:#fff; border-bottom:2px solid var(--border); padding:0; display:flex; justify-content:center; overflow-x:auto; position:sticky; top:0; z-index:50; scrollbar-width:none; transition:top 0s; }
+    .tab-nav::-webkit-scrollbar { display:none; }
+    @media (max-width:600px) { .tab-nav { justify-content:flex-start; padding:0 1rem; } }
+    .tab-btn { padding:0.9rem 1.25rem; background:none; border:none; border-bottom:3px solid transparent; margin-bottom:-2px; font-family:'IBM Plex Sans',sans-serif; font-size:0.82rem; font-weight:500; color:var(--text-muted); cursor:pointer; white-space:nowrap; transition:color 0.2s,border-color 0.2s; letter-spacing:0.02em; }
+    .tab-btn:hover { color:var(--teal); }
+    .tab-btn.active { color:var(--teal); border-bottom-color:var(--teal); }
+
+    /* ── PANELS WRAP ── */
+    .panels-wrap { padding:2rem 5% 4rem; background:var(--cream); min-height:60vh; }
+    .calc-panel { display:none; }
+    .calc-panel.active { display:block; }
+
+    /* ── PORTRAIT CARD ── */
+    .calc-card {
+      background:#fff;
+      border-radius:16px;
+      border:1px solid var(--border);
+      border-top:4px solid var(--teal);
+      box-shadow:0 4px 28px rgba(13,31,45,0.09);
+      max-width:440px;
+      margin:0 auto;
+      overflow:hidden;
+    }
+    .calc-card.wide { max-width:580px; }
+    .calc-card.xwide { max-width:720px; }
+
+    /* Card header */
+    .cc-head { padding:1.25rem 1.5rem 1rem; border-bottom:1px solid var(--border); background:var(--cream); }
+    .cc-title { font-family:'Cormorant Garamond',serif; font-size:1.4rem; font-weight:600; color:var(--navy); }
+    .cc-formula { font-family:'IBM Plex Mono',monospace; font-size:0.78rem; color:var(--teal); margin-top:0.3rem; }
+
+    /* Card body */
+    .cc-body { padding:1.25rem 1.5rem; }
+
+    /* State radio group */
+    .state-group { display:flex; gap:1.5rem; margin-bottom:1.25rem; padding:0.75rem 1rem; background:var(--cream); border-radius:8px; border:1px solid var(--border); }
+    .state-label { display:flex; align-items:center; gap:0.5rem; cursor:pointer; font-size:0.9rem; font-weight:500; color:var(--navy); }
+    .state-label input[type="radio"] { accent-color:var(--teal); width:16px; height:16px; cursor:pointer; }
+
+    /* Mode buttons (find C2, V2, etc.) */
+    .mode-row { display:flex; gap:0.4rem; flex-wrap:wrap; margin-bottom:1.25rem; }
+    .mode-btn { padding:0.38rem 0.85rem; background:var(--cream-dark); border:1px solid var(--border); border-radius:6px; font-family:'IBM Plex Sans',sans-serif; font-size:0.78rem; font-weight:500; cursor:pointer; color:var(--text-muted); transition:all 0.18s; }
+    .mode-btn.active { background:var(--teal); color:#fff; border-color:var(--teal); }
+
+    /* Field group */
+    .fg { margin-bottom:0.9rem; }
+    .fg label { display:block; font-size:0.75rem; font-weight:600; color:var(--text-muted); letter-spacing:0.04em; text-transform:uppercase; margin-bottom:0.3rem; }
+    .fg input, .fg select {
+      width:100%; padding:0.62rem 0.9rem;
+      border:1.5px solid var(--border); border-radius:8px;
+      font-family:'IBM Plex Mono',monospace; font-size:0.95rem; color:var(--text);
+      background:#fafafa; transition:border-color 0.18s, background 0.18s;
+    }
+    .fg input:focus, .fg select:focus { outline:none; border-color:var(--teal); background:#fff; }
+    .fg input:read-only { background:var(--cream-dark); color:var(--text-muted); }
+    .fg .field-row { display:flex; gap:0.5rem; }
+    .fg .field-row input { flex:1; min-width:0; }
+    .fg .field-row select { width:80px; flex-shrink:0; }
+    .fg-hidden { display:none; }
+
+    /* Chemical button group */
+    .chem-btn-row { display:flex; gap:0.5rem; align-items:center; margin-bottom:0.75rem; }
+    .btn-select-chem {
+      flex:1; padding:0.6rem 1rem;
+      background:var(--cream-dark); border:1.5px solid var(--border); border-radius:8px;
+      font-family:'IBM Plex Sans',sans-serif; font-size:0.83rem; font-weight:600; color:var(--navy);
+      cursor:pointer; text-align:left; display:flex; align-items:center; gap:0.5rem;
+      transition:all 0.18s;
+    }
+    .btn-select-chem:hover { background:#e0ecd8; border-color:var(--teal); }
+    .btn-select-chem .icon { font-size:1rem; }
+    .btn-clear-chem {
+      width:36px; height:36px; flex-shrink:0;
+      border-radius:8px; border:1.5px solid #e07070; background:#fff;
+      color:#c0392b; font-size:1rem; cursor:pointer;
+      display:none; align-items:center; justify-content:center;
+      transition:all 0.18s;
+    }
+    .btn-clear-chem.show { display:flex; }
+    .btn-clear-chem:hover { background:#fdf0ef; }
+
+    /* Chemical info card */
+    .chem-info {
+      display:none; margin-bottom:0.9rem;
+      background:rgba(11,124,110,0.06); border:1px solid rgba(11,124,110,0.2);
+      border-left:3px solid var(--teal); border-radius:0 8px 8px 0;
+      padding:0.75rem 1rem;
+      animation:fadeSlideDown 0.25s ease;
+    }
+    .chem-info.show { display:block; }
+    @keyframes fadeSlideDown { from { opacity:0; transform:translateY(-6px); } to { opacity:1; transform:none; } }
+    .chem-info-name { font-size:0.88rem; font-weight:600; color:var(--navy); }
+    .chem-info-meta { font-family:'IBM Plex Mono',monospace; font-size:0.75rem; color:var(--text-muted); margin-top:0.2rem; line-height:1.6; }
+
+    /* Card controls */
+    .cc-controls { display:grid; grid-template-columns:1fr 1.5fr; gap:0.75rem; padding:1rem 1.5rem; border-top:1px solid var(--border); background:var(--cream); }
+    .btn-clear { padding:0.7rem; background:#fff; border:1.5px solid var(--border); border-radius:8px; font-family:'IBM Plex Sans',sans-serif; font-size:0.88rem; font-weight:500; color:var(--text-muted); cursor:pointer; transition:all 0.18s; }
+    .btn-clear:hover { border-color:#c0392b; color:#c0392b; }
+    .btn-calc { padding:0.7rem; background:var(--teal); border:none; border-radius:8px; font-family:'IBM Plex Sans',sans-serif; font-size:0.88rem; font-weight:600; color:#fff; cursor:pointer; transition:background 0.18s; display:flex; align-items:center; justify-content:center; gap:0.4rem; }
+    .btn-calc:hover { background:var(--teal-light); }
+
+    /* Result section */
+    .cc-result { display:none; padding:1.25rem 1.5rem 1.5rem; border-top:1px solid var(--border); }
+    .cc-result.show { display:block; animation:fadeSlideDown 0.25s ease; }
+    .result-badge { display:inline-block; font-family:'IBM Plex Mono',monospace; font-size:0.68rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--teal); margin-bottom:0.6rem; }
+    .result-value { font-family:'Cormorant Garamond',serif; font-size:2.4rem; font-weight:600; color:var(--navy); line-height:1; }
+    .result-unit { font-family:'IBM Plex Sans',sans-serif; font-size:1rem; color:var(--text-muted); margin-left:0.3rem; }
+    .result-steps { margin-top:0.8rem; padding:0.75rem; background:var(--cream-dark); border-radius:6px; font-family:'IBM Plex Mono',monospace; font-size:0.75rem; color:var(--text-muted); line-height:1.8; }
+    .result-procedure { margin-top:0.75rem; padding:0.75rem 0.9rem; background:rgba(11,124,110,0.05); border-left:3px solid var(--teal); border-radius:0 6px 6px 0; font-size:0.84rem; color:var(--text); line-height:1.65; }
+    .result-error { background:var(--danger-bg); border-radius:8px; padding:0.75rem 1rem; color:var(--danger); font-size:0.87rem; font-weight:500; }
+    .result-error-msg { background:var(--danger-bg); border-radius:8px; padding:0.75rem 1rem; color:var(--danger); font-size:0.87rem; font-weight:500; margin-bottom:0.5rem; }
+
+    /* Tips box */
+    .tips-box { margin-top:1.25rem; background:rgba(245,166,35,0.07); border:1px solid rgba(212,134,10,0.2); border-radius:8px; padding:1rem 1.1rem; }
+    .tips-box h4 { font-size:0.75rem; font-weight:600; color:var(--amber); letter-spacing:0.06em; text-transform:uppercase; margin-bottom:0.6rem; }
+    .tips-box li { font-size:0.82rem; color:var(--text-muted); padding:0.2rem 0; display:flex; gap:0.5rem; list-style:none; }
+    .tips-box li::before { content:'→'; color:var(--amber); flex-shrink:0; }
+
+    /* Unit converter table */
+    .unit-table { width:100%; border-collapse:collapse; margin-top:0.75rem; font-size:0.85rem; }
+    .unit-table th { background:var(--navy); color:#7a9ab5; text-align:left; padding:0.5rem 0.8rem; font-size:0.72rem; letter-spacing:0.06em; text-transform:uppercase; font-weight:500; }
+    .unit-table td { padding:0.55rem 0.8rem; border-bottom:1px solid var(--border); font-family:'IBM Plex Mono',monospace; font-size:0.82rem; }
+    .unit-table tr:last-child td { border-bottom:none; }
+    .unit-table tr:hover td { background:var(--cream-dark); }
+    .unit-highlight td { background:var(--success-bg) !important; color:var(--success); font-weight:600; }
+    .table-scroll { overflow-x:auto; border-radius:6px; border:1px solid var(--border); }
+
+    /* Buffer buffer system grid */
+    .buf-system-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(140px,1fr)); gap:0.55rem; margin-bottom:1.25rem; }
+    .buf-card { background:#fff; border:1.5px solid var(--border); border-radius:8px; padding:0.65rem 0.85rem; cursor:pointer; transition:all 0.18s; }
+    .buf-card:hover, .buf-card.selected { border-color:var(--teal); background:var(--success-bg); box-shadow:0 0 0 2px rgba(11,124,110,0.15); }
+    .buf-card-name { font-size:0.83rem; font-weight:600; color:var(--navy); }
+    .buf-card-range { font-family:'IBM Plex Mono',monospace; font-size:0.68rem; color:var(--text-muted); margin-top:0.15rem; }
+    .buf-card-pka { font-family:'IBM Plex Mono',monospace; font-size:0.67rem; color:var(--teal); }
+    .buf-recipe { display:none; padding:1rem; background:var(--cream); border-radius:8px; border-left:3px solid var(--teal); margin-top:0.75rem; }
+    .buf-recipe.show { display:block; animation:fadeSlideDown 0.25s ease; }
+    .buf-step { display:flex; gap:0.75rem; align-items:flex-start; font-size:0.85rem; margin-bottom:0.5rem; }
+    .buf-step-n { min-width:20px; height:20px; border-radius:50%; background:var(--teal); color:#fff; font-size:0.68rem; font-weight:600; display:flex; align-items:center; justify-content:center; flex-shrink:0; margin-top:2px; }
+    .buf-val { font-weight:600; color:var(--navy); }
+    .buf-warn { background:rgba(245,166,35,0.09); border:1px solid rgba(212,134,10,0.22); border-radius:6px; padding:0.65rem 0.9rem; font-size:0.8rem; color:#7a5010; margin-top:0.75rem; }
+    .buf-sub-modes { display:flex; gap:0.4rem; flex-wrap:wrap; margin-bottom:1.25rem; }
+    .hh-result-row { display:grid; grid-template-columns:1fr 1fr; gap:0.75rem; margin-top:1rem; }
+    .hh-result-box { background:var(--success-bg); border:1px solid rgba(11,124,110,0.22); border-radius:8px; padding:0.85rem 1rem; }
+    .hh-result-box.error { background:var(--danger-bg); border-color:rgba(192,57,43,0.22); }
+    .hh-lbl { font-size:0.68rem; font-weight:600; color:var(--success); letter-spacing:0.08em; text-transform:uppercase; margin-bottom:0.25rem; }
+    .hh-result-box.error .hh-lbl { color:var(--danger); }
+    .hh-val { font-family:'Cormorant Garamond',serif; font-size:1.8rem; font-weight:600; color:var(--navy); line-height:1; }
+    .hh-note { font-size:0.75rem; color:var(--text-muted); margin-top:0.3rem; }
+    .ph-bar { height:8px; border-radius:4px; background:linear-gradient(90deg,#c0392b,#e67e22,#f1c40f,#2ecc71,#27ae60,#1abc9c,#2980b9,#8e44ad); margin:1rem 0 0.3rem; position:relative; }
+    .ph-marker { position:absolute; top:-4px; width:16px; height:16px; border-radius:50%; background:var(--navy); border:2px solid #fff; transform:translateX(-50%); transition:left 0.3s ease; }
+    .ph-scale { display:flex; justify-content:space-between; font-family:'IBM Plex Mono',monospace; font-size:0.65rem; color:var(--text-muted); }
+    @media (max-width:480px) { .hh-result-row { grid-template-columns:1fr; } }
+
+    /* ── CHEMICAL SELECTION MODAL ── */
+    .chem-modal-overlay {
+      display:none; position:fixed; inset:0; z-index:9998;
+      background:rgba(6,15,23,0.72);
+      align-items:flex-end; justify-content:center;
+    }
+    .chem-modal-overlay.open { display:flex; }
+    .chem-modal {
+      background:#fff; border-radius:20px 20px 0 0;
+      width:100%; max-width:500px; max-height:82vh;
+      display:flex; flex-direction:column;
+      animation:slideUpModal 0.3s cubic-bezier(0.22,1,0.36,1);
+    }
+    @keyframes slideUpModal { from { transform:translateY(100%); } to { transform:none; } }
+    .chem-modal-head { padding:1.1rem 1.4rem; border-bottom:1px solid var(--border); display:flex; align-items:center; justify-content:space-between; flex-shrink:0; }
+    .chem-modal-title { font-family:'Cormorant Garamond',serif; font-size:1.25rem; font-weight:600; color:var(--navy); }
+    .chem-modal-close { width:30px; height:30px; border-radius:50%; border:none; background:var(--cream-dark); cursor:pointer; font-size:1.1rem; color:var(--text-muted); display:flex; align-items:center; justify-content:center; transition:background 0.18s; }
+    .chem-modal-close:hover { background:var(--border); }
+    .chem-search-wrap { padding:0.75rem 1.4rem 0.5rem; flex-shrink:0; }
+    .chem-search { width:100%; padding:0.6rem 1rem; border:1.5px solid var(--border); border-radius:8px; font-family:'IBM Plex Sans',sans-serif; font-size:0.9rem; }
+    .chem-search:focus { outline:none; border-color:var(--teal); }
+    .chem-list { overflow-y:auto; flex:1; padding:0 0.9rem 1rem; }
+    .chem-group-label { font-size:0.68rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-muted); padding:0.75rem 0.5rem 0.35rem; border-bottom:1px solid var(--border); margin-bottom:0.35rem; }
+    .chem-item { padding:0.7rem 0.9rem; border-radius:8px; cursor:pointer; border:1px solid transparent; margin-bottom:0.3rem; transition:all 0.15s; display:flex; align-items:center; justify-content:space-between; gap:1rem; }
+    .chem-item:hover { background:var(--cream); border-color:var(--border); }
+    .chem-item-left {}
+    .chem-item-name { font-size:0.88rem; font-weight:600; color:var(--navy); }
+    .chem-item-meta { font-family:'IBM Plex Mono',monospace; font-size:0.73rem; color:var(--text-muted); margin-top:0.15rem; }
+    .chem-item-badge { font-family:'IBM Plex Mono',monospace; font-size:0.7rem; background:var(--cream-dark); padding:0.2rem 0.55rem; border-radius:4px; color:var(--text-muted); flex-shrink:0; }
+    .chem-none { text-align:center; color:var(--text-muted); font-size:0.88rem; padding:2rem 1rem; }
+
+    @media (max-width:900px) { .panels-wrap { padding:1.5rem 4% 3rem; } }
+    @media (max-width:480px) { .calc-card { border-radius:12px; } .cc-body { padding:1rem 1.1rem; } .cc-head { padding:1rem 1.1rem; } .cc-controls { padding:0.85rem 1.1rem; } .cc-result { padding:1rem 1.1rem 1.25rem; } }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="index.html" class="nav-logo">Lab<span>Learn</span></a>
+    <ul class="nav-links">
+      <li><a href="tutorials/index.html">Tutorials</a></li>
+      <li><a href="calculator.html" class="active">Calculators</a></li>
+      <li><a href="apps.html">Apps</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="index.html#donate">Donate</a></li>
+      <li><a href="tutorials/index.html" style="background:var(--teal);color:#fff!important;padding:0.4rem 1.1rem;border-radius:3px;">Start Learning</a></li>
+    </ul>
+    <button class="nav-burger" id="navBurger" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </nav>
+  <div class="nav-mobile" id="navMobile">
+    <a href="tutorials/index.html">Tutorials</a>
+    <a href="calculator.html" class="active">Calculators</a>
+    <a href="apps.html">Apps</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="index.html#donate">Donate</a>
+    <a href="tutorials/index.html" class="mob-cta">Start Learning</a>
+  </div>
+
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <div class="page-header-inner">
+      <div class="page-tag">Online Tools</div>
+      <h1>Laboratory Calculators</h1>
+      <p>Precise preparation calculations for solid and liquid reagents — with a built-in chemical database.</p>
+    </div>
+  </div>
+
+  <!-- TAB NAV -->
+  <div class="tab-nav" id="tabNav">
+    <button class="tab-btn active" data-tab="molarity">Molarity</button>
+    <button class="tab-btn" data-tab="normality">Normality</button>
+    <button class="tab-btn" data-tab="dilution">Dilution (C₁V₁)</button>
+    <button class="tab-btn" data-tab="percent">% Solution</button>
+    <button class="tab-btn" data-tab="units">Unit Converter</button>
+    <button class="tab-btn" data-tab="buffer">Buffer Prep</button>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════ -->
+  <div class="panels-wrap">
+
+    <!-- ══════════════════════════════════════════════════ -->
+    <!-- TAB 1: MOLARITY                                    -->
+    <!-- ══════════════════════════════════════════════════ -->
+    <div class="calc-panel active" id="tab-molarity">
+      <div class="calc-card">
+        <div class="cc-head">
+          <div class="cc-title">Molarity Calculator</div>
+          <div class="cc-formula">mass (g) = M × V(L) × MW &nbsp;|&nbsp; vol (mL) = mass_pure / (ρ × P%)</div>
+        </div>
+        <div class="cc-body">
+
+          <!-- State selector -->
+          <div class="state-group">
+            <label class="state-label">
+              <input type="radio" name="mol-state" value="solid" id="mol-solid" checked />
+              <span>⚗ Solid</span>
+            </label>
+            <label class="state-label">
+              <input type="radio" name="mol-state" value="liquid" id="mol-liquid" />
+              <span>💧 Liquid</span>
+            </label>
+          </div>
+
+          <!-- Inputs -->
+          <div class="fg">
+            <label>Target Molarity (mol/L)</label>
+            <input type="number" id="mol-M" placeholder="e.g. 0.1" min="0" step="any" />
+          </div>
+          <div class="fg">
+            <label>Total Volume</label>
+            <div class="field-row">
+              <input type="number" id="mol-vol" placeholder="e.g. 500" min="0" step="any" />
+              <select id="mol-vol-unit"><option value="mL">mL</option><option value="L">L</option></select>
+            </div>
+          </div>
+          <div class="fg">
+            <label>Molar Mass (g/mol)</label>
+            <input type="number" id="mol-mw" placeholder="e.g. 58.44" min="0" step="any" />
+          </div>
+          <!-- Liquid-only fields -->
+          <div class="fg fg-hidden" id="mol-density-wrap">
+            <label>Density (g/mL)</label>
+            <input type="number" id="mol-density" placeholder="e.g. 1.18" min="0" step="any" />
+          </div>
+          <div class="fg fg-hidden" id="mol-purity-wrap">
+            <label>Percentage Purity (%)</label>
+            <input type="number" id="mol-purity" placeholder="e.g. 37" min="0" max="100" step="any" />
+          </div>
+
+          <!-- Chemical selection -->
+          <div class="chem-btn-row">
+            <button class="btn-select-chem" id="mol-select-btn" onclick="openChemModal('mol')">
+              <span class="icon">🧪</span> Select chemical
+            </button>
+            <button class="btn-clear-chem" id="mol-clear-chem" title="Remove selected chemical" onclick="clearChem('mol')">✕</button>
+          </div>
+
+          <!-- Chemical info card -->
+          <div class="chem-info" id="mol-chem-info">
+            <div class="chem-info-name" id="mol-chem-name"></div>
+            <div class="chem-info-meta" id="mol-chem-meta"></div>
+          </div>
+
+        </div>
+        <!-- Controls -->
+        <div class="cc-controls">
+          <button class="btn-clear" onclick="clearCalc('mol')">Clear</button>
+          <button class="btn-calc" onclick="calcMolarity()">⟹ Calculate</button>
+        </div>
+        <!-- Result -->
+        <div class="cc-result" id="mol-result">
+          <div class="result-error-msg" id="mol-err" style="display:none"></div>
+          <div class="result-badge" id="mol-res-badge" style="display:none">Result</div>
+          <div id="mol-res-body" style="display:none">
+            <div><span class="result-value" id="mol-res-val">—</span><span class="result-unit" id="mol-res-unit"></span></div>
+            <div class="result-steps" id="mol-res-steps"></div>
+            <div class="result-procedure" id="mol-res-proc"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════════════ -->
+    <!-- TAB 2: NORMALITY                                   -->
+    <!-- ══════════════════════════════════════════════════ -->
+    <div class="calc-panel" id="tab-normality">
+      <div class="calc-card">
+        <div class="cc-head">
+          <div class="cc-title">Normality Calculator</div>
+          <div class="cc-formula">mass (g) = N × V(L) × MW / n &nbsp;|&nbsp; N = M × n</div>
+        </div>
+        <div class="cc-body">
+
+          <!-- State selector -->
+          <div class="state-group">
+            <label class="state-label">
+              <input type="radio" name="nor-state" value="solid" id="nor-solid" checked />
+              <span>⚗ Solid</span>
+            </label>
+            <label class="state-label">
+              <input type="radio" name="nor-state" value="liquid" id="nor-liquid" />
+              <span>💧 Liquid</span>
+            </label>
+          </div>
+
+          <!-- Inputs -->
+          <div class="fg">
+            <label>Target Normality (eq/L)</label>
+            <input type="number" id="nor-N" placeholder="e.g. 0.1" min="0" step="any" />
+          </div>
+          <div class="fg">
+            <label>Total Volume</label>
+            <div class="field-row">
+              <input type="number" id="nor-vol" placeholder="e.g. 500" min="0" step="any" />
+              <select id="nor-vol-unit"><option value="mL">mL</option><option value="L">L</option></select>
+            </div>
+          </div>
+          <div class="fg">
+            <label>Molar Mass (g/mol)</label>
+            <input type="number" id="nor-mw" placeholder="e.g. 40.00" min="0" step="any" />
+          </div>
+          <!-- Liquid-only fields -->
+          <div class="fg fg-hidden" id="nor-density-wrap">
+            <label>Density (g/mL)</label>
+            <input type="number" id="nor-density" placeholder="e.g. 1.18" min="0" step="any" />
+          </div>
+          <div class="fg fg-hidden" id="nor-purity-wrap">
+            <label>Percentage Purity (%)</label>
+            <input type="number" id="nor-purity" placeholder="e.g. 37" min="0" max="100" step="any" />
+          </div>
+          <div class="fg">
+            <label>Equivalent Factor (n-factor) <span style="font-weight:400;text-transform:none;font-size:0.72rem;"> — H⁺/OH⁻/e⁻ per molecule</span></label>
+            <input type="number" id="nor-ef" placeholder="e.g. 2 for H₂SO₄" min="1" step="1" />
+          </div>
+
+          <!-- Chemical selection -->
+          <div class="chem-btn-row">
+            <button class="btn-select-chem" id="nor-select-btn" onclick="openChemModal('nor')">
+              <span class="icon">🧪</span> Select chemical
+            </button>
+            <button class="btn-clear-chem" id="nor-clear-chem" title="Remove selected chemical" onclick="clearChem('nor')">✕</button>
+          </div>
+
+          <!-- Chemical info card -->
+          <div class="chem-info" id="nor-chem-info">
+            <div class="chem-info-name" id="nor-chem-name"></div>
+            <div class="chem-info-meta" id="nor-chem-meta"></div>
+          </div>
+
+        </div>
+        <div class="cc-controls">
+          <button class="btn-clear" onclick="clearCalc('nor')">Clear</button>
+          <button class="btn-calc" onclick="calcNormality()">⟹ Calculate</button>
+        </div>
+        <div class="cc-result" id="nor-result">
+          <div class="result-error-msg" id="nor-err" style="display:none"></div>
+          <div class="result-badge" id="nor-res-badge" style="display:none">Result</div>
+          <div id="nor-res-body" style="display:none">
+            <div><span class="result-value" id="nor-res-val">—</span><span class="result-unit" id="nor-res-unit"></span></div>
+            <div class="result-steps" id="nor-res-steps"></div>
+            <div class="result-procedure" id="nor-res-proc"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════════════ -->
+    <!-- TAB 3: DILUTION                                    -->
+    <!-- ══════════════════════════════════════════════════ -->
+    <div class="calc-panel" id="tab-dilution">
+      <div class="calc-card">
+        <div class="cc-head">
+          <div class="cc-title">Dilution Calculator</div>
+          <div class="cc-formula">C₁ × V₁ = C₂ × V₂</div>
+        </div>
+        <div class="cc-body">
+          <div class="mode-row" id="dil-modes">
+            <button class="mode-btn active" data-dmode="C2">Find C₂</button>
+            <button class="mode-btn" data-dmode="V2">Find V₂</button>
+            <button class="mode-btn" data-dmode="C1">Find C₁</button>
+            <button class="mode-btn" data-dmode="V1">Find V₁</button>
+          </div>
+          <div class="fg">
+            <label>C₁ — Initial concentration</label>
+            <div class="field-row">
+              <input type="number" id="dil-C1" placeholder="e.g. 1.0" min="0" step="any" />
+              <select id="dil-C1u" style="width:95px;flex-shrink:0">
+                <option>mol/L</option><option>mmol/L</option><option>g/L</option><option>mg/L</option>
+              </select>
+            </div>
+          </div>
+          <div class="fg">
+            <label>V₁ — Initial volume</label>
+            <div class="field-row">
+              <input type="number" id="dil-V1" placeholder="e.g. 10" min="0" step="any" />
+              <select id="dil-V1u" style="width:75px;flex-shrink:0"><option>mL</option><option>L</option><option>µL</option></select>
+            </div>
+          </div>
+          <div class="fg">
+            <label>C₂ — Final concentration</label>
+            <div class="field-row">
+              <input type="number" id="dil-C2" placeholder="e.g. 0.1" min="0" step="any" />
+              <select id="dil-C2u" style="width:95px;flex-shrink:0">
+                <option>mol/L</option><option>mmol/L</option><option>g/L</option><option>mg/L</option>
+              </select>
+            </div>
+          </div>
+          <div class="fg">
+            <label>V₂ — Final volume</label>
+            <div class="field-row">
+              <input type="number" id="dil-V2" placeholder="e.g. 100" min="0" step="any" />
+              <select id="dil-V2u" style="width:75px;flex-shrink:0"><option>mL</option><option>L</option><option>µL</option></select>
+            </div>
+          </div>
+        </div>
+        <div class="cc-controls">
+          <button class="btn-clear" onclick="clearDil()">Clear</button>
+          <button class="btn-calc" onclick="calcDilution()">⟹ Calculate</button>
+        </div>
+        <div class="cc-result" id="dil-result">
+          <div class="result-error-msg" id="dil-err" style="display:none"></div>
+          <div id="dil-res-body" style="display:none">
+            <div class="result-badge" id="dil-res-badge">Result</div>
+            <div><span class="result-value" id="dil-res-val">—</span></div>
+            <div class="result-steps" id="dil-res-steps"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════════════ -->
+    <!-- TAB 4: PERCENT SOLUTION                            -->
+    <!-- ══════════════════════════════════════════════════ -->
+    <div class="calc-panel" id="tab-percent">
+      <div class="calc-card">
+        <div class="cc-head">
+          <div class="cc-title">Percent Solution</div>
+          <div class="cc-formula">% w/v = (g/mL)×100 &nbsp;·&nbsp; % w/w = (g/g)×100 &nbsp;·&nbsp; % v/v = (mL/mL)×100</div>
+        </div>
+        <div class="cc-body">
+          <div class="mode-row" id="pct-modes">
+            <button class="mode-btn active" data-pmode="wv">% w/v</button>
+            <button class="mode-btn" data-pmode="ww">% w/w</button>
+            <button class="mode-btn" data-pmode="vv">% v/v</button>
+          </div>
+          <!-- % w/v -->
+          <div id="pct-form-wv">
+            <div class="fg"><label>Mass of solute (g)</label><input type="number" id="pct-mass-wv" placeholder="e.g. 5" min="0" step="any" /></div>
+            <div class="fg"><label>Volume of solution (mL)</label><input type="number" id="pct-vol-wv" placeholder="e.g. 100" min="0" step="any" /></div>
+          </div>
+          <!-- % w/w -->
+          <div id="pct-form-ww" style="display:none">
+            <div class="fg"><label>Mass of solute (g)</label><input type="number" id="pct-ms-ww" placeholder="e.g. 10" min="0" step="any" /></div>
+            <div class="fg"><label>Mass of solution (g)</label><input type="number" id="pct-mt-ww" placeholder="e.g. 100" min="0" step="any" /></div>
+          </div>
+          <!-- % v/v -->
+          <div id="pct-form-vv" style="display:none">
+            <div class="fg"><label>Volume of solute (mL)</label><input type="number" id="pct-vs-vv" placeholder="e.g. 70" min="0" step="any" /></div>
+            <div class="fg"><label>Volume of solution (mL)</label><input type="number" id="pct-vt-vv" placeholder="e.g. 1000" min="0" step="any" /></div>
+          </div>
+        </div>
+        <div class="cc-controls">
+          <button class="btn-clear" onclick="clearPct()">Clear</button>
+          <button class="btn-calc" onclick="calcPct()">⟹ Calculate</button>
+        </div>
+        <div class="cc-result" id="pct-result">
+          <div class="result-error-msg" id="pct-err" style="display:none"></div>
+          <div id="pct-res-body" style="display:none">
+            <div class="result-badge">Result</div>
+            <div><span class="result-value" id="pct-res-val">—</span><span class="result-unit" id="pct-res-unit"></span></div>
+            <div class="result-steps" id="pct-res-steps"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════════════ -->
+    <!-- TAB 5: UNIT CONVERTER                              -->
+    <!-- ══════════════════════════════════════════════════ -->
+    <div class="calc-panel" id="tab-units">
+      <div class="calc-card wide">
+        <div class="cc-head">
+          <div class="cc-title">Concentration Unit Converter</div>
+          <div class="cc-formula">Convert between mol/L, mmol/L, g/L, mg/dL, ppm and more</div>
+        </div>
+        <div class="cc-body">
+          <div class="fg">
+            <label>Input value</label>
+            <input type="number" id="unit-val" placeholder="e.g. 1.0" min="0" step="any" oninput="convertUnits()" />
+          </div>
+          <div class="fg">
+            <label>Input unit</label>
+            <select id="unit-from" onchange="convertUnits()">
+              <optgroup label="Molar"><option value="mol_L">mol/L (M)</option><option value="mmol_L">mmol/L (mM)</option><option value="umol_L">µmol/L (µM)</option><option value="nmol_L">nmol/L (nM)</option></optgroup>
+              <optgroup label="Mass/Volume"><option value="g_L">g/L</option><option value="mg_L">mg/L (≈ ppm)</option><option value="ug_L">µg/L (ppb)</option><option value="g_dL">g/dL</option><option value="mg_dL">mg/dL</option><option value="pct_wv">% w/v</option></optgroup>
+            </select>
+          </div>
+          <div class="fg">
+            <label>Molar mass MW (g/mol) <span style="font-weight:400;text-transform:none;font-size:0.72rem;">— needed for mol↔mass conversion</span></label>
+            <input type="number" id="unit-mw" placeholder="e.g. 58.44" min="0" step="any" oninput="convertUnits()" />
+          </div>
+          <div class="table-scroll">
+            <table class="unit-table"><thead><tr><th>Unit</th><th>Converted value</th></tr></thead><tbody id="unit-tbody"></tbody></table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════════════ -->
+    <!-- TAB 6: BUFFER PREP                                 -->
+    <!-- ══════════════════════════════════════════════════ -->
+    <div class="calc-panel" id="tab-buffer">
+      <div class="calc-card xwide">
+        <div class="cc-head">
+          <div class="cc-title">Buffer Preparation</div>
+          <div class="cc-formula">pH = pKₐ + log([A⁻]/[HA]) &nbsp;·&nbsp; mass = c × V × MW</div>
+        </div>
+        <div class="cc-body">
+          <div class="buf-sub-modes" id="buf-sub-modes">
+            <button class="mode-btn active" data-bmode="recipe">Recipe calculator</button>
+            <button class="mode-btn" data-bmode="hh">Henderson-Hasselbalch</button>
+            <button class="mode-btn" data-bmode="ref">Reference table</button>
+          </div>
+
+          <!-- Recipe panel -->
+          <div id="buf-recipe-panel">
+
+            <!-- Buffer selector button -->
+            <div class="chem-btn-row">
+              <button class="btn-select-chem" id="btn-select-buf" onclick="openBufModal()">
+                <span class="icon">🧪</span>
+                <span id="buf-btn-label">Select buffer system…</span>
+              </button>
+              <button class="btn-clear-chem" id="buf-clear-btn" onclick="clearBufSelection()" title="Clear selection">✕</button>
+            </div>
+
+            <!-- Selected buffer info card -->
+            <div class="chem-info" id="buf-info">
+              <div class="chem-info-name" id="buf-info-name"></div>
+              <div class="chem-info-meta" id="buf-info-meta"></div>
+            </div>
+
+            <div class="fg">
+              <label>Target pH</label>
+              <input type="number" id="buf-ph" placeholder="e.g. 7.4" step="0.01" min="0" max="14" />
+            </div>
+            <div class="fg">
+              <label>Total buffer concentration (mol/L)</label>
+              <input type="number" id="buf-conc" placeholder="e.g. 0.1" step="0.01" min="0" />
+            </div>
+            <div class="fg">
+              <label>Final volume</label>
+              <div class="field-row">
+                <input type="number" id="buf-vol" placeholder="e.g. 500" min="0" step="any" />
+                <select id="buf-vol-unit"><option>mL</option><option>L</option></select>
+              </div>
+            </div>
+            <div class="fg">
+              <label>Temperature (°C)</label>
+              <input type="number" id="buf-temp" placeholder="25" value="25" min="0" max="100" />
+            </div>
+          </div>
+
+          <!-- H-H panel -->
+          <div id="buf-hh-panel" style="display:none">
+            <div class="buf-sub-modes" id="hh-sub-modes" style="margin-bottom:1rem">
+              <button class="mode-btn active" data-hmode="ph">Find pH</button>
+              <button class="mode-btn" data-hmode="ratio">Find ratio</button>
+              <button class="mode-btn" data-hmode="pka">Find pKₐ</button>
+            </div>
+            <div id="hh-form-ph">
+              <div class="fg"><label>pKₐ</label><input type="number" id="hh-pka-ph" placeholder="e.g. 4.76" step="0.01" /></div>
+              <div class="fg"><label>[A⁻]/[HA] ratio</label><input type="number" id="hh-ratio-ph" placeholder="e.g. 1.0" step="0.001" min="0" /></div>
+            </div>
+            <div id="hh-form-ratio" style="display:none">
+              <div class="fg"><label>pKₐ</label><input type="number" id="hh-pka-ratio" placeholder="e.g. 4.76" step="0.01" /></div>
+              <div class="fg"><label>Target pH</label><input type="number" id="hh-ph-ratio" placeholder="e.g. 5.2" step="0.01" min="0" max="14" /></div>
+            </div>
+            <div id="hh-form-pka" style="display:none">
+              <div class="fg"><label>Measured pH</label><input type="number" id="hh-ph-pka" placeholder="e.g. 5.0" step="0.01" min="0" max="14" /></div>
+              <div class="fg"><label>[A⁻]/[HA] ratio</label><input type="number" id="hh-ratio-pka" placeholder="e.g. 1.74" step="0.001" min="0" /></div>
+            </div>
+            <div id="hh-result-ph" style="display:none">
+              <div class="ph-bar"><div class="ph-marker" id="hh-ph-marker"></div></div>
+              <div class="ph-scale"><span>0</span><span>3</span><span>5</span><span>7</span><span>9</span><span>11</span><span>14</span></div>
+              <div class="hh-result-row">
+                <div class="hh-result-box" id="hh-ph-box"><div class="hh-lbl">pH</div><div class="hh-val" id="hh-ph-val">—</div><div class="hh-note" id="hh-ph-note"></div></div>
+                <div class="hh-result-box"><div class="hh-lbl">Buffer range</div><div class="hh-val" id="hh-ph-range">—</div><div class="hh-note">pKₐ ± 1 pH unit</div></div>
+              </div>
+            </div>
+            <div class="hh-result-row" id="hh-result-ratio" style="display:none">
+              <div class="hh-result-box" id="hh-ratio-box"><div class="hh-lbl">[A⁻]/[HA]</div><div class="hh-val" id="hh-ratio-val">—</div><div class="hh-note" id="hh-ratio-note"></div></div>
+              <div class="hh-result-box"><div class="hh-lbl">% as base</div><div class="hh-val" id="hh-ratio-pct">—</div></div>
+            </div>
+            <div class="hh-result-row" id="hh-result-pka" style="display:none">
+              <div class="hh-result-box" id="hh-pka-box"><div class="hh-lbl">pKₐ</div><div class="hh-val" id="hh-pka-val">—</div><div class="hh-note" id="hh-pka-note"></div></div>
+            </div>
+          </div>
+
+          <!-- Reference panel -->
+          <div id="buf-ref-panel" style="display:none">
+            <div class="table-scroll">
+              <table class="unit-table">
+                <thead><tr><th>Buffer</th><th>pKₐ (25°C)</th><th>pH range</th><th>Notes</th></tr></thead>
+                <tbody>
+                  <tr><td>Formate</td><td>3.75</td><td>3.0–4.5</td><td>Volatile; evaporates on drying</td></tr>
+                  <tr><td>Acetate</td><td>4.76</td><td>3.6–5.6</td><td>Most common low-pH buffer</td></tr>
+                  <tr><td>Citrate</td><td>3.13 / 4.76 / 6.40</td><td>3.0–6.2</td><td>Chelates metal ions</td></tr>
+                  <tr><td>MES</td><td>6.15</td><td>5.5–6.7</td><td>Zwitterionic; minimal metal interaction</td></tr>
+                  <tr><td>PIPES</td><td>6.76</td><td>6.1–7.5</td><td>Good for cell biology</td></tr>
+                  <tr><td>Phosphate</td><td>7.20</td><td>5.8–8.0</td><td>Most common physiological buffer</td></tr>
+                  <tr><td>MOPS</td><td>7.20</td><td>6.5–7.9</td><td>Zwitterionic; minimal enzyme interference</td></tr>
+                  <tr><td>HEPES</td><td>7.48</td><td>6.8–8.2</td><td>Excellent for cell culture; low toxicity</td></tr>
+                  <tr><td>Tris</td><td>8.06</td><td>7.0–9.0</td><td>pKₐ drops 0.028/°C — adjust at working temp</td></tr>
+                  <tr><td>Borate</td><td>9.24</td><td>8.0–10.0</td><td>Complexes with polyols and sugars</td></tr>
+                  <tr><td>Bicarbonate</td><td>10.33</td><td>9.2–10.8</td><td>CO₂ equilibrium — use sealed containers</td></tr>
+                  <tr><td>CAPS</td><td>10.40</td><td>9.7–11.1</td><td>Common in Western blot transfer buffers</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Buf recipe output -->
+          <div class="buf-recipe" id="buf-recipe-out"></div>
+
+        </div>
+        <div class="cc-controls" id="buf-controls">
+          <button class="btn-clear" onclick="resetBuf()">Clear</button>
+          <button class="btn-calc" id="buf-calc-btn" onclick="calcBuffer()">⟹ Calculate</button>
+        </div>
+        <!-- H-H controls inserted dynamically -->
+      </div>
+    </div>
+
+  </div><!-- /panels-wrap -->
+
+  <!-- ══════════════════════════════════════════════════════ -->
+  <!-- CHEMICAL SELECTION MODAL                               -->
+  <!-- ══════════════════════════════════════════════════════ -->
+  <div class="chem-modal-overlay" id="chemModalOverlay">
+    <div class="chem-modal" id="chemModal">
+      <div class="chem-modal-head">
+        <div class="chem-modal-title">Select Chemical Reagent</div>
+        <button class="chem-modal-close" onclick="closeChemModal()">✕</button>
+      </div>
+      <div class="chem-search-wrap">
+        <input class="chem-search" id="chemSearch" placeholder="Search chemicals..." oninput="renderChemList()" />
+      </div>
+      <div class="chem-list" id="chemList"></div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════ -->
+  <!-- BUFFER SELECTION MODAL                                  -->
+  <!-- ══════════════════════════════════════════════════════ -->
+  <div class="chem-modal-overlay" id="bufModalOverlay">
+    <div class="chem-modal" id="bufModal">
+      <div class="chem-modal-head">
+        <div class="chem-modal-title">Select Buffer System</div>
+        <button class="chem-modal-close" onclick="closeBufModal()">✕</button>
+      </div>
+      <div class="chem-search-wrap">
+        <input class="chem-search" id="bufSearch" placeholder="Search buffers…" oninput="renderBufList()" />
+      </div>
+      <div class="chem-list" id="bufList"></div>
+    </div>
+  </div>
+  <script>
+  /* ════════════════════════════════════════════════════════════════════
+     CHEMICAL DATABASE
+     ════════════════════════════════════════════════════════════════════
+     To add a new chemical: copy an existing entry and fill in the data.
+     Solid fields: name, formula, mw, ef (equivalent factor / n-factor)
+     Liquid fields: name, formula, mw, density (g/mL), purity (%), ef
+  ════════════════════════════════════════════════════════════════════ */
+  const CHEMICALS = {
+    solid: [
+      { name:'Sodium Hydroxide',                    formula:'NaOH',                    mw:40.00,  ef:1 },
+      { name:'Potassium Hydroxide',                 formula:'KOH',                     mw:56.11,  ef:1 },
+      { name:'Sodium Carbonate (anhydrous)',         formula:'Na₂CO₃',                  mw:105.99, ef:2 },
+      { name:'Sodium Bicarbonate',                  formula:'NaHCO₃',                  mw:84.01,  ef:1 },
+      { name:'Sodium Chloride',                     formula:'NaCl',                    mw:58.44,  ef:1 },
+      { name:'Potassium Chloride',                  formula:'KCl',                     mw:74.55,  ef:1 },
+      { name:'Potassium Dichromate',                formula:'K₂Cr₂O₇',                 mw:294.18, ef:6 },
+      { name:'Potassium Permanganate',              formula:'KMnO₄',                   mw:158.04, ef:5 },
+      { name:'Sodium Thiosulfate pentahydrate',     formula:'Na₂S₂O₃·5H₂O',           mw:248.18, ef:1 },
+      { name:'Calcium Carbonate',                   formula:'CaCO₃',                   mw:100.09, ef:2 },
+      { name:'Oxalic Acid dihydrate',               formula:'H₂C₂O₄·2H₂O',            mw:126.07, ef:2 },
+      { name:'Potassium Hydrogen Phthalate (KHP)',  formula:'KHC₈H₄O₄',               mw:204.22, ef:1 },
+      { name:'Glucose (anhydrous)',                 formula:'C₆H₁₂O₆',                mw:180.16, ef:6 },
+      { name:'EDTA disodium dihydrate',             formula:'Na₂H₂EDTA·2H₂O',         mw:372.24, ef:2 },
+      { name:'Citric acid monohydrate',             formula:'C₆H₈O₇·H₂O',             mw:210.14, ef:3 },
+      { name:'NaH₂PO₄ monohydrate',                formula:'NaH₂PO₄·H₂O',            mw:137.99, ef:1 },
+      { name:'Na₂HPO₄ (anhydrous)',                 formula:'Na₂HPO₄',                 mw:141.96, ef:2 },
+      { name:'Anhydrous Na₂SO₄',                   formula:'Na₂SO₄',                  mw:142.04, ef:2 },
+      { name:'Potassium Chlorate',                  formula:'KClO₃',                   mw:122.55, ef:6 },
+      { name:'Ferrous Ammonium Sulfate hexahydrate',formula:'FeSO₄·(NH₄)₂SO₄·6H₂O',  mw:392.14, ef:1 },
+      { name:'Potassium Iodate',                    formula:'KIO₃',                    mw:214.00, ef:6 },
+      { name:'Boric Acid',                          formula:'H₃BO₃',                   mw:61.83,  ef:3 },
+    ],
+    liquid: [
+      { name:'Hydrochloric acid (conc.)',        formula:'HCl',      mw:36.46, density:1.18,  purity:37,   ef:1 },
+      { name:'Sulfuric acid (conc.)',            formula:'H₂SO₄',    mw:98.08, density:1.84,  purity:98,   ef:2 },
+      { name:'Nitric acid (conc.)',              formula:'HNO₃',     mw:63.01, density:1.42,  purity:70,   ef:1 },
+      { name:'Phosphoric acid (conc.)',          formula:'H₃PO₄',    mw:98.00, density:1.69,  purity:85,   ef:3 },
+      { name:'Glacial acetic acid',             formula:'CH₃COOH',  mw:60.05, density:1.049, purity:99.5, ef:1 },
+      { name:'Ammonia solution (conc.)',        formula:'NH₃·H₂O',  mw:17.03, density:0.91,  purity:25,   ef:1 },
+      { name:'Formaldehyde solution (Formalin)',formula:'HCHO',      mw:30.03, density:1.08,  purity:37,   ef:2 },
+      { name:'Ethanol',                         formula:'C₂H₅OH',   mw:46.07, density:0.789, purity:95,   ef:1 },
+      { name:'Hydrogen peroxide (30%)',         formula:'H₂O₂',     mw:34.01, density:1.11,  purity:30,   ef:2 },
+      { name:'Lactic acid',                     formula:'C₃H₆O₃',   mw:90.08, density:1.20,  purity:88,   ef:1 },
+      { name:'Formic acid (conc.)',             formula:'HCOOH',     mw:46.03, density:1.22,  purity:98,   ef:1 },
+      { name:'Hydrofluoric acid (40%)',         formula:'HF',        mw:20.01, density:1.13,  purity:40,   ef:1 },
+    ]
+  };
+
+  /* ════════════════════════════════════════════════════════════════════
+     CHEMICAL MODAL
+  ════════════════════════════════════════════════════════════════════ */
+  var currentCalcCtx = 'mol'; /* 'mol' or 'nor' */
+
+  function openChemModal(ctx) {
+    currentCalcCtx = ctx;
+    document.getElementById('chemSearch').value = '';
+    renderChemList();
+    document.getElementById('chemModalOverlay').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeChemModal() {
+    document.getElementById('chemModalOverlay').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  /* Close on overlay click */
+  document.getElementById('chemModalOverlay').addEventListener('click', function(e) {
+    if (e.target === this) closeChemModal();
+  });
+
+  function getState(ctx) {
+    return document.querySelector('input[name="' + ctx + '-state"]:checked').value;
+  }
+
+  function renderChemList() {
+    var query   = document.getElementById('chemSearch').value.toLowerCase().trim();
+    var state   = getState(currentCalcCtx);
+    var list    = CHEMICALS[state];
+    var el      = document.getElementById('chemList');
+    var html    = '<div class="chem-group-label">' + (state === 'solid' ? '⚗ Solid Reagents' : '💧 Liquid Reagents') + '</div>';
+    var count   = 0;
+
+    list.forEach(function(c, idx) {
+      if (query && !c.name.toLowerCase().includes(query) && !c.formula.toLowerCase().includes(query)) return;
+      var meta = 'MW: ' + c.mw + ' g/mol';
+      if (state === 'liquid') meta += '  ·  ρ: ' + c.density + ' g/mL  ·  Purity: ' + c.purity + '%';
+      meta += '  ·  n-factor: ' + c.ef;
+      html += '<div class="chem-item" onclick="selectChem(' + idx + ')">'
+        + '<div class="chem-item-left"><div class="chem-item-name">' + c.name + '</div>'
+        + '<div class="chem-item-meta">' + c.formula + '  ·  ' + meta + '</div></div>'
+        + '<div class="chem-item-badge">MW ' + c.mw + '</div></div>';
+      count++;
+    });
+    if (!count) html += '<div class="chem-none">No chemicals match your search.</div>';
+    el.innerHTML = html;
+  }
+
+  function selectChem(idx) {
+    var state = getState(currentCalcCtx);
+    var c     = CHEMICALS[state][idx];
+    var ctx   = currentCalcCtx;
+
+    /* Prefill molar mass */
+    document.getElementById(ctx + '-mw').value = c.mw;
+
+    /* Prefill equivalent factor (normality only) */
+    var efEl = document.getElementById(ctx + '-ef');
+    if (efEl) efEl.value = c.ef;
+
+    /* Prefill liquid fields */
+    if (state === 'liquid') {
+      var dEl = document.getElementById(ctx + '-density');
+      var pEl = document.getElementById(ctx + '-purity');
+      if (dEl) dEl.value = c.density;
+      if (pEl) pEl.value = c.purity;
+    }
+
+    /* Show chemical info card */
+    var infoEl  = document.getElementById(ctx + '-chem-info');
+    var nameEl  = document.getElementById(ctx + '-chem-name');
+    var metaEl  = document.getElementById(ctx + '-chem-meta');
+    nameEl.textContent = c.name;
+    var metaTxt = c.formula + '   ·   MW: ' + c.mw + ' g/mol   ·   n-factor: ' + c.ef;
+    if (state === 'liquid') metaTxt += '\nDensity: ' + c.density + ' g/mL   ·   Purity: ' + c.purity + '%';
+    metaEl.textContent = metaTxt;
+    infoEl.classList.add('show');
+
+    /* Show clear-chem button */
+    document.getElementById(ctx + '-clear-chem').classList.add('show');
+
+    closeChemModal();
+  }
+
+  function clearChem(ctx) {
+    /* Remove prefilled data */
+    document.getElementById(ctx + '-mw').value      = '';
+    var dEl = document.getElementById(ctx + '-density'); if (dEl) dEl.value = '';
+    var pEl = document.getElementById(ctx + '-purity');  if (pEl) pEl.value = '';
+    var eEl = document.getElementById(ctx + '-ef');      if (eEl) eEl.value = '';
+
+    /* Hide info card and clear button */
+    document.getElementById(ctx + '-chem-info').classList.remove('show');
+    document.getElementById(ctx + '-clear-chem').classList.remove('show');
+  }
+
+  /* ════════════════════════════════════════════════════════════════════
+     STATE (SOLID / LIQUID) TOGGLE
+  ════════════════════════════════════════════════════════════════════ */
+  function bindStateToggle(ctx) {
+    document.querySelectorAll('input[name="' + ctx + '-state"]').forEach(function(radio) {
+      radio.addEventListener('change', function() {
+        var liq = (this.value === 'liquid');
+        var dWrap = document.getElementById(ctx + '-density-wrap');
+        var pWrap = document.getElementById(ctx + '-purity-wrap');
+        if (dWrap) dWrap.classList.toggle('fg-hidden', !liq);
+        if (pWrap) pWrap.classList.toggle('fg-hidden', !liq);
+        /* Clear chemical selection when state changes */
+        clearChem(ctx);
+        /* Clear result */
+        var resEl = document.getElementById(ctx + '-result');
+        if (resEl) resEl.classList.remove('show');
+      });
+    });
+  }
+  bindStateToggle('mol');
+  bindStateToggle('nor');
+
+  /* ════════════════════════════════════════════════════════════════════
+     CLEAR HELPERS
+  ════════════════════════════════════════════════════════════════════ */
+  function clearCalc(ctx) {
+    /* Clear all inputs in the panel */
+    var tabName = ctx === 'mol' ? 'molarity' : 'normality';
+    var panel = document.getElementById('tab-' + tabName);
+    panel.querySelectorAll('input[type="number"]').forEach(function(i) { i.value = ''; });
+    clearChem(ctx);
+    /* Hide the result card completely and reset its inner state */
+    var resEl = document.getElementById(ctx + '-result');
+    resEl.classList.remove('show');
+    _hideResultContent(ctx);
+  }
+
+  /* Internal — hides all result sub-elements without removing them */
+  function _hideResultContent(ctx) {
+    var errEl   = document.getElementById(ctx + '-err');
+    var badgeEl = document.getElementById(ctx + '-res-badge');
+    var bodyEl  = document.getElementById(ctx + '-res-body');
+    if (errEl)   errEl.style.display   = 'none';
+    if (badgeEl) badgeEl.style.display = 'none';
+    if (bodyEl)  bodyEl.style.display  = 'none';
+  }
+
+  function showResult(ctx, value, unit, steps, procedure) {
+    /* Hide error, show value elements — child elements are NEVER destroyed */
+    var errEl   = document.getElementById(ctx + '-err');
+    var badgeEl = document.getElementById(ctx + '-res-badge');
+    var bodyEl  = document.getElementById(ctx + '-res-body');
+    var valEl   = document.getElementById(ctx + '-res-val');
+    var unitEl  = document.getElementById(ctx + '-res-unit');
+    var stepsEl = document.getElementById(ctx + '-res-steps');
+    var procEl  = document.getElementById(ctx + '-res-proc');
+
+    if (errEl)   { errEl.style.display   = 'none'; errEl.textContent = ''; }
+    if (badgeEl) badgeEl.style.display   = '';
+    if (bodyEl)  bodyEl.style.display    = '';
+    if (valEl)   valEl.textContent       = value;
+    if (unitEl)  unitEl.textContent      = unit;
+    if (stepsEl) stepsEl.textContent     = steps;
+    if (procEl)  procEl.textContent      = procedure;
+
+    document.getElementById(ctx + '-result').classList.add('show');
+  }
+
+  function showError(ctx, msg) {
+    /* Show error message WITHOUT touching the result value elements */
+    var errEl   = document.getElementById(ctx + '-err');
+    var badgeEl = document.getElementById(ctx + '-res-badge');
+    var bodyEl  = document.getElementById(ctx + '-res-body');
+
+    if (errEl)   { errEl.textContent = '⚠ ' + msg; errEl.style.display = ''; }
+    if (badgeEl) badgeEl.style.display = 'none';
+    if (bodyEl)  bodyEl.style.display  = 'none';
+
+    document.getElementById(ctx + '-result').classList.add('show');
+  }
+
+  function fmtN(n, dp) {
+    if (dp === undefined) dp = 4;
+    return parseFloat(n.toFixed(dp)).toString();
+  }
+
+  /* ════════════════════════════════════════════════════════════════════
+     MOLARITY CALCULATOR
+     ════════════════════════════════════════════════════════════════════
+     Solid:  mass (g) = M × V(L) × MW
+     Liquid: vol (mL) = [M × V(L) × MW] / [density × (purity/100)]
+  ════════════════════════════════════════════════════════════════════ */
+  function calcMolarity() {
+    var M    = parseFloat(document.getElementById('mol-M').value);
+    var vol  = parseFloat(document.getElementById('mol-vol').value);
+    var vu   = document.getElementById('mol-vol-unit').value;
+    var MW   = parseFloat(document.getElementById('mol-mw').value);
+    var state = getState('mol');
+
+    /* Validation */
+    if (isNaN(M) || M <= 0)   return showError('mol', 'Please enter a valid Target Molarity.');
+    if (isNaN(vol) || vol <= 0) return showError('mol', 'Please enter a valid Total Volume.');
+    if (isNaN(MW) || MW <= 0) return showError('mol', 'Please enter a valid Molar Mass.');
+
+    var V_L = vu === 'mL' ? vol / 1000 : vol;
+    var molesNeeded = M * V_L;
+
+    if (state === 'solid') {
+      var mass = molesNeeded * MW;
+      var steps = [
+        'Moles needed = ' + fmtN(M) + ' × ' + fmtN(V_L,4) + ' L = ' + fmtN(molesNeeded,5) + ' mol',
+        'Mass = ' + fmtN(molesNeeded,5) + ' × ' + fmtN(MW) + ' = ' + fmtN(mass,4) + ' g'
+      ].join('\n');
+      var proc = 'Weigh ' + fmtN(mass,4) + ' g of reagent. Dissolve in ~'
+        + fmtN(vol*0.7,0) + ' ' + vu + ' of distilled water, then make up to '
+        + vol + ' ' + vu + ' in a volumetric flask.';
+      showResult('mol', fmtN(mass,4), 'g', steps, proc);
+
+    } else {
+      var density = parseFloat(document.getElementById('mol-density').value);
+      var purity  = parseFloat(document.getElementById('mol-purity').value);
+      if (isNaN(density) || density <= 0) return showError('mol', 'Please enter a valid Density.');
+      if (isNaN(purity)  || purity <= 0 || purity > 100) return showError('mol', 'Please enter a valid Purity (1–100%).');
+
+      var massPure   = molesNeeded * MW;
+      var massSoln   = massPure / (purity / 100);
+      var volLiquid  = massSoln / density;
+      var steps = [
+        'Moles needed = ' + fmtN(M) + ' × ' + fmtN(V_L,4) + ' L = ' + fmtN(molesNeeded,5) + ' mol',
+        'Mass of pure reagent = ' + fmtN(molesNeeded,5) + ' × ' + fmtN(MW) + ' = ' + fmtN(massPure,4) + ' g',
+        'Mass of reagent solution = ' + fmtN(massPure,4) + ' / ' + fmtN(purity/100,4) + ' = ' + fmtN(massSoln,4) + ' g',
+        'Volume to measure = ' + fmtN(massSoln,4) + ' / ' + fmtN(density) + ' = ' + fmtN(volLiquid,3) + ' mL'
+      ].join('\n');
+      var proc = 'Carefully measure ' + fmtN(volLiquid,3) + ' mL of ' + purity + '% reagent. Add slowly to ~'
+        + fmtN(vol*0.5,0) + ' ' + vu + ' of distilled water in a flask, then make up to '
+        + vol + ' ' + vu + '. Always add acid/base to water, never the reverse.';
+      showResult('mol', fmtN(volLiquid,3), 'mL', steps, proc);
+    }
+  }
+
+  /* ════════════════════════════════════════════════════════════════════
+     NORMALITY CALCULATOR
+     ════════════════════════════════════════════════════════════════════
+     Solid:  mass (g) = N × V(L) × (MW / n)   [MW/n = equivalent weight]
+     Liquid: vol (mL) = [N × V(L) × MW] / [n × density × (purity/100)]
+  ════════════════════════════════════════════════════════════════════ */
+  function calcNormality() {
+    var N    = parseFloat(document.getElementById('nor-N').value);
+    var vol  = parseFloat(document.getElementById('nor-vol').value);
+    var vu   = document.getElementById('nor-vol-unit').value;
+    var MW   = parseFloat(document.getElementById('nor-mw').value);
+    var ef   = parseFloat(document.getElementById('nor-ef').value);
+    var state = getState('nor');
+
+    if (isNaN(N)   || N <= 0)  return showError('nor', 'Please enter a valid Target Normality.');
+    if (isNaN(vol) || vol <= 0) return showError('nor', 'Please enter a valid Total Volume.');
+    if (isNaN(MW)  || MW <= 0) return showError('nor', 'Please enter a valid Molar Mass.');
+    if (isNaN(ef)  || ef <= 0) return showError('nor', 'Please enter a valid Equivalent Factor (n-factor ≥ 1).');
+
+    var V_L     = vu === 'mL' ? vol / 1000 : vol;
+    var eqWeight = MW / ef;
+    var eqNeeded = N * V_L;
+    var molesNeeded = eqNeeded / ef;
+
+    if (state === 'solid') {
+      var mass = eqNeeded * eqWeight; /* = N × V(L) × (MW/n) */
+      var steps = [
+        'Equivalent weight = ' + fmtN(MW) + ' / ' + ef + ' = ' + fmtN(eqWeight,4) + ' g/eq',
+        'Equivalents needed = ' + fmtN(N) + ' × ' + fmtN(V_L,4) + ' L = ' + fmtN(eqNeeded,5) + ' eq',
+        'Moles needed = ' + fmtN(eqNeeded,5) + ' / ' + ef + ' = ' + fmtN(molesNeeded,5) + ' mol',
+        'Mass = ' + fmtN(molesNeeded,5) + ' × ' + fmtN(MW) + ' = ' + fmtN(mass,4) + ' g'
+      ].join('\n');
+      var proc = 'Weigh ' + fmtN(mass,4) + ' g of reagent. Dissolve in ~'
+        + fmtN(vol*0.7,0) + ' ' + vu + ' of distilled water, then make up to '
+        + vol + ' ' + vu + ' in a volumetric flask. Mix well.';
+      showResult('nor', fmtN(mass,4), 'g', steps, proc);
+
+    } else {
+      var density = parseFloat(document.getElementById('nor-density').value);
+      var purity  = parseFloat(document.getElementById('nor-purity').value);
+      if (isNaN(density) || density <= 0) return showError('nor', 'Please enter a valid Density.');
+      if (isNaN(purity)  || purity <= 0 || purity > 100) return showError('nor', 'Please enter a valid Purity (1–100%).');
+
+      var massPure  = molesNeeded * MW;
+      var massSoln  = massPure / (purity / 100);
+      var volLiquid = massSoln / density;
+      var steps = [
+        'Equivalent weight = ' + fmtN(MW) + ' / ' + ef + ' = ' + fmtN(eqWeight,4) + ' g/eq',
+        'Equivalents needed = ' + fmtN(N) + ' × ' + fmtN(V_L,4) + ' L = ' + fmtN(eqNeeded,5) + ' eq',
+        'Moles needed = ' + fmtN(eqNeeded,5) + ' / ' + ef + ' = ' + fmtN(molesNeeded,5) + ' mol',
+        'Mass of pure reagent = ' + fmtN(molesNeeded,5) + ' × ' + fmtN(MW) + ' = ' + fmtN(massPure,4) + ' g',
+        'Mass of solution = ' + fmtN(massPure,4) + ' / ' + fmtN(purity/100,4) + ' = ' + fmtN(massSoln,4) + ' g',
+        'Volume to measure = ' + fmtN(massSoln,4) + ' / ' + fmtN(density) + ' = ' + fmtN(volLiquid,3) + ' mL'
+      ].join('\n');
+      var proc = 'Carefully measure ' + fmtN(volLiquid,3) + ' mL of ' + purity + '% reagent. Add slowly to water, then make up to '
+        + vol + ' ' + vu + ' in a volumetric flask.';
+      showResult('nor', fmtN(volLiquid,3), 'mL', steps, proc);
+    }
+  }
+
+  /* ════════════════════════════════════════════════════════════════════
+     DILUTION  C₁V₁ = C₂V₂
+  ════════════════════════════════════════════════════════════════════ */
+  var dilMode = 'C2';
+  document.querySelectorAll('#dil-modes .mode-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      document.querySelectorAll('#dil-modes .mode-btn').forEach(function(b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      dilMode = btn.dataset.dmode;
+      /* Gray out the unknown field */
+      ['C1','V1','C2','V2'].forEach(function(k) {
+        var el = document.getElementById('dil-' + k);
+        el.readOnly = (k === dilMode);
+        el.value = (k === dilMode) ? '' : el.value;
+        el.placeholder = (k === dilMode) ? '← result' : '';
+      });
+      document.getElementById('dil-result').classList.remove('show');
+    });
+  });
+
+  function toBaseC(v,u) { return u==='mmol/L'?v/1e3:u==='mg/L'?v/1e3:v; }
+  function toBaseV(v,u) { return u==='L'?v*1000:u==='µL'?v/1000:v; } /* → mL */
+  function fromBaseC(v,u) { return u==='mmol/L'?v*1e3:u==='mg/L'?v*1e3:v; }
+  function fromBaseV(v,u) { return u==='L'?v/1000:u==='µL'?v*1000:v; }
+
+  function calcDilution() {
+    var C1=parseFloat(document.getElementById('dil-C1').value);
+    var V1=parseFloat(document.getElementById('dil-V1').value);
+    var C2=parseFloat(document.getElementById('dil-C2').value);
+    var V2=parseFloat(document.getElementById('dil-V2').value);
+    var C1u=document.getElementById('dil-C1u').value;
+    var V1u=document.getElementById('dil-V1u').value;
+    var C2u=document.getElementById('dil-C2u').value;
+    var V2u=document.getElementById('dil-V2u').value;
+
+    var known = { C1:C1,V1:V1,C2:C2,V2:V2 };
+    var error = false;
+    ['C1','V1','C2','V2'].forEach(function(k){ if (k!==dilMode && (isNaN(known[k])||known[k]<=0)) error=true; });
+    if (error) { showDilError('Please fill in all three known values (positive numbers).'); return; }
+
+    var c1=toBaseC(C1,C1u), v1=toBaseV(V1,V1u), c2=toBaseC(C2,C2u), v2=toBaseV(V2,V2u);
+    var ans, ansStr, stepsStr;
+
+    if (dilMode==='C2') {
+      ans = (c1*v1)/v2; ansStr = fmtN(fromBaseC(ans,C2u),5) + ' ' + C2u;
+      stepsStr = 'C₂ = (C₁×V₁)/V₂ = (' + fmtN(c1,4) + '×' + fmtN(v1,2) + ')/' + fmtN(v2,2) + ' = ' + fmtN(ans,5);
+    } else if (dilMode==='V2') {
+      ans = (c1*v1)/c2; ansStr = fmtN(fromBaseV(ans,V2u),4) + ' ' + V2u;
+      stepsStr = 'V₂ = (C₁×V₁)/C₂ = (' + fmtN(c1,4) + '×' + fmtN(v1,2) + ')/' + fmtN(c2,4) + ' = ' + fmtN(ans,3) + ' mL';
+    } else if (dilMode==='C1') {
+      ans = (c2*v2)/v1; ansStr = fmtN(fromBaseC(ans,C1u),5) + ' ' + C1u;
+      stepsStr = 'C₁ = (C₂×V₂)/V₁ = (' + fmtN(c2,4) + '×' + fmtN(v2,2) + ')/' + fmtN(v1,2) + ' = ' + fmtN(ans,5);
+    } else {
+      ans = (c2*v2)/c1; ansStr = fmtN(fromBaseV(ans,V1u),4) + ' ' + V1u;
+      stepsStr = 'V₁ = (C₂×V₂)/C₁ = (' + fmtN(c2,4) + '×' + fmtN(v2,2) + ')/' + fmtN(c1,4) + ' = ' + fmtN(ans,3) + ' mL';
+    }
+    var el = document.getElementById('dil-result');
+    var errEl  = document.getElementById('dil-err');
+    var bodyEl = document.getElementById('dil-res-body');
+    var valEl  = document.getElementById('dil-res-val');
+    var stpEl  = document.getElementById('dil-res-steps');
+    var bdgEl  = document.getElementById('dil-res-badge');
+
+    errEl.style.display  = 'none'; errEl.textContent = '';
+    bodyEl.style.display = '';
+    bdgEl.textContent    = 'Result — ' + dilMode;
+    valEl.textContent    = ansStr;
+    stpEl.textContent    = stepsStr;
+    el.classList.add('show');
+  }
+  function showDilError(msg) {
+    var el    = document.getElementById('dil-result');
+    var errEl = document.getElementById('dil-err');
+    var bodyEl= document.getElementById('dil-res-body');
+    errEl.textContent    = '⚠ ' + msg;
+    errEl.style.display  = '';
+    bodyEl.style.display = 'none';
+    el.classList.add('show');
+  }
+  function clearDil() {
+    document.querySelectorAll('#tab-dilution input[type="number"]').forEach(function(i){ i.value=''; i.readOnly=false; i.placeholder=''; });
+    var el    = document.getElementById('dil-result');
+    var errEl = document.getElementById('dil-err');
+    var bodyEl= document.getElementById('dil-res-body');
+    el.classList.remove('show');
+    errEl.style.display  = 'none'; errEl.textContent = '';
+    bodyEl.style.display = 'none';
+    document.querySelectorAll('#dil-modes .mode-btn')[0].click();
+  }
+
+  /* ════════════════════════════════════════════════════════════════════
+     PERCENT SOLUTION
+  ════════════════════════════════════════════════════════════════════ */
+  var pctMode = 'wv';
+  document.querySelectorAll('#pct-modes .mode-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      document.querySelectorAll('#pct-modes .mode-btn').forEach(function(b){ b.classList.remove('active'); });
+      btn.classList.add('active');
+      pctMode = btn.dataset.pmode;
+      ['wv','ww','vv'].forEach(function(m){ document.getElementById('pct-form-'+m).style.display=(m===pctMode)?'block':'none'; });
+      clearPct();
+    });
+  });
+  function _showPctResult(pct, label, unit, stepsStr) {
+    var el    = document.getElementById('pct-result');
+    var errEl = document.getElementById('pct-err');
+    var bodyEl= document.getElementById('pct-res-body');
+    var valEl = document.getElementById('pct-res-val');
+    var unitEl= document.getElementById('pct-res-unit');
+    var stpEl = document.getElementById('pct-res-steps');
+    errEl.style.display  = 'none'; errEl.textContent = '';
+    bodyEl.style.display = '';
+    valEl.textContent    = fmtN(pct,4);
+    unitEl.textContent   = ' ' + unit;
+    stpEl.textContent    = stepsStr;
+    el.classList.add('show');
+  }
+  function _showPctError(msg) {
+    var el    = document.getElementById('pct-result');
+    var errEl = document.getElementById('pct-err');
+    var bodyEl= document.getElementById('pct-res-body');
+    errEl.textContent    = '⚠ ' + msg;
+    errEl.style.display  = '';
+    bodyEl.style.display = 'none';
+    el.classList.add('show');
+  }
+  function calcPct() {
+    var el=document.getElementById('pct-result'); el.classList.remove('show');
+    if (pctMode==='wv') {
+      var mass=parseFloat(document.getElementById('pct-mass-wv').value);
+      var vol=parseFloat(document.getElementById('pct-vol-wv').value);
+      if (isNaN(mass)||isNaN(vol)||vol<=0) return _showPctError('Enter valid mass and volume.');
+      _showPctResult((mass/vol)*100, '% w/v', '% w/v', '% w/v = ('+fmtN(mass,3)+' g / '+fmtN(vol,2)+' mL) × 100');
+    } else if (pctMode==='ww') {
+      var ms=parseFloat(document.getElementById('pct-ms-ww').value);
+      var mt=parseFloat(document.getElementById('pct-mt-ww').value);
+      if (isNaN(ms)||isNaN(mt)||mt<=0||ms>mt) return _showPctError('Solute mass cannot exceed solution mass.');
+      _showPctResult((ms/mt)*100, '% w/w', '% w/w', '% w/w = ('+fmtN(ms,3)+' / '+fmtN(mt,3)+') × 100');
+    } else {
+      var vs=parseFloat(document.getElementById('pct-vs-vv').value);
+      var vt=parseFloat(document.getElementById('pct-vt-vv').value);
+      if (isNaN(vs)||isNaN(vt)||vt<=0||vs>vt) return _showPctError('Solute volume cannot exceed solution volume.');
+      _showPctResult((vs/vt)*100, '% v/v', '% v/v', '% v/v = ('+fmtN(vs,3)+' / '+fmtN(vt,3)+') × 100');
+    }
+  }
+  function clearPct() {
+    document.querySelectorAll('#tab-percent input[type="number"]').forEach(function(i){ i.value=''; });
+    var el    = document.getElementById('pct-result');
+    var errEl = document.getElementById('pct-err');
+    var bodyEl= document.getElementById('pct-res-body');
+    el.classList.remove('show');
+    errEl.style.display  = 'none'; errEl.textContent = '';
+    bodyEl.style.display = 'none';
+  }
+
+  /* ════════════════════════════════════════════════════════════════════
+     UNIT CONVERTER
+  ════════════════════════════════════════════════════════════════════ */
+  var UDEFS = [
+    {k:'mol_L', lbl:'mol/L (M)',        toMol:function(v){return v;},     fromMol:function(v){return v;},    needMW:false},
+    {k:'mmol_L',lbl:'mmol/L (mM)',      toMol:function(v){return v/1e3;}, fromMol:function(v){return v*1e3;},needMW:false},
+    {k:'umol_L',lbl:'µmol/L (µM)',      toMol:function(v){return v/1e6;}, fromMol:function(v){return v*1e6;},needMW:false},
+    {k:'nmol_L',lbl:'nmol/L (nM)',      toMol:function(v){return v/1e9;}, fromMol:function(v){return v*1e9;},needMW:false},
+    {k:'g_L',   lbl:'g/L',             toGL: function(v){return v;},     fromGL: function(v){return v;},    needMW:true},
+    {k:'mg_L',  lbl:'mg/L (≈ ppm)',    toGL: function(v){return v/1e3;}, fromGL: function(v){return v*1e3;},needMW:true},
+    {k:'ug_L',  lbl:'µg/L (ppb)',      toGL: function(v){return v/1e6;}, fromGL: function(v){return v*1e6;},needMW:true},
+    {k:'g_dL',  lbl:'g/dL (g/100 mL)',toGL: function(v){return v*10;},  fromGL: function(v){return v/10;}, needMW:true},
+    {k:'mg_dL', lbl:'mg/dL',           toGL: function(v){return v/10;},  fromGL: function(v){return v*10;}, needMW:true},
+    {k:'pct_wv',lbl:'% w/v',           toGL: function(v){return v*10;},  fromGL: function(v){return v/10;}, needMW:true},
+  ];
+  function fmtSci(n) {
+    if (n===0) return '0';
+    if (n>=0.0001&&n<1e7) return parseFloat(n.toPrecision(6)).toString();
+    return n.toExponential(4);
+  }
+  function convertUnits() {
+    var val=parseFloat(document.getElementById('unit-val').value);
+    var from=document.getElementById('unit-from').value;
+    var mw=parseFloat(document.getElementById('unit-mw').value);
+    var tbody=document.getElementById('unit-tbody');
+    tbody.innerHTML='';
+    if (isNaN(val)||val<0) return;
+    var fd=UDEFS.find(function(u){return u.k===from;}); if(!fd) return;
+    var isMol=['mol_L','mmol_L','umol_L','nmol_L'].indexOf(from)>=0;
+    var molL=null,gL=null;
+    if (isMol) { molL=fd.toMol(val); if (!isNaN(mw)&&mw>0) gL=molL*mw; }
+    else { gL=fd.toGL(val); if (!isNaN(mw)&&mw>0) molL=gL/mw; }
+    UDEFS.forEach(function(def) {
+      var res='—';
+      if (!def.needMW && molL!==null) res=fmtSci(def.fromMol(molL));
+      else if (def.needMW && gL!==null) res=fmtSci(def.fromGL(gL));
+      else if (!def.needMW && molL===null) res='(MW required)';
+      else res='(MW required)';
+      var tr=document.createElement('tr');
+      if (def.k===from) tr.className='unit-highlight';
+      tr.innerHTML='<td>'+def.lbl+(def.k===from?' ← input':'')+'</td><td>'+res+'</td>';
+      tbody.appendChild(tr);
+    });
+  }
+  convertUnits();
+
+  /* ════════════════════════════════════════════════════════════════════
+     BUFFER PREPARATION (kept from original)
+  ════════════════════════════════════════════════════════════════════ */
+  var BUFFERS = {
+    acetate:    {name:'Acetate',     pka:4.76, tcoef:0,      range:[3.6,5.6], acid:{name:'Acetic acid (glacial)',mw:60.05,note:'density 1.049 g/mL'},base:{name:'Sodium acetate (anhydrous)',mw:82.03,note:''}},
+    phosphate:  {name:'Phosphate',   pka:7.20, tcoef:0,      range:[5.8,8.0], acid:{name:'NaH₂PO₄·H₂O',mw:137.99,note:''},base:{name:'Na₂HPO₄ (anhydrous)',mw:141.96,note:''}},
+    tris:       {name:'Tris',        pka:8.06, tcoef:-0.028, range:[7.0,9.0], acid:{name:'Tris-HCl',mw:157.60,note:''},base:{name:'Tris base',mw:121.14,note:''}},
+    hepes:      {name:'HEPES',       pka:7.48, tcoef:-0.014, range:[6.8,8.2], acid:{name:'HEPES free acid',mw:238.30,note:''},base:{name:'HEPES sodium salt',mw:260.29,note:''}},
+    mes:        {name:'MES',         pka:6.15, tcoef:-0.011, range:[5.5,6.7], acid:{name:'MES free acid',mw:195.24,note:''},base:{name:'MES sodium salt',mw:217.22,note:''}},
+    mops:       {name:'MOPS',        pka:7.20, tcoef:-0.013, range:[6.5,7.9], acid:{name:'MOPS free acid',mw:209.26,note:''},base:{name:'MOPS sodium salt',mw:231.24,note:''}},
+    citrate:    {name:'Citrate',     pka:4.76, tcoef:0,      range:[3.0,6.2], acid:{name:'Citric acid monohydrate',mw:210.14,note:''},base:{name:'Sodium citrate dihydrate',mw:294.10,note:''}},
+    borate:     {name:'Borate',      pka:9.24, tcoef:-0.008, range:[8.0,10.0],acid:{name:'Boric acid',mw:61.83,note:''},base:{name:'Sodium tetraborate·10H₂O',mw:381.37,note:'borax'}},
+    bicarbonate:{name:'Bicarbonate', pka:10.33,tcoef:0,      range:[9.2,10.8],acid:{name:'Sodium bicarbonate',mw:84.01,note:''},base:{name:'Sodium carbonate (anhydrous)',mw:105.99,note:''}},
+    pipes:      {name:'PIPES',       pka:6.76, tcoef:-0.009, range:[6.1,7.5], acid:{name:'PIPES free acid',mw:302.37,note:''},base:{name:'PIPES disodium salt',mw:346.36,note:''}},
+  };
+  /* ════════════════════════════════════════════════════════════════════
+     BUFFER SELECTION MODAL
+  ════════════════════════════════════════════════════════════════════ */
+  var selectedBuf = null;   /* null = nothing chosen yet */
+
+  function openBufModal() {
+    document.getElementById('bufSearch').value = '';
+    renderBufList();
+    document.getElementById('bufModalOverlay').classList.add('open');
+    document.body.style.overflow = 'hidden';
+    setTimeout(function(){ document.getElementById('bufSearch').focus(); }, 300);
+  }
+
+  function closeBufModal() {
+    document.getElementById('bufModalOverlay').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  document.getElementById('bufModalOverlay').addEventListener('click', function(e) {
+    if (e.target === this) closeBufModal();
+  });
+
+  function renderBufList() {
+    var query = document.getElementById('bufSearch').value.toLowerCase().trim();
+    var el    = document.getElementById('bufList');
+    var html  = '<div class="chem-group-label">🧪 Available Buffer Systems</div>';
+    var count = 0;
+    Object.keys(BUFFERS).forEach(function(k) {
+      var b = BUFFERS[k];
+      if (query && !b.name.toLowerCase().includes(query)) return;
+      var isSelected = (k === selectedBuf);
+      html += '<div class="chem-item" onclick="selectBufItem(\'' + k + '\')" style="' + (isSelected ? 'background:var(--cream);border-color:var(--teal);' : '') + '">'
+        + '<div class="chem-item-left">'
+        + '<div class="chem-item-name">' + b.name + (isSelected ? ' ✓' : '') + '</div>'
+        + '<div class="chem-item-meta">pH range: ' + b.range[0] + '–' + b.range[1]
+        + '  ·  pKₐ: ' + b.pka + (b.tcoef !== 0 ? '  ·  tcoef: ' + b.tcoef + '/°C' : '') + '</div>'
+        + '</div>'
+        + '<div class="chem-item-badge">pH ' + b.range[0] + '–' + b.range[1] + '</div>'
+        + '</div>';
+      count++;
+    });
+    if (!count) html += '<div class="chem-none">No buffers match your search.</div>';
+    el.innerHTML = html;
+  }
+
+  function selectBufItem(key) {
+    selectedBuf = key;
+    var b = BUFFERS[key];
+
+    /* Update button label */
+    document.getElementById('buf-btn-label').textContent = b.name + ' buffer';
+
+    /* Show info card */
+    document.getElementById('buf-info-name').textContent = b.name + ' Buffer System';
+    document.getElementById('buf-info-meta').textContent =
+      'pH range: ' + b.range[0] + '–' + b.range[1]
+      + '   ·   pKₐ: ' + b.pka
+      + (b.tcoef !== 0 ? '   ·   temp coef: ' + b.tcoef + ' /°C' : '')
+      + '\nAcid: ' + b.acid.name + ' (MW ' + b.acid.mw + ' g/mol)'
+      + '\nBase: ' + b.base.name + ' (MW ' + b.base.mw + ' g/mol)';
+    document.getElementById('buf-info').classList.add('show');
+
+    /* Show clear button */
+    document.getElementById('buf-clear-btn').classList.add('show');
+
+    /* Clear any previous result */
+    document.getElementById('buf-recipe-out').innerHTML = '';
+    document.getElementById('buf-recipe-out').classList.remove('show');
+
+    closeBufModal();
+  }
+
+  function clearBufSelection() {
+    selectedBuf = null;
+    document.getElementById('buf-btn-label').textContent = 'Select buffer system…';
+    document.getElementById('buf-info').classList.remove('show');
+    document.getElementById('buf-clear-btn').classList.remove('show');
+    document.getElementById('buf-recipe-out').innerHTML = '';
+    document.getElementById('buf-recipe-out').classList.remove('show');
+  }
+
+  var bufMode = 'recipe';
+  var hhSubMode = 'ph';
+
+  /* Buffer sub-mode switching */
+  document.querySelectorAll('#buf-sub-modes .mode-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      document.querySelectorAll('#buf-sub-modes .mode-btn').forEach(function(b){b.classList.remove('active');});
+      btn.classList.add('active');
+      bufMode = btn.dataset.bmode;
+      document.getElementById('buf-recipe-panel').style.display = bufMode==='recipe' ? 'block' : 'none';
+      document.getElementById('buf-hh-panel').style.display    = bufMode==='hh'     ? 'block' : 'none';
+      document.getElementById('buf-ref-panel').style.display   = bufMode==='ref'    ? 'block' : 'none';
+      var calcBtn = document.getElementById('buf-calc-btn');
+      calcBtn.style.display = bufMode==='ref' ? 'none' : '';
+    });
+  });
+
+  /* H-H sub-mode */
+  document.querySelectorAll('#hh-sub-modes .mode-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      document.querySelectorAll('#hh-sub-modes .mode-btn').forEach(function(b){b.classList.remove('active');});
+      btn.classList.add('active');
+      hhSubMode = btn.dataset.hmode;
+      ['ph','ratio','pka'].forEach(function(m){
+        document.getElementById('hh-form-'+m).style.display=(m===hhSubMode)?'block':'none';
+      });
+      ['hh-result-ph','hh-result-ratio','hh-result-pka'].forEach(function(id){
+        var el=document.getElementById(id); if(el) el.style.display='none';
+      });
+    });
+  });
+
+  function calcBuffer() {
+    if (bufMode === 'hh') { calcHH(); return; }
+    var ph   = parseFloat(document.getElementById('buf-ph').value);
+    var conc = parseFloat(document.getElementById('buf-conc').value);
+    var vol  = parseFloat(document.getElementById('buf-vol').value);
+    var vu   = document.getElementById('buf-vol-unit').value;
+    var temp = parseFloat(document.getElementById('buf-temp').value) || 25;
+    var out  = document.getElementById('buf-recipe-out');
+    out.innerHTML=''; out.classList.remove('show');
+
+    if (!selectedBuf) {
+      out.innerHTML='<div class="result-error">⚠ Please select a buffer system first.</div>';
+      out.classList.add('show'); return;
+    }
+
+    if ([ph,conc,vol].some(function(v){return isNaN(v)||v<=0;})) {
+      out.innerHTML='<div class="result-error">⚠ Please enter target pH, concentration, and volume.</div>';
+      out.classList.add('show'); return;
+    }
+    var sys   = BUFFERS[selectedBuf];
+    var volL  = vu==='mL'?vol/1000:vol;
+    var pKaAdj = sys.pka + sys.tcoef*(temp-25);
+    var ratio  = Math.pow(10, ph-pKaAdj);
+    var cAcid  = conc/(1+ratio);
+    var cBase  = conc-cAcid;
+    var mAcid  = cAcid*volL*sys.acid.mw;
+    var mBase  = cBase*volL*sys.base.mw;
+    var oor    = ph<sys.range[0]||ph>sys.range[1];
+
+    var html = (oor?'<div class="buf-warn">⚠ pH '+ph+' is outside the recommended range for '+sys.name+' buffer ('+sys.range[0]+'–'+sys.range[1]+').</div>':'')
+      +'<div style="font-size:0.78rem;font-weight:600;color:var(--teal);margin-bottom:0.6rem;text-transform:uppercase;letter-spacing:0.08em">'+sys.name+' buffer recipe</div>'
+      +'<div class="buf-step"><div class="buf-step-n">1</div><div>Weigh <span class="buf-val">'+fmtN(mAcid,4)+' g</span> of '+sys.acid.name+' (MW '+sys.acid.mw+' g/mol)'+( sys.acid.note?' — '+sys.acid.note:'')+'.</div></div>'
+      +'<div class="buf-step"><div class="buf-step-n">2</div><div>Weigh <span class="buf-val">'+fmtN(mBase,4)+' g</span> of '+sys.base.name+' (MW '+sys.base.mw+' g/mol)'+( sys.base.note?' — '+sys.base.note:'')+'.</div></div>'
+      +'<div class="buf-step"><div class="buf-step-n">3</div><div>Dissolve both in ~<span class="buf-val">'+fmtN(vol*0.8,0)+' '+vu+'</span> of distilled water. Mix well.</div></div>'
+      +'<div class="buf-step"><div class="buf-step-n">4</div><div>Check pH with a calibrated meter. Adjust to exactly <span class="buf-val">pH '+ph+'</span>, then make up to <span class="buf-val">'+vol+' '+vu+'</span>.</div></div>'
+      +'<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:0.5rem;margin-top:0.75rem;">'
+      +'<div style="text-align:center;background:#fff;border-radius:6px;padding:0.55rem;border:1px solid var(--border)"><div style="font-size:0.65rem;color:var(--text-muted);text-transform:uppercase">pKₐ used</div><div style="font-family:Cormorant Garamond,serif;font-size:1.1rem;font-weight:600;color:var(--navy)">'+fmtN(pKaAdj,2)+'</div></div>'
+      +'<div style="text-align:center;background:#fff;border-radius:6px;padding:0.55rem;border:1px solid var(--border)"><div style="font-size:0.65rem;color:var(--text-muted);text-transform:uppercase">[A⁻]/[HA]</div><div style="font-family:Cormorant Garamond,serif;font-size:1.1rem;font-weight:600;color:var(--navy)">'+fmtN(ratio,3)+'</div></div>'
+      +'<div style="text-align:center;background:#fff;border-radius:6px;padding:0.55rem;border:1px solid var(--border)"><div style="font-size:0.65rem;color:var(--text-muted);text-transform:uppercase">% base</div><div style="font-family:Cormorant Garamond,serif;font-size:1.1rem;font-weight:600;color:var(--navy)">'+fmtN((cBase/conc)*100,1)+'%</div></div>'
+      +'</div>';
+
+    out.innerHTML = html;
+    out.classList.add('show');
+  }
+
+  function calcHH() {
+    var pka=parseFloat(document.getElementById('hh-pka-ph').value);
+    var ratio=parseFloat(document.getElementById('hh-ratio-ph').value);
+    if (hhSubMode==='ph') {
+      var phEl=document.getElementById('hh-result-ph');
+      if (isNaN(pka)||isNaN(ratio)||ratio<=0) {
+        document.getElementById('hh-ph-box').classList.add('error');
+        document.getElementById('hh-ph-val').textContent='Invalid';
+        phEl.style.display='block'; return;
+      }
+      var ph=pka+Math.log10(ratio);
+      document.getElementById('hh-ph-box').classList.remove('error');
+      document.getElementById('hh-ph-val').textContent=fmtN(ph,2);
+      document.getElementById('hh-ph-note').textContent='pKₐ '+fmtN(pka,2)+' + log('+fmtN(ratio,3)+')';
+      document.getElementById('hh-ph-range').textContent=fmtN(pka-1,2)+' – '+fmtN(pka+1,2);
+      document.getElementById('hh-ph-marker').style.left=Math.min(100,Math.max(0,(ph/14)*100))+'%';
+      phEl.style.display='block';
+    } else if (hhSubMode==='ratio') {
+      pka=parseFloat(document.getElementById('hh-pka-ratio').value);
+      var phR=parseFloat(document.getElementById('hh-ph-ratio').value);
+      var ratioEl=document.getElementById('hh-result-ratio');
+      if (isNaN(pka)||isNaN(phR)) { document.getElementById('hh-ratio-box').classList.add('error'); document.getElementById('hh-ratio-val').textContent='Invalid'; ratioEl.style.display='grid'; return; }
+      var r=Math.pow(10,phR-pka);
+      document.getElementById('hh-ratio-box').classList.remove('error');
+      document.getElementById('hh-ratio-val').textContent=fmtN(r,4);
+      document.getElementById('hh-ratio-note').textContent=fmtN(r,3)+' parts base per 1 part acid';
+      document.getElementById('hh-ratio-pct').textContent=fmtN((r/(1+r))*100,1)+'%';
+      ratioEl.style.display='grid';
+    } else {
+      var phP=parseFloat(document.getElementById('hh-ph-pka').value);
+      var rP=parseFloat(document.getElementById('hh-ratio-pka').value);
+      var pkaEl=document.getElementById('hh-result-pka');
+      if (isNaN(phP)||isNaN(rP)||rP<=0) { document.getElementById('hh-pka-box').classList.add('error'); document.getElementById('hh-pka-val').textContent='Invalid'; pkaEl.style.display='grid'; return; }
+      var pkaV=phP-Math.log10(rP);
+      document.getElementById('hh-pka-box').classList.remove('error');
+      document.getElementById('hh-pka-val').textContent=fmtN(pkaV,3);
+      document.getElementById('hh-pka-note').textContent='From pH '+fmtN(phP,2)+' and ratio '+fmtN(rP,4);
+      pkaEl.style.display='grid';
+    }
+  }
+
+  function resetBuf() {
+    document.querySelectorAll('#tab-buffer input[type="number"]').forEach(function(i){i.value='';});
+    document.getElementById('buf-temp').value='25';
+    document.getElementById('buf-recipe-out').innerHTML='';
+    document.getElementById('buf-recipe-out').classList.remove('show');
+    ['hh-result-ph','hh-result-ratio','hh-result-pka'].forEach(function(id){
+      var el=document.getElementById(id); if(el) el.style.display='none';
+    });
+    clearBufSelection();
+  }
+
+  /* ════════════════════════════════════════════════════════════════════
+     TAB NAV — stick below the main nav bar
+     Reads the actual rendered height of <nav> so it never hard-codes a px value.
+  ════════════════════════════════════════════════════════════════════ */
+  (function () {
+    var mainNav = document.querySelector('nav');
+    var tabNav  = document.querySelector('.tab-nav');
+    function applyOffset() {
+      if (mainNav && tabNav) {
+        tabNav.style.top = mainNav.getBoundingClientRect().height + 'px';
+      }
+    }
+    applyOffset();
+    window.addEventListener('resize', applyOffset);
+  })();
+
+  /* ════════════════════════════════════════════════════════════════════
+     TAB SWITCHING
+  ════════════════════════════════════════════════════════════════════ */
+  document.querySelectorAll('.tab-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      document.querySelectorAll('.tab-btn').forEach(function(b){b.classList.remove('active');});
+      document.querySelectorAll('.calc-panel').forEach(function(p){p.classList.remove('active');});
+      btn.classList.add('active');
+      document.getElementById('tab-'+btn.dataset.tab).classList.add('active');
+    });
+  });
+
+  /* Handle #hash on load (e.g. calculator.html#normality) */
+  (function(){
+    var hash = location.hash.replace('#','');
+    if (hash) {
+      var target = document.querySelector('[data-tab="'+hash+'"]');
+      if (target) target.click();
+    }
+  })();
+  </script>
+</body>
+</html>

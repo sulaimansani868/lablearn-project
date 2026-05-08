@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LabLearn — Free Laboratory Tutorials, Calculators & Apps</title>
+  <meta name="description" content="Free laboratory tutorials, interactive chemical calculators, and mobile apps for university students and researchers — built from 10 years of bench experience." />
+  <meta name="keywords" content="laboratory tutorials, molarity calculator, dilution calculator, chemical analysis, biochemistry, university lab, free lab tools" />
+  <meta name="author" content="Sani Sulaiman" />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="LabLearn" />
+  <meta property="og:title" content="LabLearn — Free Laboratory Tutorials, Calculators & Apps" />
+  <meta property="og:description" content="Free laboratory tutorials, interactive chemical calculators, and mobile apps for university students and researchers — built from 10 years of bench experience." />
+  <meta property="og:url" content="https://lablearn.netlify.app/index.html" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="LabLearn — Free Laboratory Tutorials, Calculators & Apps" />
+  <meta name="twitter:description" content="Free laboratory tutorials, interactive chemical calculators, and mobile apps for university students and researchers — built from 10 years of bench experience." />
+  <link rel="canonical" href="https://lablearn.netlify.app/index.html" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="alternate icon" type="image/png" href="favicon.png" />
+  <link rel="stylesheet" href="shared.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    /* NAV */
+    /* Hide desktop nav and show burger on medium screens and below */
+    @media (max-width: 900px) { }
+
+    /* HERO */
+    .hero { background: var(--navy); color: var(--white); padding: 7rem 5% 5rem; position: relative; overflow: hidden; }
+    .hero::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(11,124,110,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(11,124,110,0.08) 1px, transparent 1px); background-size: 48px 48px; pointer-events: none; }
+    .hero-inner { max-width: 1100px; position: relative; display: grid; grid-template-columns: 1fr 400px; gap: 3rem; align-items: center; }
+    .hero-visual { position: relative; }
+    .hero-visual svg { width: 100%; height: auto; max-height: 420px; }
+    /* Medium screens: shrink illustration column */
+    @media (max-width: 1024px) { .hero { padding: 5rem 5% 4rem; } .hero-inner { grid-template-columns: 1fr 320px; gap: 2rem; } }
+    /* Small tablet and below: stack vertically, hide illustration */
+    @media (max-width: 760px) { .hero-inner { grid-template-columns: 1fr; } .hero-visual { display: none; } .hero { padding: 4rem 5% 3rem; } }
+
+    /* Starting state — invisible and shifted down */
+    .reveal {
+      opacity: 0;
+      transform: translateY(36px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+    /* Ending state — fully visible, back in position */
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    /* Grid stagger — each child card starts invisible */
+    .reveal-grid > * {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+    /* When the grid becomes visible, reveal children one by one */
+    .reveal-grid.visible > *:nth-child(1) { opacity:1; transform:none; transition-delay: 0s; }
+    .reveal-grid.visible > *:nth-child(2) { opacity:1; transform:none; transition-delay: 0.13s; }
+    .reveal-grid.visible > *:nth-child(3) { opacity:1; transform:none; transition-delay: 0.26s; }
+    .reveal-grid.visible > *:nth-child(4) { opacity:1; transform:none; transition-delay: 0.08s; }
+    .reveal-grid.visible > *:nth-child(5) { opacity:1; transform:none; transition-delay: 0.18s; }
+    .reveal-grid.visible > *:nth-child(6) { opacity:1; transform:none; transition-delay: 0.28s; }
+    .hero-tag { display: inline-block; background: rgba(11,124,110,0.25); border: 1px solid rgba(19,168,150,0.4); color: #5ee8d8; font-family: 'IBM Plex Mono', monospace; font-size: 0.75rem; letter-spacing: 0.1em; padding: 0.3rem 0.75rem; border-radius: 2px; margin-bottom: 1.5rem; text-transform: uppercase; }
+    .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.6rem, 6vw, 4.2rem); font-weight: 600; line-height: 1.12; margin-bottom: 1.5rem; }
+    .hero h1 em { font-style: italic; color: var(--amber-light); }
+    .hero p { font-size: 1.1rem; color: #8fa3b5; max-width: 560px; margin-bottom: 2.5rem; line-height: 1.75; }
+    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-primary { background: var(--teal); color: var(--white); padding: 0.75rem 1.75rem; border-radius: 3px; text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: background 0.2s, transform 0.15s; display: inline-block; }
+    .btn-primary:hover { background: var(--teal-light); transform: translateY(-1px); }
+    .btn-outline { border: 1px solid rgba(255,255,255,0.25); color: var(--white); padding: 0.75rem 1.75rem; border-radius: 3px; text-decoration: none; font-weight: 500; font-size: 0.9rem; transition: border-color 0.2s, background 0.2s; display: inline-block; }
+    .btn-outline:hover { border-color: rgba(255,255,255,0.5); background: rgba(255,255,255,0.05); }
+    .hero-stats { margin-top: 3.5rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); display: flex; gap: 3rem; flex-wrap: wrap; }
+    @media (max-width: 900px) { .hero-stats { gap: 2rem; margin-top: 2.5rem; } }
+    .stat-num { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 600; color: var(--white); line-height: 1; }
+    .stat-label { font-size: 0.8rem; color: #5a7a90; letter-spacing: 0.06em; text-transform: uppercase; margin-top: 0.25rem; }
+
+    /* SECTIONS */
+    section { padding: 5rem 5%; }
+    @media (max-width: 900px) { section { padding: 3.5rem 5%; } }
+    .section-label { font-family: 'IBM Plex Mono', monospace; font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--teal); margin-bottom: 0.75rem; }
+    .section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 600; line-height: 1.2; color: var(--navy); margin-bottom: 1rem; }
+    .section-sub { color: var(--text-muted); font-size: 1rem; max-width: 560px; line-height: 1.75; }
+
+    /* FEATURES */
+    .features { background: var(--cream); }
+    .features-header { margin-bottom: 3.5rem; }
+    /* Always 3 equal columns on wide screens; 1 column on medium and below */
+    .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    @media (max-width: 900px) { .features-grid { grid-template-columns: 1fr; } }
+    .feature-card { background: var(--card-bg); border: 1px solid var(--border); border-top: 3px solid transparent; border-radius: 4px; padding: 2rem; transition: transform 0.2s; }
+    .feature-card:hover { transform: translateY(-3px); }
+    .feature-card.ct { border-top-color: var(--teal); }
+    .feature-card.ca { border-top-color: var(--amber); }
+    .feature-card.cn { border-top-color: var(--navy); }
+    .feature-icon { width: 44px; height: 44px; border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.25rem; font-size: 1.3rem; }
+    .ic-t { background: #e0f5f2; } .ic-a { background: #fdf1dd; } .ic-n { background: #e4ecf3; }
+    .feature-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; font-weight: 600; margin-bottom: 0.6rem; color: var(--navy); }
+    .feature-card p { font-size: 0.92rem; color: var(--text-muted); line-height: 1.7; }
+    .feature-link { display: inline-flex; align-items: center; gap: 0.35rem; margin-top: 1.25rem; font-size: 0.85rem; font-weight: 600; color: var(--teal); text-decoration: none; }
+    .feature-link:hover { color: var(--teal-light); }
+
+    /* TUTORIALS */
+    .tutorials { background: var(--navy); color: var(--white); }
+    .tutorials .section-title { color: var(--white); }
+    .tutorials .section-sub { color: #7a9ab5; }
+    .tutorials .section-label { color: var(--amber-light); }
+    .tutorials-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 3rem; }
+    @media (max-width: 768px) { .tutorials-layout { grid-template-columns: 1fr; } }
+    .tutorial-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 4px; padding: 1.75rem; cursor: pointer; transition: background 0.2s, border-color 0.2s; }
+    .tutorial-card:hover { background: rgba(255,255,255,0.08); border-color: rgba(19,168,150,0.4); }
+    .tutorial-tag { font-family: 'IBM Plex Mono', monospace; font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.2rem 0.6rem; border-radius: 2px; display: inline-block; margin-bottom: 0.9rem; }
+    .tag-basic { background: rgba(11,124,110,0.3); color: #5ee8d8; }
+    .tag-intermediate { background: rgba(212,134,10,0.3); color: #f5c060; }
+    .tag-advanced { background: rgba(168,50,50,0.25); color: #f08080; }
+    .tutorial-card h4 { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-weight: 600; color: var(--white); margin-bottom: 0.5rem; line-height: 1.3; }
+    .tutorial-card p { font-size: 0.88rem; color: #7a9ab5; line-height: 1.65; }
+    .tutorial-meta { margin-top: 1rem; display: flex; align-items: center; gap: 1rem; font-size: 0.78rem; color: #4a6a85; }
+
+    /* TOOLS STRIP */
+    .tools-strip { background: var(--teal); padding: 4rem 5%; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 2rem; }
+    @media (max-width: 900px) { .tools-strip { flex-direction: column; align-items: flex-start; padding: 3rem 5%; gap: 1.5rem; } }
+    .tools-strip-text h2 { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 600; color: var(--white); line-height: 1.2; margin-bottom: 0.4rem; }
+    .tools-strip-text p { color: rgba(255,255,255,0.7); font-size: 0.95rem; }
+    .tools-chips { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+    .chip { background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.2); color: var(--white); padding: 0.45rem 1rem; border-radius: 2px; font-size: 0.85rem; font-weight: 500; cursor: pointer; text-decoration: none; transition: background 0.2s; }
+    .chip:hover { background: rgba(255,255,255,0.25); }
+    .chip-ready { background: rgba(255,255,255,0.28); border-color: rgba(255,255,255,0.5); font-weight: 600; }
+
+    /* ABOUT */
+    .about { background: var(--cream-dark); }
+    .about-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 5rem; align-items: center; margin-top: 1rem; }
+    @media (max-width: 1024px) { .about-grid { gap: 3rem; } }
+    @media (max-width: 768px)  { .about-grid { grid-template-columns: 1fr; gap: 2.5rem; } }
+    .about-visual { background: var(--navy); border-radius: 6px; padding: 2.5rem; color: var(--white); font-family: 'IBM Plex Mono', monospace; font-size: 0.8rem; line-height: 2; border-left: 3px solid var(--teal); }
+    .code-comment { color: #4a7090; } .code-key { color: #5ee8d8; } .code-value { color: var(--amber-light); } .code-string { color: #a5d6b8; }
+    .skill-list { margin-top: 1.75rem; display: flex; flex-direction: column; gap: 0.75rem; }
+    .skill-item { display: flex; align-items: center; gap: 0.75rem; font-size: 0.92rem; color: var(--text-muted); }
+    .skill-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--teal); flex-shrink: 0; }
+
+    /* DONATION */
+    .donation { background: var(--navy); padding: 5rem 5%; position: relative; overflow: hidden; }
+    .donation::before { content: ''; position: absolute; inset: 0; background-image: radial-gradient(circle at 20% 50%, rgba(212,134,10,0.07) 0%, transparent 50%), radial-gradient(circle at 80% 50%, rgba(11,124,110,0.07) 0%, transparent 50%); pointer-events: none; }
+    .donation-inner { position: relative; max-width: 860px; margin: 0 auto; text-align: center; }
+    .donation .section-label { color: var(--amber-light); }
+    .donation .section-title { color: var(--white); margin-bottom: 1rem; }
+    .donation-sub { color: #7a9ab5; font-size: 1rem; line-height: 1.8; max-width: 580px; margin: 0 auto 3rem; }
+    .donation-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-bottom: 2rem; }
+    @media (max-width: 900px) { .donation-cards { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 640px) { .donation-cards { grid-template-columns: 1fr; } }
+    .donation-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; padding: 1.75rem 1.25rem; cursor: pointer; transition: border-color 0.25s, background 0.25s, transform 0.2s; position: relative; }
+    .donation-card:hover { background: rgba(255,255,255,0.09); border-color: rgba(245,166,35,0.45); transform: translateY(-3px); }
+    .donation-card.featured { border-color: rgba(245,166,35,0.5); background: rgba(245,166,35,0.07); }
+    .donation-badge { position: absolute; top: -11px; left: 50%; transform: translateX(-50%); background: var(--amber); color: var(--white); font-size: 0.68rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.22rem 0.75rem; border-radius: 20px; white-space: nowrap; }
+    .donation-amount { font-family: 'Cormorant Garamond', serif; font-size: 2.4rem; font-weight: 600; color: var(--white); line-height: 1; margin-bottom: 0.4rem; }
+    .donation-amount sup { font-size: 1.1rem; vertical-align: super; }
+    .donation-tier-label { font-size: 0.8rem; color: #7a9ab5; letter-spacing: 0.04em; margin-bottom: 1.25rem; }
+    .donation-perks { list-style: none; text-align: left; margin-bottom: 1.5rem; }
+    .donation-perks li { font-size: 0.83rem; color: #8fa3b5; padding: 0.3rem 0; display: flex; align-items: flex-start; gap: 0.5rem; }
+    .perk-check { color: var(--teal-light); font-weight: 700; flex-shrink: 0; }
+    .donate-btn { display: block; width: 100%; padding: 0.7rem; background: transparent; border: 1px solid rgba(255,255,255,0.2); color: var(--white); border-radius: 3px; font-family: 'IBM Plex Sans', sans-serif; font-size: 0.85rem; font-weight: 600; cursor: pointer; transition: background 0.2s, border-color 0.2s; }
+    .donate-btn:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.4); }
+    .donate-btn.featured-btn { background: var(--amber); border-color: var(--amber); color: var(--navy); }
+    .donate-btn.featured-btn:hover { background: var(--amber-light); border-color: var(--amber-light); }
+    .custom-amount-row { display: flex; gap: 0.75rem; max-width: 420px; margin: 1.5rem auto 0; }
+    .custom-input { flex: 1; padding: 0.7rem 1rem; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15); border-radius: 3px; color: var(--white); font-family: 'IBM Plex Sans', sans-serif; font-size: 0.95rem; }
+    .custom-input::placeholder { color: #4a6a85; }
+    .custom-input:focus { outline: none; border-color: rgba(245,166,35,0.5); }
+    .custom-donate-btn { padding: 0.7rem 1.25rem; background: var(--teal); border: none; color: var(--white); border-radius: 3px; font-family: 'IBM Plex Sans', sans-serif; font-size: 0.85rem; font-weight: 600; cursor: pointer; transition: background 0.2s; white-space: nowrap; }
+    .custom-donate-btn:hover { background: var(--teal-light); }
+    .donation-note { font-size: 0.82rem; color: #4a6a85; margin-top: 1.25rem; }
+
+    /* ── CURRENCY TOGGLE ── */
+    .currency-toggle { display: inline-flex; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 30px; padding: 4px; margin-bottom: 2.5rem; gap: 0; }
+    .currency-btn { padding: 0.42rem 1.3rem; border: none; border-radius: 26px; font-family: 'IBM Plex Sans', sans-serif; font-size: 0.88rem; font-weight: 600; cursor: pointer; background: transparent; color: #7a9ab5; transition: all 0.22s; letter-spacing: 0.03em; }
+    .currency-btn.active { background: var(--amber); color: var(--navy); box-shadow: 0 2px 8px rgba(212,134,10,0.35); }
+    .currency-btn:not(.active):hover { color: var(--white); }
+    .currency-platform-note { font-size: 0.8rem; margin-top: 0.5rem; padding: 0.5rem 1rem; border-radius: 4px; display: inline-block; }
+    .currency-platform-note.ngn { background: rgba(11,124,110,0.15); color: #5ee8d8; border: 1px solid rgba(11,124,110,0.25); }
+    .currency-platform-note.usd { background: rgba(245,166,35,0.10); color: #f5a623; border: 1px solid rgba(245,166,35,0.25); }
+
+    /* FOOTER */
+    @media (max-width: 900px) { }
+    to { opacity:1; transform: none; } }
+    @media (max-width: 900px) { }
+  </style>
+  <meta name="theme-color" content="#0d1f2d" />
+  <meta name="apple-mobile-web-app-capable"          content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title"            content="LabLearn" />
+</head>
+<body>
+
+  <!-- COMING SOON DIALOG -->
+  <div class="cs-overlay" id="csOverlay" role="dialog" aria-modal="true">
+    <div class="cs-box">
+      <div class="cs-icon">🔬</div>
+      <h3>Coming Soon</h3>
+      <p>The <span class="cs-page-name" id="csPageName">this page</span> is currently under development. Check back soon — it will be published here once it's ready.</p>
+      <button class="cs-close" id="csClose">Got it, thanks!</button>
+    </div>
+  </div>
+
+  <!-- NAV -->
+  <nav>
+    <a href="index.html" class="nav-logo">Lab<span>Learn</span></a>
+    <ul class="nav-links">
+      <li><a href="tutorials/index.html">Tutorials</a></li>
+      <li><a href="calculator.html">Calculators</a></li>
+      <li><a href="apps.html">Apps</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="#donate">Donate</a></li>
+      <li><a href="tutorials/index.html" class="nav-cta">Start Learning</a></li>
+    </ul>
+    <button class="nav-burger" id="navBurger" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </nav>
+
+  <div class="nav-mobile" id="navMobile">
+      <a href="tutorials/index.html">Tutorials</a>
+      <a href="calculator.html">Calculators</a>
+      <a href="apps.html">Apps</a>
+      <a href="about.html">About</a>
+	  <a href="contact.html">Contact</a>
+      <a href="index.html#donate">Donate</a>
+      <a href="tutorials/index.html" class="mob-cta">Start Learning</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+
+      <!-- LEFT: text content -->
+      <div class="hero-text">
+        <div class="hero-tag">University Laboratory Resource Hub</div>
+        <h1>Learn. Calculate.<br /><em>Work smarter</em> in the lab.</h1>
+        <p>Practical tutorials, interactive calculators, and mobile apps — all built from ten years of hands-on laboratory experience to help students and researchers work more confidently and accurately.</p>
+        <div class="hero-btns">
+          <a href="tutorials/index.html" class="btn-primary">Browse Tutorials</a>
+          <a href="calculator.html" class="btn-outline">Try the Calculators</a>
+        </div>
+        <div class="hero-stats">
+          <div><div class="stat-num">10+</div><div class="stat-label">Years Lab Experience</div></div>
+          <div><div class="stat-num">Free</div><div class="stat-label">All Tools & Content</div></div>
+          <div><div class="stat-num">iOS & Android</div><div class="stat-label">Mobile Apps</div></div>
+        </div>
+      </div>
+
+      <!-- RIGHT: SVG laboratory illustration (hidden on mobile) -->
+      <div class="hero-visual">
+        <svg viewBox="0 0 440 420" xmlns="http://www.w3.org/2000/svg" aria-label="Laboratory illustration">
+          <defs>
+            <linearGradient id="bgG" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#04111c"/>
+              <stop offset="100%" stop-color="#091825"/>
+            </linearGradient>
+            <radialGradient id="tealG" cx="50%" cy="60%" r="55%">
+              <stop offset="0%" stop-color="#13a896" stop-opacity="0.95"/>
+              <stop offset="100%" stop-color="#0b7c6e" stop-opacity="0.55"/>
+            </radialGradient>
+            <radialGradient id="amberG" cx="50%" cy="60%" r="55%">
+              <stop offset="0%" stop-color="#f5a623" stop-opacity="0.9"/>
+              <stop offset="100%" stop-color="#d4860a" stop-opacity="0.5"/>
+            </radialGradient>
+            <radialGradient id="blueG" cx="50%" cy="60%" r="55%">
+              <stop offset="0%" stop-color="#5090d8" stop-opacity="0.85"/>
+              <stop offset="100%" stop-color="#2060a8" stop-opacity="0.45"/>
+            </radialGradient>
+            <radialGradient id="winG" cx="50%" cy="30%" r="65%">
+              <stop offset="0%" stop-color="#1a4a6a" stop-opacity="0.7"/>
+              <stop offset="100%" stop-color="#04111c" stop-opacity="0"/>
+            </radialGradient>
+            <radialGradient id="flameG" cx="50%" cy="100%" r="70%">
+              <stop offset="0%" stop-color="#5ee8d8" stop-opacity="0.55"/>
+              <stop offset="100%" stop-color="#0b7c6e" stop-opacity="0"/>
+            </radialGradient>
+            <linearGradient id="benchG" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#182a3a"/>
+              <stop offset="100%" stop-color="#0d1e2d"/>
+            </linearGradient>
+            <linearGradient id="microscopeG" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#243a50"/>
+              <stop offset="100%" stop-color="#162838"/>
+            </linearGradient>
+          </defs>
+
+          <!-- Dark lab background -->
+          <rect width="440" height="420" fill="url(#bgG)"/>
+
+          <!-- ── WINDOW ── -->
+          <rect x="140" y="22" width="162" height="130" rx="4" fill="#0a1e30" stroke="#1e3a52" stroke-width="1.5"/>
+          <rect x="148" y="30" width="70" height="114" rx="2" fill="url(#winG)"/>
+          <rect x="226" y="30" width="70" height="114" rx="2" fill="#091622" opacity="0.7"/>
+          <line x1="222" y1="30" x2="222" y2="144" stroke="#1e3a52" stroke-width="2"/>
+          <line x1="148" y1="87" x2="296" y2="87" stroke="#1e3a52" stroke-width="2"/>
+          <!-- Stars / night sky in window -->
+          <circle cx="165" cy="50" r="1" fill="rgba(255,255,255,0.35)"/>
+          <circle cx="200" cy="42" r="0.8" fill="rgba(255,255,255,0.25)"/>
+          <circle cx="183" cy="68" r="1.2" fill="rgba(255,255,255,0.3)"/>
+          <circle cx="258" cy="55" r="0.9" fill="rgba(255,255,255,0.2)"/>
+          <circle cx="277" cy="38" r="1.1" fill="rgba(255,255,255,0.28)"/>
+          <circle cx="247" cy="72" r="0.7" fill="rgba(255,255,255,0.22)"/>
+          <!-- Moon suggestion -->
+          <circle cx="175" cy="105" r="10" fill="#f5e8c0" opacity="0.12"/>
+          <circle cx="180" cy="102" r="10" fill="#04111c" opacity="0.85"/>
+
+          <!-- ── SHELVING UNIT (left background) ── -->
+          <rect x="8" y="55" width="3" height="175" fill="#162838"/>
+          <rect x="118" y="55" width="3" height="175" fill="#162838"/>
+          <rect x="8" y="55" width="113" height="6" rx="2" fill="#1a3040"/>
+          <rect x="8" y="130" width="113" height="5" rx="2" fill="#1a3040"/>
+          <rect x="8" y="200" width="113" height="5" rx="2" fill="#1a3040"/>
+          <!-- Reagent bottles top shelf -->
+          <rect x="16" y="34" width="14" height="22" rx="2" fill="#0f2a40"/><rect x="18" y="29" width="10" height="7" rx="1" fill="#0f2a40"/>
+          <rect x="35" y="38" width="12" height="18" rx="2" fill="#122035"/><rect x="37" y="33" width="8" height="6" rx="1" fill="#122035"/>
+          <rect x="52" y="36" width="16" height="20" rx="2" fill="#0a1e30"/><rect x="54" y="31" width="12" height="7" rx="1" fill="#0a1e30"/>
+          <rect x="73" y="40" width="12" height="16" rx="2" fill="#102030"/><rect x="75" y="35" width="8" height="6" rx="1" fill="#102030"/>
+          <rect x="90" y="37" width="14" height="19" rx="2" fill="#0d2035"/>
+          <!-- Bottle labels -->
+          <rect x="17" y="41" width="12" height="9" rx="1" fill="rgba(94,232,216,0.18)"/>
+          <rect x="36" y="44" width="10" height="7" rx="1" fill="rgba(245,166,35,0.16)"/>
+          <rect x="53" y="42" width="14" height="8" rx="1" fill="rgba(80,144,216,0.16)"/>
+          <!-- Middle shelf items -->
+          <rect x="14" y="108" width="10" height="23" rx="2" fill="#0f2030"/>
+          <rect x="28" y="112" width="22" height="19" rx="2" fill="#0a1828"/>
+          <rect x="55" y="106" width="10" height="25" rx="2" fill="#0f2030"/>
+          <rect x="70" y="109" width="16" height="22" rx="2" fill="#091825"/>
+          <rect x="92" y="110" width="14" height="21" rx="2" fill="#0d1e2e"/>
+          <!-- Small label on middle shelf box -->
+          <rect x="30" y="117" width="18" height="9" rx="1" fill="rgba(255,255,255,0.06)"/>
+
+          <!-- ── BENCH SURFACE ── -->
+          <rect x="0" y="272" width="440" height="148" fill="url(#benchG)"/>
+          <rect x="0" y="270" width="440" height="5" fill="#243a50"/>
+          <rect x="0" y="275" width="440" height="1" fill="rgba(255,255,255,0.04)"/>
+
+          <!-- ── RING STAND + ROUND-BOTTOM FLASK (far left) ── -->
+          <rect x="22" y="287" width="46" height="7" rx="2" fill="#1e3040"/>
+          <rect x="42" y="200" width="5" height="90" fill="#1e3040"/>
+          <!-- Clamp ring -->
+          <ellipse cx="44" cy="238" rx="18" ry="6" fill="none" stroke="#2e4558" stroke-width="2"/>
+          <line x1="62" y1="238" x2="68" y2="238" stroke="#2e4558" stroke-width="2"/>
+          <!-- Round flask body -->
+          <circle cx="44" cy="252" r="20" fill="none" stroke="#3a6a80" stroke-width="1.5"/>
+          <circle cx="44" cy="255" r="17" fill="url(#tealG)" opacity="0.65"/>
+          <!-- Flask neck -->
+          <rect x="37" y="205" width="14" height="33" rx="4" fill="none" stroke="#3a6a80" stroke-width="1.5"/>
+          <!-- Stopper -->
+          <rect x="37" y="200" width="14" height="8" rx="2" fill="#243a50"/>
+          <!-- Hotplate -->
+          <rect x="18" y="272" width="52" height="9" rx="3" fill="#162838"/>
+          <rect x="22" y="274" width="44" height="5" rx="2" fill="#0d1e2d"/>
+          <!-- Heating coil glow -->
+          <rect x="24" y="275" width="40" height="3" rx="1" fill="rgba(200,80,30,0.35)"/>
+          <!-- Flame below flask -->
+          <path d="M34,272 Q38,258 44,265 Q50,258 54,272" fill="#5ee8d8" opacity="0.35"/>
+          <path d="M37,272 Q41,262 44,267 Q47,262 51,272" fill="#13a896" opacity="0.5"/>
+          <!-- Glow pool under flask -->
+          <ellipse cx="44" cy="273" rx="26" ry="6" fill="rgba(11,124,110,0.14)"/>
+          <!-- Condensation drop on flask side -->
+          <ellipse cx="53" cy="248" rx="2.5" ry="1.5" fill="rgba(255,255,255,0.1)" transform="rotate(20,53,248)"/>
+
+          <!-- ── LARGE ERLENMEYER FLASK (left-center) ── -->
+          <!-- Body outline -->
+          <path d="M148,214 L148,244 L118,280 L178,280 Z" fill="none" stroke="#3a6a80" stroke-width="1.5" stroke-linejoin="round"/>
+          <!-- Neck -->
+          <rect x="142" y="197" width="16" height="20" rx="4" fill="none" stroke="#3a6a80" stroke-width="1.5"/>
+          <!-- Stopper -->
+          <rect x="141" y="191" width="18" height="9" rx="3" fill="#243a50"/>
+          <!-- Teal liquid fill -->
+          <path d="M122,265 L148,244 L148,246 L122,268 Z" fill="url(#tealG)" opacity="0.4"/>
+          <path d="M122,268 L174,268 L174,280 L118,280 Z" fill="url(#tealG)" opacity="0.85"/>
+          <!-- Liquid surface meniscus -->
+          <path d="M123,268 Q148,263 173,268" fill="none" stroke="rgba(94,232,216,0.65)" stroke-width="1.2"/>
+          <!-- Inner highlight (glass thickness) -->
+          <line x1="151" y1="198" x2="151" y2="278" stroke="rgba(255,255,255,0.07)" stroke-width="2"/>
+          <!-- Bubbles -->
+          <circle cx="134" cy="273" r="2.5" fill="rgba(94,232,216,0.4)"/>
+          <circle cx="148" cy="267" r="1.8" fill="rgba(94,232,216,0.3)"/>
+          <circle cx="162" cy="275" r="3" fill="rgba(94,232,216,0.35)"/>
+          <circle cx="155" cy="261" r="1.5" fill="rgba(94,232,216,0.25)"/>
+          <!-- Label -->
+          <rect x="128" y="260" width="34" height="14" rx="2" fill="rgba(255,255,255,0.07)"/>
+          <text x="145" y="270" font-family="'IBM Plex Mono',monospace" font-size="6.5" fill="rgba(255,255,255,0.5)" text-anchor="middle">0.1M NaCl</text>
+          <!-- Glow under flask -->
+          <ellipse cx="148" cy="281" rx="34" ry="7" fill="rgba(11,124,110,0.13)"/>
+          <!-- Rising bubbles from stopper -->
+          <circle cx="150" cy="179" r="2.2" fill="rgba(94,232,216,0.2)"/>
+          <circle cx="147" cy="169" r="1.6" fill="rgba(94,232,216,0.14)"/>
+          <circle cx="152" cy="159" r="1.1" fill="rgba(94,232,216,0.09)"/>
+
+          <!-- ── TALL GRADUATED CYLINDER ── -->
+          <path d="M192,200 L192,280 L208,280 L208,200" fill="none" stroke="#3a6a80" stroke-width="1.5"/>
+          <ellipse cx="200" cy="200" rx="8" ry="3" fill="none" stroke="#3a6a80" stroke-width="1.5"/>
+          <ellipse cx="200" cy="280" rx="10" ry="4" fill="none" stroke="#3a6a80" stroke-width="1.5"/>
+          <rect x="193" y="280" width="14" height="5" rx="2" fill="#1e3040"/>
+          <!-- Liquid inside -->
+          <path d="M193,240 L193,279 L207,279 L207,240 Z" fill="url(#blueG)" opacity="0.65"/>
+          <ellipse cx="200" cy="240" rx="7" ry="2.5" fill="rgba(80,144,216,0.45)"/>
+          <!-- Graduation lines -->
+          <line x1="192" y1="255" x2="197" y2="255" stroke="#2e5070" stroke-width="0.8"/>
+          <line x1="192" y1="245" x2="198" y2="245" stroke="#2e5070" stroke-width="1"/>
+          <line x1="192" y1="230" x2="197" y2="230" stroke="#2e5070" stroke-width="0.8"/>
+          <line x1="192" y1="220" x2="198" y2="220" stroke="#2e5070" stroke-width="1"/>
+          <line x1="192" y1="265" x2="197" y2="265" stroke="#2e5070" stroke-width="0.8"/>
+          <!-- ml text -->
+          <text x="200" y="244" font-family="monospace" font-size="5" fill="rgba(80,144,216,0.55)" text-anchor="middle">50 mL</text>
+
+          <!-- ── BEAKER ── -->
+          <path d="M224,218 L224,280 L270,280 L270,218 Z" fill="none" stroke="#3a6a80" stroke-width="1.5"/>
+          <!-- Spout indent -->
+          <path d="M224,218 Q218,210 221,205" fill="none" stroke="#3a6a80" stroke-width="1.5"/>
+          <!-- Liquid (amber) -->
+          <rect x="225" y="253" width="44" height="26" fill="url(#amberG)" opacity="0.8"/>
+          <line x1="225" y1="253" x2="269" y2="253" stroke="rgba(245,166,35,0.75)" stroke-width="1.2"/>
+          <!-- Graduation marks -->
+          <line x1="224" y1="265" x2="231" y2="265" stroke="#3a5060" stroke-width="0.8"/>
+          <line x1="224" y1="255" x2="231" y2="255" stroke="#3a5060" stroke-width="0.8"/>
+          <line x1="224" y1="238" x2="231" y2="238" stroke="#3a5060" stroke-width="0.8"/>
+          <line x1="224" y1="228" x2="231" y2="228" stroke="#3a5060" stroke-width="0.8"/>
+          <!-- Glass reflection -->
+          <line x1="228" y1="219" x2="228" y2="279" stroke="rgba(255,255,255,0.07)" stroke-width="2"/>
+          <!-- Label -->
+          <rect x="232" y="260" width="28" height="12" rx="2" fill="rgba(255,255,255,0.07)"/>
+          <text x="246" y="269" font-family="monospace" font-size="5.5" fill="rgba(255,255,255,0.45)" text-anchor="middle">H₂SO₄</text>
+          <!-- Amber glow under beaker -->
+          <ellipse cx="247" cy="281" rx="28" ry="6" fill="rgba(212,134,10,0.12)"/>
+
+          <!-- ── TEST TUBE RACK ── -->
+          <!-- Rack frame -->
+          <rect x="285" y="254" width="78" height="6" rx="2" fill="#1a3040"/>
+          <rect x="285" y="276" width="78" height="7" rx="2" fill="#1a3040"/>
+          <rect x="287" y="254" width="3" height="29" fill="#1a3040"/>
+          <rect x="358" y="254" width="3" height="29" fill="#1a3040"/>
+          <!-- Test tube 1 — teal -->
+          <rect x="292" y="210" width="11" height="48" rx="5.5" fill="none" stroke="#2e5870" stroke-width="1.2"/>
+          <rect x="293.5" y="228" width="8" height="29" rx="4" fill="url(#tealG)" opacity="0.85"/>
+          <ellipse cx="297.5" cy="228" rx="4" ry="1.8" fill="rgba(94,232,216,0.4)"/>
+          <!-- TT2 — amber -->
+          <rect x="308" y="215" width="11" height="43" rx="5.5" fill="none" stroke="#2e5870" stroke-width="1.2"/>
+          <rect x="309.5" y="237" width="8" height="20" rx="4" fill="url(#amberG)" opacity="0.85"/>
+          <!-- TT3 — blue -->
+          <rect x="324" y="212" width="11" height="46" rx="5.5" fill="none" stroke="#2e5870" stroke-width="1.2"/>
+          <rect x="325.5" y="228" width="8" height="29" rx="4" fill="url(#blueG)" opacity="0.8"/>
+          <!-- TT4 — pink/clear -->
+          <rect x="340" y="217" width="11" height="41" rx="5.5" fill="none" stroke="#2e5870" stroke-width="1.2"/>
+          <rect x="341.5" y="238" width="8" height="19" rx="4" fill="rgba(210,80,120,0.6)"/>
+          <!-- TT5 — teal lighter -->
+          <rect x="356" y="214" width="11" height="44" rx="5.5" fill="none" stroke="#2e5870" stroke-width="1.2"/>
+          <rect x="357.5" y="232" width="8" height="25" rx="4" fill="url(#tealG)" opacity="0.6"/>
+          <!-- Glow from test tubes -->
+          <ellipse cx="325" cy="258" rx="42" ry="7" fill="rgba(11,124,110,0.08)"/>
+
+          <!-- ── MICROSCOPE ── -->
+          <!-- Base plate -->
+          <ellipse cx="408" cy="279" rx="28" ry="7" fill="#1a3040"/>
+          <!-- Vertical arm -->
+          <rect x="402" y="196" width="9" height="83" rx="3" fill="url(#microscopeG)"/>
+          <!-- Arm top curve -->
+          <rect x="386" y="193" width="28" height="10" rx="4" fill="#1e3848"/>
+          <!-- Stage -->
+          <rect x="383" y="242" width="44" height="8" rx="3" fill="#1e3848"/>
+          <rect x="387" y="244" width="12" height="4" rx="1" fill="#243a50"/>
+          <!-- Nosepiece -->
+          <rect x="388" y="195" width="22" height="12" rx="4" fill="#1a3040"/>
+          <!-- Objective 1 (long) -->
+          <rect x="393" y="205" width="6" height="22" rx="3" fill="#162838"/>
+          <ellipse cx="396" cy="227" rx="4" ry="2.5" fill="#0d1e2e" stroke="#2a4050" stroke-width="0.8"/>
+          <!-- Objective 2 (short) -->
+          <rect x="402" y="207" width="6" height="16" rx="3" fill="#162838"/>
+          <!-- Eyepiece tube -->
+          <rect x="395" y="168" width="12" height="26" rx="4" fill="#1e3848"/>
+          <ellipse cx="401" cy="167" rx="7" ry="4.5" fill="#162838" stroke="#2a4050" stroke-width="1"/>
+          <!-- Eyepiece lens reflection -->
+          <ellipse cx="401" cy="167" rx="4" ry="3" fill="rgba(80,144,216,0.25)"/>
+          <!-- Coarse focus knobs -->
+          <ellipse cx="393" cy="228" rx="5" ry="9" fill="#162838" stroke="#243a50" stroke-width="0.8"/>
+          <ellipse cx="414" cy="228" rx="5" ry="9" fill="#162838" stroke="#243a50" stroke-width="0.8"/>
+          <!-- Fine focus knob -->
+          <ellipse cx="393" cy="215" rx="3" ry="5" fill="#162838" stroke="#243a50" stroke-width="0.8"/>
+          <!-- Light cone from objective -->
+          <path d="M393,248 L383,265 L410,265 L400,248 Z" fill="rgba(94,232,216,0.06)"/>
+          <ellipse cx="396" cy="265" rx="12" ry="3" fill="rgba(94,232,216,0.1)"/>
+          <!-- Stage clip -->
+          <rect x="384" y="240" width="8" height="3" rx="1" fill="#2a4055"/>
+
+          <!-- ── FLOATING CHEMICAL ANNOTATIONS ── -->
+          <text x="92" y="165" font-family="'IBM Plex Mono',monospace" font-size="9" fill="rgba(94,232,216,0.22)" transform="rotate(-7,92,165)">pH = 7.4</text>
+          <text x="218" y="196" font-family="'IBM Plex Mono',monospace" font-size="8" fill="rgba(94,232,216,0.17)" transform="rotate(-4,218,196)">C₁V₁=C₂V₂</text>
+          <text x="346" y="188" font-family="'IBM Plex Mono',monospace" font-size="8" fill="rgba(245,166,35,0.18)" transform="rotate(5,346,188)">mol/L</text>
+          <text x="78" y="230" font-family="'IBM Plex Mono',monospace" font-size="8" fill="rgba(138,168,200,0.15)">A = εcl</text>
+          <text x="115" y="250" font-family="'IBM Plex Mono',monospace" font-size="7" fill="rgba(138,168,200,0.12)">λmax</text>
+
+          <!-- ── AMBIENT GLOW POOLS ON BENCH ── -->
+          <ellipse cx="44" cy="275" rx="32" ry="8" fill="rgba(11,124,110,0.1)"/>
+          <ellipse cx="148" cy="282" rx="38" ry="9" fill="rgba(11,124,110,0.1)"/>
+          <ellipse cx="247" cy="282" rx="30" ry="7" fill="rgba(212,134,10,0.09)"/>
+          <ellipse cx="200" cy="281" rx="16" ry="5" fill="rgba(80,144,216,0.08)"/>
+
+          <!-- Overhead fluorescent light bar suggestion -->
+          <rect x="80" y="14" width="280" height="5" rx="2" fill="rgba(200,230,255,0.05)"/>
+          <ellipse cx="220" cy="16" rx="140" ry="30" fill="rgba(255,255,255,0.02)"/>
+        </svg>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="features" id="features">
+    <div class="features-header reveal">
+      <div class="section-label">What you'll find here</div>
+      <h2 class="section-title">Everything a lab student needs</h2>
+      <p class="section-sub">From foundational concepts to advanced instrumentation — with the tools to apply your knowledge right away.</p>
+    </div>
+    <div class="features-grid reveal-grid">
+      <div class="feature-card ct">
+        <div class="feature-icon ic-t">🧪</div>
+        <h3>Laboratory Tutorials</h3>
+        <p>Step-by-step guides covering analytical techniques, sample preparation, safety protocols, and instrumentation — written clearly for every level.</p>
+        <a href="tutorials/index.html" class="feature-link">Browse tutorials →</a>
+      </div>
+      <div class="feature-card ca">
+        <div class="feature-icon ic-a">⚗️</div>
+        <h3>Online Calculators</h3>
+        <p>Concentration converters, dilution calculators, molarity tools, and more. Use them in the browser — no download needed.</p>
+        <a href="calculator.html" class="feature-link">Open calculators →</a>
+      </div>
+      <div class="feature-card cn">
+        <div class="feature-icon ic-n">📱</div>
+        <h3>Mobile Apps</h3>
+        <p>Download Android and iOS apps for reagent calculations, inventory management, and instrument logs — built for real bench use.</p>
+        <a href="apps.html" class="feature-link">Download apps →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TUTORIALS -->
+  <section class="tutorials" id="tutorials">
+    <div class="reveal">
+      <div class="section-label">Learn</div>
+      <h2 class="section-title">Featured tutorials</h2>
+      <p class="section-sub">Guides built from real laboratory experience — practical, precise, and free.</p>
+    </div>
+    <div class="tutorials-layout reveal-grid">
+      <a class="tutorial-card" href="tutorials/molarity-concentration.html" style="text-decoration:none;color:inherit;display:block;">
+        <div class="tutorial-tag tag-basic">Beginner</div>
+        <h4>Understanding Molarity, Molality & Normality</h4>
+        <p>A clear comparison of the three major concentration units with worked examples and when to use each in practice.</p>
+        <div class="tutorial-meta"><span>📖 12 min read</span><span>🔬 Quantitative Analysis</span></div>
+      </a>
+      <a class="tutorial-card" href="tutorials/serial-dilutions.html" style="text-decoration:none;color:inherit;display:block;">
+        <div class="tutorial-tag tag-basic">Beginner</div>
+        <h4>Serial Dilutions: Technique & Calculation</h4>
+        <p>Master the serial dilution method used in microbiology, biochemistry, and clinical labs. Includes practice problems.</p>
+        <div class="tutorial-meta"><span>📖 10 min read</span><span>🔬 Dilution Techniques</span></div>
+      </a>
+      <a class="tutorial-card" href="tutorials/uv-vis-spectrophotometry.html" style="text-decoration:none;color:inherit;display:block;">
+        <div class="tutorial-tag tag-intermediate">Intermediate</div>
+        <h4>UV-Vis Spectrophotometry Explained</h4>
+        <p>From Beer-Lambert law to practical calibration curves — how to set up, run, and interpret spectrophotometric assays.</p>
+        <div class="tutorial-meta"><span>📖 18 min read</span><span>🔬 Instrumentation</span></div>
+      </a>
+      <a class="tutorial-card" href="tutorials/standard-solutions.html" style="text-decoration:none;color:inherit;display:block;">
+        <div class="tutorial-tag tag-intermediate">Intermediate</div>
+        <h4>Preparing Standard Solutions Accurately</h4>
+        <p>Common mistakes and best practices when preparing primary and secondary standards for analytical work.</p>
+        <div class="tutorial-meta"><span>📖 14 min read</span><span>🔬 Reagent Preparation</span></div>
+      </a>
+      <a class="tutorial-card" href="tutorials/hplc-method-development.html" style="text-decoration:none;color:inherit;display:block;">
+        <div class="tutorial-tag tag-advanced">Advanced</div>
+        <h4>HPLC Method Development Fundamentals</h4>
+        <p>Choosing the right column, mobile phase, and gradient — a practical introduction for analysts moving beyond UV-Vis.</p>
+        <div class="tutorial-meta"><span>📖 25 min read</span><span>🔬 Chromatography</span></div>
+      </a>
+      <a class="tutorial-card" href="tutorials/lab-safety.html" style="text-decoration:none;color:inherit;display:block;">
+        <div class="tutorial-tag tag-basic">Beginner</div>
+        <h4>Laboratory Safety: Chemical Hazard Classes</h4>
+        <p>GHS pictograms, SDS interpretation, and practical safety rules every lab user should know before handling chemicals.</p>
+        <div class="tutorial-meta"><span>📖 8 min read</span><span>🔬 Safety</span></div>
+      </a>
+    </div>
+  </section>
+
+  <!-- TOOLS STRIP -->
+  <div class="tools-strip" id="tools">
+    <div class="tools-strip-text reveal">
+      <h2>Online Calculators</h2>
+      <p>Free browser-based tools — no login, no download required.</p>
+    </div>
+    <div class="tools-chips reveal">
+      <a href="calculator.html#molarity" class="chip chip-ready">Molarity Calculator</a>
+      <a href="calculator.html#dilution" class="chip chip-ready">Dilution Calculator</a>
+      <a href="calculator.html#percent" class="chip chip-ready">Percent Solution</a>
+      <a href="calculator.html#units" class="chip chip-ready">Unit Converter</a>
+      <a href="calculator.html#buffer" class="chip chip-ready">Buffer Preparation</a>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="about-grid reveal-grid">
+      <div class="about-visual">
+        <div class="code-comment"># LabLearn — built from experience</div><br />
+        <div><span class="code-key">background</span>: <span class="code-string">"10 years university lab"</span></div>
+        <div><span class="code-key">specialties</span>: [</div>
+        <div>&nbsp;&nbsp;<span class="code-value">"chemical analysis"</span>,</div>
+        <div>&nbsp;&nbsp;<span class="code-value">"biochemical methods"</span>,</div>
+        <div>&nbsp;&nbsp;<span class="code-value">"instrumentation"</span>,</div>
+        <div>&nbsp;&nbsp;<span class="code-value">"lab software dev"</span></div>
+        <div>]</div><br />
+        <div><span class="code-key">mission</span>: <span class="code-string">"share knowledge freely"</span></div>
+        <div><span class="code-key">cost</span>: <span class="code-value">0</span></div>
+      </div>
+      <div class="about-content">
+        <div class="section-label">About this site</div>
+        <h2 class="section-title">Knowledge from the bench, shared freely</h2>
+        <p class="section-sub">This platform was built by a laboratory professional with over a decade of experience in chemical and biochemical analysis — because good lab education shouldn't be locked behind paywalls or buried in textbooks.</p>
+        <div class="skill-list">
+          <div class="skill-item"><div class="skill-dot"></div>Quantitative and qualitative chemical analysis</div>
+          <div class="skill-item"><div class="skill-dot"></div>Biochemical assays and method development</div>
+          <div class="skill-item"><div class="skill-dot"></div>Laboratory instrumentation (UV-Vis, HPLC, AAS, and more)</div>
+          <div class="skill-item"><div class="skill-dot"></div>Mobile app development for laboratory workflows</div>
+          <div class="skill-item"><div class="skill-dot"></div>Inventory systems and lab data management</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DONATION -->
+  <section class="donation" id="donate">
+    <div class="donation-inner reveal">
+      <div class="section-label">Support the project</div>
+      <h2 class="section-title">Keep LabLearn free for everyone</h2>
+      <p class="donation-sub">All tutorials, calculators, and apps on this site are free — and will stay that way. If this platform has helped your studies or lab work, consider supporting the project. Every contribution goes directly into new content and tools.</p>
+
+      <!-- ── CURRENCY TOGGLE ── -->
+      <div class="currency-toggle" role="group" aria-label="Select currency">
+        <button class="currency-btn active" id="btnNGN" onclick="setCurrency('NGN')"
+                aria-pressed="true">&#x20A6; Naira (NGN)</button>
+        <button class="currency-btn" id="btnUSD" onclick="setCurrency('USD')"
+                aria-pressed="false">&#x24; Dollar (USD)</button>
+      </div>
+      <div id="platformNote" class="currency-platform-note ngn">
+        &#x1F1F3;&#x1F1EC; Nigerian donors &mdash; pay via Paystack using any Nigerian bank card, transfer, or USSD
+      </div>
+
+      <!-- ── DONATION CARDS ── -->
+      <div class="donation-cards reveal-grid" style="margin-top:1.75rem">
+
+        <!-- Tier 1 -->
+        <div class="donation-card">
+          <div class="donation-amount" id="amt1"><sup>&#x20A6;</sup>5,000</div>
+          <div class="donation-tier-label" id="lbl1">A coffee &#x2615;</div>
+          <ul class="donation-perks">
+            <li><span class="perk-check">&#x2713;</span>Keeps the site running</li>
+            <li><span class="perk-check">&#x2713;</span>Access to all free content</li>
+            <li><span class="perk-check">&#x2713;</span>My sincere gratitude</li>
+          </ul>
+          <button class="donate-btn" id="btn1" onclick="handleDonate(1)">Donate &#x20A6;5,000</button>
+        </div>
+
+        <!-- Tier 2 (featured) -->
+        <div class="donation-card featured">
+          <div class="donation-badge">Most popular</div>
+          <div class="donation-amount" id="amt2"><sup>&#x20A6;</sup>16,000</div>
+          <div class="donation-tier-label" id="lbl2">Support a tutorial &#x1F4D6;</div>
+          <ul class="donation-perks">
+            <li><span class="perk-check">&#x2713;</span>Funds one new tutorial page</li>
+            <li><span class="perk-check">&#x2713;</span>Your name in the credits</li>
+            <li><span class="perk-check">&#x2713;</span>Early access to new content</li>
+          </ul>
+          <button class="donate-btn featured-btn" id="btn2" onclick="handleDonate(2)">Donate &#x20A6;16,000</button>
+        </div>
+
+        <!-- Tier 3 -->
+        <div class="donation-card">
+          <div class="donation-amount" id="amt3"><sup>&#x20A6;</sup>40,000</div>
+          <div class="donation-tier-label" id="lbl3">Fund a calculator &#x1F9EE;</div>
+          <ul class="donation-perks">
+            <li><span class="perk-check">&#x2713;</span>Funds a new calculator tool</li>
+            <li><span class="perk-check">&#x2713;</span>Priority feature requests</li>
+            <li><span class="perk-check">&#x2713;</span>Sponsor credit on the tool</li>
+          </ul>
+          <button class="donate-btn" id="btn3" onclick="handleDonate(3)">Donate &#x20A6;40,000</button>
+        </div>
+
+      </div>
+
+      <div class="custom-amount-row">
+        <input type="number" class="custom-input" id="customAmount"
+               placeholder="Custom amount" min="1" />
+        <button class="custom-donate-btn" onclick="handleCustomDonate()">Donate custom</button>
+      </div>
+
+      <p class="donation-note" id="donateNote">
+        &#x1F512; Secure payment via Paystack &nbsp;&middot;&nbsp; Bank card, transfer &amp; USSD accepted &nbsp;&middot;&nbsp; No account needed
+      </p>
+    </div>
+  </section>
+  var PAYSTACK_URL = 'https://paystack.com/pay/YOUR_PAYMENT_PAGE'; /* ← replace */
+  var BUYMEACOFFEE_URL = 'https://buymeacoffee.com/YOUR_USERNAME';      /* ← replace */
+
+  var activeCurrency = 'NGN';
+
+  /* Tier data: [symbol, amount display, button label] */
+  var TIERS = {
+    NGN: [
+      ['\u20A6', '5,000',  'Donate \u20A65,000'],
+      ['\u20A6', '16,000', 'Donate \u20A616,000'],
+      ['\u20A6', '40,000', 'Donate \u20A640,000'],
+    ],
+    USD: [
+      ['$', '3',  'Donate $3'],
+      ['$', '10', 'Donate $10'],
+      ['$', '25', 'Donate $25'],
+    ]
+  };
+
+  function setCurrency(cur) {
+    activeCurrency = cur;
+
+    /* Toggle button states */
+    document.getElementById('btnNGN').classList.toggle('active', cur === 'NGN');
+    document.getElementById('btnUSD').classList.toggle('active', cur === 'USD');
+    document.getElementById('btnNGN').setAttribute('aria-pressed', cur === 'NGN');
+    document.getElementById('btnUSD').setAttribute('aria-pressed', cur === 'USD');
+
+    /* Update card amounts and button labels */
+    var tiers = TIERS[cur];
+    for (var i = 0; i < 3; i++) {
+      var sym = tiers[i][0], amt = tiers[i][1], btnLbl = tiers[i][2];
+      document.getElementById('amt'+(i+1)).innerHTML = '<sup>'+sym+'</sup>'+amt;
+      document.getElementById('btn'+(i+1)).textContent = btnLbl;
+    }
+
+    /* Update custom placeholder */
+    document.getElementById('customAmount').placeholder =
+      cur === 'NGN' ? 'Custom amount (\u20A6)' : 'Custom amount ($)';
+
+    /* Update platform note */
+    var note = document.getElementById('platformNote');
+    if (cur === 'NGN') {
+      note.className = 'currency-platform-note ngn';
+      note.innerHTML = '&#x1F1F3;&#x1F1EC; Nigerian donors &mdash; pay via Paystack using any Nigerian bank card, transfer, or USSD';
+    } else {
+      note.className = 'currency-platform-note usd';
+      note.innerHTML = '&#x1F30D; International donors &mdash; pay via Buy Me a Coffee using any card or PayPal';
+    }
+
+    /* Update footer note */
+    document.getElementById('donateNote').innerHTML = cur === 'NGN'
+      ? '&#x1F512; Secure payment via Paystack &nbsp;&middot;&nbsp; Bank card, transfer &amp; USSD accepted &nbsp;&middot;&nbsp; No account needed'
+      : '&#x1F512; Secure payment via Buy Me a Coffee &nbsp;&middot;&nbsp; Card &amp; PayPal accepted &nbsp;&middot;&nbsp; No account needed';
+  }
+
+  /* Tier button clicked — route to correct platform */
+  function handleDonate(tier) {
+    if (activeCurrency === 'NGN') {
+      window.open(PAYSTACK_URL, '_blank');
+    } else {
+      window.open(BUYMEACOFFEE_URL, '_blank');
+    }
+  }
+
+  /* Custom amount button */
+  function handleCustomDonate() {
+    var val = document.getElementById('customAmount').value;
+    if (!val || isNaN(val) || Number(val) < 1) {
+      alert('Please enter a valid amount.');
+      return;
+    }
+    if (activeCurrency === 'NGN') {
+      window.open(PAYSTACK_URL, '_blank');
+    } else {
+      window.open(BUYMEACOFFEE_URL, '_blank');
+    }
+  }
+  </script>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">Lab<span>Learn</span></div>
+    <ul class="footer-links">
+      <li><a href="tutorials/index.html">Tutorials</a></li>
+      <li><a href="calculator.html">Calculators</a></li>
+      <li><a href="apps.html">Apps</a></li>
+	  <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="index.html#donate">Donate</a></li>
+    </ul>
+    <div class="footer-copy">© 2025 LabLearn. Free for students &amp; researchers.</div>
+  </footer>
+
+  <script src="shared.js" defer></script>
+</body>
+</html>

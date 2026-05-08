@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Sani Sulaiman — LabLearn</title>
+  <meta name="description" content="About Sani Sulaiman, Senior Laboratory Technician at Sa'adu Zungur University Gadau and creator of LabLearn — a free laboratory education platform for students and researchers." />
+  <meta name="keywords" content="Sani Sulaiman, LabLearn, laboratory technician, Sa'adu Zungur University, Gadau, biochemistry, laboratory education" />
+  <meta name="author" content="Sani Sulaiman" />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:type" content="profile" />
+  <meta property="og:site_name" content="LabLearn" />
+  <meta property="og:title" content="About Sani Sulaiman — LabLearn" />
+  <meta property="og:description" content="Senior Laboratory Technician at Sa&apos;adu Zungur University Gadau and creator of LabLearn — a free laboratory education platform." />
+  <meta property="og:url" content="https://lablearn.netlify.app/about.html" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="About Sani Sulaiman — LabLearn" />
+  <meta name="twitter:description" content="Senior Laboratory Technician at Sa&apos;adu Zungur University Gadau and creator of LabLearn." />
+  <link rel="canonical" href="https://lablearn.netlify.app/about.html" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="alternate icon" type="image/png" href="favicon.png" />
+  <link rel="stylesheet" href="shared.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <meta name="theme-color" content="#0d1f2d" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="LabLearn" />
+  <style>
+    /* ── PAGE HEADER ── */
+    .page-header { background: var(--navy); padding: 4rem 5% 3.5rem; position: relative; overflow: hidden; }
+    .page-header::before { content:''; position:absolute; inset:0; background-image: linear-gradient(rgba(11,124,110,0.08) 1px,transparent 1px),linear-gradient(90deg,rgba(11,124,110,0.08) 1px,transparent 1px); background-size:48px 48px; pointer-events:none; }
+    .page-header-inner { position:relative; max-width:1100px; margin:0 auto; display:grid; grid-template-columns:1fr auto; align-items:center; gap:3rem; }
+    @media (max-width:700px){ .page-header-inner{ grid-template-columns:1fr; } .avatar-wrap{ display:flex; justify-content:flex-start; margin-bottom:0.5rem; order:-1; } }
+    .page-tag { display:inline-block; background:rgba(11,124,110,0.25); border:1px solid rgba(19,168,150,0.4); color:#5ee8d8; font-family:'IBM Plex Mono',monospace; font-size:0.72rem; letter-spacing:0.1em; padding:0.25rem 0.7rem; border-radius:2px; margin-bottom:1rem; text-transform:uppercase; }
+    .page-header h1 { font-family:'Cormorant Garamond',serif; font-size:clamp(2rem,5vw,3rem); font-weight:600; color:#fff; line-height:1.15; margin-bottom:0.5rem; }
+    .page-header .sub-name { font-family:'IBM Plex Mono',monospace; font-size:0.82rem; color:#5ee8d8; letter-spacing:0.06em; margin-bottom:0.75rem; }
+    .page-header p { color:#7a9ab5; font-size:1rem; max-width:520px; line-height:1.75; }
+
+    /* ── AVATAR ── */
+    .avatar-wrap { flex-shrink:0; }
+    .avatar { width:160px; height:160px; border-radius:50%; overflow:hidden; border:3px solid rgba(19,168,150,0.5); box-shadow:0 0 0 6px rgba(11,124,110,0.15), 0 8px 32px rgba(0,0,0,0.35); }
+    .avatar img { width:100%; height:100%; object-fit:cover; display:block; }
+
+    /* ── MAIN LAYOUT ── */
+    .about-main { max-width:1100px; margin:0 auto; padding:4rem 5%; display:grid; grid-template-columns:1fr 340px; gap:4rem; align-items:start; }
+    @media (max-width:900px){ .about-main{ grid-template-columns:1fr; gap:2.5rem; } }
+
+    /* ── BIO ── */
+    .bio-section h2 { font-family:'Cormorant Garamond',serif; font-size:1.9rem; font-weight:600; color:var(--navy); margin-bottom:1rem; }
+    .bio-section p { font-size:0.97rem; color:var(--text); line-height:1.85; margin-bottom:1.1rem; }
+    .bio-section p:last-child { margin-bottom:0; }
+
+    /* ── CAREER TIMELINE ── */
+    .section-mono-label { font-family:'IBM Plex Mono',monospace; font-size:0.7rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--teal); margin-bottom:1.25rem; margin-top:2.5rem; display:block; }
+    .timeline { border-left:2px solid var(--border); margin-left:0.75rem; display:flex; flex-direction:column; gap:0; }
+    .tl-item { position:relative; padding:0 0 1.75rem 1.75rem; }
+    .tl-item:last-child { padding-bottom:0; }
+    .tl-dot { position:absolute; left:-6px; top:5px; width:10px; height:10px; border-radius:50%; background:var(--teal); border:2px solid var(--cream); }
+    .tl-dot.current { background:var(--amber); border-color:var(--cream); width:13px; height:13px; left:-7px; box-shadow:0 0 0 3px rgba(212,134,10,0.25); }
+    .tl-period { font-family:'IBM Plex Mono',monospace; font-size:0.72rem; color:var(--teal); letter-spacing:0.05em; margin-bottom:0.25rem; }
+    .tl-role { font-size:0.95rem; font-weight:600; color:var(--navy); margin-bottom:0.15rem; }
+    .tl-org { font-size:0.85rem; color:var(--text-muted); line-height:1.5; }
+    .tl-badge-current { display:inline-block; background:rgba(212,134,10,0.15); color:var(--amber); font-family:'IBM Plex Mono',monospace; font-size:0.65rem; letter-spacing:0.08em; padding:0.15rem 0.55rem; border-radius:2px; border:1px solid rgba(212,134,10,0.3); margin-top:0.3rem; text-transform:uppercase; }
+
+    /* ── EXPERTISE GRID ── */
+    .expertise-grid { display:grid; grid-template-columns:1fr 1fr; gap:0.85rem; margin-top:0.5rem; }
+    @media (max-width:480px){ .expertise-grid{ grid-template-columns:1fr; } }
+    .expertise-card { background:var(--white); border:1px solid var(--border); border-left:3px solid var(--teal); border-radius:3px; padding:0.85rem 1.1rem; }
+    .expertise-card h4 { font-size:0.88rem; font-weight:600; color:var(--navy); margin-bottom:0.2rem; }
+    .expertise-card p { font-size:0.82rem; color:var(--text-muted); margin:0; line-height:1.55; }
+
+    /* ── RIGHT SIDEBAR ── */
+    .about-sidebar { display:flex; flex-direction:column; gap:1.25rem; }
+
+    /* Info card */
+    .info-card { background:var(--navy); border-radius:6px; padding:1.4rem 1.5rem; }
+    .info-card-label { font-family:'IBM Plex Mono',monospace; font-size:0.68rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--amber-light); margin-bottom:1rem; }
+    .info-row { display:flex; align-items:flex-start; gap:0.85rem; padding:0.65rem 0; border-bottom:1px solid rgba(255,255,255,0.07); }
+    .info-row:last-child { border-bottom:none; padding-bottom:0; }
+    .info-icon { width:32px; height:32px; border-radius:7px; display:flex; align-items:center; justify-content:center; font-size:0.95rem; flex-shrink:0; }
+    .info-icon.institution { background:rgba(11,124,110,0.3); }
+    .info-icon.dept        { background:rgba(212,134,10,0.3); }
+    .info-icon.location    { background:rgba(19,168,150,0.2); }
+    .info-icon.role        { background:rgba(94,232,216,0.15); }
+    .info-icon.years       { background:rgba(255,255,255,0.08); }
+    .info-text-label { font-size:0.68rem; color:#5a7a90; letter-spacing:0.05em; text-transform:uppercase; }
+    .info-text-value { font-size:0.88rem; color:#c8d8e8; font-weight:500; line-height:1.45; }
+
+    /* Mission pillars */
+    .pillars { background:var(--white); border:1px solid var(--border); border-radius:6px; padding:1.4rem 1.5rem; }
+    .pillars-label { font-family:'IBM Plex Mono',monospace; font-size:0.68rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--teal); margin-bottom:1rem; }
+    .pillar { display:flex; align-items:flex-start; gap:0.75rem; padding:0.6rem 0; border-bottom:1px solid var(--border); }
+    .pillar:last-child { border-bottom:none; padding-bottom:0; }
+    .pillar-icon { font-size:1.2rem; flex-shrink:0; margin-top:0.05rem; }
+    .pillar-text h4 { font-size:0.88rem; font-weight:600; color:var(--navy); margin-bottom:0.15rem; }
+    .pillar-text p  { font-size:0.81rem; color:var(--text-muted); margin:0; line-height:1.55; }
+
+    /* CTA card */
+    .cta-card { background:linear-gradient(135deg,var(--teal) 0%,#0a6558 100%); border-radius:6px; padding:1.4rem 1.5rem; }
+    .cta-card h3 { font-family:'Cormorant Garamond',serif; font-size:1.25rem; font-weight:600; color:#fff; margin-bottom:0.5rem; }
+    .cta-card p  { font-size:0.84rem; color:rgba(255,255,255,0.8); line-height:1.65; margin-bottom:1rem; }
+    .cta-btns { display:flex; flex-direction:column; gap:0.6rem; }
+    .cta-btn { padding:0.6rem 1rem; border-radius:4px; font-family:'IBM Plex Sans',sans-serif; font-size:0.84rem; font-weight:600; text-decoration:none; text-align:center; transition:all 0.18s; cursor:pointer; border:none; }
+    .cta-btn.primary   { background:#fff; color:var(--teal); }
+    .cta-btn.primary:hover { background:var(--cream); }
+    .cta-btn.secondary { background:rgba(255,255,255,0.15); color:#fff; border:1px solid rgba(255,255,255,0.35); }
+    .cta-btn.secondary:hover { background:rgba(255,255,255,0.25); }
+
+    /* ── MISSION SECTION ── */
+    .mission-section { background:var(--navy); padding:4rem 5%; }
+    .mission-inner   { max-width:1100px; margin:0 auto; }
+    .mission-inner .section-label { font-family:'IBM Plex Mono',monospace; font-size:0.72rem; letter-spacing:0.12em; text-transform:uppercase; color:#5ee8d8; margin-bottom:0.75rem; }
+    .mission-inner h2 { font-family:'Cormorant Garamond',serif; font-size:2rem; font-weight:600; color:#fff; margin-bottom:2.5rem; }
+    .mission-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:1.5rem; }
+    .mission-card { background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); border-radius:6px; padding:1.5rem; }
+    .mission-card-icon { font-size:1.75rem; margin-bottom:0.85rem; }
+    .mission-card h3 { font-family:'Cormorant Garamond',serif; font-size:1.15rem; font-weight:600; color:#fff; margin-bottom:0.5rem; }
+    .mission-card p  { font-size:0.87rem; color:#7a9ab5; line-height:1.7; margin:0; }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="nav-logo">Lab<span>Learn</span></a>
+    <ul class="nav-links">
+      <li><a href="tutorials/index.html">Tutorials</a></li>
+      <li><a href="calculator.html">Calculators</a></li>
+      <li><a href="apps.html">Apps</a></li>
+      <li><a href="about.html" class="active">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="index.html#donate">Donate</a></li>
+      <li><a href="tutorials/index.html" style="background:var(--teal);color:#fff!important;padding:0.4rem 1.1rem;border-radius:3px;">Start Learning</a></li>
+    </ul>
+    <button class="nav-burger" id="navBurger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <div class="nav-mobile" id="navMobile">
+    <a href="tutorials/index.html">Tutorials</a>
+    <a href="calculator.html">Calculators</a>
+    <a href="apps.html">Apps</a>
+    <a href="about.html" class="active">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="index.html#donate">Donate</a>
+    <a href="tutorials/index.html" class="mob-cta">Start Learning</a>
+  </div>
+
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <div class="page-header-inner">
+      <div>
+        <div class="page-tag">About the creator</div>
+        <h1>Sani Sulaiman</h1>
+        <div class="sub-name">Senior Laboratory Technician &nbsp;&#x2022;&nbsp; Biochemistry Dept.</div>
+        <p>The person behind LabLearn &mdash; building free, practical laboratory education resources from ten years of real bench experience in Nigerian university laboratories.</p>
+      </div>
+      <div class="avatar-wrap">
+        <div class="avatar">
+          <img src="sani-sulaiman.jpg"
+               alt="Sani Sulaiman, Senior Laboratory Technician at Sa'adu Zungur University Gadau"
+               onerror="this.style.display='none';this.parentNode.innerHTML='<span style=\"font-family:Cormorant Garamond,serif;font-size:3rem;font-weight:600;color:#5ee8d8;display:flex;align-items:center;justify-content:center;width:100%;height:100%;\">SS</span>'" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <div class="about-main">
+
+    <!-- LEFT: Biography and career -->
+    <div class="bio-section">
+      <h2>Background</h2>
+      <p>My name is Sani Sulaiman. I am a Senior Laboratory Technician in the Department of Biochemistry at <strong>Sa&#x2019;adu Zungur University, Gadau</strong>, Bauchi State, Nigeria, where I have worked since 2012. Over more than a decade at the bench I have been involved in undergraduate teaching laboratories, analytical chemistry demonstrations, biochemical analysis, and supporting student practical work across multiple courses.</p>
+
+      <p>LabLearn grew directly out of that experience. I noticed that students frequently struggled not because they lacked intelligence, but because the resources available to them &mdash; textbooks, printed lab manuals, and photocopied handouts &mdash; were difficult to access, often out of date, and rarely written the way a practising laboratory scientist would explain things at the bench. I wanted to build something different: free, practical, and written from real experience rather than reformatted theory.</p>
+
+      <p>Everything on this platform &mdash; every tutorial, calculator, and tool &mdash; is built and maintained by me alone, alongside my full-time laboratory responsibilities. If it has helped your studies or your work, that is the only reward this project needs.</p>
+
+      <!-- Career timeline -->
+      <span class="section-mono-label">Career progression</span>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-period">2012</div>
+          <div class="tl-role">Laboratory Assistant</div>
+          <div class="tl-org">Department of Biochemistry<br/>Sa&#x2019;adu Zungur University, Gadau</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-period">Subsequent promotion</div>
+          <div class="tl-role">Senior Laboratory Assistant</div>
+          <div class="tl-org">Department of Biochemistry<br/>Sa&#x2019;adu Zungur University, Gadau</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-period">Subsequent promotion</div>
+          <div class="tl-role">Laboratory Technician</div>
+          <div class="tl-org">Department of Biochemistry<br/>Sa&#x2019;adu Zungur University, Gadau</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot current"></div>
+          <div class="tl-period">Present</div>
+          <div class="tl-role">Senior Laboratory Technician</div>
+          <div class="tl-org">Department of Biochemistry<br/>Sa&#x2019;adu Zungur University, Gadau &mdash; Bauchi State, Nigeria</div>
+          <div class="tl-badge-current">Current position</div>
+        </div>
+      </div>
+
+      <!-- Expertise areas -->
+      <span class="section-mono-label">Areas of expertise</span>
+      <div class="expertise-grid">
+        <div class="expertise-card">
+          <h4>Analytical Chemistry</h4>
+          <p>Titrimetry, spectrophotometry, AAS, and quantitative solution preparation</p>
+        </div>
+        <div class="expertise-card">
+          <h4>Biochemical Analysis</h4>
+          <p>Enzyme assays, protein determination, blood glucose, and clinical chemistry</p>
+        </div>
+        <div class="expertise-card">
+          <h4>Laboratory Safety</h4>
+          <p>GHS hazard classification, PPE selection, and safe chemical handling procedures</p>
+        </div>
+        <div class="expertise-card">
+          <h4>Practical Teaching</h4>
+          <p>Undergraduate laboratory instruction, procedure development, and student mentoring</p>
+        </div>
+        <div class="expertise-card">
+          <h4>Sample Preparation</h4>
+          <p>Blood sample handling, serum/plasma separation, biological sample storage</p>
+        </div>
+        <div class="expertise-card">
+          <h4>Instrumentation</h4>
+          <p>UV-Vis spectrophotometry, pH metry, centrifugation, and micropipette calibration</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: Info sidebar -->
+    <div class="about-sidebar">
+
+      <!-- Institutional info -->
+      <div class="info-card">
+        <div class="info-card-label">Professional details</div>
+        <div class="info-row">
+          <div class="info-icon institution">&#x1F3EB;</div>
+          <div>
+            <div class="info-text-label">Institution</div>
+            <div class="info-text-value">Sa&#x2019;adu Zungur University, Gadau</div>
+          </div>
+        </div>
+        <div class="info-row">
+          <div class="info-icon dept">&#x1F9EA;</div>
+          <div>
+            <div class="info-text-label">Department</div>
+            <div class="info-text-value">Biochemistry</div>
+          </div>
+        </div>
+        <div class="info-row">
+          <div class="info-icon role">&#x1F52C;</div>
+          <div>
+            <div class="info-text-label">Current role</div>
+            <div class="info-text-value">Senior Laboratory Technician</div>
+          </div>
+        </div>
+        <div class="info-row">
+          <div class="info-icon location">&#x1F4CD;</div>
+          <div>
+            <div class="info-text-label">Location</div>
+            <div class="info-text-value">Gadau, Bauchi State, Nigeria</div>
+          </div>
+        </div>
+        <div class="info-row">
+          <div class="info-icon years">&#x1F4C5;</div>
+          <div>
+            <div class="info-text-label">Years of service</div>
+            <div class="info-text-value">2012 &mdash; present (13+ years)</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- LabLearn pillars -->
+      <div class="pillars">
+        <div class="pillars-label">LabLearn principles</div>
+        <div class="pillar">
+          <div class="pillar-icon">&#x1F513;</div>
+          <div class="pillar-text">
+            <h4>Free forever</h4>
+            <p>No paywalls, no subscriptions, no registration required.</p>
+          </div>
+        </div>
+        <div class="pillar">
+          <div class="pillar-icon">&#x1F52C;</div>
+          <div class="pillar-text">
+            <h4>Experience-first</h4>
+            <p>Written from 13+ years of real bench work, not textbook reformatting.</p>
+          </div>
+        </div>
+        <div class="pillar">
+          <div class="pillar-icon">&#x1F4D0;</div>
+          <div class="pillar-text">
+            <h4>Precision matters</h4>
+            <p>Every formula and procedure is verified against professional standards.</p>
+          </div>
+        </div>
+        <div class="pillar">
+          <div class="pillar-icon">&#x1F30D;</div>
+          <div class="pillar-text">
+            <h4>Accessible everywhere</h4>
+            <p>Works offline and in the browser &mdash; no internet connection required.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="cta-card">
+        <h3>Get in touch or support the work</h3>
+        <p>Found an error? Have a suggestion? Want to support new content? Every message and contribution is genuinely appreciated.</p>
+        <div class="cta-btns">
+          <a href="contact.html" class="cta-btn primary">&#x2709; Send a message</a>
+          <a href="index.html#donate" class="cta-btn secondary">&#x2764; Support LabLearn</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- MISSION SECTION -->
+  <div class="mission-section">
+    <div class="mission-inner">
+      <div class="section-label">Why LabLearn exists</div>
+      <h2>Four principles behind the platform</h2>
+      <div class="mission-grid">
+        <div class="mission-card">
+          <div class="mission-card-icon">&#x1F513;</div>
+          <h3>Free forever</h3>
+          <p>Good laboratory education should not cost money. Every tutorial, calculator, and app will always be free &mdash; no paywalls, no subscriptions, no registration.</p>
+        </div>
+        <div class="mission-card">
+          <div class="mission-card-icon">&#x1F52C;</div>
+          <h3>Experience-first</h3>
+          <p>Everything comes from real laboratory work at Sa&#x2019;adu Zungur University. Not reformatted textbook content &mdash; practical knowledge from the bench.</p>
+        </div>
+        <div class="mission-card">
+          <div class="mission-card-icon">&#x1F4D0;</div>
+          <h3>Precision matters</h3>
+          <p>Laboratory errors have consequences. Every formula, procedure, and calculation tool is checked carefully to the standard expected in professional analytical work.</p>
+        </div>
+        <div class="mission-card">
+          <div class="mission-card-icon">&#x1F30D;</div>
+          <h3>Accessible everywhere</h3>
+          <p>All apps work offline. All tools run in the browser. No account, no internet connection required &mdash; whether you are in a university lab or a rural health centre.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-logo">Lab<span>Learn</span></div>
+    <ul class="footer-links">
+      <li><a href="tutorials/index.html">Tutorials</a></li>
+      <li><a href="calculator.html">Calculators</a></li>
+      <li><a href="apps.html">Apps</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="index.html#donate">Donate</a></li>
+    </ul>
+    <div class="footer-copy">&copy; 2025 LabLearn &mdash; Sani Sulaiman. Free for students &amp; researchers.</div>
+  </footer>
+
+  <script src="shared.js" defer></script>
+</body>
+</html>

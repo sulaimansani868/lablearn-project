@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Page Not Found — LabLearn</title>
+  <!-- ═══ SEO META TAGS ═══════════════════════════════════════════════════
+       HOW TO UPDATE:
+       · description → keep under 160 characters for best Google display
+       · og:url      → update to your real domain after deploying
+       · og:image    → add a path to a 1200×630 banner image if you have one
+       ══════════════════════════════════════════════════════════════════ -->
+  <meta name="description"        content="The page you are looking for could not be found. Return to LabLearn for free laboratory tutorials, calculators, and mobile apps." />
+  <meta name="keywords"           content="lablearn, laboratory education" />
+  <meta name="author"             content="Sani Sulaiman" />
+  <meta name="robots"             content="index, follow" />
+
+  <!-- Open Graph — controls how the page looks when shared on WhatsApp,
+       Facebook, LinkedIn etc. The image below is optional but recommended. -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:site_name"   content="LabLearn" />
+  <meta property="og:title"       content="Page Not Found — LabLearn" />
+  <meta property="og:description" content="The page you are looking for could not be found. Return to LabLearn for free laboratory tutorials, calculators, and mobile apps." />
+  <meta property="og:url"         content="https://lablearn.netlify.app/404.html" />
+  <!-- <meta property="og:image" content="https://lablearn.netlify.app/og-image.jpg" /> -->
+  <!-- og:image should be 1200 × 630 px. Uncomment and add path when ready. -->
+
+  <!-- Twitter / X card -->
+  <meta name="twitter:card"        content="summary" />
+  <meta name="twitter:title"       content="Page Not Found — LabLearn" />
+  <meta name="twitter:description" content="The page you are looking for could not be found. Return to LabLearn for free laboratory tutorials, calculators, and mobile apps." />
+
+  <!-- Canonical URL — tells Google which URL is the definitive version.
+       Update SITE_URL to your real domain after deploying to Netlify. -->
+  <link rel="canonical" href="https://lablearn.netlify.app/404.html" />
+
+  <!-- Favicon — uses the SVG in the root folder (works in all modern browsers) -->
+  <link rel="icon"             type="image/svg+xml" href="favicon.svg" />
+  <link rel="alternate icon"   type="image/png"     href="favicon.png" />
+    <link rel="stylesheet" href="shared.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    /* NAV */
+    @media (max-width: 640px) { }
+
+    /* MAIN */
+    main { flex: 1; display: flex; align-items: center; justify-content: center; padding: 4rem 5%; position: relative; overflow: hidden; }
+    main::before { content:''; position:absolute; inset:0; background-image: linear-gradient(rgba(11,124,110,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(11,124,110,0.06) 1px, transparent 1px); background-size: 48px 48px; pointer-events: none; }
+
+    .error-inner { position: relative; max-width: 640px; width: 100%; text-align: center; }
+
+    /* Big 404 */
+    .err-code { font-family: 'Cormorant Garamond', serif; font-size: clamp(6rem, 20vw, 11rem); font-weight: 600; line-height: 1; color: transparent; -webkit-text-stroke: 2px rgba(19,168,150,0.35); letter-spacing: -0.04em; user-select: none; margin-bottom: 0; position: relative; }
+    .err-code::after { content: '404'; position: absolute; inset: 0; font-family: 'Cormorant Garamond', serif; font-size: inherit; font-weight: 600; line-height: 1; letter-spacing: inherit; color: rgba(11,124,110,0.08); z-index: -1; transform: translate(4px, 4px); }
+
+    .err-tag { display: inline-block; background: rgba(11,124,110,0.25); border: 1px solid rgba(19,168,150,0.4); color: #5ee8d8; font-family: 'IBM Plex Mono', monospace; font-size: 0.72rem; letter-spacing: 0.1em; padding: 0.25rem 0.7rem; border-radius: 2px; text-transform: uppercase; margin-bottom: 1.25rem; }
+
+    .err-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.6rem, 4vw, 2.4rem); font-weight: 600; color: var(--white); margin-bottom: 0.75rem; line-height: 1.2; }
+    .err-desc { font-size: 0.97rem; color: #7a9ab5; max-width: 440px; margin: 0 auto 2.5rem; line-height: 1.75; }
+
+    /* Action buttons */
+    .err-actions { display: flex; gap: 0.85rem; justify-content: center; flex-wrap: wrap; margin-bottom: 3rem; }
+    .btn-primary { background: var(--teal); color: var(--white); padding: 0.7rem 1.6rem; border-radius: 3px; text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: background 0.2s, transform 0.15s; }
+    .btn-primary:hover { background: var(--teal-light); transform: translateY(-1px); }
+    .btn-outline { border: 1px solid rgba(255,255,255,0.2); color: #c8d8e8; padding: 0.7rem 1.4rem; border-radius: 3px; text-decoration: none; font-weight: 500; font-size: 0.9rem; transition: border-color 0.2s, background 0.2s; }
+    .btn-outline:hover { border-color: rgba(255,255,255,0.4); background: rgba(255,255,255,0.05); }
+
+    /* Quick nav links */
+    .err-.err-nav-link { display: flex; flex-direction: column; align-items: center; gap: 0.4rem; padding: 1rem; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07); border-radius: 5px; text-decoration: none; transition: background 0.18s, border-color 0.18s; }
+    .err-nav-link:hover { background: rgba(255,255,255,0.08); border-color: rgba(19,168,150,0.3); }
+    .err-nav-icon { font-size: 1.4rem; }
+    .err-nav-label { font-size: 0.8rem; color: #7a9ab5; font-weight: 500; text-align: center; }
+
+    /* Mono path */
+    .err-path { font-family: 'IBM Plex Mono', monospace; font-size: 0.78rem; color: rgba(255,255,255,0.2); margin-bottom: 1rem; }
+
+    /* Footer */
+    </style>
+  <!-- Theme colour — colours the browser UI chrome on Android and iOS.
+       Value matches the nav bar colour so the site feels seamless.
+       To change: update the content value to any hex colour. -->
+  <meta name="theme-color" content="#0d1f2d" />
+
+  <!-- iOS home screen / PWA settings
+       Lets users add LabLearn to their phone home screen.
+       It opens without a browser address bar, like a native app. -->
+  <meta name="apple-mobile-web-app-capable"          content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title"            content="LabLearn" />
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo">Lab<span>Learn</span></a>
+    <ul class="nav-links">
+      <li><a href="tutorials/index.html">Tutorials</a></li>
+      <li><a href="calculator.html">Calculators</a></li>
+      <li><a href="apps.html">Apps</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <button class="nav-burger" id="navBurger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="nav-mobile" id="navMobile">
+    <a href="tutorials/index.html">Tutorials</a>
+    <a href="calculator.html">Calculators</a>
+    <a href="apps.html">Apps</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="tutorials/index.html" class="mob-cta">Start Learning</a>
+  </div>
+
+  <main>
+    <div class="error-inner">
+      <div class="err-code">404</div>
+      <div class="err-tag">Page not found</div>
+      <h1 class="err-title">This reagent doesn't exist</h1>
+      <p class="err-desc">The page you're looking for has either moved, been removed, or the URL contains a typo. Check the address or navigate using the links below.</p>
+
+      <p class="err-path" id="errPath"></p>
+
+      <div class="err-actions">
+        <a href="index.html" class="btn-primary">← Back to homepage</a>
+        <a href="contact.html" class="btn-outline">Report broken link</a>
+      </div>
+
+      <div class="err-nav">
+        <a href="tutorials/index.html" class="err-nav-link">
+          <span class="err-nav-icon">🧪</span>
+          <span class="err-nav-label">Tutorials</span>
+        </a>
+        <a href="calculator.html" class="err-nav-link">
+          <span class="err-nav-icon">⚗️</span>
+          <span class="err-nav-label">Calculators</span>
+        </a>
+        <a href="apps.html" class="err-nav-link">
+          <span class="err-nav-icon">📱</span>
+          <span class="err-nav-label">Apps</span>
+        </a>
+        <a href="contact.html" class="err-nav-link">
+          <span class="err-nav-icon">✉️</span>
+          <span class="err-nav-label">Contact</span>
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-logo">Lab<span>Learn</span></div>
+    <span>© 2025 LabLearn — free for students &amp; researchers</span>
+  </footer>
+
+  <script src="shared.js" defer></script>
+</body>
+</html>

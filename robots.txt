@@ -1,0 +1,20 @@
+# robots.txt for LabLearn
+# ════════════════════════════════════════════════════════════════
+# This file tells search engine crawlers (Googlebot, Bingbot etc.)
+# which pages they are allowed to index.
+#
+# HOW TO UPDATE:
+# · Replace the Sitemap URL below with your real domain after deploy.
+# · The current settings allow ALL crawlers to index ALL pages —
+#   which is exactly what you want for a public educational site.
+# · If you ever create a page you do NOT want indexed (e.g. a private
+#   admin page), add a line like:
+#     Disallow: /admin.html
+# ════════════════════════════════════════════════════════════════
+
+# Allow all search engine robots to crawl everything
+User-agent: *
+Disallow:
+
+# Point crawlers to the sitemap so they find all pages faster
+Sitemap: https://lablearn.netlify.app/sitemap.xml

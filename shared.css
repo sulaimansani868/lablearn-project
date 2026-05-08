@@ -1,0 +1,331 @@
+/*
+ * LabLearn — shared.css
+ */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  /* Core palette */
+  --navy:        #0d1f2d;
+  --teal:        #0b7c6e;
+  --teal-light:  #13a896;
+  --amber:       #d4860a;
+  --amber-light: #f5a623;
+
+  /* Background tones */
+  --cream:       #f5f0e8;
+  --cream-dark:  #ede7db;
+
+  /* Text */
+  --text:        #1a1a1a;
+  --text-muted:  #5a6170;
+
+  /* Surfaces */
+  --white:       #ffffff;
+  --border:      #d8d0c4;
+  --card-bg:     #ffffff;
+
+  /* Semantic colours */
+  --danger:      #c0392b;
+  --danger-bg:   #fdf0ef;
+  --success:     #0b7c6e;
+  --success-bg:  #eaf5f3;
+}
+
+/* ── GLOBAL BASE ─────────────────────────────────────────────────── */
+html  { scroll-behavior: smooth; }
+body  {
+  font-family: 'IBM Plex Sans', sans-serif;
+  background:  var(--cream);
+  color:       var(--text);
+  line-height: 1.7;
+}
+
+/* NAVIGATION BAR */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--navy);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5%;
+  height: 60px;                        /* ← change nav height here */
+  border-bottom: 2px solid var(--teal);
+}
+
+nav .nav-logo  { flex-shrink: 0; }
+nav .nav-links { flex-shrink: 1; flex-wrap: nowrap; gap: clamp(0.25rem, 1.2vw, 1.25rem); }
+nav .nav-links a { padding-inline: clamp(0.2rem, 0.6vw, 0.75rem); font-size: clamp(0.72rem, 1vw, 0.84rem); white-space: nowrap; }
+
+.nav-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--white);
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  flex-shrink: 0;
+}
+.nav-logo span { color: var(--amber-light); }
+
+.nav-links {
+  display: flex;
+  gap: 1.75rem;
+  list-style: none;
+  align-items: center;
+}
+.nav-links a {
+  color: #a8b8c8;
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transition: color 0.2s;
+  white-space: nowrap;
+}
+.nav-links a:hover,
+.nav-links a.active { color: var(--amber-light); }
+
+.nav-cta {
+  background: var(--teal) !important;
+  color: var(--white) !important;
+  padding: 0.4rem 1.1rem;
+  border-radius: 3px;
+  transition: background 0.2s !important;
+}
+.nav-cta:hover { background: var(--teal-light) !important; }
+
+@media (max-width: 900px) {
+  .nav-links { display: none; }
+}
+
+/* HAMBURGER BUTTON */
+.nav-burger {
+  display: none;
+  flex-direction: column;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  margin-left: auto;
+  gap: 5px;
+  z-index: 101;
+}
+.nav-burger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: #a8b8c8;
+  border-radius: 1px;
+  transition: transform 0.25s, opacity 0.2s, background 0.2s;
+}
+
+/* Animate bar 1 → top of × */
+.nav-burger.open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+  background: var(--amber-light);
+}
+/* Fade middle bar out */
+.nav-burger.open span:nth-child(2) {
+  opacity: 0;
+}
+.nav-burger.open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+  background: var(--amber-light);
+}
+
+@media (max-width: 900px) {
+  .nav-burger { display: flex; }
+}
+
+/* MOBILE NAV OVERLAY */
+
+.nav-mobile {
+  display: flex;
+  flex-direction: column;
+
+  position: fixed;
+  inset: 0;
+  top: 60px;
+  z-index: 999;
+  background: var(--navy);
+  padding: 1.5rem 5% 2rem;
+  overflow-y: auto;
+
+  /* ── CLOSED STATE (default) ── */
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(-12px);
+
+  /* ── TRANSITION ── applies on BOTH open and close */
+  transition:
+    opacity    0.32s cubic-bezier(0.22, 1, 0.36, 1),
+    transform  0.32s cubic-bezier(0.22, 1, 0.36, 1),
+    visibility 0s   linear 0.32s;
+}
+
+/* ── OPEN STATE — JavaScript adds .open ── */
+.nav-mobile.open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0);
+  transition:
+    opacity    0.32s cubic-bezier(0.22, 1, 0.36, 1),
+    transform  0.32s cubic-bezier(0.22, 1, 0.36, 1),
+    visibility 0s   linear 0s;
+}
+
+/* ── INDIVIDUAL LINK STAGGER ────────────────────────────────────── */
+.nav-mobile a {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.28s ease, transform 0.28s ease, color 0.2s;
+}
+.nav-mobile.open a:nth-child(1) { opacity:1; transform:none; transition-delay: 0.06s; }
+.nav-mobile.open a:nth-child(2) { opacity:1; transform:none; transition-delay: 0.12s; }
+.nav-mobile.open a:nth-child(3) { opacity:1; transform:none; transition-delay: 0.18s; }
+.nav-mobile.open a:nth-child(4) { opacity:1; transform:none; transition-delay: 0.23s; }
+.nav-mobile.open a:nth-child(5) { opacity:1; transform:none; transition-delay: 0.27s; }
+.nav-mobile.open a:nth-child(6) { opacity:1; transform:none; transition-delay: 0.30s; }
+.nav-mobile.open a:nth-child(7) { opacity:1; transform:none; transition-delay: 0.32s; }
+
+.nav-mobile a {
+  color: #a8b8c8;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.9rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+  display: block;
+}
+.nav-mobile a:hover,
+.nav-mobile a.active { color: var(--amber-light); }
+
+/* CTA "Start Learning" button inside the mobile menu */
+.nav-mobile a.mob-cta {
+  color: var(--white);
+  background: var(--teal);
+  border-bottom: none;
+  border-radius: 3px;
+  padding: 0.75rem 1.25rem;
+  margin-top: 1.25rem;
+  text-align: center;
+}
+.nav-mobile a.mob-cta:hover { background: var(--teal-light); }
+
+/* ── FOOTER ──────────────────────────────────────────────────────── */
+footer {
+  background: #060f17;
+  color: #5a7a90;
+  padding: 3rem 5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+/* On medium screens, stack the footer items vertically */
+@media (max-width: 900px) {
+  footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.25rem;
+    padding: 2.5rem 5%;
+  }
+}
+.footer-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--white);
+}
+.footer-logo span { color: var(--amber-light); }
+.footer-links {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+  font-size: 0.85rem;
+  flex-wrap: wrap;
+}
+.footer-links a {
+  color: #5a7a90;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.footer-links a:hover { color: var(--white); }
+.footer-copy { font-size: 0.8rem; }
+
+/* ── COMING-SOON DIALOG ──────────────────────────────────────────── */
+.cs-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(6,15,23,0.82);
+  align-items: center;
+  justify-content: center;
+}
+.cs-overlay.open { display: flex; }
+
+.cs-box {
+  background: var(--navy);
+  border: 1px solid rgba(19,168,150,0.35);
+  border-top: 3px solid var(--teal);
+  border-radius: 6px;
+  padding: 2.5rem 2.75rem;
+  max-width: 440px;
+  width: 90%;
+  text-align: center;
+  animation: cspop 0.22s ease;
+}
+@keyframes cspop {
+  from { opacity: 0; transform: scale(0.92) translateY(12px); }
+  to   { opacity: 1; transform: none; }
+}
+.cs-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: rgba(11,124,110,0.18);
+  border: 1px solid rgba(19,168,150,0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin: 0 auto 1.25rem;
+}
+.cs-box h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 0.6rem;
+}
+.cs-box p {
+  font-size: 0.9rem;
+  color: #7a9ab5;
+  line-height: 1.7;
+  margin-bottom: 1.75rem;
+}
+.cs-close {
+  background: var(--teal);
+  color: var(--white);
+  border: none;
+  padding: 0.65rem 2rem;
+  border-radius: 3px;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.cs-close:hover { background: var(--teal-light); }
+.cs-page-name  { color: var(--amber-light); font-weight: 600; }
