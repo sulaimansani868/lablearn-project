@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spectrofluorimetry: Principles and Applications in Biochemical Analysis | LabLearn Tutorials</title>
+  <meta name="description" content="How spectrofluorimetry works — excitation and emission spectra, quantum yield, inner filter effect, quenching, and practical applications including protein and DNA quantification." />
+  <meta name="keywords" content="spectrofluorimetry, fluorescence spectroscopy, excitation emission spectra, quantum yield, inner filter effect, fluorescence quenching, protein quantification fluorescence, DNA quantification" />
+  <meta name="author" content="Sani Sulaiman" />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="LabLearn" />
+  <meta property="og:title" content="Spectrofluorimetry: Principles and Applications | LabLearn Tutorials" />
+  <meta property="og:description" content="Fluorescence spectroscopy from first principles — excitation/emission, quantum yield, inner filter effect, quenching, and biochemical applications." />
+  <meta property="og:url" content="https://lablearn.netlify.app/tutorials/spectrofluorimetry.html" />
+  <meta name="twitter:card" content="summary" />
+  <link rel="canonical" href="https://lablearn.netlify.app/tutorials/spectrofluorimetry.html" />
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+  <link rel="alternate icon" type="image/png" href="../favicon.png" />
+  <link rel="stylesheet" href="../shared.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="tutorial.css" />
+  <meta name="theme-color" content="#0d1f2d" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="LabLearn" />
+</head>
+<body>
+  <nav>
+    <button class="nav-tut-btn" id="navTutBtn" aria-label="Browse tutorials" aria-expanded="false">
+      <svg class="nav-tut-icon" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect x="2" y="3" width="7" height="2" rx="1" fill="currentColor"/>
+        <rect x="2" y="9" width="11" height="2" rx="1" fill="currentColor"/>
+        <rect x="2" y="15" width="9" height="2" rx="1" fill="currentColor"/>
+        <circle cx="16" cy="4" r="2" fill="currentColor" opacity=".45"/>
+        <circle cx="16" cy="10" r="2" fill="currentColor" opacity=".45"/>
+        <circle cx="16" cy="16" r="2" fill="currentColor" opacity=".45"/>
+      </svg>
+    </button>
+    <a href="../index.html" class="nav-logo">Lab<span>Learn</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Tutorials</a></li>
+      <li><a href="../calculator.html">Calculators</a></li>
+      <li><a href="../apps.html">Apps</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+      <li><a href="../index.html#donate">Donate</a></li>
+	  <li><a href="index.html" class="nav-cta">Start Learning</a></li>
+    </ul>
+    <button class="nav-burger" id="navBurger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <div class="nav-mobile" id="navMobile">
+    <a href="index.html">Tutorials</a>
+    <a href="../calculator.html">Calculators</a>
+    <a href="../apps.html">Apps</a>
+    <a href="../about.html">About</a>
+    <a href="../contact.html">Contact</a>
+    <a href="../index.html#donate">Donate</a>
+    <a href="index.html" class="mob-cta">Start Learning</a>
+  </div>
+  <!-- TUTORIAL LIST PANEL -->
+  <div class="tut-list-overlay" id="tutListOverlay"></div>
+  <div class="tut-list-panel" id="tutListPanel" aria-hidden="true">
+    <div class="tut-list-head">
+      <span class="tut-list-head-label">All Tutorials</span>
+      <button class="tut-list-close" id="tutListClose" aria-label="Close">&#x2715;</button>
+    </div>
+    <div class="tut-list-body">
+      <div class="tut-list-level">Beginner</div>
+      <ul class="tut-list-links">
+        <li><a href="molarity-concentration.html"      data-tut>Molarity, Molality &amp; Normality</a></li>
+        <li><a href="serial-dilutions.html"            data-tut>Serial Dilutions: Technique &amp; Calculation</a></li>
+        <li><a href="lab-safety.html"                  data-tut>Lab Safety: Chemical Hazard Classes</a></li>
+        <li><a href="molar-solutions-bench-guide.html" data-tut>Preparing Molar Solutions: Bench Guide</a></li>
+        <li><a href="serum-plasma-separation.html"     data-tut>Serum and Plasma Separation</a></li>
+        <li><a href="ph-meter-calibration.html"        data-tut>pH Meter Calibration and Use</a></li>
+        <li><a href="micropipette-technique.html"      data-tut>Micropipette Technique: Selection &amp; Calibration</a></li>
+        <li><a href="centrifuge-operation.html"        data-tut>Centrifuge: Operation, Safety &amp; Protocol</a></li>
+        <li><a href="acid-base-safe-handling.html"     data-tut>Safe Handling of Acids, Bases &amp; Corrosives</a></li>
+        <li><a href="balance-weighing-technique.html"  data-tut>Accurate Weighing: Balance Technique</a></li>
+      </ul>
+      <div class="tut-list-level">Intermediate</div>
+      <ul class="tut-list-links">
+        <li><a href="uv-vis-spectrophotometry.html"    data-tut>UV-Vis Spectrophotometry Explained</a></li>
+        <li><a href="standard-solutions.html"          data-tut>Preparing Standard Solutions Accurately</a></li>
+        <li><a href="buffer-preparation.html"          data-tut>Preparing Buffer Solutions: Calculation to Bench</a></li>
+        <li><a href="acid-base-titration.html"         data-tut>Acid-Base Titration: Technique &amp; Endpoints</a></li>
+        <li><a href="blood-glucose-determination.html" data-tut>Blood Glucose: Glucometer &amp; GOD Methods</a></li>
+        <li><a href="kjeldahl-protein.html"            data-tut>Protein Estimation by the Kjeldahl Method</a></li>
+        <li><a href="biological-sample-handling.html"  data-tut>Biological Sample Handling and Storage</a></li>
+        <li><a href="bradford-biuret-protein.html"     data-tut>Spectrophotometric Protein Determination</a></li>
+        <li><a href="enzyme-activity-assays.html"      data-tut>Enzyme Activity Assays: Principles &amp; Methods</a></li>
+        <li><a href="reagent-grade-water.html"         data-tut>Reagent-Grade Water: Preparation &amp; Quality</a></li>
+      </ul>
+      <div class="tut-list-level">Advanced</div>
+      <ul class="tut-list-links">
+        <li><a href="hplc-method-development.html"        data-tut>HPLC Method Development Fundamentals</a></li>
+        <li><a href="atomic-absorption-spectroscopy.html" data-tut>Mineral Analysis by Atomic Absorption Spectroscopy</a></li>
+        <li><a href="hplc-validation.html"                data-tut>HPLC Method Validation: Linearity &amp; Precision</a></li>
+        <li><a href="enzyme-kinetics.html"                data-tut>Enzyme Kinetics: Michaelis-Menten &amp; Inhibition</a></li>
+        <li><a href="sds-page-electrophoresis.html"       data-tut>Electrophoresis: SDS-PAGE and Agarose Gel</a></li>
+        <li><a href="spectrofluorimetry.html"             data-tut>Spectrofluorimetry: Principles &amp; Applications</a></li>
+        <li><a href="elisa-immunoassay.html"              data-tut>Immunoassay Techniques: ELISA Principles &amp; Protocol</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="page-header">
+    <div class="page-header-inner">
+      <div class="breadcrumb">
+        <a href="../index.html">Home</a><span>&#x203A;</span>
+        <a href="index.html">Tutorials</a><span>&#x203A;</span>
+        <span>Spectrofluorimetry</span>
+      </div>
+      <span class="level-badge level-advanced">Advanced</span>
+      <h1>Spectrofluorimetry: Principles and Applications in Biochemical Analysis</h1>
+      <div class="page-header-meta">
+        <span class="meta-item">&#x1F4D6; 20 min read</span>
+        <span class="meta-item">&#x1F52C; Analytical Biochemistry</span>
+        <span class="meta-item">&#x1F4C5; Updated 2025</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="tutorial-layout">
+    <aside class="toc-sidebar">
+      <div class="toc-box">
+        <div class="toc-label">On this page</div>
+        <ul class="toc-list">
+          <li><a href="#intro">Fluorescence vs absorbance</a></li>
+          <li><a href="#jablonski">Jablonski diagram</a></li>
+          <li><a href="#excitation-emission">Excitation and emission spectra</a></li>
+          <li><a href="#stokes-shift">Stokes shift</a></li>
+          <li><a href="#quantum-yield">Quantum yield</a></li>
+          <li><a href="#instrument">Instrument components</a></li>
+          <li><a href="#calibration">Calibration and linearity</a></li>
+          <li><a href="#inner-filter">Inner filter effect</a></li>
+          <li><a href="#quenching">Fluorescence quenching</a></li>
+          <li><a href="#photobleaching">Photobleaching</a></li>
+          <li><a href="#applications">Biochemical applications</a></li>
+          <li class="sub"><a href="#protein-quant">Protein quantification</a></li>
+          <li class="sub"><a href="#dna-quant">DNA and RNA quantification</a></li>
+          <li class="sub"><a href="#enzyme-assays">Enzyme-linked fluorescent assays</a></li>
+          <li class="sub"><a href="#membrane">Membrane probes</a></li>
+          <li><a href="#vs-absorbance">Fluorescence vs UV-Vis absorbance</a></li>
+          <li><a href="#practical">Practical guidelines</a></li>
+          <li><a href="#takeaways">Key takeaways</a></li>
+        </ul>
+        <hr class="toc-divider" />
+        <a class="toc-calc-link" href="uv-vis-spectrophotometry.html">&#x2192; UV-Vis Spectrophotometry</a>
+      </div>
+    </aside>
+
+    <article class="article">
+
+      <h2 id="intro">Fluorescence vs absorbance &mdash; why fluorescence is more sensitive</h2>
+      <p>UV-Vis spectrophotometry measures the <em>reduction</em> in light intensity after it passes through a sample &mdash; it measures what is <em>not</em> transmitted. Because even a blank solution transmits most of the incident light, very small absorbance differences (corresponding to low analyte concentrations) are difficult to distinguish from background.</p>
+      <p>Fluorescence spectroscopy measures light <em>emitted by the sample</em> at right angles to the excitation beam. The signal is detected against a dark background &mdash; a black background with no signal is the baseline. This geometry means that even a very small number of photons can be detected, making fluorescence measurements typically 100 to 1,000 times more sensitive than absorbance for the same fluorescent compound. Detection limits for fluorescent assays are commonly in the picomolar to nanomolar range rather than the micromolar range of UV-Vis methods.</p>
+
+      <h2 id="jablonski">Jablonski diagram &mdash; the electronic basis of fluorescence</h2>
+      <p>When a molecule absorbs a photon of appropriate energy, an electron is promoted from the ground electronic state (S&#x2080;) to a higher excited singlet state (S&#x2081; or S&#x2082;). This happens within femtoseconds. The excited electron rapidly loses some energy by vibrational relaxation (internal conversion) to the lowest vibrational level of S&#x2081;. From S&#x2081;, the electron returns to the ground state by one of three pathways:</p>
+      <ul>
+        <li><strong>Fluorescence emission:</strong> the electron releases the remaining excitation energy as a photon. This photon has lower energy (longer wavelength) than the absorbed photon because some energy was lost to vibrational relaxation.</li>
+        <li><strong>Non-radiative decay:</strong> energy is dissipated as heat without photon emission.</li>
+        <li><strong>Intersystem crossing to triplet state (T&#x2081;):</strong> followed by phosphorescence (very slow emission) or non-radiative decay.</li>
+      </ul>
+      <p>Because vibrational relaxation always precedes emission, the emitted photon always has lower energy than the absorbed photon &mdash; the emission spectrum is always at longer wavelengths than the excitation spectrum. This energy difference is the Stokes shift.</p>
+
+      <h2 id="excitation-emission">Excitation and emission spectra</h2>
+      <p>The <strong>excitation spectrum</strong> shows the emission intensity at a fixed emission wavelength as the excitation wavelength is scanned. It mirrors the absorption spectrum of the fluorophore. The <strong>emission spectrum</strong> shows the emission intensity at all wavelengths when excitation is fixed at the peak excitation wavelength.</p>
+      <p>Key characteristics of excitation and emission spectra:</p>
+      <ul>
+        <li>The shapes of the excitation and emission spectra are typically mirror images of each other (Kasha&#x2019;s rule) because the vibrational energy level spacings in the ground and excited states are similar for many organic fluorophores.</li>
+        <li>The spectra overlap slightly at the <strong>isoemissive point</strong> &mdash; the wavelength where the excitation and emission spectra cross. This region must be excluded when measuring emission to prevent artefacts from scattered excitation light reaching the detector.</li>
+        <li>The peak excitation and peak emission wavelengths are characteristic of each fluorophore and used to identify it. They are also sensitive to the local chemical environment (solvent polarity, pH, viscosity), which is exploited in sensing applications.</li>
+      </ul>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead><tr><th>Fluorophore</th><th>Excitation max (nm)</th><th>Emission max (nm)</th><th>Common use</th></tr></thead>
+          <tbody>
+            <tr><td>Quinine sulphate</td><td>350</td><td>450</td><td>Reference standard for quantum yield; fluorescence calibration</td></tr>
+            <tr><td>NADH</td><td>340</td><td>460</td><td>Enzyme activity monitoring (intrinsic fluorophore)</td></tr>
+            <tr><td>Tryptophan (protein)</td><td>280</td><td>340</td><td>Intrinsic protein fluorescence; structural studies</td></tr>
+            <tr><td>Fluorescein</td><td>494</td><td>521</td><td>Protein labelling, immunoassays, flow cytometry</td></tr>
+            <tr><td>Rhodamine B</td><td>540</td><td>625</td><td>Protein labelling, microscopy, membrane probes</td></tr>
+            <tr><td>Ethidium bromide</td><td>300/365</td><td>590</td><td>DNA/RNA quantification (intercalating dye)</td></tr>
+            <tr><td>SYBR Green I</td><td>497</td><td>521</td><td>dsDNA quantification, real-time PCR</td></tr>
+            <tr><td>PicoGreen</td><td>502</td><td>523</td><td>Ultra-sensitive dsDNA quantification</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 id="stokes-shift">Stokes shift</h2>
+      <p>The Stokes shift is the difference (in nm or wavenumbers) between the peak excitation wavelength and the peak emission wavelength. A large Stokes shift is analytically advantageous because the excitation and emission bands are well separated, making it easier to isolate the emission signal from scattered excitation light using optical filters.</p>
+      <p>For example, quinine sulphate has excitation at 350 nm and emission at 450 nm &mdash; a Stokes shift of 100 nm, which is large and easily filtered. Fluorophores with small Stokes shifts (e.g. 10&ndash;20 nm) are more difficult to work with because excitation light leaks into the emission detector, increasing background.</p>
+
+      <h2 id="quantum-yield">Quantum yield</h2>
+      <div class="box box-formula">
+        <div class="box-label">Quantum yield definition</div>
+        <div class="formula">&#x03A6;&#x2086; = photons emitted / photons absorbed
+       = k&#x2086; / (k&#x2086; + k&#x2099;&#x1D63;)</div>
+        <div class="formula-note">k&#x2086; = rate constant for fluorescence emission
+k&#x2099;&#x1D63; = sum of all non-radiative decay rate constants
+&#x03A6;&#x2086; ranges from 0 (no fluorescence) to 1.0 (every absorbed photon produces an emitted photon)
+
+Examples: fluorescein &#x03A6;&#x2086; = 0.92; rhodamine 6G &#x03A6;&#x2086; = 0.95; tryptophan &#x03A6;&#x2086; &#x2248; 0.13; NADH &#x03A6;&#x2086; &#x2248; 0.019
+
+Higher quantum yield means more photons emitted per excitation event &#x2014; a brighter, more
+detectable signal. Temperature, solvent, pH, and quenching agents all affect &#x03A6;&#x2086;.</div>
+      </div>
+
+      <h2 id="instrument">Instrument components</h2>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead><tr><th>Component</th><th>Function</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>Excitation light source</td><td>Provides photons to excite the sample</td><td>Xenon arc lamp (broad spectrum, 200&ndash;800 nm) for spectrofluorimeters; laser sources for flow cytometry and confocal microscopy</td></tr>
+            <tr><td>Excitation monochromator</td><td>Selects the excitation wavelength from the broadband lamp</td><td>Grating or prism-based; bandwidth typically 5&ndash;10 nm</td></tr>
+            <tr><td>Sample compartment and cuvette</td><td>Holds the sample; emission detected at 90&deg; to excitation beam</td><td>All four sides of the cuvette must be optically clear for fluorescence (unlike absorbance which uses only two sides)</td></tr>
+            <tr><td>Emission monochromator</td><td>Selects the emission wavelength(s)</td><td>Set to emission peak; can be scanned to collect the full emission spectrum</td></tr>
+            <tr><td>Detector (PMT or CCD)</td><td>Measures emitted photon intensity</td><td>Photomultiplier tube (PMT) for high sensitivity; CCD array for simultaneous multi-wavelength detection</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 id="calibration">Calibration and the linear range</h2>
+      <p>At low fluorophore concentrations, fluorescence intensity (F) is linearly proportional to concentration [C]:</p>
+      <div class="box box-formula">
+        <div class="box-label">Linear fluorescence equation (low concentration approximation)</div>
+        <div class="formula">F = 2.303 &#x00D7; &#x03A6;&#x2086; &#x00D7; &#x03B5; &#x00D7; l &#x00D7; I&#x2080; &#x00D7; [C]</div>
+        <div class="formula-note">F = fluorescence intensity (arbitrary units)
+&#x03A6;&#x2086; = quantum yield  |  &#x03B5; = molar absorptivity  |  l = path length (cm)
+I&#x2080; = excitation light intensity  |  [C] = fluorophore concentration
+This linear relationship holds when absorbance A &lt; 0.05 (approximately).
+Above A &#x2248; 0.05, the inner filter effect causes deviation from linearity.</div>
+      </div>
+      <p>Always construct a calibration curve with at least five concentration points. Verify linearity (R&#x00B2; &#x2265; 0.999) before measuring unknowns. Include blanks and at least one quality control sample of known concentration with every analytical session.</p>
+
+      <h2 id="inner-filter">Inner filter effect &mdash; the most common error in fluorescence</h2>
+      <p>The inner filter effect (IFE) is the most frequent source of non-linearity in fluorescence measurements. It occurs when the fluorophore (or another absorbing species in the sample) absorbs a significant fraction of the excitation light before it reaches the centre of the cuvette, or absorbs the emitted fluorescence before it reaches the detector. Either effect reduces the measured fluorescence signal disproportionately at high concentrations, making the calibration curve flatten and eventually decrease.</p>
+      <div class="box box-note">
+        <div class="box-label">How to detect and correct the inner filter effect</div>
+        <p><strong>Detection:</strong> measure the absorbance of your samples at both the excitation and emission wavelengths. If A&#x2090;&#x2093;&#x1D30; &gt; 0.05 or A&#x2091;&#x2098; &gt; 0.05, the IFE is significant.<br/><br/>
+        <strong>Correction:</strong> dilute the sample until both absorbances are below 0.05. This is the simplest and most reliable approach. Mathematical correction factors exist but introduce their own error if the absorbance measurement is imprecise.<br/><br/>
+        <strong>Practical rule:</strong> for fluorescence quantification, always work at concentrations where the sample absorbance is below 0.05 at both excitation and emission wavelengths. This means fluorescence assays are typically valid only in a narrow concentration range &mdash; dilute samples that appear dark or deeply coloured before measuring.</p>
+      </div>
+
+      <h2 id="quenching">Fluorescence quenching</h2>
+      <p>Quenching is any process that reduces fluorescence intensity. Understanding the type of quenching helps distinguish artefacts from genuine biochemical information.</p>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead><tr><th>Quenching type</th><th>Mechanism</th><th>Effect on spectrum</th><th>Laboratory implication</th></tr></thead>
+          <tbody>
+            <tr><td>Collisional (dynamic) quenching</td><td>Quencher collides with excited fluorophore and depopulates S&#x2081; non-radiatively</td><td>Intensity decreases; lifetime decreases; spectral shape unchanged</td><td>O&#x2082;, iodide, acrylamide are common collisional quenchers; degas samples if O&#x2082; quenching is a concern</td></tr>
+            <tr><td>Static quenching</td><td>Quencher forms a non-fluorescent ground-state complex with fluorophore</td><td>Intensity decreases; lifetime unchanged; spectral shape may shift slightly</td><td>Heavy metals (Cu&#x00B2;&#x207A;, Fe&#x00B3;&#x207A;) quench tryptophan and many dyes; remove metals from buffers</td></tr>
+            <tr><td>FRET (F&#xF6;rster Resonance Energy Transfer)</td><td>Non-radiative energy transfer from donor to acceptor fluorophore when within 1&ndash;10 nm</td><td>Donor intensity decreases; acceptor emission increases</td><td>Used deliberately to measure molecular distances and protein-protein interactions</td></tr>
+            <tr><td>Concentration quenching (self-quenching)</td><td>Fluorophore molecules collide with each other at high concentration</td><td>Intensity falls at high [C]; calibration curve flattens</td><td>Indicates sample is too concentrated; dilute to linear range</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 id="photobleaching">Photobleaching</h2>
+      <p>Photobleaching is the irreversible photochemical destruction of a fluorophore by prolonged or high-intensity illumination. The excited state fluorophore can react with oxygen to form reactive oxygen species that permanently destroy the chromophore structure. Signs: fluorescence intensity decreases progressively during measurement; the decrease is faster with more intense excitation light.</p>
+      <p>To minimise photobleaching: use the minimum necessary excitation intensity; keep the shutter closed between measurements; use anti-fade reagents for fixed microscopy samples; for solution measurements, do not illuminate the sample for longer than needed to take a stable reading.</p>
+
+      <h2 id="applications">Biochemical applications of fluorescence</h2>
+
+      <h3 id="protein-quant">Protein quantification</h3>
+      <p>The most sensitive fluorescence-based protein assays use dyes that become highly fluorescent only when bound to protein:</p>
+      <ul>
+        <li><strong>NanoOrange:</strong> excitation 470 nm, emission 570 nm. Detection range 10 ng/mL &ndash; 10 &#x03BC;g/mL. Binds to hydrophobic regions of denatured proteins. Requires heating step.</li>
+        <li><strong>SYPRO Orange:</strong> similar principle; used both for solution quantification and post-gel staining of SDS-PAGE.</li>
+        <li><strong>Intrinsic protein fluorescence (tryptophan):</strong> excitation 280 nm, emission 340 nm. No dye required. Sensitivity limited by tryptophan content (some proteins have none). Used in structural studies &mdash; tryptophan emission wavelength and intensity shift with protein conformation changes (unfolding redshifts emission from ~330 to ~355 nm).</li>
+      </ul>
+
+      <h3 id="dna-quant">DNA and RNA quantification</h3>
+      <p>Fluorescence dyes that intercalate between DNA base pairs or bind in the minor groove show massive fluorescence enhancement (100&ndash;1,000 fold) when bound to nucleic acid, enabling extremely sensitive quantification:</p>
+      <ul>
+        <li><strong>PicoGreen (dsDNA):</strong> detection range 25 pg/mL &ndash; 1 &#x03BC;g/mL. Approximately 1,000&times; more sensitive than UV absorbance at 260 nm. Does not respond to ssDNA or RNA. Standard reference for dsDNA quantification in samples containing multiple nucleic acid species.</li>
+        <li><strong>RiboGreen (RNA):</strong> analogous to PicoGreen for RNA quantification.</li>
+        <li><strong>OliGreen (ssDNA):</strong> quantifies single-stranded oligonucleotides.</li>
+        <li><strong>SYBR Green I:</strong> widely used in real-time PCR (qPCR) for monitoring DNA amplification in real time. Fluorescence increases proportionally to dsDNA amount per cycle.</li>
+      </ul>
+      <div class="box box-note">
+        <div class="box-label">Fluorescence vs A&#x2082;&#x2086;&#x2080; for nucleic acid quantification</div>
+        <p>A&#x2082;&#x2086;&#x2080; measures all UV-absorbing species including free nucleotides, RNA in a DNA prep, and aromatic amino acids from residual protein. PicoGreen specifically detects intact dsDNA and is preferred when accurate quantification of a pure dsDNA fraction is needed. A&#x2082;&#x2086;&#x2080; is faster and requires no reagents, making it appropriate for routine quality checks during DNA extraction.</p>
+      </div>
+
+      <h3 id="enzyme-assays">Enzyme-linked fluorescent assays</h3>
+      <p>Many enzyme assays exploit the large difference in fluorescence between the oxidised and reduced forms of NADH/NADPH. NADH and NADPH are highly fluorescent (excitation 340 nm, emission 460 nm); their oxidised forms NAD&#x207A; and NADP&#x207A; are essentially non-fluorescent at these wavelengths. This allows kinetic enzyme assays to be performed at 10&ndash;100&times; lower concentrations than the absorbance-based equivalent at 340 nm, extending the measurable range significantly for NADH-linked dehydrogenase assays.</p>
+      <p>Similarly, resorufin-based substrates (such as Amplex Red, oxidised to resorufin by H&#x2082;O&#x2082; in the presence of peroxidase) produce a highly fluorescent product with excitation 571 nm and emission 585 nm, enabling extremely sensitive detection of H&#x2082;O&#x2082;-producing oxidase enzymes at nanomolar substrate concentrations.</p>
+
+      <h3 id="membrane">Membrane probes and environmental reporters</h3>
+      <p>Several fluorescence applications exploit the sensitivity of the emission spectrum to molecular environment. Diphenylhexatriene (DPH) and its analogue TMA-DPH partition into lipid bilayers; their fluorescence polarisation (anisotropy) increases in ordered (gel-phase) membranes and decreases in fluid membranes, allowing membrane fluidity to be measured quantitatively. Laurdan reports on membrane phase directly through its generalised polarisation (GP), which shifts from negative values in fluid membranes to positive values in ordered gel phases.</p>
+
+      <h2 id="vs-absorbance">Fluorescence vs UV-Vis absorbance &mdash; when to use each</h2>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead><tr><th>Parameter</th><th>UV-Vis Absorbance</th><th>Fluorescence</th></tr></thead>
+          <tbody>
+            <tr><td>Sensitivity</td><td>&#x03BC;mol/L to mmol/L typical</td><td>pmol/L to nmol/L achievable for fluorescent compounds</td></tr>
+            <tr><td>Selectivity</td><td>All absorbing species contribute</td><td>Only fluorescent species detected; high inherent selectivity</td></tr>
+            <tr><td>Linear range</td><td>Wide (A = 0.001 &ndash; 2.0)</td><td>Narrow (limited by inner filter effect above A &#x2248; 0.05)</td></tr>
+            <tr><td>Equipment cost</td><td>Low to moderate</td><td>Moderate to high</td></tr>
+            <tr><td>Sample requirement</td><td>Analyte must absorb in UV-Vis</td><td>Analyte must fluoresce naturally or be labelled with a fluorophore</td></tr>
+            <tr><td>Best use</td><td>Routine quantification, high-concentration samples, non-fluorescent analytes</td><td>Trace-level analytes, selective detection in complex matrices, kinetic studies at low [S]</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 id="practical">Practical guidelines for fluorescence measurements</h2>
+      <div class="box box-key">
+        <div class="box-label">Before every fluorescence measurement</div>
+        <ul>
+          <li>Warm up the xenon lamp for at least 15 minutes &mdash; lamp output is unstable immediately after switching on</li>
+          <li>Run an excitation scan and an emission scan of your fluorophore in the actual sample matrix to confirm peak wavelengths have not shifted</li>
+          <li>Measure the absorbance of your samples at both &#x03BB;&#x2090;&#x2093; and &#x03BB;&#x2091;&#x2098;. If either exceeds 0.05, dilute before measuring</li>
+          <li>Use a quartz cuvette &mdash; glass and plastic absorb strongly below 320 nm and will give false readings for UV-excited fluorophores</li>
+          <li>Ensure all four sides of the cuvette are clean and free of scratches &mdash; fluorescence is measured at 90&deg; to the excitation beam, so the emission-face cleanliness matters</li>
+          <li>Run a blank (buffer + dye without analyte) and subtract from all readings to remove background fluorescence from the buffer or dye itself</li>
+          <li>Protect the sample from room light during measurement &mdash; ambient light contributes to photobleaching and may reach the detector</li>
+        </ul>
+      </div>
+
+      <div class="takeaways">
+        <div class="takeaways-label">Key takeaways</div>
+        <h3>What to remember from this tutorial</h3>
+        <ul>
+          <li>Fluorescence is measured at 90&deg; to the excitation beam against a dark background, giving 100&ndash;1,000&times; better sensitivity than absorbance for the same fluorescent compound.</li>
+          <li>Emission is always at longer wavelengths than excitation (Stokes shift) because vibrational relaxation dissipates some excitation energy before emission. This wavelength difference allows the excitation and emission to be separated optically.</li>
+          <li>Fluorescence intensity is linear with concentration only at low absorbance (A &lt; 0.05 at both excitation and emission wavelengths). Above this threshold the inner filter effect causes underestimation. Always check sample absorbance and dilute if necessary.</li>
+          <li>Quenching reduces fluorescence without destroying the fluorophore &mdash; collisional quenching by O&#x2082;, heavy metals, and iodide is common. Static quenching forms a non-fluorescent complex. FRET is exploited to measure molecular distances and interactions.</li>
+          <li>PicoGreen detects dsDNA at 25 pg/mL; RiboGreen for RNA; SYBR Green for real-time PCR. NADH/NADPH intrinsic fluorescence enables enzyme assays at 10&ndash;100&times; lower concentrations than the equivalent absorbance-based assay.</li>
+          <li>Use quartz cuvettes for UV-excited fluorophores. Warm up the xenon lamp 15 minutes. Run excitation and emission scans on every new sample to confirm peak wavelengths.</li>
+        </ul>
+      </div>
+
+      </article>
+
+
+            <div class="tut-nav">
+        <a class="tut-nav-card" href="electrophoresis-techniques.html">
+          <span class="tut-nav-dir">&#x2190; Previous</span>
+          <span class="tut-nav-title">Electrophoresis Techniques: SDS-PAGE and Agarose Gel</span>
+        </a>
+        <a class="tut-nav-card next" href="elisa-immunoassay.html">
+          <span class="tut-nav-dir">Next &#x2192;</span>
+          <span class="tut-nav-title">Immunoassay Techniques: ELISA Principles and Protocol</span>
+        </a>
+      </div>
+
+  </div><!-- /tutorial-layout -->
+
+  <script src="../shared.js" defer></script>
+
+  <!-- MOBILE FLOATING TOC (visible ≤ 900px) -->
+  <button class="mob-toc-btn" id="mobTocBtn"
+          aria-label="Open table of contents" aria-expanded="false"
+          aria-controls="mobTocPanel">
+    <span class="mob-toc-icon">☰</span>
+    <span class="mob-toc-label">Contents</span></button>
+
+  <div class="mob-toc-overlay" id="mobTocOverlay" aria-hidden="true"></div>
+
+  <div class="mob-toc-panel" id="mobTocPanel" role="dialog"
+       aria-label="Table of contents" aria-modal="true">
+    <div class="mob-toc-handle"></div>
+    <div class="mob-toc-head">
+      <span class="mob-toc-head-label">On this page</span>
+      <button class="mob-toc-close" id="mobTocClose" aria-label="Close">✕</button>
+    </div>
+    <div class="mob-toc-body">
+            <ul class="toc-list">
+          <li><a href="#intro">Fluorescence vs absorbance</a></li>
+          <li><a href="#jablonski">Jablonski diagram</a></li>
+          <li><a href="#excitation-emission">Excitation and emission spectra</a></li>
+          <li><a href="#stokes-shift">Stokes shift</a></li>
+          <li><a href="#quantum-yield">Quantum yield</a></li>
+          <li><a href="#instrument">Instrument components</a></li>
+          <li><a href="#calibration">Calibration and linearity</a></li>
+          <li><a href="#inner-filter">Inner filter effect</a></li>
+          <li><a href="#quenching">Fluorescence quenching</a></li>
+          <li><a href="#photobleaching">Photobleaching</a></li>
+          <li><a href="#applications">Biochemical applications</a></li>
+          <li class="sub"><a href="#protein-quant">Protein quantification</a></li>
+          <li class="sub"><a href="#dna-quant">DNA and RNA quantification</a></li>
+          <li class="sub"><a href="#enzyme-assays">Enzyme-linked fluorescent assays</a></li>
+          <li class="sub"><a href="#membrane">Membrane probes</a></li>
+          <li><a href="#vs-absorbance">Fluorescence vs UV-Vis absorbance</a></li>
+          <li><a href="#practical">Practical guidelines</a></li>
+          <li><a href="#takeaways">Key takeaways</a></li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+  <footer>
+  <div class="footer-logo">Lab<span>Learn</span></div>
+  <ul class="footer-links">
+    <li><a href="index.html">Tutorials</a></li>
+    <li><a href="../calculator.html">Calculators</a></li>
+    <li><a href="../apps.html">Apps</a></li>
+    <li><a href="../about.html">About</a></li>
+    <li><a href="../contact.html">Contact</a></li>
+    <li><a href="../index.html#donate">Donate</a></li>
+  </ul>
+  <div class="footer-copy">&copy; 2025 LabLearn. Free for students &amp; researchers.</div>
+</footer>
+
+
+</body>
+</html>

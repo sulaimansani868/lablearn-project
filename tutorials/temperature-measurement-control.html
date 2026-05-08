@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Temperature Measurement and Control – LabLearn</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../shared.css" />
+  <link rel="stylesheet" href="tutorial.css" />
+</head>
+<body>
+
+<nav>
+  <button class="nav-tut-btn" id="navTutBtn" aria-label="Browse tutorials" aria-expanded="false">
+    <svg class="nav-tut-icon" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect x="2" y="3" width="7" height="2" rx="1" fill="currentColor"/>
+        <rect x="2" y="9" width="11" height="2" rx="1" fill="currentColor"/>
+        <rect x="2" y="15" width="9" height="2" rx="1" fill="currentColor"/>
+        <circle cx="16" cy="4" r="2" fill="currentColor" opacity=".45"/>
+        <circle cx="16" cy="10" r="2" fill="currentColor" opacity=".45"/>
+        <circle cx="16" cy="16" r="2" fill="currentColor" opacity=".45"/>
+    </svg>
+  </button>
+  <a href="../index.html" class="nav-logo">Lab<span>Learn</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html" class="active">Tutorials</a></li>
+    <li><a href="../calculators.html">Calculators</a></li>
+    <li><a href="../apps.html">Apps</a></li>
+    <li><a href="../about.html">About</a></li>
+    <li><a href="../contact.html">Contact</a></li>
+	<li><a href="../index.html#donate">Donate</a></li>
+    <li><a href="index.html" class="nav-cta">Start Learning</a></li>
+  </ul>
+  <button class="nav-burger" id="navBurger" aria-label="Toggle navigation" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="nav-mobile" id="navMobile">
+  <a href="index.html" class="active">Tutorials</a>
+  <a href="../calculators.html">Calculators</a>
+  <a href="../apps.html">Apps</a>
+  <a href="../about.html">About</a>
+  <a href="../contact.html">Contact</a>
+  <a href="../index.html#donate">Donate</a>
+  <a href="index.html" class="mob-cta">Start Learning</a>
+</div>
+
+  <!-- TUTORIAL LIST PANEL -->
+  <div class="tut-list-overlay" id="tutListOverlay"></div>
+  <div class="tut-list-panel" id="tutListPanel" aria-hidden="true">
+    <div class="tut-list-head">
+      <span class="tut-list-head-label">All Tutorials</span>
+      <button class="tut-list-close" id="tutListClose" aria-label="Close">&#x2715;</button>
+    </div>
+    <div class="tut-list-body">
+      <div class="tut-list-level">Beginner</div>
+      <ul class="tut-list-links">
+        <li><a href="molarity-concentration.html"      data-tut>Molarity, Molality &amp; Normality</a></li>
+        <li><a href="serial-dilutions.html"            data-tut>Serial Dilutions: Technique &amp; Calculation</a></li>
+        <li><a href="lab-safety.html"                  data-tut>Lab Safety: Chemical Hazard Classes</a></li>
+        <li><a href="molar-solutions-bench-guide.html" data-tut>Preparing Molar Solutions: Bench Guide</a></li>
+        <li><a href="serum-plasma-separation.html"     data-tut>Serum and Plasma Separation</a></li>
+        <li><a href="ph-meter-calibration.html"        data-tut>pH Meter Calibration and Use</a></li>
+        <li><a href="micropipette-technique.html"      data-tut>Micropipette Technique: Selection &amp; Calibration</a></li>
+        <li><a href="centrifuge-operation.html"        data-tut>Centrifuge: Operation, Safety &amp; Protocol</a></li>
+        <li><a href="acid-base-safe-handling.html"     data-tut>Safe Handling of Acids, Bases &amp; Corrosives</a></li>
+        <li><a href="balance-weighing-technique.html"  data-tut>Accurate Weighing: Balance Technique</a></li>
+      </ul>
+      <div class="tut-list-level">Intermediate</div>
+      <ul class="tut-list-links">
+        <li><a href="uv-vis-spectrophotometry.html"    data-tut>UV-Vis Spectrophotometry Explained</a></li>
+        <li><a href="standard-solutions.html"          data-tut>Preparing Standard Solutions Accurately</a></li>
+        <li><a href="buffer-preparation.html"          data-tut>Preparing Buffer Solutions: Calculation to Bench</a></li>
+        <li><a href="acid-base-titration.html"         data-tut>Acid-Base Titration: Technique &amp; Endpoints</a></li>
+        <li><a href="blood-glucose-determination.html" data-tut>Blood Glucose: Glucometer &amp; GOD Methods</a></li>
+        <li><a href="kjeldahl-protein.html"            data-tut>Protein Estimation by the Kjeldahl Method</a></li>
+        <li><a href="biological-sample-handling.html"  data-tut>Biological Sample Handling and Storage</a></li>
+        <li><a href="bradford-biuret-protein.html"     data-tut>Spectrophotometric Protein Determination</a></li>
+        <li><a href="enzyme-activity-assays.html"      data-tut>Enzyme Activity Assays: Principles &amp; Methods</a></li>
+        <li><a href="reagent-grade-water.html"         data-tut>Reagent-Grade Water: Preparation &amp; Quality</a></li>
+      </ul>
+      <div class="tut-list-level">Advanced</div>
+      <ul class="tut-list-links">
+        <li><a href="hplc-method-development.html"        data-tut>HPLC Method Development Fundamentals</a></li>
+        <li><a href="atomic-absorption-spectroscopy.html" data-tut>Mineral Analysis by Atomic Absorption Spectroscopy</a></li>
+        <li><a href="hplc-validation.html"                data-tut>HPLC Method Validation: Linearity &amp; Precision</a></li>
+        <li><a href="enzyme-kinetics.html"                data-tut>Enzyme Kinetics: Michaelis-Menten &amp; Inhibition</a></li>
+        <li><a href="sds-page-electrophoresis.html"       data-tut>Electrophoresis: SDS-PAGE and Agarose Gel</a></li>
+        <li><a href="spectrofluorimetry.html"             data-tut>Spectrofluorimetry: Principles &amp; Applications</a></li>
+        <li><a href="elisa-immunoassay.html"              data-tut>Immunoassay Techniques: ELISA Principles &amp; Protocol</a></li>
+      </ul>
+    </div>
+  </div>
+
+
+<header class="page-header">
+  <div class="page-header-inner">
+    <div class="breadcrumb">
+      <a href="../index.html">Home</a><span>›</span>
+      <a href="index.html">Tutorials</a><span>›</span>
+      <span>Temperature Measurement and Control</span>
+    </div>
+    <div class="level-badge level-basic">Beginner</div>
+    <h1>Temperature Measurement and Control</h1>
+    <div class="page-header-meta">
+      <span class="meta-item">⏱ 16 min read</span>
+      <span class="meta-item">📂 Measurement &amp; Technique</span>
+      <span class="meta-item">🗓 Updated 2025</span>
+    </div>
+  </div>
+</header>
+
+<div class="tutorial-layout">
+  <aside class="toc-sidebar">
+    <div class="toc-box">
+      <div class="toc-label">On this page</div>
+      <ul class="toc-list">
+        <li><a href="#why-temperature">Why temperature matters</a></li>
+        <li><a href="#scales">Temperature scales</a></li>
+        <li><a href="#thermometers">Types of thermometer</a></li>
+        <li><a href="#calibration">Thermometer calibration</a></li>
+        <li><a href="#heating-devices">Heating devices</a></li>
+        <li><a href="#cooling-devices">Cooling devices</a></li>
+        <li><a href="#monitoring">Temperature monitoring and logging</a></li>
+        <li><a href="#common-temps">Common laboratory temperatures</a></li>
+        <li><a href="#takeaways">Key takeaways</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <article class="article">
+
+    <h2 id="why-temperature">Why temperature matters in the laboratory</h2>
+    <p>Temperature is one of the most important variables in experimental science. It governs reaction rates (via the Arrhenius equation), enzyme activity, protein stability, solubility, viscosity, vapour pressure, and volumetric expansion of liquids and glassware. A temperature error of just a few degrees can invalidate a kinetic experiment, denature an enzyme, or cause a reagent to precipitate out of solution.</p>
+    <p>Temperature also governs storage conditions. The stability of biological samples, reagents, standards, and cell cultures depends critically on maintaining specified temperature ranges. A malfunctioning incubator or freezer that goes undetected for a weekend can destroy months of irreplaceable samples.</p>
+
+    <h2 id="scales">Temperature scales</h2>
+    <p>Three temperature scales are relevant in laboratory work. Understanding their relationships prevents conversion errors.</p>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>Scale</th><th>Symbol</th><th>Zero point</th><th>Used for</th><th>Conversion</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Celsius</td><td>°C</td><td>Freezing point of water (at 1 atm)</td><td>All routine laboratory work</td><td>°C = K − 273.15</td></tr>
+          <tr><td>Kelvin</td><td>K</td><td>Absolute zero (−273.15°C)</td><td>Thermodynamic calculations, gas laws, spectroscopy</td><td>K = °C + 273.15</td></tr>
+          <tr><td>Fahrenheit</td><td>°F</td><td>Defined historically</td><td>Not used in scientific work; occasionally in clinical contexts</td><td>°F = (°C × 9/5) + 32</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="box box-note">
+      <div class="box-label">Always use Kelvin for thermodynamic equations</div>
+      <p>Equations derived from thermodynamic principles — including the Arrhenius equation, the van't Hoff equation, the ideal gas law (PV = nRT), and Gibbs free energy (ΔG = ΔH − TΔS) — require temperature in Kelvin. Substituting Celsius values into these equations produces incorrect results. When using these equations, convert °C to K first: K = °C + 273.15.</p>
+    </div>
+
+    <h2 id="thermometers">Types of thermometer</h2>
+    <p>Different thermometer types offer different ranges, response times, and accuracy levels. Selecting the appropriate type for the task avoids both safety hazards and measurement errors.</p>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>Type</th><th>Range</th><th>Accuracy</th><th>Best use</th><th>Limitations</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Liquid-in-glass (alcohol)</td><td>−80 to +110°C</td><td>±0.5–1°C</td><td>General bath, water bath, incubator checks</td><td>Fragile; read at eye level only; slow response</td></tr>
+          <tr><td>Digital probe (thermocouple)</td><td>−200 to +1300°C</td><td>±0.1–0.5°C (type-dependent)</td><td>Reaction monitoring, furnaces, general all-purpose</td><td>Requires calibration; probe material must be chemically compatible</td></tr>
+          <tr><td>Digital probe (RTD / Pt100)</td><td>−200 to +650°C</td><td>±0.1°C</td><td>High-precision temperature logging, water baths</td><td>More expensive; slower response than thermocouple</td></tr>
+          <tr><td>Infrared (non-contact)</td><td>−50 to +1000°C</td><td>±1–2°C</td><td>Surface temperature of hot plates, external equipment</td><td>Measures surface only — not internal liquid temperature; emissivity-dependent</td></tr>
+          <tr><td>Bimetallic dial thermometer</td><td>0 to +300°C</td><td>±2–5°C</td><td>Oven and autoclave door-mounted indicator</td><td>Low precision; for indication only, not accurate measurement</td></tr>
+          <tr><td>Maximum-minimum thermometer</td><td>−30 to +50°C</td><td>±0.5°C</td><td>Monitoring storage unit temperature range over time</td><td>Records extremes only, not continuous trace</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="box box-danger">
+      <div class="box-label">⚠ Mercury thermometers are banned in most laboratories</div>
+      <p>Mercury thermometers are prohibited in most institutions due to the severe health and environmental hazard posed by mercury spills. If a mercury thermometer breaks, the resulting spill requires specialist hazardous waste contractors to clean up. Replace all mercury thermometers with alcohol-filled or digital alternatives. If a mercury thermometer break occurs, evacuate the immediate area, do not attempt DIY clean-up, and notify your safety officer immediately.</p>
+    </div>
+
+    <h2 id="calibration">Thermometer calibration and verification</h2>
+    <p>A thermometer that reads incorrectly introduces a systematic error into every temperature-dependent measurement made with it. Calibration should be verified before any critical temperature-sensitive experiment and at regular scheduled intervals.</p>
+
+    <h3>Two-point verification method</h3>
+    <div class="box box-example">
+      <div class="box-label">Verifying a thermometer using ice-water and boiling water</div>
+      <div class="step"><span class="step-n">1</span><span><strong>Ice point (0°C):</strong> Fill a beaker with crushed ice and add a small amount of cold distilled water to create a wet ice slush. Insert the thermometer and stir gently. After 2–3 minutes, a calibrated thermometer should read 0.0°C ± 0.1°C.</span></div>
+      <div class="step"><span class="step-n">2</span><span><strong>Steam point (100°C at sea level):</strong> Bring distilled water to a full rolling boil. Suspend the thermometer in the steam (not in the liquid) and wait for stabilisation. At sea level (1 atm), the reading should be 100.0°C. Correct for altitude if applicable: approximately −0.034°C per 100 m elevation.</span></div>
+      <div class="step"><span class="step-n">3</span><span>Record the actual readings against the expected values. The difference is the correction factor to apply to all measurements with this thermometer. A correction of more than ±1°C warrants replacement or recalibration.</span></div>
+    </div>
+
+    <h2 id="heating-devices">Heating devices</h2>
+    <p>Multiple heating devices are available in the laboratory, each with different precision, uniformity, maximum temperature, and safety profile. Selecting the appropriate device for the temperature required and the vessel type used is critical.</p>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>Device</th><th>Temperature range</th><th>Uniformity</th><th>Best for</th><th>Cautions</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Water bath</td><td>Ambient to 99°C</td><td>±0.1–0.5°C</td><td>Enzyme reactions, incubations, precise temperature control below 100°C</td><td>Never submerge electrical connections; maintain water level; use a lid to reduce evaporation</td></tr>
+          <tr><td>Oil bath</td><td>Ambient to ~250°C</td><td>±1–2°C</td><td>Reactions requiring temperatures above 100°C; reflux setups</td><td>Fire hazard — oil can ignite; never heat above the flash point; clamp all vessels securely</td></tr>
+          <tr><td>Sand bath</td><td>Ambient to ~300°C</td><td>±5–15°C (poor)</td><td>Distillations, glassblowing support — where uniformity is not critical</td><td>Poor temperature uniformity; hot sand can cause burns; not suitable for precise temperature work</td></tr>
+          <tr><td>Heating mantle</td><td>Ambient to ~450°C</td><td>±2–5°C</td><td>Heating round-bottom flasks; distillation; reflux</td><td>Must match flask size; do not use without a controller; do not place on a lab jack without a secure support</td></tr>
+          <tr><td>Hot plate / stirrer</td><td>Ambient to ~500°C (surface)</td><td>±5–10°C (surface)</td><td>Heating flat-bottomed vessels; simultaneous stirring</td><td>Surface temperature ≠ solution temperature; always use an immersion thermometer; use hot-surface indicator disc</td></tr>
+          <tr><td>Dry block heater</td><td>Ambient to ~130°C</td><td>±0.5°C</td><td>Heating tubes at exact temperatures; enzyme reactions; PCR setup</td><td>Insert tubes fully; match block to tube size; use a lid for volatile samples</td></tr>
+          <tr><td>Muffle furnace</td><td>200–1200°C</td><td>±5–10°C</td><td>Ashing, ignition, sintering</td><td>Requires full PPE; specialist training required; never open door suddenly at high temperature</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="box box-danger">
+      <div class="box-label">⚠ Hot plate surface temperature is NOT the solution temperature</div>
+      <p>The set-point dial on a hot plate controls the surface temperature of the plate — not the temperature of the liquid inside the vessel. A hot plate set to 80°C may produce a solution temperature of anywhere from 40°C to 75°C depending on vessel size, stirring rate, and ambient conditions. Always use an immersion thermometer or digital probe directly in the solution to verify actual temperature.</p>
+    </div>
+
+    <h2 id="cooling-devices">Cooling devices</h2>
+    <p>Many laboratory processes require cooling below ambient temperature — to slow reactions, preserve samples, crystallise products, or handle cryogenic reagents.</p>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>Cooling method</th><th>Temperature achieved</th><th>Use case</th><th>Safety notes</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Ice bath (ice + water)</td><td>~0°C</td><td>Slowing reactions; cooling exothermic additions; keeping samples cold during processing</td><td>Standard precautions; wet ice causes slipping hazard if spilled</td></tr>
+          <tr><td>Ice–salt bath (ice + NaCl)</td><td>~−10 to −20°C</td><td>Reactions needing sub-zero temperatures; cooling condensers</td><td>Higher corrosion risk on metal bench fittings; do not use around sensitive equipment</td></tr>
+          <tr><td>Dry ice (CO₂ solid)</td><td>−78.5°C (sublimation point)</td><td>Keeping samples at −70°C during transport; Dry ice/acetone baths for very cold reactions</td><td>Cryogenic burns on skin contact — use insulated gloves; release CO₂ in ventilated area; never seal in airtight container</td></tr>
+          <tr><td>Liquid nitrogen (LN₂)</td><td>−196°C</td><td>Flash-freezing biological samples; cryogenic storage; cooling traps</td><td>Severe cryogenic burns; oxygen displacement risk in enclosed spaces; use cryogenic gloves and face shield; never use in unventilated areas</td></tr>
+          <tr><td>Refrigerator (4°C)</td><td>2–8°C</td><td>Short-term reagent and sample storage; enzyme and antibody storage</td><td>Use laboratory-grade refrigerators only — never domestic models for flammable solvents</td></tr>
+          <tr><td>Freezer (−20°C)</td><td>−15 to −25°C</td><td>Enzyme storage, primer storage, many reagent stocks</td><td>Allow samples to equilibrate before opening to prevent condensation</td></tr>
+          <tr><td>Ultra-low freezer (−80°C)</td><td>−70 to −90°C</td><td>Long-term biological sample storage; RNA, virus stocks, primary cells</td><td>Cryogenic-rated containers only; never allow the door seal to become iced — can prevent opening in an emergency</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 id="monitoring">Temperature monitoring and logging</h2>
+    <p>Storage units (refrigerators, freezers, incubators) must have their temperatures monitored and recorded continuously, or at minimum twice daily. A temperature excursion that goes undetected over a weekend can silently ruin all stored samples.</p>
+
+    <div class="box box-key">
+      <div class="box-label">Temperature monitoring requirements</div>
+      <ul>
+        <li>Every storage unit should have a calibrated thermometer or electronic data logger inside, not just the built-in display (which measures air temperature at the sensor location, not the actual sample temperature).</li>
+        <li>Electronic data loggers record continuously and can send alarms via email or SMS when temperature goes out of range — strongly recommended for any storage unit holding irreplaceable samples.</li>
+        <li>Manual temperature logs should record: date, time, observed temperature, acceptable range, and the recorder's initials. Any out-of-range reading must be investigated and documented.</li>
+        <li>Incubators used for cell culture or microbiology should also log CO₂ percentage and humidity where applicable.</li>
+        <li>Temperature log records must be retained as part of the laboratory's GLP documentation — typically for at least 2 years for research and longer for regulated studies.</li>
+      </ul>
+    </div>
+
+    <h2 id="common-temps">Common laboratory temperature reference points</h2>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>Temperature</th><th>Context and significance</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>−196°C (77 K)</td><td>Liquid nitrogen — cryogenic storage of biological materials</td></tr>
+          <tr><td>−80°C</td><td>Ultra-low freezer — long-term storage of RNA, viral stocks, primary cells</td></tr>
+          <tr><td>−78.5°C</td><td>Dry ice sublimation point — cooling bath reference</td></tr>
+          <tr><td>−20°C</td><td>Standard freezer — enzyme storage, primer aliquots, many reagents</td></tr>
+          <tr><td>0°C</td><td>Ice point — reference for thermometer calibration; slowing enzymatic activity</td></tr>
+          <tr><td>4°C</td><td>Refrigerator — cold room; optimal for many enzyme and antibody stocks</td></tr>
+          <tr><td>20°C</td><td>Calibration temperature for volumetric glassware; ambient reference</td></tr>
+          <tr><td>25°C</td><td>Standard temperature for most chemical reference data (ΔG°, Kₐ, conductivity)</td></tr>
+          <tr><td>37°C</td><td>Human body temperature; optimal for most human cell culture and enzyme assays</td></tr>
+          <tr><td>56°C</td><td>Heat inactivation of complement proteins in serum</td></tr>
+          <tr><td>65°C</td><td>Approximate denaturation temperature of many common enzymes</td></tr>
+          <tr><td>72°C</td><td>Extension temperature for Taq polymerase in PCR</td></tr>
+          <tr><td>100°C</td><td>Boiling point of water at sea level; autoclave steam (121°C at 15 psi)</td></tr>
+          <tr><td>121°C</td><td>Standard autoclave sterilisation temperature (15 psi, 15–20 min)</td></tr>
+          <tr><td>160–180°C</td><td>Dry heat sterilisation of glassware (1–2 hours)</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="takeaways" id="takeaways">
+      <div class="takeaways-label">Key Takeaways</div>
+      <h3>What to remember from this tutorial</h3>
+      <ul>
+        <li>Temperature affects reaction rates, enzyme activity, solubility, and sample stability — it must be measured and controlled, not assumed.</li>
+        <li>Use Kelvin (not Celsius) in all thermodynamic equations. Convert using: K = °C + 273.15.</li>
+        <li>Mercury thermometers are banned in most laboratories — use alcohol-filled or digital thermometers instead.</li>
+        <li>Verify thermometers using ice-point (0°C) and steam-point (100°C) checks before critical measurements.</li>
+        <li>The hot plate dial controls surface temperature — always measure solution temperature with an immersion probe.</li>
+        <li>Dry ice (−78.5°C) and liquid nitrogen (−196°C) cause severe cryogenic burns on contact — always use appropriate insulated gloves and face protection.</li>
+        <li>Storage unit temperatures must be monitored continuously (or twice daily at minimum) and logged — electronic data loggers with alarm functions are strongly recommended.</li>
+      </ul>
+    </div>
+
+    <div class="tut-nav">
+      <a href="weighing-techniques.html" class="tut-nav-card">
+        <span class="tut-nav-dir">← Previous</span>
+        <span class="tut-nav-title">Weighing Techniques: By Difference and Direct Weighing</span>
+      </a>
+      <a href="basic-glassware-handling.html" class="tut-nav-card next">
+        <span class="tut-nav-dir">Next →</span>
+        <span class="tut-nav-title">Basic Glassware Handling</span>
+      </a>
+    </div>
+  </article>
+</div>
+
+<button class="mob-toc-btn" id="mobTocBtn" aria-expanded="false"><span class="mob-toc-icon">☰</span><span class="mob-toc-label">Contents</span></button>
+<div class="mob-toc-overlay" id="mobTocOverlay"></div>
+<div class="mob-toc-panel" id="mobTocPanel">
+  <div class="mob-toc-handle"></div>
+  <div class="mob-toc-head">
+    <span class="mob-toc-head-label">On this page</span>
+    <button class="mob-toc-close" id="mobTocClose" aria-label="Close">✕</button>
+  </div>
+  <div class="mob-toc-body">
+    <ul class="toc-list">
+      <li><a href="#why-temperature">Why temperature matters</a></li>
+      <li><a href="#scales">Temperature scales</a></li>
+      <li><a href="#thermometers">Types of thermometer</a></li>
+      <li><a href="#calibration">Thermometer calibration</a></li>
+      <li><a href="#heating-devices">Heating devices</a></li>
+      <li><a href="#cooling-devices">Cooling devices</a></li>
+      <li><a href="#monitoring">Temperature monitoring</a></li>
+      <li><a href="#common-temps">Common lab temperatures</a></li>
+      <li><a href="#takeaways">Key takeaways</a></li>
+    </ul>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-logo">Lab<span>Learn</span></div>
+  <ul class="footer-links">
+    <li><a href="index.html">Tutorials</a></li>
+    <li><a href="../calculator.html">Calculators</a></li>
+    <li><a href="../apps.html">Apps</a></li>
+    <li><a href="../about.html">About</a></li>
+    <li><a href="../contact.html">Contact</a></li>
+    <li><a href="../index.html#donate">Donate</a></li>
+  </ul>
+  <div class="footer-copy">&copy; 2025 LabLearn. Free for students &amp; researchers.</div>
+</footer>
+<script src="../shared.js"></script>
+</body>
+</html>

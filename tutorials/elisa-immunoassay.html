@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Immunoassay Techniques: ELISA Principles and Protocol | LabLearn Tutorials</title>
+  <meta name="description" content="How to perform ELISA — direct, indirect, sandwich, and competitive formats explained, with full plate preparation, blocking, antibody incubation, signal development, and data analysis." />
+  <meta name="keywords" content="ELISA, enzyme-linked immunosorbent assay, sandwich ELISA, indirect ELISA, competitive ELISA, ELISA protocol, microplate, TMB substrate, immunoassay, antibody" />
+  <meta name="author" content="Sani Sulaiman" />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="LabLearn" />
+  <meta property="og:title" content="Immunoassay Techniques: ELISA Principles and Protocol | LabLearn Tutorials" />
+  <meta property="og:description" content="Complete ELISA guide — four assay formats, plate preparation, blocking, antibody incubation, TMB signal development, standard curve, and data analysis." />
+  <meta property="og:url" content="https://lablearn.netlify.app/tutorials/elisa-immunoassay.html" />
+  <meta name="twitter:card" content="summary" />
+  <link rel="canonical" href="https://lablearn.netlify.app/tutorials/elisa-immunoassay.html" />
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+  <link rel="alternate icon" type="image/png" href="../favicon.png" />
+  <link rel="stylesheet" href="../shared.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="tutorial.css" />
+  <meta name="theme-color" content="#0d1f2d" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="LabLearn" />
+  <style>
+    .diag-wrap { margin: 1.75rem 0; background: var(--navy); border-radius: 8px; overflow: hidden; border: 1px solid rgba(11,124,110,0.3); }
+    .diag-title { font-family: 'IBM Plex Mono', monospace; font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: #5ee8d8; padding: 0.65rem 1.25rem 0; }
+    .diag-caption { font-size: 0.8rem; color: #7a9ab5; padding: 0.5rem 1.25rem 0.9rem; line-height: 1.5; }
+    .diag-wrap svg { display: block; width: 100%; height: auto; }
+  </style>
+</head>
+<body>
+  <nav>
+    <button class="nav-tut-btn" id="navTutBtn" aria-label="Browse tutorials" aria-expanded="false">
+      <svg class="nav-tut-icon" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect x="2" y="3" width="7" height="2" rx="1" fill="currentColor"/>
+        <rect x="2" y="9" width="11" height="2" rx="1" fill="currentColor"/>
+        <rect x="2" y="15" width="9" height="2" rx="1" fill="currentColor"/>
+        <circle cx="16" cy="4" r="2" fill="currentColor" opacity=".45"/>
+        <circle cx="16" cy="10" r="2" fill="currentColor" opacity=".45"/>
+        <circle cx="16" cy="16" r="2" fill="currentColor" opacity=".45"/>
+      </svg>
+    </button>
+    <a href="../index.html" class="nav-logo">Lab<span>Learn</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Tutorials</a></li>
+      <li><a href="../calculator.html">Calculators</a></li>
+      <li><a href="../apps.html">Apps</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+      <li><a href="../index.html#donate">Donate</a></li>
+	  <li><a href="index.html" class="nav-cta">Start Learning</a></li>
+    </ul>
+    <button class="nav-burger" id="navBurger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <div class="nav-mobile" id="navMobile">
+    <a href="index.html">Tutorials</a>
+    <a href="../calculator.html">Calculators</a>
+    <a href="../apps.html">Apps</a>
+    <a href="../about.html">About</a>
+    <a href="../contact.html">Contact</a>
+    <a href="../index.html#donate">Donate</a>
+    <a href="index.html" class="mob-cta">Start Learning</a>
+  </div>
+  <!-- TUTORIAL LIST PANEL -->
+  <div class="tut-list-overlay" id="tutListOverlay"></div>
+  <div class="tut-list-panel" id="tutListPanel" aria-hidden="true">
+    <div class="tut-list-head">
+      <span class="tut-list-head-label">All Tutorials</span>
+      <button class="tut-list-close" id="tutListClose" aria-label="Close">&#x2715;</button>
+    </div>
+    <div class="tut-list-body">
+      <div class="tut-list-level">Beginner</div>
+      <ul class="tut-list-links">
+        <li><a href="molarity-concentration.html"      data-tut>Molarity, Molality &amp; Normality</a></li>
+        <li><a href="serial-dilutions.html"            data-tut>Serial Dilutions: Technique &amp; Calculation</a></li>
+        <li><a href="lab-safety.html"                  data-tut>Lab Safety: Chemical Hazard Classes</a></li>
+        <li><a href="molar-solutions-bench-guide.html" data-tut>Preparing Molar Solutions: Bench Guide</a></li>
+        <li><a href="serum-plasma-separation.html"     data-tut>Serum and Plasma Separation</a></li>
+        <li><a href="ph-meter-calibration.html"        data-tut>pH Meter Calibration and Use</a></li>
+        <li><a href="micropipette-technique.html"      data-tut>Micropipette Technique: Selection &amp; Calibration</a></li>
+        <li><a href="centrifuge-operation.html"        data-tut>Centrifuge: Operation, Safety &amp; Protocol</a></li>
+        <li><a href="acid-base-safe-handling.html"     data-tut>Safe Handling of Acids, Bases &amp; Corrosives</a></li>
+        <li><a href="balance-weighing-technique.html"  data-tut>Accurate Weighing: Balance Technique</a></li>
+      </ul>
+      <div class="tut-list-level">Intermediate</div>
+      <ul class="tut-list-links">
+        <li><a href="uv-vis-spectrophotometry.html"    data-tut>UV-Vis Spectrophotometry Explained</a></li>
+        <li><a href="standard-solutions.html"          data-tut>Preparing Standard Solutions Accurately</a></li>
+        <li><a href="buffer-preparation.html"          data-tut>Preparing Buffer Solutions: Calculation to Bench</a></li>
+        <li><a href="acid-base-titration.html"         data-tut>Acid-Base Titration: Technique &amp; Endpoints</a></li>
+        <li><a href="blood-glucose-determination.html" data-tut>Blood Glucose: Glucometer &amp; GOD Methods</a></li>
+        <li><a href="kjeldahl-protein.html"            data-tut>Protein Estimation by the Kjeldahl Method</a></li>
+        <li><a href="biological-sample-handling.html"  data-tut>Biological Sample Handling and Storage</a></li>
+        <li><a href="bradford-biuret-protein.html"     data-tut>Spectrophotometric Protein Determination</a></li>
+        <li><a href="enzyme-activity-assays.html"      data-tut>Enzyme Activity Assays: Principles &amp; Methods</a></li>
+        <li><a href="reagent-grade-water.html"         data-tut>Reagent-Grade Water: Preparation &amp; Quality</a></li>
+      </ul>
+      <div class="tut-list-level">Advanced</div>
+      <ul class="tut-list-links">
+        <li><a href="hplc-method-development.html"        data-tut>HPLC Method Development Fundamentals</a></li>
+        <li><a href="atomic-absorption-spectroscopy.html" data-tut>Mineral Analysis by Atomic Absorption Spectroscopy</a></li>
+        <li><a href="hplc-validation.html"                data-tut>HPLC Method Validation: Linearity &amp; Precision</a></li>
+        <li><a href="enzyme-kinetics.html"                data-tut>Enzyme Kinetics: Michaelis-Menten &amp; Inhibition</a></li>
+        <li><a href="sds-page-electrophoresis.html"       data-tut>Electrophoresis: SDS-PAGE and Agarose Gel</a></li>
+        <li><a href="spectrofluorimetry.html"             data-tut>Spectrofluorimetry: Principles &amp; Applications</a></li>
+        <li><a href="elisa-immunoassay.html"              data-tut>Immunoassay Techniques: ELISA Principles &amp; Protocol</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="page-header">
+    <div class="page-header-inner">
+      <div class="breadcrumb">
+        <a href="../index.html">Home</a><span>&#x203A;</span>
+        <a href="index.html">Tutorials</a><span>&#x203A;</span>
+        <span>ELISA: Immunoassay Techniques</span>
+      </div>
+      <span class="level-badge level-advanced">Advanced</span>
+      <h1>Immunoassay Techniques: ELISA Principles and Protocol</h1>
+      <div class="page-header-meta">
+        <span class="meta-item">&#x1F4D6; 22 min read</span>
+        <span class="meta-item">&#x1F52C; Immunochemistry</span>
+        <span class="meta-item">&#x1F4C5; Updated 2025</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="tutorial-layout">
+    <aside class="toc-sidebar">
+      <div class="toc-box">
+        <div class="toc-label">On this page</div>
+        <ul class="toc-list">
+          <li><a href="#intro">What is ELISA?</a></li>
+          <li><a href="#formats">Four ELISA formats</a></li>
+          <li class="sub"><a href="#direct">Direct ELISA</a></li>
+          <li class="sub"><a href="#indirect">Indirect ELISA</a></li>
+          <li class="sub"><a href="#sandwich">Sandwich ELISA</a></li>
+          <li class="sub"><a href="#competitive">Competitive ELISA</a></li>
+          <li><a href="#format-comparison">Choosing a format</a></li>
+          <li><a href="#antibodies">Antibody selection</a></li>
+          <li><a href="#equipment">Equipment and reagents</a></li>
+          <li><a href="#sandwich-protocol">Sandwich ELISA protocol</a></li>
+          <li class="sub"><a href="#coating">Plate coating</a></li>
+          <li class="sub"><a href="#blocking">Blocking</a></li>
+          <li class="sub"><a href="#sample-incubation">Sample incubation</a></li>
+          <li class="sub"><a href="#detection-ab">Detection antibody</a></li>
+          <li class="sub"><a href="#enzyme-conjugate">Enzyme conjugate</a></li>
+          <li class="sub"><a href="#substrate">Substrate development</a></li>
+          <li class="sub"><a href="#stop-read">Stop and read</a></li>
+          <li><a href="#standard-curve">Standard curve and calculation</a></li>
+          <li><a href="#controls">Controls and QC</a></li>
+          <li><a href="#interferences">Interferences</a></li>
+          <li><a href="#troubleshoot">Troubleshooting</a></li>
+          <li><a href="#takeaways">Key takeaways</a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <article class="article">
+
+      <h2 id="intro">What is ELISA?</h2>
+      <p>ELISA (Enzyme-Linked Immunosorbent Assay) is a plate-based technique that uses the specificity of antibody&ndash;antigen binding combined with the amplifying power of an enzyme to detect and quantify proteins, hormones, antibodies, and other analytes in complex biological samples. It is one of the most widely used techniques in clinical diagnostics, pharmaceutical quality control, food safety testing, and biomedical research.</p>
+      <p>The central principle is simple: an antibody specific to the target analyte captures it from the sample; a second enzyme-linked antibody or reagent then produces a measurable colour change proportional to the amount of analyte present. The microplate format allows 96 samples (or up to 384 in high-throughput formats) to be processed simultaneously.</p>
+      <p>The four main ELISA formats differ in how the antigen is captured and how the signal is generated. Choosing the correct format for your analyte and sample type is the first and most important decision in ELISA development.</p>
+
+      <div class="diag-wrap">
+        <div class="diag-title">Figure 1 — The four ELISA formats</div>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 310" role="img"
+     aria-label="Four ELISA format diagrams: Direct, Indirect, Sandwich, and Competitive">
+
+  <!-- ── background ── -->
+  <rect width="780" height="310" fill="#0d1f2d"/>
+
+  <!-- ══════════════════════════════════════════════════════════════════
+       SHARED DEFINITIONS — reusable symbols for molecules
+  ══════════════════════════════════════════════════════════════════════ -->
+  <defs>
+    <!-- Plate well shape: trapezoid -->
+    <clipPath id="well1"><path d="M30,50 L150,50 L140,160 L40,160 Z"/></clipPath>
+    <clipPath id="well2"><path d="M225,50 L345,50 L335,160 L235,160 Z"/></clipPath>
+    <clipPath id="well3"><path d="M420,50 L540,50 L530,160 L430,160 Z"/></clipPath>
+    <clipPath id="well4"><path d="M615,50 L735,50 L725,160 L625,160 Z"/></clipPath>
+
+    <!-- Y-shaped antibody symbol (upward = capture, downward = detection) -->
+    <!-- stem from centre bottom going up, two arms splaying left and right -->
+
+    <!-- Colours:
+         Plate surface:    #13a896 (teal-light)
+         Capture Ab:       #5ee8d8 (teal)
+         Antigen:          #f5a623 (amber)
+         Primary Ab:       #f5a623 (amber)
+         Secondary Ab:     #e07030 (orange)
+         Detection Ab:     #e07030 (orange)
+         HRP enzyme:       #c04040 (red)
+         Streptavidin:     #9060c0 (purple)
+         Biotin:           #c0a000 (gold)
+         Signal arrow:     #5ee8d8 (teal)
+    -->
+  </defs>
+
+  <!-- ══ FORMAT LABELS ══ -->
+  <text x="90"  y="20" text-anchor="middle" font-family="IBM Plex Sans,sans-serif" font-size="12" font-weight="600" fill="#5ee8d8">Direct</text>
+  <text x="285" y="20" text-anchor="middle" font-family="IBM Plex Sans,sans-serif" font-size="12" font-weight="600" fill="#5ee8d8">Indirect</text>
+  <text x="480" y="20" text-anchor="middle" font-family="IBM Plex Sans,sans-serif" font-size="12" font-weight="600" fill="#5ee8d8">Sandwich</text>
+  <text x="675" y="20" text-anchor="middle" font-family="IBM Plex Sans,sans-serif" font-size="12" font-weight="600" fill="#5ee8d8">Competitive</text>
+
+  <!-- ══════════════════════════════════════════════════════════════════
+       WELL OUTLINES — trapezoid shape for all four formats
+  ══════════════════════════════════════════════════════════════════════ -->
+  <!-- Well 1: Direct -->
+  <path d="M30,50 L150,50 L140,165 L40,165 Z" fill="#0a1520" stroke="#2a4a6a" stroke-width="2"/>
+  <!-- Well 2: Indirect -->
+  <path d="M225,50 L345,50 L335,165 L235,165 Z" fill="#0a1520" stroke="#2a4a6a" stroke-width="2"/>
+  <!-- Well 3: Sandwich -->
+  <path d="M420,50 L540,50 L530,165 L430,165 Z" fill="#0a1520" stroke="#2a4a6a" stroke-width="2"/>
+  <!-- Well 4: Competitive -->
+  <path d="M615,50 L735,50 L725,165 L625,165 Z" fill="#0a1520" stroke="#2a4a6a" stroke-width="2"/>
+
+  <!-- ══════════════════════════════════════════════════════════════════
+       PLATE SURFACE LINE (bottom of wells)
+  ══════════════════════════════════════════════════════════════════════ -->
+  <line x1="40"  y1="155" x2="140" y2="155" stroke="#13a896" stroke-width="4" stroke-linecap="round"/>
+  <line x1="235" y1="155" x2="335" y2="155" stroke="#13a896" stroke-width="4" stroke-linecap="round"/>
+  <line x1="430" y1="155" x2="530" y2="155" stroke="#13a896" stroke-width="4" stroke-linecap="round"/>
+  <line x1="625" y1="155" x2="725" y2="155" stroke="#13a896" stroke-width="4" stroke-linecap="round"/>
+
+  <!-- ══════════════════════════════════════════════════════════════════
+       HELPER: Antibody Y-symbol centred at (cx, cy), pointing UP or DOWN
+       Arms at ±35deg from vertical stem
+       tip_up = true  → arms point up  (capture antibody anchored at base)
+       tip_up = false → arms point down (detection antibody anchored at top)
+  ══════════════════════════════════════════════════════════════════════ -->
+
+  <!-- ─── FORMAT 1: DIRECT ────────────────────────────────────────────
+       Plate → Antigen (coated) → HRP-Primary Ab (directly conjugated)
+       Signal: coloured arrow pointing up
+  ──────────────────────────────────────────────────────────────────── -->
+
+  <!-- Antigen ovals on plate surface (amber) -->
+  <ellipse cx="60"  cy="148" rx="10" ry="6" fill="#f5a623"/>
+  <ellipse cx="90"  cy="148" rx="10" ry="6" fill="#f5a623"/>
+  <ellipse cx="120" cy="148" rx="10" ry="6" fill="#f5a623"/>
+
+  <!-- HRP-conjugated primary Ab binding antigen (Y pointing down, HRP blob on top) -->
+  <!-- Ab 1 -->
+  <line x1="60" y1="148" x2="60" y2="120" stroke="#e07030" stroke-width="2.5"/>
+  <line x1="60" y1="128" x2="47" y2="113" stroke="#e07030" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="60" y1="128" x2="73" y2="113" stroke="#e07030" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="60" cy="108" r="8" fill="#c04040"/>
+  <text x="60" y="112" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="7" fill="white">HRP</text>
+  <!-- Ab 2 -->
+  <line x1="90" y1="148" x2="90" y2="120" stroke="#e07030" stroke-width="2.5"/>
+  <line x1="90" y1="128" x2="77" y2="113" stroke="#e07030" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="90" y1="128" x2="103" y2="113" stroke="#e07030" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="90" cy="108" r="8" fill="#c04040"/>
+  <text x="90" y="112" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="7" fill="white">HRP</text>
+  <!-- Ab 3 -->
+  <line x1="120" y1="148" x2="120" y2="120" stroke="#e07030" stroke-width="2.5"/>
+  <line x1="120" y1="128" x2="107" y2="113" stroke="#e07030" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="120" y1="128" x2="133" y2="113" stroke="#e07030" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="120" cy="108" r="8" fill="#c04040"/>
+  <text x="120" y="112" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="7" fill="white">HRP</text>
+
+  <!-- Signal arrow -->
+  <line x1="90" y1="98" x2="90" y2="72" stroke="#5ee8d8" stroke-width="2.5" stroke-dasharray="4,2"/>
+  <polygon points="90,62 84,76 96,76" fill="#5ee8d8"/>
+  <text x="90" y="58" text-anchor="middle" font-family="IBM Plex Sans,sans-serif" font-size="9" fill="#5ee8d8">Signal</text>
+
+  <!-- ─── FORMAT 2: INDIRECT ───────────────────────────────────────────
+       Plate → Antigen → Primary Ab (unlabelled) → HRP-Secondary Ab
+  ──────────────────────────────────────────────────────────────────── -->
+
+  <!-- Antigen ovals on plate -->
+  <ellipse cx="255" cy="148" rx="10" ry="6" fill="#f5a623"/>
+  <ellipse cx="285" cy="148" rx="10" ry="6" fill="#f5a623"/>
+  <ellipse cx="315" cy="148" rx="10" ry="6" fill="#f5a623"/>
+
+  <!-- Primary Ab (teal, Y pointing down into antigen) -->
+  <line x1="255" y1="148" x2="255" y2="126" stroke="#5ee8d8" stroke-width="2.5"/>
+  <line x1="255" y1="134" x2="243" y2="120" stroke="#5ee8d8" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="255" y1="134" x2="267" y2="120" stroke="#5ee8d8" stroke-width="2.5" stroke-linecap="round"/>
+
+  <line x1="285" y1="148" x2="285" y2="126" stroke="#5ee8d8" stroke-width="2.5"/>
+  <line x1="285" y1="134" x2="273" y2="120" stroke="#5ee8d8" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="285" y1="134" x2="297" y2="120" stroke="#5ee8d8" stroke-width="2.5" stroke-linecap="round"/>
+
+  <line x1="315" y1="148" x2="315" y2="126" stroke="#5ee8d8" stroke-width="2.5"/>
+  <line x1="315" y1="134" x2="303" y2="120" stroke="#5ee8d8" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="315" y1="134" x2="327" y2="120" stroke="#5ee8d8" stroke-width="2.5" stroke-linecap="round"/>
+
+  <!-- HRP-Secondary Ab (orange, inverted Y anchored on primary) -->
+  <!-- One secondary per primary -->
+  <line x1="255" y1="120" x2="255" y2="102" stroke="#e07030" stroke-width="2.5"/>
+  <line x1="255" y1="108" x2="244" y2="96" stroke="#e07030" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="255" y1="108" x2="266" y2="96" stroke="#e07030" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="255" cy="91" r="7" fill="#c04040"/>
+  <text x="255" y="95" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="6.5" fill="white">HRP</text>
+
+  <line x1="285" y1="120" x2="285" y2="102" stroke="#e07030" stroke-width="2.5"/>
+  <line x1="285" y1="108" x2="274" y2="96" stroke="#e07030" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="285" y1="108" x2="296" y2="96" stroke="#e07030" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="285" cy="91" r="7" fill="#c04040"/>
+  <text x="285" y="95" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="6.5" fill="white">HRP</text>
+
+  <line x1="315" y1="120" x2="315" y2="102" stroke="#e07030" stroke-width="2.5"/>
+  <line x1="315" y1="108" x2="304" y2="96" stroke="#e07030" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="315" y1="108" x2="326" y2="96" stroke="#e07030" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="315" cy="91" r="7" fill="#c04040"/>
+  <text x="315" y="95" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="6.5" fill="white">HRP</text>
+
+  <!-- Signal -->
+  <line x1="285" y1="82" x2="285" y2="68" stroke="#5ee8d8" stroke-width="2.5" stroke-dasharray="4,2"/>
+  <polygon points="285,58 279,72 291,72" fill="#5ee8d8"/>
+  <text x="285" y="54" text-anchor="middle" font-family="IBM Plex Sans,sans-serif" font-size="9" fill="#5ee8d8">Signal</text>
+
+  <!-- ─── FORMAT 3: SANDWICH ───────────────────────────────────────────
+       Plate → Capture Ab (anchored) → Antigen → Detection Ab → HRP
+  ──────────────────────────────────────────────────────────────────── -->
+
+  <!-- Capture Ab (teal, Y pointing UP from plate surface) -->
+  <line x1="455" y1="155" x2="455" y2="135" stroke="#5ee8d8" stroke-width="2.5"/>
+  <line x1="455" y1="143" x2="443" y2="130" stroke="#5ee8d8" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="455" y1="143" x2="467" y2="130" stroke="#5ee8d8" stroke-width="2.5" stroke-linecap="round"/>
+
+  <line x1="480" y1="155" x2="480" y2="135" stroke="#5ee8d8" stroke-width="2.5"/>
+  <line x1="480" y1="143" x2="468" y2="130" stroke="#5ee8d8" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="480" y1="143" x2="492" y2="130" stroke="#5ee8d8" stroke-width="2.5" stroke-linecap="round"/>
+
+  <line x1="505" y1="155" x2="505" y2="135" stroke="#5ee8d8" stroke-width="2.5"/>
+  <line x1="505" y1="143" x2="493" y2="130" stroke="#5ee8d8" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="505" y1="143" x2="517" y2="130" stroke="#5ee8d8" stroke-width="2.5" stroke-linecap="round"/>
+
+  <!-- Antigen (amber oval) sitting on capture Ab tips -->
+  <ellipse cx="455" cy="124" rx="9" ry="5.5" fill="#f5a623"/>
+  <ellipse cx="480" cy="124" rx="9" ry="5.5" fill="#f5a623"/>
+  <ellipse cx="505" cy="124" rx="9" ry="5.5" fill="#f5a623"/>
+
+  <!-- Detection Ab (orange Y pointing DOWN into antigen from above) -->
+  <line x1="455" y1="118" x2="455" y2="100" stroke="#e07030" stroke-width="2.5"/>
+  <line x1="455" y1="108" x2="444" y2="94" stroke="#e07030" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="455" y1="108" x2="466" y2="94" stroke="#e07030" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="455" cy="88" r="7" fill="#c04040"/>
+  <text x="455" y="92" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="6.5" fill="white">HRP</text>
+
+  <line x1="480" y1="118" x2="480" y2="100" stroke="#e07030" stroke-width="2.5"/>
+  <line x1="480" y1="108" x2="469" y2="94" stroke="#e07030" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="480" y1="108" x2="491" y2="94" stroke="#e07030" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="480" cy="88" r="7" fill="#c04040"/>
+  <text x="480" y="92" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="6.5" fill="white">HRP</text>
+
+  <line x1="505" y1="118" x2="505" y2="100" stroke="#e07030" stroke-width="2.5"/>
+  <line x1="505" y1="108" x2="494" y2="94" stroke="#e07030" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="505" y1="108" x2="516" y2="94" stroke="#e07030" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="505" cy="88" r="7" fill="#c04040"/>
+  <text x="505" y="92" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="6.5" fill="white">HRP</text>
+
+  <!-- Signal -->
+  <line x1="480" y1="79" x2="480" y2="65" stroke="#5ee8d8" stroke-width="2.5" stroke-dasharray="4,2"/>
+  <polygon points="480,55 474,69 486,69" fill="#5ee8d8"/>
+  <text x="480" y="51" text-anchor="middle" font-family="IBM Plex Sans,sans-serif" font-size="9" fill="#5ee8d8">Signal</text>
+
+  <!-- ─── FORMAT 4: COMPETITIVE ─────────────────────────────────────────
+       Plate → Ab (limited) ← Antigen (sample) competes with labelled Ag*
+       MORE sample Ag = LESS labelled Ag* bound = LOWER signal
+  ──────────────────────────────────────────────────────────────────── -->
+
+  <!-- Ab anchored to plate (Y pointing up, purple for variety) -->
+  <line x1="650" y1="155" x2="650" y2="133" stroke="#8060b0" stroke-width="2.5"/>
+  <line x1="650" y1="141" x2="638" y2="128" stroke="#8060b0" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="650" y1="141" x2="662" y2="128" stroke="#8060b0" stroke-width="2.5" stroke-linecap="round"/>
+
+  <line x1="680" y1="155" x2="680" y2="133" stroke="#8060b0" stroke-width="2.5"/>
+  <line x1="680" y1="141" x2="668" y2="128" stroke="#8060b0" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="680" y1="141" x2="692" y2="128" stroke="#8060b0" stroke-width="2.5" stroke-linecap="round"/>
+
+  <line x1="710" y1="155" x2="710" y2="133" stroke="#8060b0" stroke-width="2.5"/>
+  <line x1="710" y1="141" x2="698" y2="128" stroke="#8060b0" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="710" y1="141" x2="722" y2="128" stroke="#8060b0" stroke-width="2.5" stroke-linecap="round"/>
+
+  <!-- Unlabelled antigen (amber, solid) bound to one Ab -->
+  <ellipse cx="650" cy="122" rx="9" ry="5.5" fill="#f5a623"/>
+  <!-- Labelled antigen* (amber dashed border) bound to another Ab -->
+  <ellipse cx="680" cy="122" rx="9" ry="5.5" fill="none" stroke="#f5a623" stroke-width="1.5" stroke-dasharray="3,2"/>
+  <circle cx="680" cy="122" r="4" fill="#c04040" opacity="0.8"/>
+  <text x="680" y="125" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="5.5" fill="white">HRP</text>
+  <!-- Third Ab unoccupied (free) -->
+  <!-- (no antigen on the third Ab — it's out-competed) -->
+
+  <!-- Free unlabelled antigen in solution (floating) -->
+  <ellipse cx="710" cy="105" rx="9" ry="5.5" fill="#f5a623" opacity="0.5"/>
+  <text x="710" y="108" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="6" fill="#0d1f2d">Ag</text>
+  <ellipse cx="635" cy="98" rx="9" ry="5.5" fill="#f5a623" opacity="0.5"/>
+  <text x="635" y="101" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="6" fill="#0d1f2d">Ag</text>
+
+  <!-- Inverse signal indicator -->
+  <line x1="680" y1="113" x2="680" y2="75" stroke="#5ee8d8" stroke-width="2.5" stroke-dasharray="4,2"/>
+  <polygon points="680,85 674,71 686,71" fill="#5ee8d8" opacity="0.4"/>
+  <text x="680" y="62" text-anchor="middle" font-family="IBM Plex Sans,sans-serif" font-size="9" fill="#e07030">&#x2193; Signal</text>
+  <text x="680" y="73" text-anchor="middle" font-family="IBM Plex Sans,sans-serif" font-size="8" fill="#7a9ab5">(inverse)</text>
+
+  <!-- ══════════════════════════════════════════════════════════════════
+       LEGEND — molecule key at bottom
+  ══════════════════════════════════════════════════════════════════════ -->
+  <rect x="0" y="182" width="780" height="128" fill="#07121d" rx="0"/>
+  <text x="20" y="200" font-family="IBM Plex Mono,monospace" font-size="9" fill="#5ee8d8" letter-spacing="0.1em">LEGEND</text>
+
+  <!-- Row 1 -->
+  <!-- Plate surface -->
+  <line x1="20" y1="215" x2="55" y2="215" stroke="#13a896" stroke-width="4" stroke-linecap="round"/>
+  <text x="62" y="219" font-family="IBM Plex Sans,sans-serif" font-size="10" fill="#a8b8c8">Plate surface</text>
+
+  <!-- Antigen -->
+  <ellipse cx="185" cy="215" rx="11" ry="6.5" fill="#f5a623"/>
+  <text x="202" y="219" font-family="IBM Plex Sans,sans-serif" font-size="10" fill="#a8b8c8">Antigen</text>
+
+  <!-- Capture Ab -->
+  <line x1="310" y1="222" x2="310" y2="208" stroke="#5ee8d8" stroke-width="2.5"/>
+  <line x1="310" y1="215" x2="302" y2="207" stroke="#5ee8d8" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="310" y1="215" x2="318" y2="207" stroke="#5ee8d8" stroke-width="2.5" stroke-linecap="round"/>
+  <text x="326" y="219" font-family="IBM Plex Sans,sans-serif" font-size="10" fill="#a8b8c8">Capture / Primary Ab</text>
+
+  <!-- Detection Ab -->
+  <line x1="510" y1="222" x2="510" y2="208" stroke="#e07030" stroke-width="2.5"/>
+  <line x1="510" y1="215" x2="502" y2="207" stroke="#e07030" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="510" y1="215" x2="518" y2="207" stroke="#e07030" stroke-width="2.5" stroke-linecap="round"/>
+  <text x="526" y="219" font-family="IBM Plex Sans,sans-serif" font-size="10" fill="#a8b8c8">Detection / Secondary Ab</text>
+
+  <!-- Row 2 -->
+  <circle cx="33" cy="248" r="9" fill="#c04040"/>
+  <text x="33" y="252" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="7" fill="white">HRP</text>
+  <text x="49" y="252" font-family="IBM Plex Sans,sans-serif" font-size="10" fill="#a8b8c8">Horseradish peroxidase (enzyme)</text>
+
+  <ellipse cx="265" cy="248" rx="9" ry="5.5" fill="none" stroke="#f5a623" stroke-width="1.5" stroke-dasharray="3,2"/>
+  <circle cx="265" cy="248" r="4" fill="#c04040" opacity="0.8"/>
+  <text x="281" y="252" font-family="IBM Plex Sans,sans-serif" font-size="10" fill="#a8b8c8">Labelled antigen* (competitive)</text>
+
+  <ellipse cx="510" cy="248" rx="9" ry="5.5" fill="#f5a623" opacity="0.5"/>
+  <text x="527" y="252" font-family="IBM Plex Sans,sans-serif" font-size="10" fill="#a8b8c8">Free antigen in sample</text>
+
+  <!-- Row 3 — signal arrow -->
+  <line x1="30" y1="278" x2="30" y2="265" stroke="#5ee8d8" stroke-width="2.5" stroke-dasharray="4,2"/>
+  <polygon points="30,260 25,272 35,272" fill="#5ee8d8"/>
+  <text x="46" y="277" font-family="IBM Plex Sans,sans-serif" font-size="10" fill="#a8b8c8">Colour signal produced by HRP + TMB substrate</text>
+
+  <text x="480" y="277" font-family="IBM Plex Sans,sans-serif" font-size="10" fill="#7a9ab5" font-style="italic">Competitive format: more Ag in sample = less HRP bound = weaker signal</text>
+
+</svg>
+        <div class="diag-caption">Each well cross-section shows the molecular layers involved. In the competitive format the signal is <em>inversely</em> proportional to analyte concentration — more antigen in the sample displaces the labelled antigen, leaving less HRP on the plate and producing a weaker colour.</div>
+      </div>
+
+
+      <h2 id="formats">The four ELISA formats</h2>
+
+      <h3 id="direct">Direct ELISA</h3>
+      <p>The antigen is coated directly onto the microplate well. An enzyme-conjugated primary antibody binds directly to the immobilised antigen. Substrate is added to produce colour.</p>
+      <ul>
+        <li><strong>Advantages:</strong> Fastest format &mdash; fewest steps. Minimal cross-reactivity between secondary antibodies. Good for detecting antibodies in serum (antigen-coated plate captures specific antibodies).</li>
+        <li><strong>Disadvantages:</strong> Every primary antibody must be individually conjugated to enzyme. Lower sensitivity than indirect formats because there is no secondary amplification step. Antigen must coat efficiently to the plate surface.</li>
+        <li><strong>Typical use:</strong> Antibody titre determination; viral antigen detection where a conjugated antibody is already available.</li>
+      </ul>
+
+      <h3 id="indirect">Indirect ELISA</h3>
+      <p>The antigen coats the well. An unconjugated primary antibody binds the antigen. An enzyme-conjugated secondary antibody (directed against the species of the primary antibody) binds the primary antibody and provides the signal.</p>
+      <ul>
+        <li><strong>Advantages:</strong> Higher sensitivity than direct &mdash; multiple secondary antibodies can bind each primary, amplifying the signal. The same secondary antibody works for all primaries raised in the same species. Cost-effective.</li>
+        <li><strong>Disadvantages:</strong> Extra incubation step. Potential cross-reactivity if the secondary antibody cross-reacts with other proteins in the sample. Not suitable for crude serum samples where the secondary would detect all antibodies of that species.</li>
+        <li><strong>Typical use:</strong> Serology (detecting patient antibodies against a pathogen); anti-drug antibody (ADA) assays; qualitative screening.</li>
+      </ul>
+
+      <h3 id="sandwich">Sandwich ELISA (most common for quantification)</h3>
+      <p>A capture antibody is coated onto the well. The sample is added and the target antigen is captured. A second, different detection antibody binds a different epitope on the same antigen. An enzyme-conjugated third reagent (secondary antibody or streptavidin if the detection antibody is biotinylated) provides the signal.</p>
+      <ul>
+        <li><strong>Advantages:</strong> Highest specificity &mdash; requires both antibodies to bind simultaneously, dramatically reducing false positives. Excellent sensitivity. The antigen does not need to be pure (it is captured from crude sample). Wide dynamic range. Industry standard for cytokine, hormone, and biomarker quantification.</li>
+        <li><strong>Disadvantages:</strong> Requires two antibodies to the same antigen recognising different (non-overlapping) epitopes. Hook effect at very high antigen concentrations (both antibodies saturated simultaneously, signal paradoxically decreases). More steps = more sources of variation.</li>
+        <li><strong>Typical use:</strong> Cytokine quantification (IL-6, TNF-&#x03B1;, IFN-&#x03B3;); insulin, cortisol, thyroid hormones; HBsAg; troponin; CRP; any quantitative biomarker measurement.</li>
+      </ul>
+
+      <h3 id="competitive">Competitive ELISA</h3>
+      <p>Unlabelled analyte in the sample competes with a known amount of labelled antigen (or labelled antibody) for a limited number of binding sites. The more analyte in the sample, the less labelled antigen binds, so the signal is <em>inversely</em> proportional to analyte concentration.</p>
+      <ul>
+        <li><strong>Advantages:</strong> Works well for small molecules (haptens) that have only one epitope and cannot support sandwich format. Suitable for analytes that do not coat efficiently. Can detect very small molecules.</li>
+        <li><strong>Disadvantages:</strong> Inverse relationship (higher analyte = lower signal) is counterintuitive and requires careful interpretation. Less sensitive than sandwich for large proteins. Kit calibrators are essential.</li>
+        <li><strong>Typical use:</strong> Steroid hormones (oestradiol, testosterone, progesterone, cortisol); drugs of abuse; mycotoxins; small pesticides; haptens.</li>
+      </ul>
+
+      <h2 id="format-comparison">Choosing the right format</h2>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead><tr><th>Factor</th><th>Best format</th></tr></thead>
+          <tbody>
+            <tr><td>Large analyte with multiple epitopes (proteins, antibodies)</td><td>Sandwich ELISA</td></tr>
+            <tr><td>Small analyte / hapten (steroids, drugs, small molecules)</td><td>Competitive ELISA</td></tr>
+            <tr><td>Detecting antibodies in patient serum</td><td>Indirect or direct (antigen-coated plate)</td></tr>
+            <tr><td>Highest specificity required</td><td>Sandwich</td></tr>
+            <tr><td>Fewest steps, fastest result</td><td>Direct</td></tr>
+            <tr><td>Only one antibody available for the analyte</td><td>Direct or indirect (cannot use sandwich without two antibodies recognising different epitopes)</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 id="antibodies">Antibody selection and validation</h2>
+      <p>The quality and specificity of the antibodies used determine the performance of the assay more than any other factor. Key considerations:</p>
+      <ul>
+        <li><strong>Monoclonal vs polyclonal antibodies:</strong> Monoclonal antibodies (mAbs) recognise a single defined epitope, providing high specificity and lot-to-lot consistency. Polyclonal antibodies recognise multiple epitopes, giving higher sensitivity (more binding events per antigen) but with greater lot-to-lot variation and potential cross-reactivity.</li>
+        <li><strong>Capture and detection antibody pairs (sandwich):</strong> Must bind the same antigen at different, non-overlapping epitopes simultaneously. Pre-validated matched pairs are available from major suppliers and are strongly recommended for quantitative assays. Develop your own pair only if no validated pair exists for your target.</li>
+        <li><strong>Validation:</strong> Confirm antibody specificity by testing against related proteins or antigens. Confirm linearity by serial dilution of a sample with known high analyte concentration. Verify parallelism &mdash; the dilution curve of the sample must be parallel to the standard curve, confirming that the sample matrix does not affect binding.</li>
+      </ul>
+
+      <h2 id="equipment">Equipment and reagents</h2>
+      <div class="box box-key">
+        <div class="box-label">Checklist</div>
+        <ul>
+          <li>96-well flat-bottom microplate (high-binding polystyrene for protein coating)</li>
+          <li>Plate sealer / adhesive film</li>
+          <li>Multichannel pipette (8-channel, 50&ndash;300 &#x03BC;L) and single-channel pipette</li>
+          <li>Reservoir troughs (for multichannel use)</li>
+          <li>Plate washer or wash bottle</li>
+          <li>Microplate reader (spectrophotometer) set to 450 nm (TMB readout)</li>
+          <li>Incubator or warm room at 37&deg;C, and refrigerator at 4&deg;C</li>
+          <li>Capture antibody, detection antibody, enzyme conjugate (HRP-streptavidin or HRP-secondary)</li>
+          <li>Coating buffer (carbonate-bicarbonate, pH 9.6)</li>
+          <li>Blocking buffer (1&ndash;5% BSA or 5% non-fat milk in PBS-Tween)</li>
+          <li>Wash buffer (PBS + 0.05% Tween-20, PBST)</li>
+          <li>Analyte standard (recombinant protein of known concentration)</li>
+          <li>TMB (3,3&#x2019;,5,5&#x2019;-tetramethylbenzidine) substrate solution</li>
+          <li>Stop solution (2 mol/L H&#x2082;SO&#x2084; or 1 mol/L H&#x3C1;O&#x2084;)</li>
+        </ul>
+      </div>
+
+      <h2 id="sandwich-protocol">Sandwich ELISA protocol (step-by-step)</h2>
+      <p>The following protocol describes the most common sandwich ELISA format. Times and concentrations are typical starting points; always optimise for your specific antibody pair and analyte.</p>
+
+      <h3 id="coating">Step 1 &mdash; Plate coating with capture antibody</h3>
+      <div class="box box-example">
+        <div class="box-label">Capture antibody coating</div>
+        <div class="step"><div class="step-n">1</div><div>Dilute the capture antibody to the recommended concentration (typically 1&ndash;4 &#x03BC;g/mL) in coating buffer (50 mmol/L carbonate-bicarbonate, pH 9.6).</div></div>
+        <div class="step"><div class="step-n">2</div><div>Add <strong>100 &#x03BC;L per well</strong> to all wells of the microplate. Cover with a plate sealer.</div></div>
+        <div class="step"><div class="step-n">3</div><div>Incubate overnight at <strong>4&deg;C</strong> (preferred &mdash; slower adsorption gives more uniform coating) or 2 hours at 37&deg;C (faster, but less uniform).</div></div>
+        <div class="step"><div class="step-n">4</div><div>Wash 3&times; with 300 &#x03BC;L/well PBST. Invert and tap on absorbent paper to remove residual wash buffer after each wash.</div></div>
+        <div class="result">The capture antibody is now immobilised on the plate surface. Proceed immediately to blocking or store the washed, inverted plate at 4&deg;C for up to 24 hours.</div>
+      </div>
+
+      <h3 id="blocking">Step 2 &mdash; Blocking</h3>
+      <p>Blocking saturates any remaining protein-binding sites on the plate surface that were not occupied by the capture antibody. Without blocking, non-specific proteins from the sample and detection reagents adsorb to the bare plate, producing high and variable background signals.</p>
+      <div class="box box-example">
+        <div class="box-label">Blocking procedure</div>
+        <div class="step"><div class="step-n">1</div><div>Prepare blocking buffer: 1&ndash;5% BSA in PBST, or 5% non-fat milk in PBST. The choice depends on the antibodies used &mdash; BSA is preferred when the detection antibody is anti-biotin or streptavidin (milk contains biotin which interferes); milk is cheaper and works well for most antibody-based detection.</div></div>
+        <div class="step"><div class="step-n">2</div><div>Add <strong>200&ndash;300 &#x03BC;L per well</strong> of blocking buffer. Cover and incubate at <strong>room temperature for 1&ndash;2 hours</strong>, or at 4&deg;C overnight.</div></div>
+        <div class="step"><div class="step-n">3</div><div>Wash 3&times; with PBST as before. The plate is now ready for sample addition.</div></div>
+        <div class="result">Do not let the plate dry after blocking or during any subsequent step. Dry wells cause high and irreproducible background. Keep plates covered and moist throughout the assay.</div>
+      </div>
+      <div class="box box-note">
+        <div class="box-label">Blocking reagent selection</div>
+        <p>No single blocking reagent works optimally for all assays. BSA is the most commonly used and works for the majority of sandwich ELISAs. However, some antibodies are raised in BSA-immunised animals and anti-BSA antibodies in the sample can cause false positives. In those cases, casein or polyvinyl alcohol (PVA) are alternatives. Always test the background signal with different blocking agents when setting up a new assay.</p>
+      </div>
+
+      <h3 id="sample-incubation">Step 3 &mdash; Sample and standard incubation</h3>
+      <div class="box box-example">
+        <div class="box-label">Sample and standard addition</div>
+        <div class="step"><div class="step-n">1</div><div>Prepare a <strong>standard curve</strong> by serial dilution of a recombinant standard protein of known concentration. A 7&ndash;8 point curve with a top standard and a zero standard (blank) is standard practice. Prepare in the same diluent as samples to ensure matrix matching.</div></div>
+        <div class="step"><div class="step-n">2</div><div>Dilute samples in assay diluent (blocking buffer diluted 1:5 to 1:10 in PBST). Run all samples in <strong>duplicate</strong> as a minimum; triplicate for critical measurements.</div></div>
+        <div class="step"><div class="step-n">3</div><div>Add <strong>100 &#x03BC;L per well</strong> of standards and samples. Include a reagent blank well (diluent only, no sample) to measure non-specific background.</div></div>
+        <div class="step"><div class="step-n">4</div><div>Cover and incubate at <strong>37&deg;C for 1&ndash;2 hours</strong> (or 4&deg;C overnight for maximum sensitivity). During this incubation, the target analyte is captured by the immobilised antibody.</div></div>
+        <div class="step"><div class="step-n">5</div><div>Wash <strong>5&times;</strong> with PBST. More thorough washing at this step is critical &mdash; residual unbound sample proteins increase non-specific signal significantly.</div></div>
+      </div>
+
+      <h3 id="detection-ab">Step 4 &mdash; Detection antibody</h3>
+      <div class="box box-example">
+        <div class="box-label">Detection antibody incubation</div>
+        <div class="step"><div class="step-n">1</div><div>Dilute the detection antibody to working concentration (typically 0.5&ndash;2 &#x03BC;g/mL) in assay diluent. If the detection antibody is biotinylated, streptavidin-HRP will be added in the next step.</div></div>
+        <div class="step"><div class="step-n">2</div><div>Add <strong>100 &#x03BC;L per well</strong>. Cover and incubate at <strong>37&deg;C for 1 hour</strong>.</div></div>
+        <div class="step"><div class="step-n">3</div><div>Wash <strong>5&times;</strong> with PBST. Thorough washing again &mdash; unbound detection antibody is the most common cause of high background.</div></div>
+      </div>
+
+      <h3 id="enzyme-conjugate">Step 5 &mdash; Enzyme conjugate (HRP)</h3>
+      <div class="box box-example">
+        <div class="box-label">HRP conjugate addition</div>
+        <div class="step"><div class="step-n">1</div><div>If detection antibody is biotinylated: dilute <strong>streptavidin-HRP</strong> (typically 1:500 to 1:1,000) in assay diluent and add 100 &#x03BC;L/well. Incubate 30 minutes at 37&deg;C.</div></div>
+        <div class="step"><div class="step-n">2</div><div>If detection antibody is directly HRP-conjugated: skip to substrate addition after washing in Step 4.</div></div>
+        <div class="step"><div class="step-n">3</div><div>Wash <strong>7&times;</strong> with PBST. The additional wash steps at this stage are critical &mdash; residual HRP in the wells causes explosive background colour development.</div></div>
+        <div class="result">The HRP enzyme is now immobilised in direct proportion to the amount of analyte captured in each well. The more analyte, the more HRP, the more colour will develop in the next step.</div>
+      </div>
+
+      <h3 id="substrate">Step 6 &mdash; Substrate development</h3>
+      <p>TMB (3,3&#x2019;,5,5&#x2019;-tetramethylbenzidine) is the most widely used HRP substrate. In its reduced form it is colourless. HRP oxidises TMB in the presence of H&#x2082;O&#x2082; to produce a blue intermediate. The stop solution (dilute sulphuric acid) converts the blue intermediate to a stable yellow product measured at 450 nm.</p>
+      <div class="box box-example">
+        <div class="box-label">TMB development procedure</div>
+        <div class="step"><div class="step-n">1</div><div>Allow TMB substrate to equilibrate to room temperature. It must be colourless when added &mdash; any blue tinge indicates oxidation and the substrate must be discarded.</div></div>
+        <div class="step"><div class="step-n">2</div><div>Add <strong>100 &#x03BC;L per well</strong> of TMB substrate. Work row by row as quickly and consistently as possible.</div></div>
+        <div class="step"><div class="step-n">3</div><div>Incubate at <strong>room temperature in the dark for 10&ndash;30 minutes</strong>. Monitor colour development &mdash; the high-standard wells should turn dark blue. Stop before the highest standard well becomes saturated (very dark blue with no visible concentration gradient between standards).</div></div>
+        <div class="step"><div class="step-n">4</div><div>Add <strong>50&ndash;100 &#x03BC;L of stop solution</strong> (2 mol/L H&#x2082;SO&#x2084;) in the same order and timing as the TMB addition. Wells turn from blue to yellow immediately. Verify all wells have changed colour &mdash; wells that remain blue indicate incomplete stop reaction.</div></div>
+        <div class="step"><div class="step-n">5</div><div>Read the plate at <strong>450 nm</strong> within 30 minutes of stopping. If a dual wavelength reader is available, subtract the 570 nm reading from the 450 nm reading to correct for optical imperfections in the plate.</div></div>
+        <div class="result">The absorbance at 450 nm in each well is now proportional to the amount of analyte captured, completing the assay.</div>
+      </div>
+
+      <h2 id="standard-curve">Standard curve construction and calculation</h2>
+      <p>The standard curve relates absorbance (A&#x2084;&#x2085;&#x2080;) to analyte concentration. Because ELISAs typically show a sigmoidal rather than linear relationship over a wide concentration range, a four-parameter logistic (4PL) curve fit is the standard approach for quantitative ELISA data analysis.</p>
+      <div class="box box-formula">
+        <div class="box-label">Four-parameter logistic (4PL) equation</div>
+        <div class="formula">A = D + (A &minus; D) / [1 + (C/C&#x2080;)&#x1D35;]</div>
+        <div class="formula-note">A = absorbance (response)
+C = analyte concentration
+A = minimum asymptote (background signal at zero analyte)
+D = maximum asymptote (signal at saturating analyte)
+C&#x2080; = EC&#x2085;&#x2080; (concentration at 50% maximum signal)
+B = Hill slope (slope factor, typically near 1.0)
+
+Practical approach: use ELISA data analysis software (GraphPad Prism, MyAssays,
+or online 4PL calculators) to fit the curve and back-calculate concentrations from
+absorbance values. Do not use simple linear regression for ELISA standard curves.</div>
+      </div>
+      <div class="box box-note">
+        <div class="box-label">Sample concentration must fall within the standard curve range</div>
+        <p>Any sample whose absorbance falls above the top standard or below the lowest detectable standard must be flagged. Samples above the range must be diluted and re-assayed. Samples below the lowest detectable standard should be reported as &ldquo;below the limit of detection&rdquo; (BLD) or &ldquo;below the limit of quantification&rdquo; (BLQ), not as zero. Always multiply calculated concentrations by the dilution factor used.</p>
+      </div>
+
+      <h2 id="controls">Controls and quality control</h2>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead><tr><th>Control type</th><th>Purpose</th><th>Placement</th><th>Acceptance criterion</th></tr></thead>
+          <tbody>
+            <tr><td>Reagent blank</td><td>Non-specific background measurement &mdash; no sample or analyte</td><td>At least 2 wells per plate</td><td>A&#x2084;&#x2085;&#x2080; &lt; 0.10 (typically)</td></tr>
+            <tr><td>Zero standard</td><td>Assay baseline; used to define the limit of detection</td><td>At least 2 wells</td><td>Mean + 2SD defines LOD cut-off</td></tr>
+            <tr><td>High QC</td><td>Confirms the assay is detecting analyte in the upper range</td><td>2 wells per plate</td><td>Within &#x00B1;20% of target value</td></tr>
+            <tr><td>Low QC</td><td>Confirms sensitivity near the LOQ</td><td>2 wells per plate</td><td>Within &#x00B1;25% of target value (wider near LOQ)</td></tr>
+            <tr><td>Parallelism sample</td><td>Confirms sample matrix does not interfere with antibody binding</td><td>4-fold serial dilution series</td><td>Dilution-adjusted concentrations within 20% across dilutions</td></tr>
+            <tr><td>Spike recovery</td><td>Confirms endogenous analyte and spiked analyte respond equivalently</td><td>At least 3 concentrations</td><td>Recovery 80&ndash;120% of expected</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 id="interferences">Common interferences</h2>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead><tr><th>Interference</th><th>Effect</th><th>Prevention/management</th></tr></thead>
+          <tbody>
+            <tr><td>Haemolysis</td><td>Haemoglobin quenches TMB colour development; red colour interferes at 450 nm</td><td>Use plasma; reject haemolysed samples or flag results; test interference by spiking haemolysate</td></tr>
+            <tr><td>Lipaemia</td><td>Turbidity affects A&#x2084;&#x2085;&#x2080; reading; lipids may non-specifically bind antibodies</td><td>Centrifuge at high speed to clear lipids; use 570 nm reference subtraction</td></tr>
+            <tr><td>Hook effect (sandwich ELISA)</td><td>At very high analyte concentrations, signal paradoxically decreases because excess antigen saturates both capture and detection antibodies, preventing sandwich formation</td><td>Dilute high-concentration samples; if hook effect is suspected, assay at two dilutions &mdash; the higher concentration should give a proportionally lower result if hook effect is present</td></tr>
+            <tr><td>Heterophile antibodies</td><td>Human anti-animal antibodies (e.g. HAMA &mdash; human anti-mouse antibodies) bridge capture and detection antibodies, causing false-positive signal independent of analyte</td><td>Use heterophile blocking reagent in sample diluent; test with assay-specific blockers; use recombinant antibody fragments (Fab) instead of whole IgG where possible</td></tr>
+            <tr><td>Rheumatoid factor</td><td>IgM that binds the Fc region of IgG &mdash; can bridge antibodies and cause false positives</td><td>Same blocking reagents as for heterophile antibodies; pre-treat sample with protein G or A to remove IgG aggregates</td></tr>
+            <tr><td>Biotin in sample</td><td>Competes with biotinylated detection antibody for streptavidin binding &mdash; falsely low results in patients taking high-dose biotin supplements</td><td>Request patients stop biotin supplementation; dilute sample; use non-biotin detection system</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 id="troubleshoot">Troubleshooting</h2>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead><tr><th>Problem</th><th>Most likely cause</th><th>Solution</th></tr></thead>
+          <tbody>
+            <tr><td>High background across all wells</td><td>Insufficient washing; blocking inadequate; HRP contamination; TMB oxidised before use</td><td>Increase wash steps and volume; optimise blocking; use fresh TMB; ensure well soaking during washes</td></tr>
+            <tr><td>No signal even in high-standard wells</td><td>Capture antibody not coating; detection antibody or HRP conjugate inactive; stop solution added before substrate developed</td><td>Check antibody activity; verify coating conditions; confirm stop solution concentration; ensure substrate is fresh</td></tr>
+            <tr><td>Poor reproducibility between replicates</td><td>Pipetting inconsistency; non-uniform coating; air bubbles in wells; plate not kept level during incubation</td><td>Use calibrated multichannel pipette; ensure plate is level; avoid bubbles; recalibrate pipettes</td></tr>
+            <tr><td>Standard curve not fitting 4PL model</td><td>Top standard saturated (assay in plateau); insufficient dilution range; reagent deterioration</td><td>Reduce top standard concentration; widen dilution range; use fresh reagents; optimise incubation times</td></tr>
+            <tr><td>Parallelism failure</td><td>Matrix interference; non-specific binding in undiluted sample; hook effect</td><td>Increase minimum dilution of samples; add matrix suppressors; assess hook effect; use matched matrix controls</td></tr>
+            <tr><td>Edge effect (wells at plate edge give different signal)</td><td>Temperature gradient during incubation; evaporation from edge wells</td><td>Use plate sealers; incubate in humidified chamber; avoid placing plates directly on bench or in dry incubator</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="takeaways">
+        <div class="takeaways-label">Key takeaways</div>
+        <h3>What to remember from this tutorial</h3>
+        <ul>
+          <li>ELISA uses antibody specificity plus enzyme amplification to detect analytes in complex samples. Choose the format based on your analyte: sandwich (large proteins, highest specificity), competitive (haptens and small molecules), indirect (detecting antibodies in serum), direct (fastest, fewest steps).</li>
+          <li>Sandwich ELISA requires two antibodies recognising different, non-overlapping epitopes simultaneously. Pre-validated matched pairs are strongly recommended over developing your own pair.</li>
+          <li>Blocking is essential &mdash; it prevents non-specific protein adsorption to bare plate surface. Choose BSA-based blocking when streptavidin-biotin detection is used (milk contains endogenous biotin).</li>
+          <li>Washing is the single most important technical step for reducing background. Increase wash volume and number of washes if background is high. Never allow wells to dry at any point in the assay.</li>
+          <li>Use a 4PL curve fit for standard curve analysis &mdash; simple linear regression is not appropriate for sigmoid ELISA curves. All unknowns must fall within the standard curve range; samples above the top standard must be diluted and re-assayed.</li>
+          <li>The hook effect causes false-negative results at very high analyte concentrations in sandwich ELISA. Suspect it when a diluted sample gives a higher calculated result than the undiluted sample.</li>
+          <li>Heterophile antibodies (especially HAMA) are an important source of false-positive clinical ELISA results. Use heterophile blocking reagents in the sample diluent for all clinical immunoassays.</li>
+        </ul>
+      </div>
+
+      </article>
+
+
+            <div class="tut-nav">
+        <a class="tut-nav-card" href="spectrofluorimetry.html">
+          <span class="tut-nav-dir">&#x2190; Previous</span>
+          <span class="tut-nav-title">Spectrofluorimetry: Principles and Applications in Biochemical Analysis</span>
+        </a>
+        <a class="tut-nav-card next" href="index.html">
+          <span class="tut-nav-dir">All tutorials &#x2192;</span>
+          <span class="tut-nav-title">Browse the full tutorial library</span>
+        </a>
+      </div>
+
+  </div><!-- /tutorial-layout -->
+	  
+	  <footer>
+  <div class="footer-logo">Lab<span>Learn</span></div>
+  <ul class="footer-links">
+    <li><a href="index.html">Tutorials</a></li>
+    <li><a href="../calculator.html">Calculators</a></li>
+    <li><a href="../apps.html">Apps</a></li>
+    <li><a href="../about.html">About</a></li>
+    <li><a href="../contact.html">Contact</a></li>
+    <li><a href="../index.html#donate">Donate</a></li>
+  </ul>
+  <div class="footer-copy">&copy; 2025 LabLearn. Free for students &amp; researchers.</div>
+</footer>
+		<script src="../shared.js" defer></script>
+
+  <!-- MOBILE FLOATING TOC (visible ≤ 900px) -->
+  <button class="mob-toc-btn" id="mobTocBtn"
+          aria-label="Open table of contents" aria-expanded="false"
+          aria-controls="mobTocPanel">
+    <span class="mob-toc-icon">☰</span>
+    <span class="mob-toc-label">Contents</span></button>
+
+  <div class="mob-toc-overlay" id="mobTocOverlay" aria-hidden="true"></div>
+
+  <div class="mob-toc-panel" id="mobTocPanel" role="dialog"
+       aria-label="Table of contents" aria-modal="true">
+    <div class="mob-toc-handle"></div>
+    <div class="mob-toc-head">
+      <span class="mob-toc-head-label">On this page</span>
+      <button class="mob-toc-close" id="mobTocClose" aria-label="Close">✕</button>
+    </div>
+    <div class="mob-toc-body">
+            <ul class="toc-list">
+          <li><a href="#intro">What is ELISA?</a></li>
+          <li><a href="#formats">Four ELISA formats</a></li>
+          <li class="sub"><a href="#direct">Direct ELISA</a></li>
+          <li class="sub"><a href="#indirect">Indirect ELISA</a></li>
+          <li class="sub"><a href="#sandwich">Sandwich ELISA</a></li>
+          <li class="sub"><a href="#competitive">Competitive ELISA</a></li>
+          <li><a href="#format-comparison">Choosing a format</a></li>
+          <li><a href="#antibodies">Antibody selection</a></li>
+          <li><a href="#equipment">Equipment and reagents</a></li>
+          <li><a href="#sandwich-protocol">Sandwich ELISA protocol</a></li>
+          <li class="sub"><a href="#coating">Plate coating</a></li>
+          <li class="sub"><a href="#blocking">Blocking</a></li>
+          <li class="sub"><a href="#sample-incubation">Sample incubation</a></li>
+          <li class="sub"><a href="#detection-ab">Detection antibody</a></li>
+          <li class="sub"><a href="#enzyme-conjugate">Enzyme conjugate</a></li>
+          <li class="sub"><a href="#substrate">Substrate development</a></li>
+          <li class="sub"><a href="#stop-read">Stop and read</a></li>
+          <li><a href="#standard-curve">Standard curve and calculation</a></li>
+          <li><a href="#controls">Controls and QC</a></li>
+          <li><a href="#interferences">Interferences</a></li>
+          <li><a href="#troubleshoot">Troubleshooting</a></li>
+          <li><a href="#takeaways">Key takeaways</a></li>
+        
+      </ul>
+    </div>
+  </div>
+
+	</body>
+</html>

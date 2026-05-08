@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Biological Sample Handling and Storage | LabLearn Tutorials</title>
+  <meta name="description" content="How to correctly handle and store biological samples — blood, urine, tissue, and CSF — to preserve analyte integrity from collection through analysis." />
+  <meta name="keywords" content="biological sample handling, sample storage, pre-analytical variables, sample stability, cold chain, biobanking, urine collection, blood sample" />
+  <meta name="author" content="Sani Sulaiman" /><meta name="robots" content="index, follow" />
+  <meta property="og:type" content="article" /><meta property="og:site_name" content="LabLearn" />
+  <meta property="og:title" content="Biological Sample Handling and Storage | LabLearn Tutorials" />
+  <meta property="og:description" content="How to handle and store biological samples correctly — pre-analytical variables, stability, cold chain, and freeze-thaw management." />
+  <meta property="og:url" content="https://lablearn.netlify.app/tutorials/biological-sample-handling.html" />
+  <meta name="twitter:card" content="summary" />
+  <link rel="canonical" href="https://lablearn.netlify.app/tutorials/biological-sample-handling.html" />
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg" /><link rel="alternate icon" type="image/png" href="../favicon.png" />
+  <link rel="stylesheet" href="../shared.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="tutorial.css" />
+  <meta name="theme-color" content="#0d1f2d" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="LabLearn" />
+</head>
+<body>
+  <nav>
+    <button class="nav-tut-btn" id="navTutBtn" aria-label="Browse tutorials" aria-expanded="false">
+      <svg class="nav-tut-icon" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect x="2" y="3" width="7" height="2" rx="1" fill="currentColor"/>
+        <rect x="2" y="9" width="11" height="2" rx="1" fill="currentColor"/>
+        <rect x="2" y="15" width="9" height="2" rx="1" fill="currentColor"/>
+        <circle cx="16" cy="4" r="2" fill="currentColor" opacity=".45"/>
+        <circle cx="16" cy="10" r="2" fill="currentColor" opacity=".45"/>
+        <circle cx="16" cy="16" r="2" fill="currentColor" opacity=".45"/>
+      </svg>
+    </button>
+    <a href="../index.html" class="nav-logo">Lab<span>Learn</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Tutorials</a></li>
+      <li><a href="../calculator.html">Calculators</a></li>
+      <li><a href="../apps.html">Apps</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+      <li><a href="../index.html#donate">Donate</a></li>
+	  <li><a href="index.html" class="nav-cta">Start Learning</a></li>
+    </ul>
+    <button class="nav-burger" id="navBurger" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </nav>
+  <div class="nav-mobile" id="navMobile">
+    <a href="index.html">Tutorials</a>
+	<a href="../calculator.html">Calculators</a>
+    <a href="../apps.html">Apps</a>
+	<a href="../about.html">About</a>
+	<a href="../contact.html">Contact</a>
+    <a href="../index.html#donate">Donate</a>
+	<a href="index.html" class="mob-cta">Start Learning</a>
+  </div>
+  <!-- TUTORIAL LIST PANEL -->
+  <div class="tut-list-overlay" id="tutListOverlay"></div>
+  <div class="tut-list-panel" id="tutListPanel" aria-hidden="true">
+    <div class="tut-list-head">
+      <span class="tut-list-head-label">All Tutorials</span>
+      <button class="tut-list-close" id="tutListClose" aria-label="Close">&#x2715;</button>
+    </div>
+    <div class="tut-list-body">
+      <div class="tut-list-level">Beginner</div>
+      <ul class="tut-list-links">
+        <li><a href="molarity-concentration.html"      data-tut>Molarity, Molality &amp; Normality</a></li>
+        <li><a href="serial-dilutions.html"            data-tut>Serial Dilutions: Technique &amp; Calculation</a></li>
+        <li><a href="lab-safety.html"                  data-tut>Lab Safety: Chemical Hazard Classes</a></li>
+        <li><a href="molar-solutions-bench-guide.html" data-tut>Preparing Molar Solutions: Bench Guide</a></li>
+        <li><a href="serum-plasma-separation.html"     data-tut>Serum and Plasma Separation</a></li>
+        <li><a href="ph-meter-calibration.html"        data-tut>pH Meter Calibration and Use</a></li>
+        <li><a href="micropipette-technique.html"      data-tut>Micropipette Technique: Selection &amp; Calibration</a></li>
+        <li><a href="centrifuge-operation.html"        data-tut>Centrifuge: Operation, Safety &amp; Protocol</a></li>
+        <li><a href="acid-base-safe-handling.html"     data-tut>Safe Handling of Acids, Bases &amp; Corrosives</a></li>
+        <li><a href="balance-weighing-technique.html"  data-tut>Accurate Weighing: Balance Technique</a></li>
+      </ul>
+      <div class="tut-list-level">Intermediate</div>
+      <ul class="tut-list-links">
+        <li><a href="uv-vis-spectrophotometry.html"    data-tut>UV-Vis Spectrophotometry Explained</a></li>
+        <li><a href="standard-solutions.html"          data-tut>Preparing Standard Solutions Accurately</a></li>
+        <li><a href="buffer-preparation.html"          data-tut>Preparing Buffer Solutions: Calculation to Bench</a></li>
+        <li><a href="acid-base-titration.html"         data-tut>Acid-Base Titration: Technique &amp; Endpoints</a></li>
+        <li><a href="blood-glucose-determination.html" data-tut>Blood Glucose: Glucometer &amp; GOD Methods</a></li>
+        <li><a href="kjeldahl-protein.html"            data-tut>Protein Estimation by the Kjeldahl Method</a></li>
+        <li><a href="biological-sample-handling.html"  data-tut>Biological Sample Handling and Storage</a></li>
+        <li><a href="bradford-biuret-protein.html"     data-tut>Spectrophotometric Protein Determination</a></li>
+        <li><a href="enzyme-activity-assays.html"      data-tut>Enzyme Activity Assays: Principles &amp; Methods</a></li>
+        <li><a href="reagent-grade-water.html"         data-tut>Reagent-Grade Water: Preparation &amp; Quality</a></li>
+      </ul>
+      <div class="tut-list-level">Advanced</div>
+      <ul class="tut-list-links">
+        <li><a href="hplc-method-development.html"        data-tut>HPLC Method Development Fundamentals</a></li>
+        <li><a href="atomic-absorption-spectroscopy.html" data-tut>Mineral Analysis by Atomic Absorption Spectroscopy</a></li>
+        <li><a href="hplc-validation.html"                data-tut>HPLC Method Validation: Linearity &amp; Precision</a></li>
+        <li><a href="enzyme-kinetics.html"                data-tut>Enzyme Kinetics: Michaelis-Menten &amp; Inhibition</a></li>
+        <li><a href="sds-page-electrophoresis.html"       data-tut>Electrophoresis: SDS-PAGE and Agarose Gel</a></li>
+        <li><a href="spectrofluorimetry.html"             data-tut>Spectrofluorimetry: Principles &amp; Applications</a></li>
+        <li><a href="elisa-immunoassay.html"              data-tut>Immunoassay Techniques: ELISA Principles &amp; Protocol</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="page-header">
+    <div class="page-header-inner">
+      <div class="breadcrumb">
+        <a href="../index.html">Home</a><span>&#x203A;</span>
+        <a href="index.html">Tutorials</a><span>&#x203A;</span>
+        <span>Biological Sample Handling</span>
+      </div>
+      <span class="level-badge level-intermediate">Intermediate</span>
+      <h1>Biological Sample Handling and Storage</h1>
+      <div class="page-header-meta">
+        <span class="meta-item">&#x1F4D6; 15 min read</span>
+        <span class="meta-item">&#x1F52C; Pre-analytical</span>
+        <span class="meta-item">&#x1F4C5; Updated 2025</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="tutorial-layout">
+    <aside class="toc-sidebar">
+      <div class="toc-box">
+        <div class="toc-label">On this page</div>
+        <ul class="toc-list">
+          <li><a href="#intro">Pre-analytical variables</a></li>
+          <li><a href="#blood">Blood samples</a></li>
+          <li><a href="#urine">Urine samples</a></li>
+          <li><a href="#csf">CSF and other fluids</a></li>
+          <li><a href="#tissue">Tissue and biopsy samples</a></li>
+          <li><a href="#stability">Analyte stability guide</a></li>
+          <li><a href="#cold-chain">Cold chain and transport</a></li>
+          <li><a href="#freeze-thaw">Freeze-thaw management</a></li>
+          <li><a href="#labelling">Labelling and chain of custody</a></li>
+          <li><a href="#rejection">Sample rejection criteria</a></li>
+          <li><a href="#takeaways">Key takeaways</a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <article class="article">
+
+      <h2 id="intro">Pre-analytical variables and why they matter</h2>
+      <p>The pre-analytical phase &#x2014; everything that happens before the sample enters the analyser &#x2014; accounts for 46&#x2013;68% of all laboratory errors. Incorrect sample handling produces results that are analytically correct (the instrument measured what was in the tube) but clinically wrong (what was in the tube no longer reflects what was in the patient). No amount of analytical quality can recover information destroyed during poor pre-analytical practice.</p>
+      <p>This tutorial covers the handling and storage requirements for the most common biological sample types, the factors that determine how long analytes remain stable, and how to maintain sample integrity from collection to analysis.</p>
+
+      <h2 id="blood">Blood samples</h2>
+      <p>The choice of tube, correct mixing, adequate volume, and prompt processing are the four fundamental requirements for blood sample integrity. These were covered in detail in the <a href="serum-plasma-separation.html">Serum and Plasma Separation</a> tutorial. Key additional handling points:</p>
+      <ul>
+        <li><strong>Protect from light:</strong> Bilirubin, carotenoids, porphyrins, folate, and certain hormones degrade rapidly in direct light. Transport in a dark bag or wrap the tube in aluminium foil immediately after collection for light-sensitive analytes.</li>
+        <li><strong>Keep on ice for certain analytes:</strong> ACTH, ammonia, lactic acid, renin, parathyroid hormone (PTH), and glucagon are thermally labile. These must be collected into pre-chilled tubes and transported on ice to the laboratory immediately. Processing must occur within 15&#x2013;30 minutes of collection.</li>
+        <li><strong>Do not centrifuge chilled samples without prior warming:</strong> EDTA plasma that has been kept on ice may show falsely elevated potassium (cold-induced leakage from red cells). Allow to reach room temperature before centrifugation unless the protocol specifies otherwise.</li>
+        <li><strong>Avoid cell contact time:</strong> Glucose in serum falls; potassium, LDH, and AST rise when red cells are in contact with plasma or serum. Centrifuge promptly or use gel-separator tubes.</li>
+      </ul>
+
+      <h2 id="urine">Urine samples</h2>
+      <p>Urine is the most microbiologically active biological sample &#x2014; bacteria multiply rapidly at room temperature, consuming analytes and producing metabolites that change results significantly.</p>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead><tr><th>Collection type</th><th>Indication</th><th>Key collection instructions</th></tr></thead>
+          <tbody>
+            <tr><td>Midstream clean-catch (MSU)</td><td>Routine urinalysis, culture and sensitivity</td><td>Clean genital area; discard first stream; collect midstream; process within 2 hours or refrigerate</td></tr>
+            <tr><td>First morning urine</td><td>Pregnancy testing, microalbuminuria, protein:creatinine ratio</td><td>Most concentrated; collect immediately on waking before any fluid intake</td></tr>
+            <tr><td>24-hour urine</td><td>Creatinine clearance, protein excretion, hormone metabolites</td><td>Discard first morning void; collect everything for exactly 24 hours; keep refrigerated throughout; add preservative if required</td></tr>
+            <tr><td>Catheter specimen (CSU)</td><td>Patients with urinary catheters</td><td>Aspirate from the sample port using a needle; never from the drainage bag</td></tr>
+            <tr><td>Suprapubic aspirate</td><td>Definitive culture in infants and equivocal cases</td><td>Clinician procedure; process immediately</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="box box-note">
+        <div class="box-label">24-hour urine collection &#x2014; common errors</div>
+        <p>The most frequent error is not discarding the first morning void. The collection period begins after the first morning void is discarded (the bladder is empty at time zero). All subsequent urine including the final void exactly 24 hours later is collected. Missing a void or failing to add required preservative are the most common sources of 24-hour collection error.</p>
+      </div>
+      <p><strong>Urine preservatives:</strong> For 24-hour collections, the preservative depends on the analyte. Boric acid (for catecholamines and protein), sodium azide (microbiological preservation), and hydrochloric acid (for steroid hormones) are common. Check your laboratory&#x2019;s collection instructions &#x2014; the wrong preservative can destroy the analyte of interest or interfere with the assay.</p>
+
+      <h2 id="csf">CSF and other body fluids</h2>
+      <p>Cerebrospinal fluid (CSF), pleural fluid, peritoneal fluid, synovial fluid, and other body fluids are collected in limited volumes and cannot be recollected easily. They require careful prioritisation and immediate processing.</p>
+      <ul>
+        <li><strong>CSF:</strong> Label tubes 1, 2, and 3 in order of collection. Tube 1 (most likely contaminated with blood from the needle track) &#x2014; send for chemistry. Tube 2 &#x2014; microbiology (least contaminated). Tube 3 &#x2014; cell count and cytology (truest cell count). Process within 1 hour &#x2014; cells lyse, glucose falls, and bacteria multiply rapidly in CSF at room temperature.</li>
+        <li><strong>Synovial fluid:</strong> Must be placed in EDTA (for cell counts and crystals) and a plain tube (for biochemistry and culture). Viscous fluid may need hyaluronidase pre-treatment before cell counting.</li>
+        <li><strong>Pleural/peritoneal fluid:</strong> Collect into plain and EDTA tubes. Measure pH if requested &#x2014; this must be done immediately using a blood gas analyser; the sample must be anaerobic (sealed syringe, no air).</li>
+      </ul>
+
+      <h2 id="tissue">Tissue and biopsy samples</h2>
+      <ul>
+        <li><strong>Histopathology:</strong> Place tissue in 10% neutral buffered formalin at a volume of at least 10:1 formalin to tissue. Formalin fixes by cross-linking proteins &#x2014; inadequate volume or delay causes autolysis and degrades tissue architecture.</li>
+        <li><strong>Frozen section / molecular analysis:</strong> Do NOT fix &#x2014; snap-freeze in liquid nitrogen immediately and transfer to &#x2212;80&#x00B0;C. Formalin destroys nucleic acids and prevents molecular analysis.</li>
+        <li><strong>Microbiology:</strong> Place tissue in a sterile container &#x2014; not formalin. Keep moist with a few drops of sterile saline if transport will take more than 1 hour.</li>
+        <li><strong>Never allow tissue to dry out.</strong> Desiccation destroys cellular morphology and nucleic acid integrity irreversibly.</li>
+      </ul>
+
+      <h2 id="stability">Analyte stability guide</h2>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead><tr><th>Analyte</th><th>Room temp (RT)</th><th>2&#x2013;8&#x00B0;C</th><th>&#x2212;20&#x00B0;C</th><th>Special requirements</th></tr></thead>
+          <tbody>
+            <tr><td>Glucose (plasma, fluoride)</td><td>8 hours</td><td>3 days</td><td>Months</td><td>Fluoride tube; avoid haemolysis</td></tr>
+            <tr><td>Potassium</td><td>2 hours</td><td>6 hours</td><td>Not recommended</td><td>Separate promptly; haemolysis critical</td></tr>
+            <tr><td>Sodium</td><td>24 hours</td><td>1 week</td><td>Months</td><td>Stable; haemolysis has minor effect</td></tr>
+            <tr><td>Creatinine</td><td>24 hours</td><td>1 week</td><td>Months</td><td>Very stable</td></tr>
+            <tr><td>ALT, AST (liver enzymes)</td><td>4&#x2013;8 hours</td><td>3&#x2013;5 days</td><td>Months (AST); weeks (ALT)</td><td>ALT less stable than AST</td></tr>
+            <tr><td>Bilirubin</td><td>2 hours</td><td>24 hours (dark)</td><td>Weeks (dark)</td><td>Extremely light-sensitive &#x2014; protect immediately</td></tr>
+            <tr><td>Ammonia</td><td>15 minutes</td><td>1 hour</td><td>Not recommended</td><td>Collect in EDTA; immediate ice; analyse ASAP</td></tr>
+            <tr><td>Cortisol</td><td>8 hours</td><td>1 week</td><td>Months</td><td>Diurnal variation &#x2014; record collection time</td></tr>
+            <tr><td>Thyroid hormones (TSH, T4)</td><td>8 hours</td><td>1 week</td><td>Months</td><td>Stable; avoid repeated freeze-thaw</td></tr>
+            <tr><td>Coagulation factors (PT, APTT)</td><td>4 hours</td><td>4 hours</td><td>Not recommended for routine</td><td>Citrate tube, 9:1 ratio; test within 4 hours</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 id="cold-chain">Cold chain and sample transport</h2>
+      <p>The cold chain is the unbroken sequence of refrigeration from sample collection to analysis. Breaking the cold chain &#x2014; even briefly &#x2014; can degrade thermally labile analytes irreversibly.</p>
+      <ul>
+        <li>Use insulated transport boxes with frozen gel packs for refrigerated samples. Do not use dry ice for serum or plasma unless specifically required &#x2014; the extreme cold (&#x2212;78&#x00B0;C) can freeze samples that should only be chilled, causing haemolysis and protein precipitation.</li>
+        <li>Label the transport container with the temperature requirement (e.g. &#x201C;Transport at 2&#x2013;8&#x00B0;C&#x201D;) alongside the sample identification.</li>
+        <li>For international or long-distance transport, document the temperature at departure and arrival, and use temperature-monitoring devices (data loggers or indicator cards) inside the transport container.</li>
+        <li>Samples for ACTH, glucagon, and renin must be analysed within 30&#x2013;60 minutes of collection &#x2014; courier transport is not suitable without prior arrangement with a specialist laboratory.</li>
+      </ul>
+
+      <h2 id="freeze-thaw">Freeze-thaw cycle management</h2>
+      <p>Each freeze-thaw cycle degrades proteins, precipitates cryoglobulins, causes cell lysis, and may alter analyte concentrations. Most analytes tolerate a maximum of 3&#x2013;5 freeze-thaw cycles before significant degradation occurs; enzymes and coagulation factors degrade after the first cycle.</p>
+      <div class="box box-key">
+        <div class="box-label">Minimising freeze-thaw damage</div>
+        <ul>
+          <li>Aliquot samples into single-use volumes before freezing &#x2014; each aliquot is used once and discarded</li>
+          <li>Use small aliquot volumes (100&#x2013;500 &#x03BC;L) so each thaw provides the right amount for one assay run</li>
+          <li>Thaw samples at 2&#x2013;8&#x00B0;C overnight or in a water bath at 37&#x00B0;C &#x2014; not at room temperature (uneven, promotes microbial growth)</li>
+          <li>Mix thoroughly after thawing &#x2014; analytes may sediment or stratify during freezing</li>
+          <li>Never refreeze a thawed clinical sample without documenting the number of freeze-thaw cycles on the tube label</li>
+        </ul>
+      </div>
+
+      <h2 id="labelling">Labelling and chain of custody</h2>
+      <p>Every sample tube must be labelled at the point of collection &#x2014; never in advance, never after. Minimum label information: patient full name, date of birth or unique identifier, date and time of collection, sample type, and collector&#x2019;s initials.</p>
+      <p>In regulated settings (forensic, clinical trials, transplant matching), chain of custody documentation tracks every transfer of the sample: who collected it, who transported it, who received it, and who processed it. A break in the chain of custody may render the result legally inadmissible and clinically invalid.</p>
+
+      <h2 id="rejection">Sample rejection criteria</h2>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead><tr><th>Rejection reason</th><th>Analytes most affected</th><th>Action</th></tr></thead>
+          <tbody>
+            <tr><td>Haemolysis (pink/red serum)</td><td>K&#x207A;, LDH, AST, ALT, Mg&#x00B2;&#x207A;, iron</td><td>Report degree of haemolysis; reject if interference exceeds lab criteria; recollect</td></tr>
+            <tr><td>Lipaemia (turbid serum)</td><td>Most photometric assays; electrolytes</td><td>Ultracentrifuge to clear if available; otherwise reject for affected tests</td></tr>
+            <tr><td>Icterus (deeply yellow/orange)</td><td>Bilirubin-sensitive photometric assays</td><td>Report bilirubin interference; verify on analysers with icterus correction</td></tr>
+            <tr><td>Wrong tube type</td><td>All tests requiring specific additive</td><td>Reject; recollect in correct tube</td></tr>
+            <tr><td>Underfilled citrate tube</td><td>PT, APTT, all coagulation tests</td><td>Reject; recollect &#x2014; ratio cannot be corrected</td></tr>
+            <tr><td>Clotted anticoagulated sample</td><td>All haematology tests; coagulation</td><td>Reject; recollect</td></tr>
+            <tr><td>Unlabelled or misidentified tube</td><td>All tests</td><td>Never process; recollect with correct labelling</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="takeaways">
+        <div class="takeaways-label">Key takeaways</div>
+        <h3>What to remember from this tutorial</h3>
+        <ul>
+          <li>Pre-analytical errors account for the majority of laboratory mistakes. Correct handling from collection to analysis is as important as analytical quality.</li>
+          <li>Protect light-sensitive analytes (bilirubin, folate, porphyrins) immediately. Keep thermally labile analytes (ammonia, ACTH, lactic acid) on ice and process within 15&#x2013;30 minutes.</li>
+          <li>Urine for culture must be processed within 2 hours of collection or refrigerated immediately. 24-hour urine begins after discarding the first morning void.</li>
+          <li>CSF tubes are labelled 1, 2, 3 in order of collection. Tube 2 goes to microbiology (least contaminated). Process within 1 hour.</li>
+          <li>Aliquot samples before freezing. Document every freeze-thaw cycle. Most analytes tolerate a maximum of 3&#x2013;5 cycles; enzymes and coagulation factors degrade after the first.</li>
+          <li>Label every sample at the point of collection. Never label in advance. Never process an unlabelled sample.</li>
+        </ul>
+      </div>
+
+      </article>
+
+
+            <div class="tut-nav">
+        <a class="tut-nav-card" href="protein-kjeldahl.html">
+          <span class="tut-nav-dir">&#x2190; Previous</span>
+          <span class="tut-nav-title">Protein Estimation by the Kjeldahl Method</span>
+        </a>
+        <a class="tut-nav-card next" href="protein-spectrophotometric.html">
+          <span class="tut-nav-dir">Next &#x2192;</span>
+          <span class="tut-nav-title">Spectrophotometric Protein Determination: Biuret and Bradford Methods</span>
+        </a>
+      </div>
+
+  </div><!-- /tutorial-layout -->
+	  
+	<footer>
+  <div class="footer-logo">Lab<span>Learn</span></div>
+  <ul class="footer-links">
+    <li><a href="index.html">Tutorials</a></li>
+    <li><a href="../calculator.html">Calculators</a></li>
+    <li><a href="../apps.html">Apps</a></li>
+    <li><a href="../about.html">About</a></li>
+    <li><a href="../contact.html">Contact</a></li>
+    <li><a href="../index.html#donate">Donate</a></li>
+  </ul>
+  <div class="footer-copy">&copy; 2025 LabLearn. Free for students &amp; researchers.</div>
+</footer>
+
+<script src="../shared.js"></script>
+
+  <!-- MOBILE FLOATING TOC (visible ≤ 900px) -->
+  <button class="mob-toc-btn" id="mobTocBtn"
+          aria-label="Open table of contents" aria-expanded="false"
+          aria-controls="mobTocPanel">
+    <span class="mob-toc-icon">☰</span>
+    <span class="mob-toc-label">Contents</span></button>
+
+  <div class="mob-toc-overlay" id="mobTocOverlay" aria-hidden="true"></div>
+
+  <div class="mob-toc-panel" id="mobTocPanel" role="dialog"
+       aria-label="Table of contents" aria-modal="true">
+    <div class="mob-toc-handle"></div>
+    <div class="mob-toc-head">
+      <span class="mob-toc-head-label">On this page</span>
+      <button class="mob-toc-close" id="mobTocClose" aria-label="Close">✕</button>
+    </div>
+    <div class="mob-toc-body">
+            <ul class="toc-list">
+          <li><a href="#intro">Pre-analytical variables</a></li>
+          <li><a href="#blood">Blood samples</a></li>
+          <li><a href="#urine">Urine samples</a></li>
+          <li><a href="#csf">CSF and other fluids</a></li>
+          <li><a href="#tissue">Tissue and biopsy samples</a></li>
+          <li><a href="#stability">Analyte stability guide</a></li>
+          <li><a href="#cold-chain">Cold chain and transport</a></li>
+          <li><a href="#freeze-thaw">Freeze-thaw management</a></li>
+          <li><a href="#labelling">Labelling and chain of custody</a></li>
+          <li><a href="#rejection">Sample rejection criteria</a></li>
+          <li><a href="#takeaways">Key takeaways</a></li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+</body>
+</html>

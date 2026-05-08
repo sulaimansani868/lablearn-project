@@ -1,0 +1,184 @@
+/* ═══════════════════════════════════════════════════════════════════════
+   TUTORIAL-PAGE MOBILE NAV — three-zone layout
+   Add these rules to tutorial.css
+═══════════════════════════════════════════════════════════════════════ */
+
+/* ── Nav-tut button (tutorial list icon) ── */
+.nav-tut-btn {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.4rem;
+  color: #c8dde9;
+  line-height: 0;
+  border-radius: 4px;
+  transition: color 0.2s, background 0.2s;
+  flex-shrink: 0;
+}
+.nav-tut-btn:hover { color: #fff; background: rgba(255,255,255,0.08); }
+.nav-tut-icon { width: 22px; height: 22px; display: block; }
+
+/* ── Desktop: show tut-btn beside logo ── */
+@media (min-width: 900px) {
+  .nav-tut-btn {
+    display: flex;
+    align-items: center;
+    order: 1;
+    margin-left: 0.6rem;
+  }
+}
+
+/* ── Mobile: three-zone grid — [tut-btn] [logo-centre] [burger] ── */
+@media (max-width: 900px) {
+  nav {
+    display: grid;
+    grid-template-columns: 44px 1fr 44px;
+    align-items: center;
+    padding: 0 0.75rem;
+  }
+  .nav-tut-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    grid-column: 1;
+  }
+  .nav-logo {
+    grid-column: 2;
+    text-align: center;
+    justify-self: center;
+    position: static;
+    transform: none;
+  }
+  .nav-links { display: none !important; }
+  .nav-burger {
+    grid-column: 3;
+    justify-self: end;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   TUTORIAL LIST PANEL
+═══════════════════════════════════════════════════════════════════════ */
+.tut-list-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  z-index: 199;
+  opacity: 0;
+  transition: opacity 0.25s;
+}
+.tut-list-overlay.open { display: block; opacity: 1; }
+
+.tut-list-panel {
+  position: fixed;
+  top: 0; left: 0; bottom: 0;
+  width: min(320px, 88vw);
+  background: #0d1f2d;
+  border-right: 1px solid rgba(255,255,255,0.10);
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  transform: translateX(-100%);
+  transition: transform 0.28s cubic-bezier(0.4,0,0.2,1);
+  will-change: transform;
+}
+.tut-list-panel.open { transform: translateX(0); }
+
+@media (min-width: 900px) {
+  .tut-list-overlay { background: transparent; }
+  .tut-list-panel {
+    top: 56px;
+    left: auto;
+    bottom: auto;
+    max-height: calc(100vh - 72px);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 0 0 6px 6px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.35);
+    transform: translateY(-8px);
+    opacity: 0;
+    transition: transform 0.22s ease, opacity 0.22s ease;
+  }
+  .tut-list-panel.open { transform: translateY(0); opacity: 1; }
+}
+
+.tut-list-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.1rem 0.8rem;
+  border-bottom: 1px solid rgba(255,255,255,0.10);
+  flex-shrink: 0;
+}
+.tut-list-head-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #4ecbb8;
+}
+.tut-list-close {
+  background: none;
+  border: none;
+  color: #8aabbc;
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 0.2rem 0.4rem;
+  border-radius: 3px;
+  line-height: 1;
+  transition: color 0.2s;
+}
+.tut-list-close:hover { color: #fff; }
+
+.tut-list-body {
+  overflow-y: auto;
+  flex: 1;
+  padding: 0.6rem 0 1.5rem;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255,255,255,0.12) transparent;
+}
+
+.tut-list-level {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #4a6a7a;
+  padding: 0.9rem 1.2rem 0.35rem;
+}
+.tut-list-level:first-child { padding-top: 0.4rem; }
+
+.tut-list-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.tut-list-links li { margin: 0; }
+.tut-list-links a {
+  display: block;
+  padding: 0.52rem 1.2rem;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 0.82rem;
+  color: #9ab5cb;
+  text-decoration: none;
+  border-left: 2px solid transparent;
+  transition: color 0.15s, background 0.15s, border-color 0.15s;
+  line-height: 1.4;
+}
+.tut-list-links a:hover {
+  color: #dde8f0;
+  background: rgba(255,255,255,0.05);
+  border-left-color: rgba(78,203,184,0.4);
+}
+.tut-list-links a.tut-list-current {
+  color: #dde8f0;
+  background: rgba(78,203,184,0.10);
+  border-left-color: #4ecbb8;
+  font-weight: 500;
+}
+.tut-list-links a.tut-list-current::after {
+  content: " ←";
+  color: #4ecbb8;
+  font-size: 0.75em;
+}

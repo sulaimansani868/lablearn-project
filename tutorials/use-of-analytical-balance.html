@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Use of the Analytical Balance – LabLearn</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../shared.css" />
+  <link rel="stylesheet" href="tutorial.css" />
+</head>
+<body>
+
+<nav>
+  <button class="nav-tut-btn" id="navTutBtn" aria-label="Browse tutorials" aria-expanded="false">
+    <svg class="nav-tut-icon" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect x="2" y="3" width="7" height="2" rx="1" fill="currentColor"/>
+        <rect x="2" y="9" width="11" height="2" rx="1" fill="currentColor"/>
+        <rect x="2" y="15" width="9" height="2" rx="1" fill="currentColor"/>
+        <circle cx="16" cy="4" r="2" fill="currentColor" opacity=".45"/>
+        <circle cx="16" cy="10" r="2" fill="currentColor" opacity=".45"/>
+        <circle cx="16" cy="16" r="2" fill="currentColor" opacity=".45"/>
+    </svg>
+  </button>
+  <a href="../index.html" class="nav-logo">Lab<span>Learn</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html" class="active">Tutorials</a></li>
+    <li><a href="../calculators.html">Calculators</a></li>
+    <li><a href="../apps.html">Apps</a></li>
+    <li><a href="../about.html">About</a></li>
+    <li><a href="../contact.html">Contact</a></li>
+	<li><a href="../index.html#donate">Donate</a></li>
+    <li><a href="index.html" class="nav-cta">Start Learning</a></li>
+  </ul>
+  <button class="nav-burger" id="navBurger" aria-label="Toggle navigation" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="nav-mobile" id="navMobile">
+  <a href="index.html" class="active">Tutorials</a>
+  <a href="../calculators.html">Calculators</a>
+  <a href="../apps.html">Apps</a>
+  <a href="../about.html">About</a>
+  <a href="../contact.html">Contact</a>
+  <a href="../index.html#donate">Donate</a>
+  <a href="index.html" class="mob-cta">Start Learning</a>
+</div>
+
+  <!-- TUTORIAL LIST PANEL -->
+  <div class="tut-list-overlay" id="tutListOverlay"></div>
+  <div class="tut-list-panel" id="tutListPanel" aria-hidden="true">
+    <div class="tut-list-head">
+      <span class="tut-list-head-label">All Tutorials</span>
+      <button class="tut-list-close" id="tutListClose" aria-label="Close">&#x2715;</button>
+    </div>
+    <div class="tut-list-body">
+      <div class="tut-list-level">Beginner</div>
+      <ul class="tut-list-links">
+        <li><a href="molarity-concentration.html"      data-tut>Molarity, Molality &amp; Normality</a></li>
+        <li><a href="serial-dilutions.html"            data-tut>Serial Dilutions: Technique &amp; Calculation</a></li>
+        <li><a href="lab-safety.html"                  data-tut>Lab Safety: Chemical Hazard Classes</a></li>
+        <li><a href="molar-solutions-bench-guide.html" data-tut>Preparing Molar Solutions: Bench Guide</a></li>
+        <li><a href="serum-plasma-separation.html"     data-tut>Serum and Plasma Separation</a></li>
+        <li><a href="ph-meter-calibration.html"        data-tut>pH Meter Calibration and Use</a></li>
+        <li><a href="micropipette-technique.html"      data-tut>Micropipette Technique: Selection &amp; Calibration</a></li>
+        <li><a href="centrifuge-operation.html"        data-tut>Centrifuge: Operation, Safety &amp; Protocol</a></li>
+        <li><a href="acid-base-safe-handling.html"     data-tut>Safe Handling of Acids, Bases &amp; Corrosives</a></li>
+        <li><a href="balance-weighing-technique.html"  data-tut>Accurate Weighing: Balance Technique</a></li>
+      </ul>
+      <div class="tut-list-level">Intermediate</div>
+      <ul class="tut-list-links">
+        <li><a href="uv-vis-spectrophotometry.html"    data-tut>UV-Vis Spectrophotometry Explained</a></li>
+        <li><a href="standard-solutions.html"          data-tut>Preparing Standard Solutions Accurately</a></li>
+        <li><a href="buffer-preparation.html"          data-tut>Preparing Buffer Solutions: Calculation to Bench</a></li>
+        <li><a href="acid-base-titration.html"         data-tut>Acid-Base Titration: Technique &amp; Endpoints</a></li>
+        <li><a href="blood-glucose-determination.html" data-tut>Blood Glucose: Glucometer &amp; GOD Methods</a></li>
+        <li><a href="kjeldahl-protein.html"            data-tut>Protein Estimation by the Kjeldahl Method</a></li>
+        <li><a href="biological-sample-handling.html"  data-tut>Biological Sample Handling and Storage</a></li>
+        <li><a href="bradford-biuret-protein.html"     data-tut>Spectrophotometric Protein Determination</a></li>
+        <li><a href="enzyme-activity-assays.html"      data-tut>Enzyme Activity Assays: Principles &amp; Methods</a></li>
+        <li><a href="reagent-grade-water.html"         data-tut>Reagent-Grade Water: Preparation &amp; Quality</a></li>
+      </ul>
+      <div class="tut-list-level">Advanced</div>
+      <ul class="tut-list-links">
+        <li><a href="hplc-method-development.html"        data-tut>HPLC Method Development Fundamentals</a></li>
+        <li><a href="atomic-absorption-spectroscopy.html" data-tut>Mineral Analysis by Atomic Absorption Spectroscopy</a></li>
+        <li><a href="hplc-validation.html"                data-tut>HPLC Method Validation: Linearity &amp; Precision</a></li>
+        <li><a href="enzyme-kinetics.html"                data-tut>Enzyme Kinetics: Michaelis-Menten &amp; Inhibition</a></li>
+        <li><a href="sds-page-electrophoresis.html"       data-tut>Electrophoresis: SDS-PAGE and Agarose Gel</a></li>
+        <li><a href="spectrofluorimetry.html"             data-tut>Spectrofluorimetry: Principles &amp; Applications</a></li>
+        <li><a href="elisa-immunoassay.html"              data-tut>Immunoassay Techniques: ELISA Principles &amp; Protocol</a></li>
+      </ul>
+    </div>
+  </div>
+
+
+<header class="page-header">
+  <div class="page-header-inner">
+    <div class="breadcrumb">
+      <a href="../index.html">Home</a><span>›</span>
+      <a href="index.html">Tutorials</a><span>›</span>
+      <span>Use of the Analytical Balance</span>
+    </div>
+    <div class="level-badge level-basic">Beginner</div>
+    <h1>Use of the Analytical Balance</h1>
+    <div class="page-header-meta">
+      <span class="meta-item">⏱ 16 min read</span>
+      <span class="meta-item">📂 Measurement &amp; Technique</span>
+      <span class="meta-item">🗓 Updated 2025</span>
+    </div>
+  </div>
+</header>
+
+<div class="tutorial-layout">
+  <aside class="toc-sidebar">
+    <div class="toc-box">
+      <div class="toc-label">On this page</div>
+      <ul class="toc-list">
+        <li><a href="#types">Types of laboratory balance</a></li>
+        <li><a href="#principles">How an analytical balance works</a></li>
+        <li><a href="#environment">Environmental requirements</a></li>
+        <li><a href="#pre-use">Pre-use checks</a></li>
+        <li><a href="#calibration">Calibration</a></li>
+        <li><a href="#weighing">Standard weighing procedure</a></li>
+        <li><a href="#tare">Using the tare function</a></li>
+        <li><a href="#errors">Common errors and how to avoid them</a></li>
+        <li><a href="#care">Care and maintenance</a></li>
+        <li><a href="#takeaways">Key takeaways</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <article class="article">
+
+    <h2 id="types">Types of laboratory balance</h2>
+    <p>Not all laboratory balances offer the same resolution or capacity. Selecting the right balance for the task is the first step in obtaining a meaningful measurement.</p>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>Balance type</th><th>Readability</th><th>Typical capacity</th><th>Use case</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Top-loading (precision) balance</td><td>0.01–0.1 g</td><td>200 g – 5 kg</td><td>Weighing large amounts of reagents, media, non-critical masses</td></tr>
+          <tr><td>Analytical balance</td><td>0.0001 g (0.1 mg)</td><td>80–300 g</td><td>Preparing standard solutions, weighing small reagent quantities</td></tr>
+          <tr><td>Semi-microbalance</td><td>0.00001 g (0.01 mg)</td><td>30–100 g</td><td>High-precision weighing of small masses</td></tr>
+          <tr><td>Microbalance</td><td>0.000001 g (1 µg)</td><td>1–5 g</td><td>Ultra-trace weighing, atmospheric particulate sampling</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="box box-note">
+      <div class="box-label">Choose the balance that fits the mass range</div>
+      <p>Weighing 200 g on a microbalance is impossible — it exceeds capacity. Weighing 0.5 mg on a top-loading balance is meaningless — the resolution is insufficient. Always select a balance whose <strong>capacity exceeds your sample</strong> and whose <strong>readability is at least ten times smaller than the smallest difference you need to detect</strong>.</p>
+    </div>
+
+    <h2 id="principles">How an analytical balance works</h2>
+    <p>Modern analytical balances use an electromagnetic force restoration mechanism. The pan is connected to a coil suspended in a permanent magnetic field. When a mass is placed on the pan, the coil moves; a sensor detects the displacement and feeds back a compensating electrical current to restore the coil to its null position. The current required is proportional to the mass — this relationship is what the balance reads.</p>
+    <p>This mechanism is extremely sensitive to vibration, air currents, and changes in the local gravitational field. These sensitivities explain why analytical balances have enclosed draft shields, are mounted on dedicated balance tables, and must be levelled and calibrated in the location where they will be used.</p>
+
+    <h2 id="environment">Environmental requirements</h2>
+    <p>The analytical balance is the most environmentally sensitive instrument in routine laboratory use. Its placement and surrounding conditions affect every reading it produces.</p>
+
+    <div class="box box-key">
+      <div class="box-label">Environmental requirements for an analytical balance</div>
+      <ul>
+        <li><strong>Vibration-free surface:</strong> Use a dedicated balance table with vibration-damping feet, positioned away from centrifuges, pumps, and high-traffic areas. Vibration causes fluctuating readings and makes stabilisation impossible.</li>
+        <li><strong>No air currents:</strong> Close the draft shield fully during weighing. Do not position the balance near open windows, air conditioning vents, fume hoods, or doorways. Even normal breathing near an open balance can affect the reading.</li>
+        <li><strong>Level surface:</strong> Check the spirit level bubble on the balance daily. Adjust the levelling feet until the bubble is centred. An unlevel balance under-reads systematically.</li>
+        <li><strong>Stable temperature:</strong> Analytical balances drift with temperature changes. Allow the balance to warm up for at least 30 minutes after switching on (or after a power cut) before making critical measurements.</li>
+        <li><strong>No static charge:</strong> Powdery or plastic samples can acquire static electricity, causing erratic readings. Increase humidity slightly, use an anti-static ioniser, or ground metal containers.</li>
+        <li><strong>Away from magnetic fields:</strong> Magnetic stirrers, motors, and speakers near the balance can interfere with the electromagnetic mechanism.</li>
+      </ul>
+    </div>
+
+    <h2 id="pre-use">Pre-use checks</h2>
+    <p>Every time you use an analytical balance, perform the following checks before placing any sample on the pan. This takes approximately two minutes and prevents wasted experiment time from undetected instrument faults.</p>
+
+    <div class="box box-example">
+      <div class="box-label">Pre-use checklist</div>
+      <div class="step"><span class="step-n">1</span><span>Inspect the pan and surrounding area for residue from previous use. Clean gently with a soft brush if necessary — never blow, as expelled breath causes moisture and CO₂ contamination.</span></div>
+      <div class="step"><span class="step-n">2</span><span>Check the spirit level bubble. Adjust levelling feet if the bubble is off-centre.</span></div>
+      <div class="step"><span class="step-n">3</span><span>Close the draft shield and press the zero/tare button. The display should read 0.0000 g. Allow at least 5–10 seconds for stabilisation.</span></div>
+      <div class="step"><span class="step-n">4</span><span>Verify the zero is stable — digits should not drift continuously. Persistent drift indicates vibration, an air current, or a warm-up issue.</span></div>
+      <div class="step"><span class="step-n">5</span><span>Check the calibration status. If the balance has not been calibrated today (or within the required interval), perform a calibration before proceeding.</span></div>
+    </div>
+
+    <h2 id="calibration">Calibration</h2>
+    <p>Calibration adjusts the balance's internal reference so that it reads correctly against a known mass. Most modern analytical balances offer internal automatic calibration using a built-in reference weight, activated by a dedicated button (often labelled CAL). Balances without internal calibration must be calibrated manually using certified external weights.</p>
+
+    <h3>External calibration procedure (manual)</h3>
+    <div class="box box-example">
+      <div class="box-label">Manual calibration with certified reference weights</div>
+      <div class="step"><span class="step-n">1</span><span>Allow the balance to warm up for at least 30 minutes.</span></div>
+      <div class="step"><span class="step-n">2</span><span>Zero the empty balance with the draft shield closed.</span></div>
+      <div class="step"><span class="step-n">3</span><span>Using forceps (never bare hands — skin oils and moisture affect calibration weights), place the certified calibration weight at the centre of the pan.</span></div>
+      <div class="step"><span class="step-n">4</span><span>Close the draft shield. Wait for the display to stabilise fully.</span></div>
+      <div class="step"><span class="step-n">5</span><span>Record the displayed value. It must be within the balance's stated accuracy tolerance of the certified weight value (typically ±0.1–0.2 mg for an analytical balance).</span></div>
+      <div class="step"><span class="step-n">6</span><span>If outside tolerance, follow the manufacturer's calibration adjustment procedure or contact your laboratory's instrument service team.</span></div>
+      <div class="step"><span class="step-n">7</span><span>Record the calibration check in the balance logbook with date, weight used, result, and your name.</span></div>
+    </div>
+
+    <div class="box box-danger">
+      <div class="box-label">⚠ Never handle calibration weights with bare hands</div>
+      <p>Certified calibration weights are precision artefacts. Skin oils, moisture, and minute particles transferred from your fingers will alter the weight's mass — potentially by several tenths of a milligram — invalidating the calibration check. Always handle reference weights with clean forceps or gloves. Store weights in their padded case, never loose on the bench.</p>
+    </div>
+
+    <h2 id="weighing">Standard weighing procedure</h2>
+    <div class="box box-example">
+      <div class="box-label">Step-by-step weighing procedure</div>
+      <div class="step"><span class="step-n">1</span><span>Zero the balance with the draft shield closed and the pan empty.</span></div>
+      <div class="step"><span class="step-n">2</span><span>Open the draft shield and place a clean, dry weighing vessel (weighing boat, watch glass, or tared flask) on the centre of the pan. Close the shield.</span></div>
+      <div class="step"><span class="step-n">3</span><span>Wait for the reading to stabilise, then press Tare. The display should return to 0.0000 g.</span></div>
+      <div class="step"><span class="step-n">4</span><span>Open the draft shield and carefully add the substance to the weighing vessel using a clean, dry spatula. Close the shield after each addition.</span></div>
+      <div class="step"><span class="step-n">5</span><span>Wait for the reading to stabilise fully before recording. Record all digits displayed — do not round at this stage.</span></div>
+      <div class="step"><span class="step-n">6</span><span>Remove the sample, clean the pan with a soft brush, and re-zero before the next weighing.</span></div>
+    </div>
+
+    <h2 id="tare">Using the tare function</h2>
+    <p>The tare function subtracts the current reading from the balance's reference, resetting the display to zero. This allows you to weigh a substance in a container without including the container's mass in the reading. The tare function can be applied multiple times sequentially — useful when adding several substances to the same vessel.</p>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>Scenario</th><th>Tare procedure</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Weighing a single substance in a boat</td><td>Place empty boat → Tare → Add substance → Read mass</td></tr>
+          <tr><td>Weighing two substances into the same vessel</td><td>Place vessel → Tare → Add substance 1 → Record mass 1 → Tare again → Add substance 2 → Record mass 2</td></tr>
+          <tr><td>Weighing by difference (see Tutorial 10)</td><td>Weigh full container → Record → Remove aliquot → Reweigh → Difference = mass transferred</td></tr>
+          <tr><td>Checking balance zero between samples</td><td>Remove sample → Tare → Confirm display returns to 0.0000 before next weighing</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 id="errors">Common errors and how to avoid them</h2>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>Error</th><th>Cause</th><th>Prevention</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Drifting or unstable reading</td><td>Air currents, vibration, warm sample, static charge, balance not warmed up</td><td>Close draft shield; allow sample and balance to equilibrate; check environment</td></tr>
+          <tr><td>Reading not returning to zero after sample removed</td><td>Spilled material on pan; balance not re-zeroed; humidity change</td><td>Clean pan; re-zero between samples; check and maintain zero before each use</td></tr>
+          <tr><td>Systematic over- or under-reading</td><td>Balance unlevel; uncalibrated; temperature drift</td><td>Check level; calibrate daily; warm up balance before use</td></tr>
+          <tr><td>Erratic readings with powdery samples</td><td>Electrostatic charge on sample or container</td><td>Increase local humidity; use anti-static devices; use metal containers where possible</td></tr>
+          <tr><td>Condensation on cold samples</td><td>Sample from freezer/fridge absorbs moisture from warm air, increasing mass</td><td>Allow sample to equilibrate to room temperature in a sealed container before opening and weighing</td></tr>
+          <tr><td>Sample loss during transfer</td><td>Static, poor technique, hygroscopic material</td><td>Use weighing by difference (Tutorial 10); minimise exposure time of hygroscopic materials</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 id="care">Care and maintenance</h2>
+    <ul>
+      <li>Clean the pan after every use with a soft brush. Spilled chemicals must be removed immediately — acidic or alkaline materials corrode the stainless steel pan.</li>
+      <li>If a chemical spills inside the balance chamber, clean immediately with a damp cloth and allow to dry fully before use. Report any corrosive spills to the instrument custodian.</li>
+      <li>Never place a load exceeding the maximum capacity on the pan — overloading damages the electromagnetic mechanism permanently.</li>
+      <li>Keep the balance dust cover fitted when not in use.</li>
+      <li>Record all use, calibration checks, and any anomalies in the balance logbook.</li>
+      <li>Schedule annual servicing with a qualified balance technician for internal cleaning, mechanism check, and formal calibration certificate.</li>
+    </ul>
+
+    <div class="takeaways" id="takeaways">
+      <div class="takeaways-label">Key Takeaways</div>
+      <h3>What to remember from this tutorial</h3>
+      <ul>
+        <li>Select a balance whose capacity exceeds your sample and whose readability is at least ten times smaller than the precision you need.</li>
+        <li>Analytical balances require a vibration-free, draft-free, level, thermally stable environment — check all of these before every use session.</li>
+        <li>Allow 30 minutes warm-up time after powering on before making critical measurements.</li>
+        <li>Always handle calibration weights with forceps — never bare hands. Calibrate and record in the logbook before use.</li>
+        <li>The tare function zeroes out the container mass — always tare with the empty container in place, then add the sample.</li>
+        <li>Close the draft shield before every reading and wait for full stabilisation — do not record a still-moving value.</li>
+        <li>Never exceed the balance's maximum capacity — doing so permanently damages the mechanism.</li>
+        <li>Record all use and calibration events in the balance logbook.</li>
+      </ul>
+    </div>
+
+    <div class="tut-nav">
+      <a href="reading-meniscus.html" class="tut-nav-card">
+        <span class="tut-nav-dir">← Previous</span>
+        <span class="tut-nav-title">Reading the Meniscus Correctly</span>
+      </a>
+      <a href="weighing-techniques.html" class="tut-nav-card next">
+        <span class="tut-nav-dir">Next →</span>
+        <span class="tut-nav-title">Weighing Techniques: By Difference and Direct Weighing</span>
+      </a>
+    </div>
+  </article>
+</div>
+
+<button class="mob-toc-btn" id="mobTocBtn" aria-expanded="false"><span class="mob-toc-icon">☰</span>
+    <span class="mob-toc-label">Contents</span></button>
+<div class="mob-toc-overlay" id="mobTocOverlay"></div>
+<div class="mob-toc-panel" id="mobTocPanel">
+  <div class="mob-toc-handle"></div>
+  <div class="mob-toc-head">
+    <span class="mob-toc-head-label">On this page</span>
+    <button class="mob-toc-close" id="mobTocClose" aria-label="Close">✕</button>
+  </div>
+  <div class="mob-toc-body">
+    <ul class="toc-list">
+      <li><a href="#types">Types of laboratory balance</a></li>
+      <li><a href="#principles">How an analytical balance works</a></li>
+      <li><a href="#environment">Environmental requirements</a></li>
+      <li><a href="#pre-use">Pre-use checks</a></li>
+      <li><a href="#calibration">Calibration</a></li>
+      <li><a href="#weighing">Standard weighing procedure</a></li>
+      <li><a href="#tare">Using the tare function</a></li>
+      <li><a href="#errors">Common errors</a></li>
+      <li><a href="#care">Care and maintenance</a></li>
+      <li><a href="#takeaways">Key takeaways</a></li>
+    </ul>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-logo">Lab<span>Learn</span></div>
+  <ul class="footer-links">
+    <li><a href="index.html">Tutorials</a></li>
+    <li><a href="../calculator.html">Calculators</a></li>
+    <li><a href="../apps.html">Apps</a></li>
+    <li><a href="../about.html">About</a></li>
+    <li><a href="../contact.html">Contact</a></li>
+    <li><a href="../index.html#donate">Donate</a></li>
+  </ul>
+  <div class="footer-copy">&copy; 2025 LabLearn. Free for students &amp; researchers.</div>
+</footer>
+<script src="../shared.js"></script>
+</body>
+</html>

@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reagent-Grade Water: Preparation, Quality, and Use | LabLearn Tutorials</title>
+  <meta name="description" content="Laboratory water quality grades, purification methods (distillation, ion exchange, RO, ultrapure), resistivity testing, storage, and matching water grade to analytical application." />
+  <meta name="keywords" content="reagent grade water, ultrapure water, Type 1 water, water purification, resistivity, deionised water, distilled water, HPLC water, laboratory water quality" />
+  <meta name="author" content="Sani Sulaiman" />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="LabLearn" />
+  <meta property="og:title" content="Reagent-Grade Water: Preparation, Quality, and Use | LabLearn Tutorials" />
+  <meta property="og:description" content="Laboratory water quality grades, purification methods (distillation, ion exchange, RO, ultrapure), resistivity testing, storage, and matching water grade to analytical application." />
+  <meta property="og:url" content="https://lablearn.netlify.app/tutorials/reagent-grade-water.html" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Reagent-Grade Water: Preparation, Quality, and Use | LabLearn Tutorials" />
+  <meta name="twitter:description" content="Laboratory water quality grades, purification methods (distillation, ion exchange, RO, ultrapure), resistivity testing, storage, and matching water grade to analytical application." />
+  <link rel="canonical" href="https://lablearn.netlify.app/tutorials/reagent-grade-water.html" />
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+  <link rel="alternate icon" type="image/png" href="../favicon.png" />
+  <link rel="stylesheet" href="../shared.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="tutorial.css" />
+  <meta name="theme-color" content="#0d1f2d" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="LabLearn" />
+</head>
+<body>
+  <nav>
+    <button class="nav-tut-btn" id="navTutBtn" aria-label="Browse tutorials" aria-expanded="false">
+      <svg class="nav-tut-icon" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect x="2" y="3" width="7" height="2" rx="1" fill="currentColor"/>
+        <rect x="2" y="9" width="11" height="2" rx="1" fill="currentColor"/>
+        <rect x="2" y="15" width="9" height="2" rx="1" fill="currentColor"/>
+        <circle cx="16" cy="4" r="2" fill="currentColor" opacity=".45"/>
+        <circle cx="16" cy="10" r="2" fill="currentColor" opacity=".45"/>
+        <circle cx="16" cy="16" r="2" fill="currentColor" opacity=".45"/>
+      </svg>
+    </button>
+    <a href="../index.html" class="nav-logo">Lab<span>Learn</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Tutorials</a></li>
+      <li><a href="../calculator.html">Calculators</a></li>
+      <li><a href="../apps.html">Apps</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+      <li><a href="../index.html#donate">Donate</a></li>
+	  <li><a href="index.html" class="nav-cta">Start Learning</a></li>
+    </ul>
+    <button class="nav-burger" id="navBurger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <div class="nav-mobile" id="navMobile">
+    <a href="index.html">Tutorials</a>
+    <a href="../calculator.html">Calculators</a>
+    <a href="../apps.html">Apps</a>
+    <a href="../about.html">About</a>
+    <a href="../contact.html">Contact</a>
+    <a href="../index.html#donate">Donate</a>
+    <a href="index.html" class="mob-cta">Start Learning</a>
+  </div>
+  <!-- TUTORIAL LIST PANEL -->
+  <div class="tut-list-overlay" id="tutListOverlay"></div>
+  <div class="tut-list-panel" id="tutListPanel" aria-hidden="true">
+    <div class="tut-list-head">
+      <span class="tut-list-head-label">All Tutorials</span>
+      <button class="tut-list-close" id="tutListClose" aria-label="Close">&#x2715;</button>
+    </div>
+    <div class="tut-list-body">
+      <div class="tut-list-level">Beginner</div>
+      <ul class="tut-list-links">
+        <li><a href="molarity-concentration.html"      data-tut>Molarity, Molality &amp; Normality</a></li>
+        <li><a href="serial-dilutions.html"            data-tut>Serial Dilutions: Technique &amp; Calculation</a></li>
+        <li><a href="lab-safety.html"                  data-tut>Lab Safety: Chemical Hazard Classes</a></li>
+        <li><a href="molar-solutions-bench-guide.html" data-tut>Preparing Molar Solutions: Bench Guide</a></li>
+        <li><a href="serum-plasma-separation.html"     data-tut>Serum and Plasma Separation</a></li>
+        <li><a href="ph-meter-calibration.html"        data-tut>pH Meter Calibration and Use</a></li>
+        <li><a href="micropipette-technique.html"      data-tut>Micropipette Technique: Selection &amp; Calibration</a></li>
+        <li><a href="centrifuge-operation.html"        data-tut>Centrifuge: Operation, Safety &amp; Protocol</a></li>
+        <li><a href="acid-base-safe-handling.html"     data-tut>Safe Handling of Acids, Bases &amp; Corrosives</a></li>
+        <li><a href="balance-weighing-technique.html"  data-tut>Accurate Weighing: Balance Technique</a></li>
+      </ul>
+      <div class="tut-list-level">Intermediate</div>
+      <ul class="tut-list-links">
+        <li><a href="uv-vis-spectrophotometry.html"    data-tut>UV-Vis Spectrophotometry Explained</a></li>
+        <li><a href="standard-solutions.html"          data-tut>Preparing Standard Solutions Accurately</a></li>
+        <li><a href="buffer-preparation.html"          data-tut>Preparing Buffer Solutions: Calculation to Bench</a></li>
+        <li><a href="acid-base-titration.html"         data-tut>Acid-Base Titration: Technique &amp; Endpoints</a></li>
+        <li><a href="blood-glucose-determination.html" data-tut>Blood Glucose: Glucometer &amp; GOD Methods</a></li>
+        <li><a href="kjeldahl-protein.html"            data-tut>Protein Estimation by the Kjeldahl Method</a></li>
+        <li><a href="biological-sample-handling.html"  data-tut>Biological Sample Handling and Storage</a></li>
+        <li><a href="bradford-biuret-protein.html"     data-tut>Spectrophotometric Protein Determination</a></li>
+        <li><a href="enzyme-activity-assays.html"      data-tut>Enzyme Activity Assays: Principles &amp; Methods</a></li>
+        <li><a href="reagent-grade-water.html"         data-tut>Reagent-Grade Water: Preparation &amp; Quality</a></li>
+      </ul>
+      <div class="tut-list-level">Advanced</div>
+      <ul class="tut-list-links">
+        <li><a href="hplc-method-development.html"        data-tut>HPLC Method Development Fundamentals</a></li>
+        <li><a href="atomic-absorption-spectroscopy.html" data-tut>Mineral Analysis by Atomic Absorption Spectroscopy</a></li>
+        <li><a href="hplc-validation.html"                data-tut>HPLC Method Validation: Linearity &amp; Precision</a></li>
+        <li><a href="enzyme-kinetics.html"                data-tut>Enzyme Kinetics: Michaelis-Menten &amp; Inhibition</a></li>
+        <li><a href="sds-page-electrophoresis.html"       data-tut>Electrophoresis: SDS-PAGE and Agarose Gel</a></li>
+        <li><a href="spectrofluorimetry.html"             data-tut>Spectrofluorimetry: Principles &amp; Applications</a></li>
+        <li><a href="elisa-immunoassay.html"              data-tut>Immunoassay Techniques: ELISA Principles &amp; Protocol</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="page-header">
+    <div class="page-header-inner">
+      <div class="breadcrumb">
+        <a href="../index.html">Home</a><span>&#x203A;</span>
+        <a href="index.html">Tutorials</a><span>&#x203A;</span>
+        <span>Reagent-Grade Water</span>
+      </div>
+      <span class="level-badge level-intermediate">Intermediate</span>
+      <h1>Reagent-Grade Water: Preparation, Quality, and Use</h1>
+      <div class="page-header-meta">
+        <span class="meta-item">&#x1F4D6; 16 min read</span>
+        <span class="meta-item">&#x1F52C; Analytical Chemistry</span>
+        <span class="meta-item">&#x1F4C5; Updated 2025</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="tutorial-layout">
+    <aside class="toc-sidebar">
+      <div class="toc-box">
+        <div class="toc-label">On this page</div>
+        <ul class="toc-list">
+          <li><a href="#intro">Why water quality matters</a></li>
+          <li><a href="#grades">Water quality grades</a></li>
+          <li><a href="#contaminants">What tap water contains</a></li>
+          <li><a href="#purification">Purification methods</a></li>
+          <li class="sub"><a href="#distillation">Distillation</a></li>
+          <li class="sub"><a href="#deionisation">Ion exchange</a></li>
+          <li class="sub"><a href="#ro">Reverse osmosis</a></li>
+          <li class="sub"><a href="#ultrapure">Ultrapure systems</a></li>
+          <li><a href="#resistivity">Resistivity and conductivity</a></li>
+          <li><a href="#testing">Testing water quality</a></li>
+          <li><a href="#storage">Storage and handling</a></li>
+          <li><a href="#applications">Matching grade to application</a></li>
+          <li><a href="#takeaways">Key takeaways</a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <article class="article">
+
+      <h2 id="intro">Why water quality matters</h2>
+      <p>Water is the solvent for virtually every reagent, standard, and sample preparation step in an analytical laboratory. Impurities in the water used for preparation directly contaminate these solutions, producing systematic errors that are difficult to trace. A laboratory may invest in precision balances, calibrated pipettes, and certified reference materials &mdash; all undermined by the unseen contamination introduced through poor-quality water.</p>
+      <p>This tutorial is directly connected to several others in this library. AAS mineral analysis requires ultrapure water free from trace metals. GOD-PAP glucose assays are affected by oxidising contaminants. UV-Vis spectrophotometry is affected by organic contamination that absorbs in the UV range. Buffer preparation is affected by ionic impurities that alter ionic strength and pH. Understanding water quality is therefore foundational to all other analytical work.</p>
+
+      <h2 id="grades">Water quality grades</h2>
+      <p>Laboratory water quality is defined by international standards, principally ISO 3696 and ASTM D1193. Both classify water into grades based on resistivity, maximum ion and organic contaminant levels.</p>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead><tr><th>Grade</th><th>ISO 3696</th><th>Resistivity (M&Omega;&middot;cm at 25&deg;C)</th><th>Typical use</th></tr></thead>
+          <tbody>
+            <tr><td>Type 1 / Grade 1 (Ultrapure)</td><td>Grade 1</td><td>&ge; 18.2</td><td>HPLC mobile phases, AAS, ICP-MS, cell culture media, molecular biology (PCR, sequencing), critical electrochemistry</td></tr>
+            <tr><td>Type 2 / Grade 2</td><td>Grade 2</td><td>&ge; 1.0</td><td>General laboratory reagents, buffers, culture media, routine spectrophotometry, most clinical chemistry assays</td></tr>
+            <tr><td>Type 3 / Grade 3 (Distilled or RO)</td><td>Grade 3</td><td>&ge; 0.05</td><td>Glassware rinsing, autoclave water, buffer preparation where high purity is not critical</td></tr>
+            <tr><td>Tap water</td><td>Not graded</td><td>&lt; 0.01</td><td>Never for analytical work; only for cooling, cleaning non-contact surfaces</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="box box-note">
+        <div class="box-label">18.2 M&Omega;&middot;cm &mdash; the theoretical maximum</div>
+        <p>18.2 M&Omega;&middot;cm (or 18.2 megohm-centimetres) is the maximum resistivity of pure water at 25&deg;C, set by the autoionisation of water itself (K&#x1D464; = 10&sup-;&sup1;&sup4;). It represents the theoretical limit of ionic purity. Any ionic impurity reduces resistivity. Resistivity is therefore the primary in-line quality indicator used by ultrapure water systems.</p>
+      </div>
+
+      <h2 id="contaminants">What tap water contains</h2>
+      <p>Municipal tap water contains numerous dissolved impurities that interfere with analytical measurements in different ways:</p>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead><tr><th>Contaminant class</th><th>Examples</th><th>Analytical impact</th></tr></thead>
+          <tbody>
+            <tr><td>Inorganic ions</td><td>Ca&sup2;&spades;, Mg&sup2;&spades;, Na&spades;, K&spades;, Cl&sup-;, SO&#x2084;&sup2;&sup-;, HCO&#x2083;&sup-;</td><td>Alter ionic strength, pH, buffer capacity; Ca&sup2;&spades;/Mg&sup2;&spades; precipitate with phosphate; interfere with flame AAS baseline</td></tr>
+            <tr><td>Trace metals</td><td>Fe, Cu, Zn, Pb, Mn</td><td>Directly interfere in AAS and ICP analysis; inhibit enzymes; catalyse oxidative reactions that degrade reagents</td></tr>
+            <tr><td>Dissolved organics</td><td>Humic acids, pesticides, chloramines, disinfection by-products</td><td>Absorb in UV range (200&ndash;300 nm); interfere with HPLC; quench fluorescence</td></tr>
+            <tr><td>Silica</td><td>Dissolved SiO&#x2082;</td><td>Interferes in Si analysis; deposits on glassware and instrument tubing; affects pH measurements at high pH</td></tr>
+            <tr><td>Bacteria and pyrogens</td><td>Gram-negative bacteria; endotoxins (LPS)</td><td>Consume dissolved oxygen; produce metabolites; endotoxins interfere with cell-based assays and limulus amoebocyte lysate (LAL) tests</td></tr>
+            <tr><td>Dissolved gases</td><td>CO&#x2082;, O&#x2082;, Cl&#x2082;</td><td>CO&#x2082; lowers pH of water and freshly prepared buffers; Cl&#x2082; oxidises reagents; dissolved O&#x2082; interferes in some electrochemical measurements</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 id="purification">Water purification methods</h2>
+
+      <h3 id="distillation">Distillation</h3>
+      <p>Water is heated to boiling; the steam is collected and condensed. Dissolved salts, most bacteria, and non-volatile organics remain in the boiling flask and are not carried over in the steam. Distillation effectively removes ionic contaminants and particulates but does not remove volatile organic compounds (which co-distil with steam) or dissolved CO&#x2082;.</p>
+      <p>Single distillation produces water approximately equivalent to Type 3. Double or triple distillation (in borosilicate glass or quartz stills) can approach Type 2. For trace metal work, use a quartz or PTFE still &mdash; borosilicate glass leaches Si, Na, and B into the distillate.</p>
+
+      <h3 id="deionisation">Ion exchange (deionisation)</h3>
+      <p>Water is passed through columns containing cation exchange resin (H-form, removes Ca&sup2;&spades;, Mg&sup2;&spades;, Na&spades;, K&spades; etc.) and anion exchange resin (OH-form, removes Cl&sup-;, SO&#x2084;&sup2;&sup-;, NO&#x2083;&sup-; etc.). The exchanged ions are replaced by H&spades; and OH&sup-; respectively, which combine to form water. A mixed-bed column (both resins mixed) produces water of highest ionic purity.</p>
+      <p>Deionisation does not remove uncharged organics, bacteria, particles, or dissolved gases. Exhausted resins can release organics and bacteria into the water &mdash; resistivity monitoring is essential to know when the resin needs regeneration or replacement.</p>
+
+      <h3 id="ro">Reverse osmosis (RO)</h3>
+      <p>Water is forced under pressure through a semi-permeable membrane with pores too small for hydrated ions, large organic molecules, and bacteria to pass through. RO alone produces water suitable for Grade 3 applications and removes 90&ndash;99% of ions, most organic molecules above 200 Da, and bacteria. It is not sufficient for Grade 1 applications alone but is the standard pre-treatment step before ultrapure polishing systems.</p>
+
+      <h3 id="ultrapure">Ultrapure water systems (Type 1 / Grade 1)</h3>
+      <p>Modern laboratory ultrapure water systems combine several technologies in series: pre-treatment (RO), ion exchange polishing, activated carbon for organic removal, UV irradiation (185 nm for organic oxidation; 254 nm for bacteria), ultrafiltration (0.2 &micro;m or smaller membrane for endotoxin and bacteria removal), and continuous resistivity monitoring.</p>
+      <p>The resistivity at the point of use is displayed continuously. Water should be used immediately &mdash; ultrapure water absorbs CO&#x2082; from the air within seconds of exposure, which lowers resistivity and raises ionic content. Dispense directly into the vessel being used; do not allow it to stand in open containers.</p>
+
+      <h2 id="resistivity">Resistivity, conductivity, and TOC as quality indicators</h2>
+      <div class="box box-formula">
+        <div class="box-label">Resistivity and conductivity relationship</div>
+        <div class="formula">Resistivity (&rho;, M&Omega;&middot;cm) = 1 / Conductivity (&sigma;, &micro;S/cm)
+
+Pure water (25&deg;C): &rho; = 18.2 M&Omega;&middot;cm &equiv; &sigma; = 0.055 &micro;S/cm
+Tap water: &rho; &lt; 0.01 M&Omega;&middot;cm &equiv; &sigma; &gt; 100 &micro;S/cm</div>
+        <div class="formula-note">TOC (Total Organic Carbon, &micro;g/L or ppb): measures dissolved organic content.
+Grade 1 water typically requires TOC &lt; 5 ppb.
+High TOC despite good resistivity indicates organic contamination that ions exchangers do not remove.</div>
+      </div>
+
+      <h2 id="testing">Testing water quality</h2>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead><tr><th>Test</th><th>What it detects</th><th>Acceptable for Grade 2</th><th>Acceptable for Grade 1</th></tr></thead>
+          <tbody>
+            <tr><td>Resistivity / conductivity</td><td>Ionic content</td><td>&ge; 1 M&Omega;&middot;cm</td><td>&ge; 18.2 M&Omega;&middot;cm</td></tr>
+            <tr><td>TOC</td><td>Dissolved organics</td><td>&lt; 50 ppb</td><td>&lt; 5 ppb</td></tr>
+            <tr><td>Bacteria count (CFU/mL)</td><td>Microbial contamination</td><td>&lt; 100 CFU/mL</td><td>&lt; 0.1 CFU/mL (essentially sterile)</td></tr>
+            <tr><td>Silica (SiO&#x2082;)</td><td>Dissolved silica</td><td>&lt; 500 &micro;g/L</td><td>&lt; 3 &micro;g/L</td></tr>
+            <tr><td>pH at 25&deg;C</td><td>Acidity from CO&#x2082; or ionic content</td><td>5.0&ndash;7.5</td><td>Near 7.0 (but poorly buffered; CO&#x2082; shifts rapidly)</td></tr>
+            <tr><td>Heavy metals (Fe, Pb, Cu)</td><td>Trace metal contamination</td><td>&lt; 10 &micro;g/L</td><td>&lt; 0.1 &micro;g/L</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 id="storage">Storage and handling of purified water</h2>
+      <div class="box box-danger">
+        <div class="box-label">&#x26D4; Ultrapure water degrades rapidly on standing</div>
+        <p>Grade 1 (ultrapure) water absorbs CO&#x2082; from the air within seconds, raising conductivity. It leaches trace ions from plastic or glass storage vessels within minutes. It supports microbial growth within hours. Dispense ultrapure water directly from the tap at the point of use. Never store it in open containers or use water that was dispensed earlier in the day for critical applications.</p>
+      </div>
+      <ul>
+        <li><strong>Grade 3 and distilled water</strong> can be stored in clean, sealed polyethylene or glass containers in the dark at room temperature for up to one week for non-critical applications.</li>
+        <li>Use <strong>PTFE or high-density polyethylene (HDPE) containers</strong> for storing water intended for trace metal analysis &mdash; borosilicate glass leaches Si, Na, and B; regular polyethylene leaches plasticisers and trace metals.</li>
+        <li>Never return unused water to the stock container &mdash; this risks contaminating the entire supply.</li>
+        <li>Label every container of purified water with the grade, source (still/deioniser/system name), date of preparation, and initials of the person who prepared it.</li>
+      </ul>
+
+      <h2 id="applications">Matching water grade to application</h2>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead><tr><th>Application</th><th>Minimum grade required</th><th>Reason</th></tr></thead>
+          <tbody>
+            <tr><td>Flame AAS &mdash; Ca, Mg, Fe, Zn in food</td><td>Grade 2 (deionised)</td><td>Ionic background must be below detection limit; trace metals in water add to blank</td></tr>
+            <tr><td>GFAAS &mdash; Pb, Cd, As in blood (&micro;g/L levels)</td><td>Grade 1 (ultrapure, &ge;18.2 M&Omega;&middot;cm)</td><td>At ng/mL detection limits, ppt-level metal contamination in water is significant</td></tr>
+            <tr><td>HPLC mobile phase preparation</td><td>Grade 1</td><td>Organic contaminants absorb in UV; particulates damage pump seals and columns</td></tr>
+            <tr><td>Buffer preparation (general biochemistry)</td><td>Grade 2</td><td>Ionic impurities affect ionic strength and pH; organics may interfere with assays</td></tr>
+            <tr><td>GOD-PAP glucose assay reagent preparation</td><td>Grade 2</td><td>Oxidising contaminants consume H&#x2082;O&#x2082; and reduce colour development</td></tr>
+            <tr><td>Biuret / Bradford protein assay</td><td>Grade 2</td><td>Ionic and organic background raises blank absorbance</td></tr>
+            <tr><td>Autoclave / steam sterilisation</td><td>Grade 3 (distilled or RO)</td><td>Mineral-free water prevents scale deposits in autoclave chamber</td></tr>
+            <tr><td>Glassware final rinse</td><td>Grade 2 or 3</td><td>Removes ionic deposits; tap water leaves mineral residues on drying</td></tr>
+            <tr><td>Cell culture media preparation</td><td>Grade 1 (endotoxin-free)</td><td>Endotoxins (pyrogens) in water activate innate immune response in cell cultures</td></tr>
+            <tr><td>PCR and molecular biology</td><td>Grade 1 (nuclease-free)</td><td>DNase and RNase contamination in water degrades templates and products</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="takeaways">
+        <div class="takeaways-label">Key takeaways</div>
+        <h3>What to remember from this tutorial</h3>
+        <ul>
+          <li>Water quality is graded by resistivity: Grade 1 (&ge;18.2 M&Omega;&middot;cm, ultrapure) for critical work such as AAS, HPLC, and cell culture; Grade 2 (&ge;1 M&Omega;&middot;cm) for general laboratory reagents and routine assays; Grade 3 for rinsing and autoclave use only.</li>
+          <li>Tap water contains ionic impurities, trace metals, organics, bacteria, and dissolved gases &mdash; none of which are acceptable in analytical reagents. Never use tap water to prepare analytical-grade standards, buffers, or working reagents.</li>
+          <li>Distillation removes ions and bacteria but not volatile organics. Ion exchange removes ions but not organics or bacteria. Reverse osmosis is an effective pre-treatment. Ultrapure systems combine all technologies and provide continuous resistivity monitoring.</li>
+          <li>Grade 1 ultrapure water degrades within seconds of exposure to air (CO&#x2082; absorption). Dispense directly from the system tap at the point of use. Never store ultrapure water in open or glass containers for use in trace analysis.</li>
+          <li>Monitor water quality regularly: resistivity for ionic purity, TOC for organic contamination, and microbial counts for biological purity. A system that reads 18.2 M&Omega;&middot;cm but has high TOC is not suitable for UV spectrophotometry or HPLC.</li>
+          <li>Match the grade to the application. Using Grade 1 water for autoclave fill is wasteful; using Grade 3 for AAS introduces serious errors. Know what your application requires and use the appropriate grade.</li>
+        </ul>
+      </div>
+
+      </article>
+
+
+            <div class="tut-nav">
+        <a class="tut-nav-card" href="enzyme-activity-assays.html">
+          <span class="tut-nav-dir">&#x2190; Previous</span>
+          <span class="tut-nav-title">Enzyme Activity Assays: Principles and Protocol</span>
+        </a>
+        <a class="tut-nav-card next" href="hplc-method-development.html">
+          <span class="tut-nav-dir">Next &#x2192;</span>
+          <span class="tut-nav-title">HPLC Method Development Fundamentals</span>
+        </a>
+      </div>
+
+  </div><!-- /tutorial-layout -->
+
+  <script src="../shared.js" defer></script>
+
+  <!-- MOBILE FLOATING TOC (visible ≤ 900px) -->
+  <button class="mob-toc-btn" id="mobTocBtn"
+          aria-label="Open table of contents" aria-expanded="false"
+          aria-controls="mobTocPanel">
+    <span class="mob-toc-icon">☰</span>
+    <span class="mob-toc-label">Contents</span></button>
+
+  <div class="mob-toc-overlay" id="mobTocOverlay" aria-hidden="true"></div>
+
+  <div class="mob-toc-panel" id="mobTocPanel" role="dialog"
+       aria-label="Table of contents" aria-modal="true">
+    <div class="mob-toc-handle"></div>
+    <div class="mob-toc-head">
+      <span class="mob-toc-head-label">On this page</span>
+      <button class="mob-toc-close" id="mobTocClose" aria-label="Close">✕</button>
+    </div>
+    <div class="mob-toc-body">
+            <ul class="toc-list">
+          <li><a href="#intro">Why water quality matters</a></li>
+          <li><a href="#grades">Water quality grades</a></li>
+          <li><a href="#contaminants">What tap water contains</a></li>
+          <li><a href="#purification">Purification methods</a></li>
+          <li class="sub"><a href="#distillation">Distillation</a></li>
+          <li class="sub"><a href="#deionisation">Ion exchange</a></li>
+          <li class="sub"><a href="#ro">Reverse osmosis</a></li>
+          <li class="sub"><a href="#ultrapure">Ultrapure systems</a></li>
+          <li><a href="#resistivity">Resistivity and conductivity</a></li>
+          <li><a href="#testing">Testing water quality</a></li>
+          <li><a href="#storage">Storage and handling</a></li>
+          <li><a href="#applications">Matching grade to application</a></li>
+          <li><a href="#takeaways">Key takeaways</a></li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+  <footer>
+  <div class="footer-logo">Lab<span>Learn</span></div>
+  <ul class="footer-links">
+    <li><a href="index.html">Tutorials</a></li>
+    <li><a href="../calculator.html">Calculators</a></li>
+    <li><a href="../apps.html">Apps</a></li>
+    <li><a href="../about.html">About</a></li>
+    <li><a href="../contact.html">Contact</a></li>
+    <li><a href="../index.html#donate">Donate</a></li>
+  </ul>
+  <div class="footer-copy">&copy; 2025 LabLearn. Free for students &amp; researchers.</div>
+</footer>
+
+
+</body>
+</html>

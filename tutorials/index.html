@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Laboratory Tutorials — LabLearn</title>
+  <meta name="description" content="Browse all LabLearn laboratory tutorials — from molarity and concentration to UV-Vis spectrophotometry and HPLC method development. Free, practical, and experience-based." />
+  <meta name="keywords" content="laboratory tutorials, analytical chemistry tutorial, biochemistry lab guide, free chemistry tutorial, university lab" />
+  <meta name="author" content="Sani Sulaiman" />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="LabLearn" />
+  <meta property="og:title" content="Laboratory Tutorials — LabLearn" />
+  <meta property="og:description" content="Browse all LabLearn laboratory tutorials — from molarity and concentration to UV-Vis spectrophotometry and HPLC method development." />
+  <meta property="og:url" content="https://lablearn.netlify.app/tutorials/index.html" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Laboratory Tutorials — LabLearn" />
+  <meta name="twitter:description" content="Browse all LabLearn laboratory tutorials — free, practical, and built from ten years of bench experience." />
+  <link rel="canonical" href="https://lablearn.netlify.app/tutorials/index.html" />
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+  <link rel="alternate icon" type="image/png" href="../favicon.png" />
+  <link rel="stylesheet" href="../shared.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="tutorial.css" />
+  <meta name="theme-color" content="#0d1f2d" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="LabLearn" />
+  <style>
+    /* ── TUTORIAL INDEX PAGE STYLES ── */
+    .tut-index { max-width: 1060px; margin: 0 auto; padding: 3.5rem 5%; }
+
+    /* ── FILTER BUTTONS ── */
+    .filter-bar { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 2.75rem; }
+    .filter-btn {
+      padding: 0.42rem 1.1rem;
+      background: var(--white);
+      border: 1.5px solid var(--border);
+      border-radius: 4px;
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 0.82rem; font-weight: 500;
+      cursor: pointer; color: var(--text-muted);
+      transition: all 0.18s;
+    }
+    .filter-btn:hover { border-color: var(--teal); color: var(--teal); }
+    .filter-btn.active { background: var(--teal); color: var(--white); border-color: var(--teal); }
+
+    /* ── SECTION WRAPPER ── */
+    .section-index { margin-bottom: 3.25rem; }
+    /* Hidden when filter makes all its cards invisible */
+    .section-index.section-hidden { display: none; }
+
+    .section-index-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.55rem; font-weight: 600; color: var(--navy);
+      margin-bottom: 1.25rem;
+      display: flex; align-items: center; gap: 0.75rem;
+    }
+    .section-index-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+    /* ── TUTORIAL CARD GRID ── */
+    .tut-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 1.5rem; }
+
+    /* Card hidden by active filter */
+    .tut-card.card-hidden { display: none !important; }
+
+    .tut-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      padding: 1.75rem;
+      display: flex; flex-direction: column;
+      transition: transform 0.2s, border-color 0.2s;
+      text-decoration: none; color: inherit;
+    }
+    .tut-card:hover { transform: translateY(-3px); border-color: var(--teal); }
+    .tut-card-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 0.75rem; margin-bottom: 0.85rem; }
+    .tut-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 600; color: var(--navy); line-height: 1.3; }
+    .tut-card p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.65; flex: 1; }
+    .tut-card-foot { display: flex; gap: 1rem; margin-top: 1.1rem; padding-top: 1rem; border-top: 1px solid var(--border); font-size: 0.78rem; color: #8090a0; }
+
+    /* Level badges */
+    .tut-badge { font-family: 'IBM Plex Mono', monospace; font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.2rem 0.6rem; border-radius: 2px; white-space: nowrap; flex-shrink: 0; }
+    .tag-basic        { background: rgba(11,124,110,0.12);  color: #0b7c6e; }
+    .tag-intermediate { background: rgba(212,134,10,0.12);  color: #a36500; }
+    .tag-advanced     { background: rgba(168,50,50,0.12);   color: #a33030; }
+
+    /* Empty-state message */
+    .no-results { display: none; text-align: center; padding: 3rem; color: var(--text-muted); font-size: 0.95rem; }
+    .no-results.show { display: block; }
+
+    /* ── PAGE HEADER ENHANCEMENTS ── */
+    .tut-header-intro {
+      margin-top: 1.4rem;
+      max-width: 740px;
+      font-size: 0.95rem;
+      line-height: 1.8;
+      color: #9ab5cb;
+    }
+
+    /* Level breakdown grid */
+    .tut-header-levels {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 1.1rem;
+      margin-top: 2rem;
+      max-width: 860px;
+    }
+    .tut-level-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 6px;
+      padding: 1.3rem 1.4rem 1.1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+    .tut-level-card:hover {
+      background: rgba(255,255,255,0.07);
+      border-color: rgba(255,255,255,0.18);
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .tut-level-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    .tut-level-basic    .tut-level-label { color: #4ecbb8; }
+    .tut-level-intermediate .tut-level-label { color: #e8a830; }
+    .tut-level-advanced .tut-level-label { color: #e07070; }
+
+    .tut-level-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #dde8f0;
+      margin-top: 0.1rem;
+      line-height: 1.3;
+    }
+    .tut-level-desc {
+      font-size: 0.82rem;
+      color: #8aabbc;
+      line-height: 1.7;
+      margin: 0.4rem 0 0.8rem;
+      flex: 1;
+    }
+    .tut-level-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: auto;
+      padding-top: 0.8rem;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+    .tut-level-count {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.72rem;
+      color: #607080;
+    }
+
+    /* Stats bar */
+    .tut-header-stats {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      margin-top: 2rem;
+      padding: 1rem 1.5rem;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.09);
+      border-radius: 6px;
+      max-width: 520px;
+      flex-wrap: wrap;
+    }
+    .tut-stat {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex: 1;
+      padding: 0.3rem 0.5rem;
+    }
+    .tut-stat-number {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.7rem;
+      font-weight: 600;
+      color: #c8dde9;
+      line-height: 1;
+    }
+    .tut-stat-label {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #607080;
+      margin-top: 0.25rem;
+    }
+    .tut-stat-divider {
+      width: 1px;
+      height: 2rem;
+      background: rgba(255,255,255,0.1);
+      flex-shrink: 0;
+    }
+
+    @media (max-width: 640px) {
+      .tut-header-levels { grid-template-columns: 1fr; }
+      .tut-header-stats { max-width: 100%; }
+      .tut-stat-divider { display: none; }
+      .tut-stat { padding: 0.5rem 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="../index.html" class="nav-logo">Lab<span>Learn</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Tutorials</a></li>
+      <li><a href="../calculator.html">Calculators</a></li>
+      <li><a href="../apps.html">Apps</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+      <li><a href="../index.html#donate">Donate</a></li>
+	  <li><a href="index.html" class="mob-cta">Start Learning</a></li>
+    </ul>
+    <button class="nav-burger" id="navBurger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <div class="nav-mobile" id="navMobile">
+    <a href="index.html">Tutorials</a>
+    <a href="../calculator.html">Calculators</a>
+    <a href="../apps.html">Apps</a>
+    <a href="../about.html">About</a>
+    <a href="../contact.html">Contact</a>
+    <a href="../index.html#donate">Donate</a>
+    <a href="index.html" class="mob-cta">Start Learning</a>
+  </div>
+
+  <div class="page-header">
+    <div class="page-header-inner">
+      <div class="breadcrumb">
+        <a href="../index.html">Home</a><span>›</span>
+        <span>Tutorials</span>
+      </div>
+      <h1>Laboratory Tutorials</h1>
+      <p style="color:#7a9ab5;font-size:1rem;margin-top:0.5rem;max-width:620px;line-height:1.7;">
+        Practical guides built from ten years of bench experience — from foundational concepts to advanced analytical techniques. All free.
+      </p>
+
+      <!-- ── INTRO DESCRIPTION ── -->
+      <p class="tut-header-intro">
+        Every tutorial in this library is written from the bench up — grounded in real laboratory work rather than textbook abstractions.
+        Whether you are calibrating a balance for the first time or validating an HPLC method against ICH Q2(R1) guidelines, you will find
+        step-by-step guidance, underlying theory, common pitfalls, and safety considerations in one place.
+        The collection spans analytical chemistry, biochemistry, clinical laboratory science, and molecular biology,
+        and is structured so that each tutorial can stand alone or serve as part of a deliberate learning progression.
+      </p>
+
+      <!-- ── LEVEL BREAKDOWN ── -->
+      <div class="tut-header-levels">
+
+        <div class="tut-level-card tut-level-basic">
+          <div class="tut-level-label">Beginner</div>
+          <div class="tut-level-title">Core Laboratory Skills</div>
+          <p class="tut-level-desc">
+            Designed for students entering the laboratory for the first time and practitioners looking to formalise foundational knowledge.
+            Topics cover essential calculations (molarity, serial dilutions, molar solutions), safe handling of chemicals and equipment,
+            correct use of balances, micropipettes, and centrifuges, and basic technique for sample preparation.
+            No prior laboratory experience is assumed.
+          </p>
+          <div class="tut-level-footer">
+            <span class="tut-badge tag-basic">Beginner</span>
+            <span class="tut-level-count">10 tutorials</span>
+          </div>
+        </div>
+
+        <div class="tut-level-card tut-level-intermediate">
+          <div class="tut-level-label">Intermediate</div>
+          <div class="tut-level-title">Analytical & Clinical Methods</div>
+          <p class="tut-level-desc">
+            Intended for students and scientists who are comfortable with basic technique and ready to engage with instrumental methods
+            and quantitative analysis. Covers UV-Vis spectrophotometry, titration, buffer preparation, standard solutions,
+            blood glucose and protein determination, enzyme activity assays, Kjeldahl analysis, reagent-grade water,
+            and proper biological sample handling. Assumes familiarity with Beginner-level concepts.
+          </p>
+          <div class="tut-level-footer">
+            <span class="tut-badge tag-intermediate">Intermediate</span>
+            <span class="tut-level-count">10 tutorials</span>
+          </div>
+        </div>
+
+        <div class="tut-level-card tut-level-advanced">
+          <div class="tut-level-label">Advanced</div>
+          <div class="tut-level-title">Specialised Techniques & Validation</div>
+          <p class="tut-level-desc">
+            Aimed at senior students, researchers, and laboratory professionals working with sophisticated instrumentation or
+            regulatory frameworks. Topics include HPLC method development and ICH validation, atomic absorption spectroscopy,
+            enzyme kinetics (Michaelis-Menten, inhibition), SDS-PAGE and agarose gel electrophoresis, spectrofluorimetry,
+            and ELISA immunoassay formats. A solid grounding in Intermediate methods is recommended.
+          </p>
+          <div class="tut-level-footer">
+            <span class="tut-badge tag-advanced">Advanced</span>
+            <span class="tut-level-count">7 tutorials</span>
+          </div>
+        </div>
+
+      </div><!-- /tut-header-levels -->
+
+      <!-- ── QUICK STATS BAR ── -->
+      <div class="tut-header-stats">
+        <div class="tut-stat">
+          <span class="tut-stat-number">27</span>
+          <span class="tut-stat-label">Tutorials</span>
+        </div>
+        <div class="tut-stat-divider"></div>
+        <div class="tut-stat">
+          <span class="tut-stat-number">3</span>
+          <span class="tut-stat-label">Skill Levels</span>
+        </div>
+        <div class="tut-stat-divider"></div>
+        <div class="tut-stat">
+          <span class="tut-stat-number">8+</span>
+          <span class="tut-stat-label">Disciplines</span>
+        </div>
+        <div class="tut-stat-divider"></div>
+        <div class="tut-stat">
+          <span class="tut-stat-number">Free</span>
+          <span class="tut-stat-label">Always</span>
+        </div>
+      </div><!-- /tut-header-stats -->
+
+    </div>
+  </div>
+
+  <div class="tut-index">
+
+    <div class="filter-bar" id="filterBar">
+      <button class="filter-btn active" data-filter="all">All tutorials</button>
+      <button class="filter-btn" data-filter="basic">Beginner</button>
+      <button class="filter-btn" data-filter="intermediate">Intermediate</button>
+      <button class="filter-btn" data-filter="advanced">Advanced</button>
+    </div>
+
+    <p class="no-results" id="noResults">No tutorials match the selected filter.</p>
+
+    <div class="section-index" id="section-basic">
+      <div class="section-index-title">Beginner</div>
+      <div class="tut-grid">
+
+        <a class="tut-card" href="molarity-concentration.html" data-level="basic">
+          <div class="tut-card-head">
+            <h3>Molarity, Molality &amp; Normality</h3>
+            <span class="tut-badge tag-basic">Beginner</span>
+          </div>
+          <p>A clear comparison of the three major concentration units with worked examples and guidance on when to use each in practice.</p>
+          <div class="tut-card-foot">
+            <span>&#x1F4D6; 12 min</span><span>&#x1F52C; Quantitative Analysis</span>
+          </div>
+        </a>
+
+        <a class="tut-card" href="serial-dilutions.html" data-level="basic">
+          <div class="tut-card-head">
+            <h3>Serial Dilutions: Technique &amp; Calculation</h3>
+            <span class="tut-badge tag-basic">Beginner</span>
+          </div>
+          <p>Master the serial dilution method used across microbiology, biochemistry, and clinical labs — with step-by-step practice problems.</p>
+          <div class="tut-card-foot">
+            <span>&#x1F4D6; 10 min</span><span>&#x1F52C; Dilution Techniques</span>
+          </div>
+        </a>
+
+        <a class="tut-card" href="lab-safety.html" data-level="basic">
+          <div class="tut-card-head">
+            <h3>Lab Safety: Chemical Hazard Classes</h3>
+            <span class="tut-badge tag-basic">Beginner</span>
+          </div>
+          <p>GHS pictograms, SDS interpretation, and essential safety rules every laboratory user should know before handling chemicals.</p>
+          <div class="tut-card-foot">
+            <span>&#x1F4D6; 8 min</span><span>&#x1F52C; Safety</span>
+          </div>
+        </a>
+
+        <a class="tut-card" href="preparing-molar-solutions.html" data-level="basic">
+          <div class="tut-card-head">
+            <h3>Preparing Molar Solutions: Step-by-Step Bench Guide</h3>
+            <span class="tut-badge tag-basic">Beginner</span>
+          </div>
+          <p>The complete physical procedure for preparing molar solutions — weighing, dissolving, quantitative transfer, and making up to volume correctly.</p>
+          <div class="tut-card-foot">
+            <span>&#x1F4D6; 14 min</span><span>&#x1F52C; Reagent Preparation</span>
+          </div>
+        </a>
+
+        <a class="tut-card" href="serum-plasma-separation.html" data-level="basic">
+          <div class="tut-card-head">
+            <h3>Serum and Plasma Separation</h3>
+            <span class="tut-badge tag-basic">Beginner</span>
+          </div>
+          <p>Correct tube selection, collection technique, centrifugation conditions, and storage — including how to recognise and prevent haemolysis.</p>
+          <div class="tut-card-foot">
+            <span>&#x1F4D6; 12 min</span><span>&#x1F52C; Sample Preparation</span>
+          </div>
+        </a>
+
+        <a class="tut-card" href="ph-meter-calibration.html" data-level="basic">
+          <div class="tut-card-head">
+            <h3>pH Meter Calibration and Use</h3>
+            <span class="tut-badge tag-basic">Beginner</span>
+          </div>
+          <p>How to calibrate a pH meter correctly — electrode care, two-point calibration, temperature compensation, measurement technique, and troubleshooting drift.</p>
+          <div class="tut-card-foot">
+            <span>&#x1F4D6; 13 min</span><span>&#x1F52C; Instrumentation</span>
+          </div>
+        </a>
+
+        <a class="tut-card" href="micropipette-technique.html" data-level="basic">
+          <div class="tut-card-head">
+            <h3>Micropipette Technique: Selection, Calibration, and Use</h3>
+            <span class="tut-badge tag-basic">Beginner</span>
+          </div>
+          <p>Volume range selection, pre-wetting, forward and reverse pipetting technique, angle and depth, gravimetric calibration check, and maintenance.</p>
+          <div class="tut-card-foot">
+            <span>&#x1F4D6; 15 min</span><span>&#x1F52C; Basic Technique</span>
+          </div>
+        </a>
+
+        <a class="tut-card" href="centrifuge-operation.html" data-level="basic">
+          <div class="tut-card-head">
+            <h3>Centrifuge Operation: Safety, Balancing, and Protocol</h3>
+            <span class="tut-badge tag-basic">Beginner</span>
+          </div>
+          <p>RCF vs RPM, rotor types, sample balancing, pre-run safety checks, biohazard precautions, fault recognition, and rotor care.</p>
+          <div class="tut-card-foot">
+            <span>&#x1F4D6; 16 min</span><span>&#x1F52C; Instrumentation &amp; Safety</span>
+          </div>
+        </a>
+
+        <a class="tut-card" href="acid-base-safe-handling.html" data-level="basic">
+          <div class="tut-card-head">
+            <h3>Safe Handling of Acids, Bases, and Corrosive Reagents</h3>
+            <span class="tut-badge tag-basic">Beginner</span>
+          </div>
+          <p>Dilution technique, PPE selection, fume control, storage rules, incompatibilities, first-aid for exposures, spill response, and waste disposal.</p>
+          <div class="tut-card-foot">
+            <span>&#x1F4D6; 14 min</span><span>&#x1F52C; Safety</span>
+          </div>
+        </a>
+
+        <a class="tut-card" href="balance-weighing-technique.html" data-level="basic">
+          <div class="tut-card-head">
+            <h3>Accurate Weighing: Analytical and Top-Loading Balance Technique</h3>
+            <span class="tut-badge tag-basic">Beginner</span>
+          </div>
+          <p>Balance selection, levelling, daily calibration, weighing procedure, hygroscopic and volatile materials, error sources, and balance care.</p>
+          <div class="tut-card-foot">
+            <span>&#x1F4D6; 13 min</span><span>&#x1F52C; Basic Technique</span>
+          </div>
+        </a>
+
+      </div>
+    </div><!-- /section-basic -->
+
+    <div class="section-index" id="section-intermediate">
+      <div class="section-index-title">Intermediate</div>
+      <div class="tut-grid">
+
+        <a class="tut-card" href="uv-vis-spectrophotometry.html" data-level="intermediate">
+          <div class="tut-card-head">
+            <h3>UV-Vis Spectrophotometry Explained</h3>
+            <span class="tut-badge tag-intermediate">Intermediate</span>
+          </div>
+          <p>From the Beer-Lambert law to calibration curves — how to set up, run, and interpret UV-Vis spectrophotometric assays correctly.</p>
+          <div class="tut-card-foot">
+            <span>&#x1F4D6; 18 min</span><span>&#x1F52C; Instrumentation</span>
+          </div>
+        </a>
+
+        <a class="tut-card" href="standard-solutions.html" data-level="intermediate">
+          <div class="tut-card-head">
+            <h3>Preparing Standard Solutions Accurately</h3>
+            <span class="tut-badge tag-intermediate">Intermediate</span>
+          </div>
+          <p>Common mistakes and best practices when preparing primary and secondary standards for quantitative analytical work.</p>
+          <div class="tut-card-foot">
+            <span>&#x1F4D6; 14 min</span><span>&#x1F52C; Reagent Preparation</span>
+          </div>
+        </a>
+
+        <a class="tut-card" href="preparing-buffer-solutions.html" data-level="intermediate">
+          <div class="tut-card-head">
+            <h3>Preparing Buffer Solutions: From Calculation to Bench</h3>
+            <span class="tut-badge tag-intermediate">Intermediate</span>
+          </div>
+          <p>Choosing the right buffer system, calculating component masses using Henderson-Hasselbalch, pH adjustment technique, temperature effects, and storage.</p>
+          <div class="tut-card-foot">
+            <span>&#x1F4D6; 16 min</span><span>&#x1F52C; Reagent Preparation</span>
+          </div>
+        </a>
+
+        <a class="tut-card" href="acid-base-titration.html" data-level="intermediate">
+          <div class="tut-card-head">
+            <h3>Acid-Base Titration: Technique, Endpoints, and Calculation</h3>
+            <span class="tut-badge tag-intermediate">Intermediate</span>
+          </div>
+          <p>Burette technique, indicator selection, standardisation, endpoint detection, worked calculations, back titration, and the errors that most affect accuracy.</p>
+          <div class="tut-card-foot">
+            <span>&#x1F4D6; 18 min</span><span>&#x1F52C; Titrimetry</span>
+          </div>
+        </a>
+
+        <a class="tut-card" href="blood-glucose-methods.html" data-level="intermediate">
+          <div class="tut-card-head">
+            <h3>Blood Glucose Determination: Glucometer and Glucose Oxidase Methods</h3>
+            <span class="tut-badge tag-intermediate">Intermediate</span>
+          </div>
+          <p>Point-of-care glucometer testing and the enzymatic GOD-PAP colorimetric laboratory method — both procedures, calculations, interferences, and QC.</p>
+          <div class="tut-card-foot">
+            <span>&#x1F4D6; 18 min</span><span>&#x1F52C; Clinical Biochemistry</span>
+          </div>
+        </a>
+
+        <a class="tut-card" href="protein-kjeldahl.html" data-level="intermediate">
+          <div class="tut-card-head">
+            <h3>Protein Estimation by the Kjeldahl Method</h3>
+            <span class="tut-badge tag-intermediate">Intermediate</span>
+          </div>
+          <p>Three-phase procedure: digestion, distillation, and titration — with worked calculation, blank correction, conversion factors, and safety requirements.</p>
+          <div class="tut-card-foot">
+            <span>&#x1F4D6; 17 min</span><span>&#x1F52C; Biochemical Analysis</span>
+          </div>
+        </a>
+
+        <a class="tut-card" href="biological-sample-handling.html" data-level="intermediate">
+          <div class="tut-card-head">
+            <h3>Biological Sample Handling and Storage</h3>
+            <span class="tut-badge tag-intermediate">Intermediate</span>
+          </div>
+          <p>Pre-analytical variables, blood and urine handling, analyte stability guide, cold chain, freeze-thaw management, labelling, and rejection criteria.</p>
+          <div class="tut-card-foot">
+            <span>&#x1F4D6; 15 min</span><span>&#x1F52C; Pre-analytical</span>
+          </div>
+        </a>
+
+        <a class="tut-card" href="protein-spectrophotometric.html" data-level="intermediate">
+          <div class="tut-card-head">
+            <h3>Spectrophotometric Protein Determination: Biuret and Bradford Methods</h3>
+            <span class="tut-badge tag-intermediate">Intermediate</span>
+          </div>
+          <p>Reaction principles, step-by-step procedures, BSA calibration curves, method comparison, interferences, and guidance on choosing the right assay for your sample matrix.</p>
+          <div class="tut-card-foot">
+            <span>&#x1F4D6; 18 min</span><span>&#x1F52C; Biochemical Analysis</span>
+          </div>
+        </a>
+
+        <a class="tut-card" href="enzyme-activity-assays.html" data-level="intermediate">
+          <div class="tut-card-head">
+            <h3>Enzyme Activity Assays: Principles and Protocol</h3>
+            <span class="tut-badge tag-intermediate">Intermediate</span>
+          </div>
+          <p>IU and katal units, endpoint vs kinetic assays, ALT and LDH worked examples, specific activity, purification tables, linearity validation, and quality control.</p>
+          <div class="tut-card-foot">
+            <span>&#x1F4D6; 20 min</span><span>&#x1F52C; Biochemical Analysis</span>
+          </div>
+        </a>
+
+        <a class="tut-card" href="reagent-grade-water.html" data-level="intermediate">
+          <div class="tut-card-head">
+            <h3>Reagent-Grade Water: Preparation, Quality, and Use</h3>
+            <span class="tut-badge tag-intermediate">Intermediate</span>
+          </div>
+          <p>Water quality grades, purification methods (distillation, ion exchange, RO, ultrapure), resistivity and TOC testing, storage, and matching grade to analytical application.</p>
+          <div class="tut-card-foot">
+            <span>&#x1F4D6; 16 min</span><span>&#x1F52C; Analytical Chemistry</span>
+          </div>
+        </a>
+
+      </div>
+    </div><!-- /section-intermediate -->
+
+    <div class="section-index" id="section-advanced">
+      <div class="section-index-title">Advanced</div>
+      <div class="tut-grid">
+
+        <a class="tut-card" href="hplc-method-development.html" data-level="advanced">
+          <div class="tut-card-head">
+            <h3>HPLC Method Development Fundamentals</h3>
+            <span class="tut-badge tag-advanced">Advanced</span>
+          </div>
+          <p>Choosing column chemistry, mobile phase composition, and gradient conditions — a practical introduction for analysts moving beyond UV-Vis.</p>
+          <div class="tut-card-foot">
+            <span>&#x1F4D6; 25 min</span><span>&#x1F52C; Chromatography</span>
+          </div>
+        </a>
+
+        <a class="tut-card" href="aas-mineral-analysis.html" data-level="advanced">
+          <div class="tut-card-head">
+            <h3>Mineral Analysis by Atomic Absorption Spectroscopy (AAS)</h3>
+            <span class="tut-badge tag-advanced">Advanced</span>
+          </div>
+          <p>AAS principle, flame vs graphite furnace, sample preparation by acid digestion, calibration, spectral and chemical interferences, QC, and safety.</p>
+          <div class="tut-card-foot">
+            <span>&#x1F4D6; 22 min</span><span>&#x1F52C; Instrumentation</span>
+          </div>
+        </a>
+
+
+        <a class="tut-card" href="hplc-method-validation.html" data-level="advanced">
+          <div class="tut-card-head">
+            <h3>HPLC Method Validation: Linearity, Precision, Accuracy, and Robustness</h3>
+            <span class="tut-badge tag-advanced">Advanced</span>
+          </div>
+          <p>ICH Q2(R1) validation framework — specificity, linearity, LOD/LOQ, repeatability, intermediate precision, accuracy by spike recovery, robustness, and system suitability testing.</p>
+          <div class="tut-card-foot">
+            <span>&#x1F4D6; 24 min</span><span>&#x1F52C; Analytical Chemistry</span>
+          </div>
+        </a>
+
+        <a class="tut-card" href="enzyme-kinetics.html" data-level="advanced">
+          <div class="tut-card-head">
+            <h3>Enzyme Kinetics: Michaelis-Menten, Km, Vmax, and Inhibition</h3>
+            <span class="tut-badge tag-advanced">Advanced</span>
+          </div>
+          <p>Michaelis-Menten equation, Km and Vmax from Lineweaver-Burk and Eadie-Hofstee plots, non-linear regression, kcat and catalytic efficiency, and kinetic analysis of competitive, non-competitive, and uncompetitive inhibition.</p>
+          <div class="tut-card-foot">
+            <span>&#x1F4D6; 22 min</span><span>&#x1F52C; Biochemistry</span>
+          </div>
+        </a>
+
+
+        <a class="tut-card" href="electrophoresis-techniques.html" data-level="advanced">
+          <div class="tut-card-head">
+            <h3>Electrophoresis Techniques: SDS-PAGE and Agarose Gel</h3>
+            <span class="tut-badge tag-advanced">Advanced</span>
+          </div>
+          <p>Gel casting, sample preparation, running conditions, Coomassie and silver staining, molecular weight estimation from SDS-PAGE, agarose percentage selection, DNA loading, band pattern interpretation, and safety.</p>
+          <div class="tut-card-foot">
+            <span>&#x1F4D6; 23 min</span><span>&#x1F52C; Biochemistry &amp; Molecular Biology</span>
+          </div>
+        </a>
+
+        <a class="tut-card" href="spectrofluorimetry.html" data-level="advanced">
+          <div class="tut-card-head">
+            <h3>Spectrofluorimetry: Principles and Applications</h3>
+            <span class="tut-badge tag-advanced">Advanced</span>
+          </div>
+          <p>Jablonski diagram, excitation and emission spectra, Stokes shift, quantum yield, inner filter effect, quenching types, photobleaching, and applications in protein, DNA, and enzyme-linked fluorescent assays.</p>
+          <div class="tut-card-foot">
+            <span>&#x1F4D6; 20 min</span><span>&#x1F52C; Analytical Biochemistry</span>
+          </div>
+        </a>
+
+        <a class="tut-card" href="elisa-immunoassay.html" data-level="advanced">
+          <div class="tut-card-head">
+            <h3>Immunoassay Techniques: ELISA Principles and Protocol</h3>
+            <span class="tut-badge tag-advanced">Advanced</span>
+          </div>
+          <p>Four ELISA formats (direct, indirect, sandwich, competitive), full sandwich ELISA protocol, 4PL standard curve, controls, hook effect, heterophile antibody interference, and troubleshooting.</p>
+          <div class="tut-card-foot">
+            <span>&#x1F4D6; 22 min</span><span>&#x1F52C; Immunochemistry</span>
+          </div>
+        </a>
+
+      </div>
+    </div><!-- /section-advanced -->
+
+  </div><!-- /tut-index -->
+
+  <footer>
+  <div class="footer-logo">Lab<span>Learn</span></div>
+  <ul class="footer-links">
+    <li><a href="index.html">Tutorials</a></li>
+    <li><a href="../calculator.html">Calculators</a></li>
+    <li><a href="../apps.html">Apps</a></li>
+    <li><a href="../about.html">About</a></li>
+    <li><a href="../contact.html">Contact</a></li>
+    <li><a href="../index.html#donate">Donate</a></li>
+  </ul>
+  <div class="footer-copy">&copy; 2025 LabLearn. Free for students &amp; researchers.</div>
+</footer>
+
+  <script src="../shared.js" defer></script>
+  <script>
+    (function () {
+      var filterBar  = document.getElementById('filterBar');
+      var noResults  = document.getElementById('noResults');
+      var sections   = document.querySelectorAll('.section-index');
+      var allCards   = document.querySelectorAll('.tut-card');
+
+      function applyFilter(selected) {
+        /* 1. Toggle button active state */
+        filterBar.querySelectorAll('.filter-btn').forEach(function (btn) {
+          btn.classList.toggle('active', btn.dataset.filter === selected);
+        });
+
+        /* 2. Show or hide each card */
+        allCards.forEach(function (card) {
+          var match = (selected === 'all') || (card.dataset.level === selected);
+          card.classList.toggle('card-hidden', !match);
+        });
+
+        /* 3. Hide section headings whose cards are all hidden */
+        sections.forEach(function (section) {
+          var visibleInSection = section.querySelectorAll('.tut-card:not(.card-hidden)').length;
+          section.classList.toggle('section-hidden', visibleInSection === 0);
+        });
+
+        /* 4. Show "no results" message if nothing is visible */
+        var totalVisible = document.querySelectorAll('.tut-card:not(.card-hidden)').length;
+        noResults.classList.toggle('show', totalVisible === 0);
+      }
+
+      /* Attach click listeners to all filter buttons */
+      filterBar.querySelectorAll('.filter-btn').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          applyFilter(btn.dataset.filter);
+        });
+      });
+
+      /* Apply the default filter (all) on page load */
+      applyFilter('all');
+    })();
+  </script>
+</body>
+</html>

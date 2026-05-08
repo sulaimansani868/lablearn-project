@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Introduction to the Laboratory Environment | LabLearn Tutorials</title>
+  <meta name="description" content="A complete orientation to laboratory layout, PPE selection, GHS hazard symbols, common equipment, safety systems, waste disposal, documentation, and emergency procedures." />
+  <meta name="keywords" content="laboratory environment, lab safety, PPE, GHS hazard symbols, lab orientation, laboratory conduct, waste disposal, safety systems" />
+  <meta name="author" content="Sani Sulaiman" />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="LabLearn" />
+  <meta property="og:title" content="Introduction to the Laboratory Environment | LabLearn Tutorials" />
+  <meta property="og:description" content="A complete orientation to laboratory layout, PPE selection, GHS hazard symbols, common equipment, safety systems, waste disposal, documentation, and emergency procedures." />
+  <meta property="og:url" content="https://lablearn.netlify.app/tutorials/intro-laboratory-environment.html" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Introduction to the Laboratory Environment | LabLearn Tutorials" />
+  <meta name="twitter:description" content="A complete orientation to laboratory layout, PPE selection, GHS hazard symbols, common equipment, safety systems, waste disposal, documentation, and emergency procedures." />
+  <link rel="canonical" href="https://lablearn.netlify.app/tutorials/intro-laboratory-environment.html" />
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+  <link rel="alternate icon" type="image/png" href="../favicon.png" />
+  <link rel="stylesheet" href="../shared.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="tutorial.css" />
+  <meta name="theme-color" content="#0d1f2d" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="LabLearn" />
+</head>
+<body>
+
+<!-- NAV -->
+  <nav>
+    <button class="nav-tut-btn" id="navTutBtn" aria-label="Browse tutorials" aria-expanded="false">
+      <svg class="nav-tut-icon" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect x="2" y="3" width="7" height="2" rx="1" fill="currentColor"/>
+        <rect x="2" y="9" width="11" height="2" rx="1" fill="currentColor"/>
+        <rect x="2" y="15" width="9" height="2" rx="1" fill="currentColor"/>
+        <circle cx="16" cy="4" r="2" fill="currentColor" opacity=".45"/>
+        <circle cx="16" cy="10" r="2" fill="currentColor" opacity=".45"/>
+        <circle cx="16" cy="16" r="2" fill="currentColor" opacity=".45"/>
+      </svg>
+    </button>
+    <a href="../index.html" class="nav-logo">Lab<span>Learn</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Tutorials</a></li>
+      <li><a href="../calculator.html">Calculators</a></li>
+      <li><a href="../apps.html">Apps</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+      <li><a href="../index.html#donate">Donate</a></li>
+      <li><a href="index.html" class="nav-cta">Start Learning</a></li>
+    </ul>
+    <button class="nav-burger" id="navBurger" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </nav>
+
+  <div class="nav-mobile" id="navMobile">
+    <a href="index.html">Tutorials</a>
+    <a href="../calculator.html">Calculators</a>
+    <a href="../apps.html">Apps</a>
+    <a href="../about.html">About</a>
+    <a href="../contact.html">Contact</a>
+    <a href="../index.html#donate">Donate</a>
+    <a href="index.html" class="mob-cta">Start Learning</a>
+  </div>
+  <!-- TUTORIAL LIST PANEL -->
+  <div class="tut-list-overlay" id="tutListOverlay"></div>
+  <div class="tut-list-panel" id="tutListPanel" aria-hidden="true">
+    <div class="tut-list-head">
+      <span class="tut-list-head-label">All Tutorials</span>
+      <button class="tut-list-close" id="tutListClose" aria-label="Close">&#x2715;</button>
+    </div>
+    <div class="tut-list-body">
+      <div class="tut-list-level">Beginner</div>
+      <ul class="tut-list-links">
+        <li><a href="molarity-concentration.html"      data-tut>Molarity, Molality &amp; Normality</a></li>
+        <li><a href="serial-dilutions.html"            data-tut>Serial Dilutions: Technique &amp; Calculation</a></li>
+        <li><a href="lab-safety.html"                  data-tut>Lab Safety: Chemical Hazard Classes</a></li>
+        <li><a href="molar-solutions-bench-guide.html" data-tut>Preparing Molar Solutions: Bench Guide</a></li>
+        <li><a href="serum-plasma-separation.html"     data-tut>Serum and Plasma Separation</a></li>
+        <li><a href="ph-meter-calibration.html"        data-tut>pH Meter Calibration and Use</a></li>
+        <li><a href="micropipette-technique.html"      data-tut>Micropipette Technique: Selection &amp; Calibration</a></li>
+        <li><a href="centrifuge-operation.html"        data-tut>Centrifuge: Operation, Safety &amp; Protocol</a></li>
+        <li><a href="acid-base-safe-handling.html"     data-tut>Safe Handling of Acids, Bases &amp; Corrosives</a></li>
+        <li><a href="balance-weighing-technique.html"  data-tut>Accurate Weighing: Balance Technique</a></li>
+      </ul>
+      <div class="tut-list-level">Intermediate</div>
+      <ul class="tut-list-links">
+        <li><a href="uv-vis-spectrophotometry.html"    data-tut>UV-Vis Spectrophotometry Explained</a></li>
+        <li><a href="standard-solutions.html"          data-tut>Preparing Standard Solutions Accurately</a></li>
+        <li><a href="buffer-preparation.html"          data-tut>Preparing Buffer Solutions: Calculation to Bench</a></li>
+        <li><a href="acid-base-titration.html"         data-tut>Acid-Base Titration: Technique &amp; Endpoints</a></li>
+        <li><a href="blood-glucose-determination.html" data-tut>Blood Glucose: Glucometer &amp; GOD Methods</a></li>
+        <li><a href="kjeldahl-protein.html"            data-tut>Protein Estimation by the Kjeldahl Method</a></li>
+        <li><a href="biological-sample-handling.html"  data-tut>Biological Sample Handling and Storage</a></li>
+        <li><a href="bradford-biuret-protein.html"     data-tut>Spectrophotometric Protein Determination</a></li>
+        <li><a href="enzyme-activity-assays.html"      data-tut>Enzyme Activity Assays: Principles &amp; Methods</a></li>
+        <li><a href="reagent-grade-water.html"         data-tut>Reagent-Grade Water: Preparation &amp; Quality</a></li>
+      </ul>
+      <div class="tut-list-level">Advanced</div>
+      <ul class="tut-list-links">
+        <li><a href="hplc-method-development.html"        data-tut>HPLC Method Development Fundamentals</a></li>
+        <li><a href="atomic-absorption-spectroscopy.html" data-tut>Mineral Analysis by Atomic Absorption Spectroscopy</a></li>
+        <li><a href="hplc-validation.html"                data-tut>HPLC Method Validation: Linearity &amp; Precision</a></li>
+        <li><a href="enzyme-kinetics.html"                data-tut>Enzyme Kinetics: Michaelis-Menten &amp; Inhibition</a></li>
+        <li><a href="sds-page-electrophoresis.html"       data-tut>Electrophoresis: SDS-PAGE and Agarose Gel</a></li>
+        <li><a href="spectrofluorimetry.html"             data-tut>Spectrofluorimetry: Principles &amp; Applications</a></li>
+        <li><a href="elisa-immunoassay.html"              data-tut>Immunoassay Techniques: ELISA Principles &amp; Protocol</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="page-header">
+    <div class="page-header-inner">
+      <div class="breadcrumb">
+        <a href="../index.html">Home</a><span>›</span>
+        <a href="index.html">Tutorials</a><span>›</span>
+        <span>Introduction to the Laboratory Environment</span>
+      </div>
+      <span class="level-badge level-basic">Beginner</span>
+      <h1>Introduction to the Laboratory Environment</h1>
+      <div class="page-header-meta">
+        <span class="meta-item">📖 18 min read</span>
+        <span class="meta-item">🔬 Lab Safety &amp; Orientation</span>
+        <span class="meta-item">📅 Updated 2025</span>
+      </div>
+    </div>
+  </div>
+<!-- BODY -->
+<div class="tutorial-layout">
+
+  <!-- SIDEBAR -->
+    <aside class="toc-sidebar">
+      <div class="toc-box">
+        <div class="toc-label">On this page</div>
+        <ul class="toc-list">
+      <li><a href="#layout">Laboratory layout and zones</a></li>
+      <li><a href="#ppe">Personal protective equipment (PPE)</a></li>
+      <li><a href="#hazards">Understanding hazard symbols</a></li>
+      <li><a href="#equipment">Common equipment overview</a></li>
+      <li><a href="#safety-systems">Safety systems and locations</a></li>
+      <li><a href="#conduct">Conduct and work practices</a></li>
+      <li><a href="#waste">Waste disposal basics</a></li>
+      <li><a href="#documentation">Documentation and labelling</a></li>
+      <li><a href="#emergency">Emergency procedures</a></li>
+      <li><a href="#key-takeaways">Key takeaways</a></li>
+        </ul>
+      </div>
+    </aside>
+
+  <!-- CONTENT -->
+    <article class="article">
+
+    <!-- 1. LAYOUT -->
+    <h2 id="layout">Laboratory layout and zones</h2>
+    <p>Every laboratory is intentionally organised to separate incompatible activities, minimise contamination, and ensure rapid access to safety equipment. Before you handle any chemical or biological material, you must understand the spatial logic of the room you are working in.</p>
+    <p>Most teaching and research laboratories are divided into several functional zones. <strong>Work zones</strong> are the bench areas where active experiments occur. <strong>Storage zones</strong> hold chemicals, consumables, and equipment when not in use. <strong>Clean zones</strong> — such as computer stations and write-up benches — must be kept free of reagents or contaminated gloves at all times.</p>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Zone</th>
+            <th>Typical Location</th>
+            <th>Key Rules</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Active bench area</td>
+            <td>Central or wall-mounted benches</td>
+            <td>PPE required at all times; no food or drink</td>
+          </tr>
+          <tr>
+            <td>Fume cupboard zone</td>
+            <td>Along exterior walls (ventilated)</td>
+            <td>Use for volatile chemicals; sash at working height</td>
+          </tr>
+          <tr>
+            <td>Biological safety cabinet</td>
+            <td>Dedicated BSC room or alcove</td>
+            <td>Microbiological work only; HEPA-filtered airflow</td>
+          </tr>
+          <tr>
+            <td>Chemical storage</td>
+            <td>Locked cabinets; flammables store</td>
+            <td>Segregated by compatibility; never in fume hood</td>
+          </tr>
+          <tr>
+            <td>Clean / write-up area</td>
+            <td>Near entrance or separate alcove</td>
+            <td>No reagents; remove gloves before entering</td>
+          </tr>
+          <tr>
+            <td>Waste station</td>
+            <td>Clearly marked area near benches</td>
+            <td>Segregate chemical, biological, sharps, general</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="box box-key">
+      <div class="box-label">Orientation tip</div>
+      On your first entry to any laboratory, locate the nearest fire exit, eye wash station, emergency shower, fire extinguisher, and first aid kit <em>before</em> you begin any work. This takes less than two minutes and could save your life or someone else's.
+    </div>
+
+    <!-- 2. PPE -->
+    <h2 id="ppe">Personal protective equipment (PPE)</h2>
+    <p>PPE is your last line of defence after engineering controls (fume hoods, ventilation) and administrative controls (procedures, training). Selecting the correct PPE for a task is as important as wearing it correctly.</p>
+
+    <h3>Minimum PPE for general laboratory work</h3>
+    <p>Regardless of the specific task, the following are required in most laboratory environments:</p>
+
+    <div class="box box-key">
+      <div class="box-label">Minimum PPE checklist</div>
+      <ul class="checklist">
+        <li>Lab coat — fully fastened, worn at all times in the work zone</li>
+        <li>Safety spectacles or chemical splash goggles (task-dependent)</li>
+        <li>Closed-toe, closed-heel shoes — no sandals, canvas, or mesh footwear</li>
+        <li>Nitrile gloves — check for pinholes before use; change regularly</li>
+        <li>Hair tied back if it reaches shoulder length or longer</li>
+        <li>No loose jewellery, dangling sleeves, or scarves near equipment</li>
+      </ul>
+    </div>
+
+    <h3>Selecting the correct glove</h3>
+    <p>Not all gloves offer equivalent chemical protection. Always consult the Safety Data Sheet (SDS) for the chemicals in use before selecting glove material.</p>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Glove Material</th>
+            <th>Good Protection Against</th>
+            <th>Poor Protection Against</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Nitrile (standard)</td>
+            <td>Dilute acids, alkalis, many solvents, biological material</td>
+            <td>Concentrated ketones, some chlorinated solvents</td>
+          </tr>
+          <tr>
+            <td>Latex</td>
+            <td>Biological material, aqueous solutions</td>
+            <td>Many organic solvents; latex allergy risk</td>
+          </tr>
+          <tr>
+            <td>Neoprene</td>
+            <td>Acids, bases, alcohols, fuels</td>
+            <td>Halogenated solvents at high concentrations</td>
+          </tr>
+          <tr>
+            <td>Butyl rubber</td>
+            <td>Peroxides, strong acids, ketones, esters</td>
+            <td>Hydrocarbons, chlorinated compounds</td>
+          </tr>
+          <tr>
+            <td>Cut-resistant</td>
+            <td>Sharps, glassware handling</td>
+            <td>Chemical exposure — no chemical resistance</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="box box-danger">
+      <div class="box-label">⚠ Double-gloving does not double protection</div>
+      Wearing two pairs of standard nitrile gloves does <em>not</em> provide double the chemical breakthrough time. If a task requires enhanced protection, use a thicker or chemically appropriate glove, not two thin ones. Double-gloving reduces dexterity and tactile feedback, increasing the risk of accidents.
+    </div>
+
+    <!-- 3. HAZARD SYMBOLS -->
+    <h2 id="hazards">Understanding hazard symbols</h2>
+    <p>The Globally Harmonised System (GHS) of Classification and Labelling of Chemicals uses standardised pictograms on chemical labels and Safety Data Sheets. You must recognise these symbols before handling any reagent.</p>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>GHS Pictogram Name</th>
+            <th>Hazard Category</th>
+            <th>Examples</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Flame</td>
+            <td>Flammable gases, liquids, solids, self-reactive substances</td>
+            <td>Ethanol, acetone, methanol</td>
+          </tr>
+          <tr>
+            <td>Exclamation mark</td>
+            <td>Irritant, harmful if swallowed/inhaled, narcotic effects</td>
+            <td>Sodium hydroxide (dilute), isopropanol</td>
+          </tr>
+          <tr>
+            <td>Skull and crossbones</td>
+            <td>Acute toxicity (fatal or toxic)</td>
+            <td>Methanol, chloroform, cyanide salts</td>
+          </tr>
+          <tr>
+            <td>Corrosion</td>
+            <td>Skin corrosion, eye damage, metal corrosion</td>
+            <td>Concentrated H₂SO₄, NaOH, HCl</td>
+          </tr>
+          <tr>
+            <td>Health hazard (silhouette)</td>
+            <td>Carcinogen, mutagen, reproductive toxin, sensitiser</td>
+            <td>Formaldehyde, benzene, acrylamide</td>
+          </tr>
+          <tr>
+            <td>Environment</td>
+            <td>Aquatic toxicity — do not drain to sink</td>
+            <td>Many organic solvents, heavy metal salts</td>
+          </tr>
+          <tr>
+            <td>Oxidiser (flame over circle)</td>
+            <td>May intensify fire; oxidising agents</td>
+            <td>Hydrogen peroxide (&gt;50%), potassium permanganate</td>
+          </tr>
+          <tr>
+            <td>Exploding bomb</td>
+            <td>Explosive, self-reactive, organic peroxide</td>
+            <td>Picric acid, dry azides, dibenzoyl peroxide</td>
+          </tr>
+          <tr>
+            <td>Gas cylinder</td>
+            <td>Compressed or liquefied gases</td>
+            <td>CO₂, nitrogen, propane cylinders</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="box box-key">
+      <div class="box-label">Safety Data Sheet (SDS) — always read Section 8</div>
+      Every chemical in a laboratory must have an accessible SDS. Section 8 (Exposure Controls / Personal Protection) specifies the exact PPE required. Section 6 covers accidental release measures. Locate your lab's SDS binder or digital access point on day one.
+    </div>
+
+    <!-- 4. EQUIPMENT -->
+    <h2 id="equipment">Common equipment overview</h2>
+    <p>Laboratories house a wide variety of general-purpose instruments. This section introduces equipment found in most beginner-level settings. Detailed tutorials for each instrument are available in the Level 1 series.</p>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Equipment</th>
+            <th>Primary Use</th>
+            <th>Key Caution</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Analytical balance</td>
+            <td>Accurate mass measurement (0.1 mg resolution)</td>
+            <td>Level surface; close draft shield; never exceed max capacity</td>
+          </tr>
+          <tr>
+            <td>Micropipette</td>
+            <td>Transferring 0.5–1,000 µL volumes</td>
+            <td>Use correct tips; never rotate volume past max</td>
+          </tr>
+          <tr>
+            <td>Vortex mixer</td>
+            <td>Rapid mixing of small tubes</td>
+            <td>Cap tubes securely; hold firmly or use touch mode</td>
+          </tr>
+          <tr>
+            <td>Water bath</td>
+            <td>Controlled temperature incubation</td>
+            <td>Check water level; use anti-fungal tablets for long-term use</td>
+          </tr>
+          <tr>
+            <td>Magnetic stirrer / hot plate</td>
+            <td>Stirring and/or heating solutions</td>
+            <td>Always use hot hand indicator; never heat sealed containers</td>
+          </tr>
+          <tr>
+            <td>pH meter</td>
+            <td>Measuring solution acidity or alkalinity</td>
+            <td>Calibrate before use; store electrode in KCl solution</td>
+          </tr>
+          <tr>
+            <td>Centrifuge</td>
+            <td>Separating components by density</td>
+            <td>Balance opposing tubes; never open lid during spin</td>
+          </tr>
+          <tr>
+            <td>Autoclave</td>
+            <td>Sterilisation by pressurised steam</td>
+            <td>Training required; check door seal; use heat-indicator tape</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 5. SAFETY SYSTEMS -->
+    <h2 id="safety-systems">Safety systems and their locations</h2>
+    <p>Every laboratory is required to provide a minimum set of safety systems. Knowing their exact location is not optional — in an emergency, you will not have time to search.</p>
+
+    <div class="box box-key">
+      <div class="box-label">Safety systems to locate on day one</div>
+      <ol class="numbered-list">
+        <li><span class="num-badge">1</span><span><strong>Eye wash station:</strong> Should be reachable within 10 seconds from any point in the lab. Flush for a minimum of 15 minutes after chemical eye contact.</span></li>
+        <li><span class="num-badge">2</span><span><strong>Emergency shower (drench shower):</strong> Used for large-area chemical skin exposure. Remove contaminated clothing while under flow. Flush for at least 15–20 minutes.</span></li>
+        <li><span class="num-badge">3</span><span><strong>Fire extinguishers:</strong> Identify type — CO₂ for electrical/chemical fires; dry powder for general use. Know the PASS acronym: Pull, Aim, Squeeze, Sweep.</span></li>
+        <li><span class="num-badge">4</span><span><strong>Fire blanket:</strong> For smothering small fires on clothing or bench surfaces. Never wrap a panicking person — they may fan the flames.</span></li>
+        <li><span class="num-badge">5</span><span><strong>First aid kit:</strong> For minor cuts and burns. Report all first aid events to a supervisor; complete an incident report form.</span></li>
+        <li><span class="num-badge">6</span><span><strong>Spill kits:</strong> Chemical and biological spill kits are separate. Do not use a chemical spill kit on a biological spill, and vice versa.</span></li>
+        <li><span class="num-badge">7</span><span><strong>Emergency stop / isolation points:</strong> Electrical isolators and gas taps. Know where the main gas shut-off is for your bench.</span></li>
+      </ol>
+    </div>
+
+    <!-- 6. CONDUCT -->
+    <h2 id="conduct">Conduct and safe work practices</h2>
+    <p>Laboratory accidents rarely result from a single catastrophic decision. Most arise from a chain of small lapses in safe working habits — rushing, skipping risk assessments, or assuming familiarity. The following practices eliminate the most common risk factors.</p>
+
+    <h3>General conduct</h3>
+    <ul>
+      <li>Never work alone in a laboratory, especially with hazardous chemicals or live electrical equipment.</li>
+      <li>Inform a colleague or supervisor of your intended work before starting.</li>
+      <li>No food, drink, application of cosmetics, or contact lens handling inside the laboratory.</li>
+      <li>Keep work areas uncluttered — a clear bench reduces the chance of knocking over containers.</li>
+      <li>Never mouth-pipette. Always use a pipette aid or micropipette.</li>
+      <li>Walk, do not run. Carry glassware with two hands at or below chest height.</li>
+    </ul>
+
+    <h3>Before starting any experiment</h3>
+    <div class="box box-key">
+      <div class="box-label">Pre-experiment checklist</div>
+      <ul class="checklist">
+        <li>Complete or review the relevant Risk Assessment for the task</li>
+        <li>Read the SDS for all chemicals to be used</li>
+        <li>Check all glassware for chips, cracks, or star fractures — discard damaged items</li>
+        <li>Confirm fume hood is functioning (sash moves freely; airflow indicator active)</li>
+        <li>Ensure sufficient waste containers are available and correctly labelled</li>
+        <li>Notify a colleague of your planned work and expected finish time</li>
+      </ul>
+    </div>
+
+    <div class="box box-danger">
+      <div class="box-label">⚠ Never assume a container is safe because it looks familiar</div>
+      Unlabelled containers must be treated as unknown hazards. Do not smell, taste, or assume the contents based on appearance. If you find an unlabelled container, isolate it and inform your supervisor. This is a legal requirement in most jurisdictions.
+    </div>
+
+    <!-- 7. WASTE -->
+    <h2 id="waste">Waste disposal basics</h2>
+    <p>Improper laboratory waste disposal is a major source of environmental damage, regulatory fines, and injury to waste-handling personnel. Every laboratory generates several categories of waste that must be segregated from the point of generation — not sorted afterwards.</p>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Waste Category</th>
+            <th>Typical Container</th>
+            <th>Examples</th>
+            <th>Never Mix With</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Aqueous chemical waste</td>
+            <td>Labelled carboy or jug</td>
+            <td>Buffer solutions, dilute acids/bases</td>
+            <td>Organic solvents, halogenated waste</td>
+          </tr>
+          <tr>
+            <td>Halogenated solvent waste</td>
+            <td>Separate sealed container</td>
+            <td>Chloroform, DCM, chlorobenzene</td>
+            <td>Non-halogenated solvents</td>
+          </tr>
+          <tr>
+            <td>Non-halogenated solvent waste</td>
+            <td>Separate sealed container</td>
+            <td>Ethanol, acetone, ethyl acetate</td>
+            <td>Halogenated solvents</td>
+          </tr>
+          <tr>
+            <td>Sharps</td>
+            <td>Rigid puncture-proof sharps bin</td>
+            <td>Needles, scalpel blades, broken glass</td>
+            <td>Never in general waste bags</td>
+          </tr>
+          <tr>
+            <td>Biological (contaminated)</td>
+            <td>Autoclave bags (yellow/orange)</td>
+            <td>Microbial cultures, contaminated plasticware</td>
+            <td>Chemical waste; sharps</td>
+          </tr>
+          <tr>
+            <td>General non-hazardous</td>
+            <td>Standard bin</td>
+            <td>Clean paper, uncontaminated packaging</td>
+            <td>Any chemical or biological material</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="box box-key">
+      <div class="box-label">Labelling waste containers</div>
+      Every waste container must be labelled with: (1) the hazard type, (2) the date started, (3) a list of constituents, and (4) the responsible person's name. A waste container with no label will be treated as an unknown hazard — significantly increasing disposal cost and risk.
+    </div>
+
+    <!-- 8. DOCUMENTATION -->
+    <h2 id="documentation">Documentation and labelling</h2>
+    <p>Good laboratory documentation is not a bureaucratic burden — it is the foundation of reproducible science and safe practice. All containers, samples, and solutions prepared in the laboratory must be labelled immediately upon preparation.</p>
+
+    <h3>Minimum label information for a prepared solution</h3>
+    <div class="code-block">
+<span class="highlight">SODIUM PHOSPHATE BUFFER — 50 mM, pH 7.4</span>
+<span class="comment">─────────────────────────────────────────</span>
+Prepared by  :  J. Adebayo
+Date prepared:  14 Apr 2025
+Expiry / use by: 14 May 2025
+Storage:  4°C   |   Hazard: Low (irritant)
+<span class="comment">─────────────────────────────────────────</span>
+<span class="comment">If found unlabelled → do NOT use → inform supervisor</span>
+    </div>
+
+    <p>Your laboratory notebook (paper or electronic) should contain, for every experiment: the date, objective, materials and their lot numbers, exact procedure followed, raw observations, and any deviations from protocol. Write in permanent ink if using paper; never erase — cross out errors with a single line.</p>
+
+    <div class="box box-key">
+      <div class="box-label">Electronic lab notebooks (ELN)</div>
+      Many institutions now require or encourage ELNs. Regardless of format, timestamps are automatically recorded in ELNs and entries should not be deleted — only amended with a note explaining the correction. Check your institution's data retention policy, which is typically 5–10 years for research data.
+    </div>
+
+    <!-- 9. EMERGENCY -->
+    <h2 id="emergency">Emergency procedures</h2>
+    <p>Know your institution's emergency procedures before you begin any laboratory work. The following summarises the most common emergencies in a beginner laboratory context.</p>
+
+    <div class="box box-danger">
+      <div class="box-label">⚠ In any life-threatening emergency: call emergency services first</div>
+      In Nigeria, call 199 (NEMA) or 112 (general emergency). Your institution will also have an internal emergency number — memorise it or keep it visible at your bench. Do not delay calling for help to attempt containment of a serious incident.
+    </div>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Emergency</th>
+            <th>Immediate Action</th>
+            <th>Do Not</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Chemical splash to eyes</td>
+            <td>Eye wash station immediately; 15 min flush; seek medical aid</td>
+            <td>Rub eyes; delay flushing to find help first</td>
+          </tr>
+          <tr>
+            <td>Chemical skin contact (large area)</td>
+            <td>Emergency shower; remove clothing; flush ≥15 min</td>
+            <td>Leave the shower early; re-apply contaminated clothing</td>
+          </tr>
+          <tr>
+            <td>Fire on bench (small)</td>
+            <td>Extinguish with CO₂ if safe; raise alarm if unsure</td>
+            <td>Use water on chemical fires; fight a growing fire</td>
+          </tr>
+          <tr>
+            <td>Fire alarm / building evacuation</td>
+            <td>Secure volatile materials; leave immediately via nearest exit</td>
+            <td>Use lift; return for belongings; re-enter without clearance</td>
+          </tr>
+          <tr>
+            <td>Chemical spill (minor)</td>
+            <td>Alert others; use appropriate spill kit; dispose correctly</td>
+            <td>Use paper towels for solvent spills; ignore volatile spills</td>
+          </tr>
+          <tr>
+            <td>Broken glass / sharps injury</td>
+            <td>Apply pressure; wash wound; seek first aid; report incident</td>
+            <td>Pick up broken glass with bare hands; downplay the injury</td>
+          </tr>
+          <tr>
+            <td>Gas leak (smell of gas)</td>
+            <td>Do not operate switches; evacuate; call facilities/emergency</td>
+            <td>Turn lights on or off; use mobile phones near the leak</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- TAKEAWAYS -->
+    <div class="takeaways" id="key-takeaways">
+      <div class="takeaways-label">Key takeaways</div>
+      <h3>What to remember from this tutorial</h3>
+      <ul>
+        <li>Locate all safety systems — eye wash, emergency shower, fire extinguisher, first aid kit — <em>before</em> starting any work in a new laboratory.</li>
+        <li>PPE is mandatory in the work zone at all times. Select gloves based on the chemical's SDS, not by habit or appearance.</li>
+        <li>GHS hazard pictograms must be understood and observed. Read the SDS for every new chemical before first use, especially Sections 6, 7, and 8.</li>
+        <li>Waste must be segregated at the point of generation: aqueous, halogenated, non-halogenated, sharps, biological, and general waste are never mixed.</li>
+        <li>Label every container immediately upon preparation — including the date, contents, concentration, and your name.</li>
+        <li>Never work alone in a laboratory. Inform a colleague of your planned activity and expected duration.</li>
+        <li>In an emergency, call for help first — your own safety takes priority over saving reagents or equipment.</li>
+      </ul>
+    </div>
+
+      <div class="tut-nav">
+        <a class="tut-nav-card" href="#">
+          <span class="tut-nav-dir">&#x2190; Previous</span>
+          <span class="tut-nav-title">Welcome to LabLearn: How to Use This Platform</span>
+        </a>
+        <a class="tut-nav-card next" href="#">
+          <span class="tut-nav-dir">Next &#x2192;</span>
+          <span class="tut-nav-title">Glassware Identification, Handling, and Cleaning</span>
+        </a>
+      </div>
+
+    </article>
+  </div>
+
+
+  <script src="../shared.js" defer></script>
+
+  <!-- MOBILE FLOATING TOC (visible ≤ 900px) -->
+  <button class="mob-toc-btn" id="mobTocBtn"
+          aria-label="Open table of contents" aria-expanded="false"
+          aria-controls="mobTocPanel">
+    <span class="mob-toc-icon">☰</span>
+    <span class="mob-toc-label">Contents</span></button>
+
+  <div class="mob-toc-overlay" id="mobTocOverlay" aria-hidden="true"></div>
+
+  <div class="mob-toc-panel" id="mobTocPanel" role="dialog"
+       aria-label="Table of contents" aria-modal="true">
+    <div class="mob-toc-handle"></div>
+    <div class="mob-toc-head">
+      <span class="mob-toc-head-label">On this page</span>
+      <button class="mob-toc-close" id="mobTocClose" aria-label="Close">✕</button>
+    </div>
+    <div class="mob-toc-body">
+            <ul class="toc-list">
+      <li><a href="#layout">Laboratory layout and zones</a></li>
+      <li><a href="#ppe">Personal protective equipment (PPE)</a></li>
+      <li><a href="#hazards">Understanding hazard symbols</a></li>
+      <li><a href="#equipment">Common equipment overview</a></li>
+      <li><a href="#safety-systems">Safety systems and locations</a></li>
+      <li><a href="#conduct">Conduct and work practices</a></li>
+      <li><a href="#waste">Waste disposal basics</a></li>
+      <li><a href="#documentation">Documentation and labelling</a></li>
+      <li><a href="#emergency">Emergency procedures</a></li>
+      <li><a href="#key-takeaways">Key takeaways</a></li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+  <footer>
+  <div class="footer-logo">Lab<span>Learn</span></div>
+  <ul class="footer-links">
+    <li><a href="index.html">Tutorials</a></li>
+    <li><a href="../calculator.html">Calculators</a></li>
+    <li><a href="../apps.html">Apps</a></li>
+    <li><a href="../about.html">About</a></li>
+    <li><a href="../contact.html">Contact</a></li>
+    <li><a href="../index.html#donate">Donate</a></li>
+  </ul>
+  <div class="footer-copy">&copy; 2025 LabLearn. Free for students &amp; researchers.</div>
+</footer>
+
+
+</body>
+</html>

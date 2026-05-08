@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Units, Conversions, and the SI System – LabLearn</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../shared.css" />
+  <link rel="stylesheet" href="tutorial.css" />
+</head>
+<body>
+
+<nav>
+  <button class="nav-tut-btn" id="navTutBtn" aria-label="Browse tutorials" aria-expanded="false">
+    <svg class="nav-tut-icon" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect x="2" y="3" width="7" height="2" rx="1" fill="currentColor"/>
+        <rect x="2" y="9" width="11" height="2" rx="1" fill="currentColor"/>
+        <rect x="2" y="15" width="9" height="2" rx="1" fill="currentColor"/>
+        <circle cx="16" cy="4" r="2" fill="currentColor" opacity=".45"/>
+        <circle cx="16" cy="10" r="2" fill="currentColor" opacity=".45"/>
+        <circle cx="16" cy="16" r="2" fill="currentColor" opacity=".45"/>
+    </svg>
+  </button>
+  <a href="../index.html" class="nav-logo">Lab<span>Learn</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html" class="active">Tutorials</a></li>
+    <li><a href="../calculators.html">Calculators</a></li>
+    <li><a href="../apps.html">Apps</a></li>
+    <li><a href="../about.html">About</a></li>
+    <li><a href="../contact.html">Contact</a></li>
+	<li><a href="../index.html#donate">Donate</a></li>
+    <li><a href="index.html" class="nav-cta">Start Learning</a></li>
+  </ul>
+  <button class="nav-burger" id="navBurger" aria-label="Toggle navigation" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="nav-mobile" id="navMobile">
+  <a href="index.html" class="active">Tutorials</a>
+  <a href="../calculators.html">Calculators</a>
+  <a href="../apps.html">Apps</a>
+  <a href="../about.html">About</a>
+  <a href="../contact.html">Contact</a>
+  <a href="../index.html#donate">Donate</a>
+  <a href="index.html" class="mob-cta">Start Learning</a>
+</div>
+
+  <!-- TUTORIAL LIST PANEL -->
+  <div class="tut-list-overlay" id="tutListOverlay"></div>
+  <div class="tut-list-panel" id="tutListPanel" aria-hidden="true">
+    <div class="tut-list-head">
+      <span class="tut-list-head-label">All Tutorials</span>
+      <button class="tut-list-close" id="tutListClose" aria-label="Close">&#x2715;</button>
+    </div>
+    <div class="tut-list-body">
+      <div class="tut-list-level">Beginner</div>
+      <ul class="tut-list-links">
+        <li><a href="molarity-concentration.html"      data-tut>Molarity, Molality &amp; Normality</a></li>
+        <li><a href="serial-dilutions.html"            data-tut>Serial Dilutions: Technique &amp; Calculation</a></li>
+        <li><a href="lab-safety.html"                  data-tut>Lab Safety: Chemical Hazard Classes</a></li>
+        <li><a href="molar-solutions-bench-guide.html" data-tut>Preparing Molar Solutions: Bench Guide</a></li>
+        <li><a href="serum-plasma-separation.html"     data-tut>Serum and Plasma Separation</a></li>
+        <li><a href="ph-meter-calibration.html"        data-tut>pH Meter Calibration and Use</a></li>
+        <li><a href="micropipette-technique.html"      data-tut>Micropipette Technique: Selection &amp; Calibration</a></li>
+        <li><a href="centrifuge-operation.html"        data-tut>Centrifuge: Operation, Safety &amp; Protocol</a></li>
+        <li><a href="acid-base-safe-handling.html"     data-tut>Safe Handling of Acids, Bases &amp; Corrosives</a></li>
+        <li><a href="balance-weighing-technique.html"  data-tut>Accurate Weighing: Balance Technique</a></li>
+      </ul>
+      <div class="tut-list-level">Intermediate</div>
+      <ul class="tut-list-links">
+        <li><a href="uv-vis-spectrophotometry.html"    data-tut>UV-Vis Spectrophotometry Explained</a></li>
+        <li><a href="standard-solutions.html"          data-tut>Preparing Standard Solutions Accurately</a></li>
+        <li><a href="buffer-preparation.html"          data-tut>Preparing Buffer Solutions: Calculation to Bench</a></li>
+        <li><a href="acid-base-titration.html"         data-tut>Acid-Base Titration: Technique &amp; Endpoints</a></li>
+        <li><a href="blood-glucose-determination.html" data-tut>Blood Glucose: Glucometer &amp; GOD Methods</a></li>
+        <li><a href="kjeldahl-protein.html"            data-tut>Protein Estimation by the Kjeldahl Method</a></li>
+        <li><a href="biological-sample-handling.html"  data-tut>Biological Sample Handling and Storage</a></li>
+        <li><a href="bradford-biuret-protein.html"     data-tut>Spectrophotometric Protein Determination</a></li>
+        <li><a href="enzyme-activity-assays.html"      data-tut>Enzyme Activity Assays: Principles &amp; Methods</a></li>
+        <li><a href="reagent-grade-water.html"         data-tut>Reagent-Grade Water: Preparation &amp; Quality</a></li>
+      </ul>
+      <div class="tut-list-level">Advanced</div>
+      <ul class="tut-list-links">
+        <li><a href="hplc-method-development.html"        data-tut>HPLC Method Development Fundamentals</a></li>
+        <li><a href="atomic-absorption-spectroscopy.html" data-tut>Mineral Analysis by Atomic Absorption Spectroscopy</a></li>
+        <li><a href="hplc-validation.html"                data-tut>HPLC Method Validation: Linearity &amp; Precision</a></li>
+        <li><a href="enzyme-kinetics.html"                data-tut>Enzyme Kinetics: Michaelis-Menten &amp; Inhibition</a></li>
+        <li><a href="sds-page-electrophoresis.html"       data-tut>Electrophoresis: SDS-PAGE and Agarose Gel</a></li>
+        <li><a href="spectrofluorimetry.html"             data-tut>Spectrofluorimetry: Principles &amp; Applications</a></li>
+        <li><a href="elisa-immunoassay.html"              data-tut>Immunoassay Techniques: ELISA Principles &amp; Protocol</a></li>
+      </ul>
+    </div>
+  </div>
+
+
+<header class="page-header">
+  <div class="page-header-inner">
+    <div class="breadcrumb">
+      <a href="../index.html">Home</a><span>›</span>
+      <a href="index.html">Tutorials</a><span>›</span>
+      <span>Units, Conversions, and the SI System</span>
+    </div>
+    <div class="level-badge level-basic">Beginner</div>
+    <h1>Units, Conversions, and the SI System</h1>
+    <div class="page-header-meta">
+      <span class="meta-item">⏱ 17 min read</span>
+      <span class="meta-item">📂 Measurement &amp; Calculations</span>
+      <span class="meta-item">🗓 Updated 2025</span>
+    </div>
+  </div>
+</header>
+
+<div class="tutorial-layout">
+  <aside class="toc-sidebar">
+    <div class="toc-box">
+      <div class="toc-label">On this page</div>
+      <ul class="toc-list">
+        <li><a href="#why-si">Why a universal system?</a></li>
+        <li><a href="#base-units">The seven SI base units</a></li>
+        <li><a href="#prefixes">SI prefixes</a></li>
+        <li><a href="#derived">Derived units in the lab</a></li>
+        <li><a href="#conversions">Unit conversions</a></li>
+        <li><a href="#concentration">Concentration units</a></li>
+        <li><a href="#non-si">Common non-SI units</a></li>
+        <li><a href="#sig-figs">Significant figures in units</a></li>
+        <li><a href="#takeaways">Key takeaways</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <article class="article">
+
+    <h2 id="why-si">Why a universal measurement system?</h2>
+    <p>Science is an international, collaborative endeavour. For results to be reproducible and comparable across laboratories, countries, and decades, every measurement must be expressed in units that everyone defines identically. The <strong>International System of Units</strong> (Système International d'Unités, abbreviated SI) is the globally agreed framework that provides exactly this.</p>
+    <p>Unit errors are not trivial. In 1999, NASA's Mars Climate Orbiter was destroyed because one engineering team used imperial units (pound-force seconds) while another used SI units (newton-seconds) — a mismatch that sent the spacecraft into the Martian atmosphere at the wrong angle. In a laboratory, unit confusion can invalidate experiments, cause incorrect drug dosing, or produce misleading published data.</p>
+
+    <div class="box box-danger">
+      <div class="box-label">⚠ Always record units with every number</div>
+      <p>A measurement without a unit is meaningless. "The concentration was 5" tells you nothing. "The concentration was 5 mmol/L" is a complete, reproducible measurement. Every number in your laboratory notebook must be accompanied by its unit. This is not optional — it is fundamental scientific practice.</p>
+    </div>
+
+    <h2 id="base-units">The seven SI base units</h2>
+    <p>All SI units are derived from seven base units, each measuring a distinct physical quantity. These base units are defined by fixed numerical values of fundamental physical constants, making them stable and reproducible anywhere in the universe.</p>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>Physical quantity</th><th>SI base unit</th><th>Symbol</th><th>Laboratory relevance</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Length</td><td>Metre</td><td>m</td><td>Cuvette path length, gel migration distance</td></tr>
+          <tr><td>Mass</td><td>Kilogram</td><td>kg</td><td>Weighing reagents (usually expressed as g or mg)</td></tr>
+          <tr><td>Time</td><td>Second</td><td>s</td><td>Reaction timing, centrifuge runs, incubation periods</td></tr>
+          <tr><td>Electric current</td><td>Ampere</td><td>A</td><td>Electrophoresis current, electrochemical cells</td></tr>
+          <tr><td>Thermodynamic temperature</td><td>Kelvin</td><td>K</td><td>Thermodynamic calculations; convert: K = °C + 273.15</td></tr>
+          <tr><td>Amount of substance</td><td>Mole</td><td>mol</td><td>Central to concentration, stoichiometry, and reaction calculations</td></tr>
+          <tr><td>Luminous intensity</td><td>Candela</td><td>cd</td><td>Rarely encountered in standard laboratory work</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 id="prefixes">SI prefixes</h2>
+    <p>SI prefixes are multipliers that scale a base unit up or down by powers of ten. Mastering these prefixes is essential — laboratory measurements routinely span twelve or more orders of magnitude, from nanometre-scale molecular dimensions to kilogram-scale reagent quantities.</p>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>Prefix</th><th>Symbol</th><th>Factor</th><th>Common lab example</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Giga</td><td>G</td><td>10⁹</td><td>Genome size in base pairs (gigabases)</td></tr>
+          <tr><td>Mega</td><td>M</td><td>10⁶</td><td>Molecular weight of large proteins (MDa)</td></tr>
+          <tr><td>Kilo</td><td>k</td><td>10³</td><td>kg (mass of reagents in stock); kDa (protein mass)</td></tr>
+          <tr><td>— (base unit)</td><td>—</td><td>10⁰</td><td>m, g, L, mol</td></tr>
+          <tr><td>Deci</td><td>d</td><td>10⁻¹</td><td>dL (decilitre) — used in clinical chemistry</td></tr>
+          <tr><td>Centi</td><td>c</td><td>10⁻²</td><td>cm (centimetre) — gel dimensions</td></tr>
+          <tr><td>Milli</td><td>m</td><td>10⁻³</td><td>mL (millilitre), mg (milligram), mmol/L (millimolar)</td></tr>
+          <tr><td>Micro</td><td>µ</td><td>10⁻⁶</td><td>µL (microlitre), µg (microgram), µmol/L (micromolar)</td></tr>
+          <tr><td>Nano</td><td>n</td><td>10⁻⁹</td><td>ng/µL (DNA concentration), nm (wavelength, protein size)</td></tr>
+          <tr><td>Pico</td><td>p</td><td>10⁻¹²</td><td>pmol/L (picomolar — hormone assays, ELISA)</td></tr>
+          <tr><td>Femto</td><td>f</td><td>10⁻¹⁵</td><td>fmol — ultra-sensitive detection limits</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="box box-note">
+      <div class="box-label">The µ (micro) symbol</div>
+      <p>The correct symbol for micro is the Greek letter µ (mu), not the letter "u". In handwritten notes and informal lab usage, "u" is widely used as a substitute (e.g. "uL" for µL), but in formal reports and publications, always use the correct µ symbol. Most word processors can insert it via Insert → Symbol, or the keyboard shortcut Alt+0181 (Windows) or Option+M (Mac).</p>
+    </div>
+
+    <h2 id="derived">Derived units commonly used in the laboratory</h2>
+    <p>Derived units are combinations of base units that express composite physical quantities. The laboratory makes heavy use of several specific derived units.</p>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>Quantity</th><th>Unit name</th><th>Symbol</th><th>In base units</th><th>Lab use</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Volume</td><td>Litre</td><td>L</td><td>10⁻³ m³</td><td>Solution volumes (mL, µL)</td></tr>
+          <tr><td>Force</td><td>Newton</td><td>N</td><td>kg·m·s⁻²</td><td>Centrifugal force calculations</td></tr>
+          <tr><td>Pressure</td><td>Pascal</td><td>Pa</td><td>kg·m⁻¹·s⁻²</td><td>Autoclave pressure; gas pressures</td></tr>
+          <tr><td>Energy</td><td>Joule</td><td>J</td><td>kg·m²·s⁻²</td><td>Thermodynamic calculations</td></tr>
+          <tr><td>Frequency</td><td>Hertz</td><td>Hz</td><td>s⁻¹</td><td>Spectrophotometer frequency; centrifuge RPM</td></tr>
+          <tr><td>Electric potential</td><td>Volt</td><td>V</td><td>kg·m²·s⁻³·A⁻¹</td><td>Electrophoresis voltage</td></tr>
+          <tr><td>Concentration (amount)</td><td>Molar</td><td>mol/L or M</td><td>mol·m⁻³ × 10⁻³</td><td>Reagent and solution concentrations</td></tr>
+          <tr><td>Absorbance</td><td>Absorbance unit</td><td>AU or A</td><td>Dimensionless (log ratio)</td><td>Spectrophotometry readings</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 id="conversions">Unit conversions</h2>
+    <p>Unit conversion is the process of expressing the same measurement in a different unit. The safest method is the <strong>dimensional analysis (factor-label) method</strong>, which treats units as algebraic quantities that cancel when multiplied.</p>
+
+    <div class="box box-formula">
+      <div class="box-label">Dimensional analysis — the factor-label method</div>
+      <div class="formula">
+        Desired value = Given value × (conversion factor)
+        <br><br>
+        Conversion factor = (desired unit) / (given unit)
+        <br><br>
+        Example: Convert 250 mL to litres
+        <br>
+        250 mL × (1 L / 1000 mL) = 0.250 L
+        <br><br>
+        Example: Convert 0.5 mg/mL to µg/µL
+        <br>
+        0.5 mg/mL × (1000 µg/mg) × (1 mL/1000 µL) = 0.5 µg/µL
+      </div>
+      <div class="formula-note">Note: mg/mL and µg/µL are numerically equivalent — a useful identity to remember.</div>
+    </div>
+
+    <h3>Common volume conversions</h3>
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead><tr><th>From</th><th>To</th><th>Multiply by</th></tr></thead>
+        <tbody>
+          <tr><td>Litres (L)</td><td>Millilitres (mL)</td><td>× 1,000</td></tr>
+          <tr><td>Millilitres (mL)</td><td>Microlitres (µL)</td><td>× 1,000</td></tr>
+          <tr><td>Microlitres (µL)</td><td>Nanolitres (nL)</td><td>× 1,000</td></tr>
+          <tr><td>Millilitres (mL)</td><td>Litres (L)</td><td>÷ 1,000</td></tr>
+          <tr><td>Microlitres (µL)</td><td>Millilitres (mL)</td><td>÷ 1,000</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Common mass conversions</h3>
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead><tr><th>From</th><th>To</th><th>Multiply by</th></tr></thead>
+        <tbody>
+          <tr><td>Kilograms (kg)</td><td>Grams (g)</td><td>× 1,000</td></tr>
+          <tr><td>Grams (g)</td><td>Milligrams (mg)</td><td>× 1,000</td></tr>
+          <tr><td>Milligrams (mg)</td><td>Micrograms (µg)</td><td>× 1,000</td></tr>
+          <tr><td>Micrograms (µg)</td><td>Nanograms (ng)</td><td>× 1,000</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 id="concentration">Concentration units</h2>
+    <p>Concentration describes the amount of a substance present in a defined volume or mass of solution. Multiple concentration units are used in the laboratory, and selecting or converting between them correctly is critical for preparing accurate reagents.</p>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>Unit</th><th>Symbol</th><th>Definition</th><th>Typical use</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Molarity</td><td>mol/L or M</td><td>Moles of solute per litre of solution</td><td>Most chemical reagents, buffers, standard solutions</td></tr>
+          <tr><td>Millimolar</td><td>mmol/L or mM</td><td>Millimoles of solute per litre (= 10⁻³ M)</td><td>Enzyme substrates, metabolites</td></tr>
+          <tr><td>Micromolar</td><td>µmol/L or µM</td><td>Micromoles per litre (= 10⁻⁶ M)</td><td>Hormones, drugs, trace analytes</td></tr>
+          <tr><td>Mass per volume</td><td>g/L, mg/mL, µg/mL</td><td>Grams of solute per litre (or sub-units) of solution</td><td>Protein concentration, antibiotics, culture media</td></tr>
+          <tr><td>Percent (w/v)</td><td>% (w/v)</td><td>Grams of solute per 100 mL of solution</td><td>Gels (2% agarose), SDS, sucrose solutions</td></tr>
+          <tr><td>Percent (v/v)</td><td>% (v/v)</td><td>mL of solute per 100 mL of solution</td><td>Ethanol concentrations, detergent solutions</td></tr>
+          <tr><td>Parts per million</td><td>ppm</td><td>mg of solute per litre (for dilute aqueous solutions)</td><td>Trace metal analysis, environmental monitoring</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="box box-example">
+      <div class="box-label">Worked example — preparing 100 mL of 50 mM NaCl from solid</div>
+      <div class="step"><span class="step-n">1</span><span>Moles needed: 50 mmol/L × 0.100 L = 5 mmol = 0.005 mol</span></div>
+      <div class="step"><span class="step-n">2</span><span>Molar mass of NaCl: 23.0 (Na) + 35.5 (Cl) = 58.5 g/mol</span></div>
+      <div class="step"><span class="step-n">3</span><span>Mass required: 0.005 mol × 58.5 g/mol = 0.2925 g</span></div>
+      <div class="step"><span class="step-n">4</span><span>Weigh 0.2925 g NaCl, dissolve in ~80 mL DI water, transfer to a 100 mL volumetric flask, make up to the mark with DI water.</span></div>
+      <div class="result">Final: 100 mL of 50 mmol/L (50 mM) NaCl solution</div>
+    </div>
+
+    <h2 id="non-si">Common non-SI units still used in the laboratory</h2>
+    <p>Despite the international adoption of SI, several non-SI units persist in laboratory practice because of historical convention, clinical usage, or practical convenience.</p>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>Unit</th><th>Quantity</th><th>SI equivalent</th><th>Context</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Degree Celsius (°C)</td><td>Temperature</td><td>K − 273.15</td><td>Universal in routine lab use; Kelvin used in thermodynamic calculations</td></tr>
+          <tr><td>Dalton / amu (Da)</td><td>Molecular mass</td><td>1.66054 × 10⁻²⁷ kg</td><td>Protein and nucleic acid molecular weights</td></tr>
+          <tr><td>Ångström (Å)</td><td>Length</td><td>10⁻¹⁰ m = 0.1 nm</td><td>Atomic bond lengths, crystal structures</td></tr>
+          <tr><td>Bar</td><td>Pressure</td><td>10⁵ Pa</td><td>Autoclave pressure (often expressed in bar)</td></tr>
+          <tr><td>rpm (revolutions per minute)</td><td>Rotational speed</td><td>Not directly convertible — use RCF (× g) for centrifuge specification</td><td>Centrifuge settings</td></tr>
+          <tr><td>Calorie (cal)</td><td>Energy</td><td>4.184 J</td><td>Nutritional energy; thermochemistry</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 id="sig-figs">Significant figures and units</h2>
+    <p>The number of significant figures in a measurement reflects the precision of the instrument used to make it. When performing calculations, the result cannot be more precise than the least precise measurement that went into it.</p>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead>
+          <tr><th>Rule</th><th>Example</th><th>Significant figures</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>All non-zero digits are significant</td><td>1.573 g</td><td>4</td></tr>
+          <tr><td>Zeros between non-zero digits are significant</td><td>10.04 mL</td><td>4</td></tr>
+          <tr><td>Leading zeros are NOT significant</td><td>0.0025 g</td><td>2</td></tr>
+          <tr><td>Trailing zeros after a decimal point ARE significant</td><td>2.500 mol/L</td><td>4</td></tr>
+          <tr><td>Trailing zeros without a decimal point are ambiguous</td><td>2500 g (use 2.500 × 10³ g for 4 sf)</td><td>Ambiguous</td></tr>
+          <tr><td>Multiplication/division: use fewest sig. figs. of any input</td><td>2.5 × 1.347 = 3.4 (not 3.3675)</td><td>2</td></tr>
+          <tr><td>Addition/subtraction: use fewest decimal places of any input</td><td>10.25 + 1.3 = 11.6 (not 11.55)</td><td>1 decimal place</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="takeaways" id="takeaways">
+      <div class="takeaways-label">Key Takeaways</div>
+      <h3>What to remember from this tutorial</h3>
+      <ul>
+        <li>The SI system is the international standard — always use SI units in scientific work and convert explicitly when using non-SI units.</li>
+        <li>The seven SI base units are metre, kilogram, second, ampere, kelvin, mole, and candela.</li>
+        <li>SI prefixes scale by powers of ten: kilo (10³), milli (10⁻³), micro (10⁻⁶), nano (10⁻⁹), pico (10⁻¹²) — memorise these.</li>
+        <li>Use the dimensional analysis (factor-label) method for unit conversions — units must cancel to give the correct final unit.</li>
+        <li>mg/mL and µg/µL are numerically identical — a useful identity in biochemistry.</li>
+        <li>Every measurement must be written with its unit — a number without a unit is scientifically meaningless.</li>
+        <li>Significant figures reflect instrument precision — do not report more significant figures than your least precise measurement.</li>
+      </ul>
+    </div>
+
+    <div class="tut-nav">
+      <a href="cleaning-maintenance-equipment.html" class="tut-nav-card">
+        <span class="tut-nav-dir">← Previous</span>
+        <span class="tut-nav-title">Cleaning and Maintenance of Lab Equipment</span>
+      </a>
+      <a href="accuracy-precision-error.html" class="tut-nav-card next">
+        <span class="tut-nav-dir">Next →</span>
+        <span class="tut-nav-title">Accuracy vs Precision vs Error</span>
+      </a>
+    </div>
+  </article>
+</div>
+
+<button class="mob-toc-btn" id="mobTocBtn" aria-expanded="false"><span class="mob-toc-icon">☰</span>
+    <span class="mob-toc-label">Contents</span></button>
+<div class="mob-toc-overlay" id="mobTocOverlay"></div>
+<div class="mob-toc-panel" id="mobTocPanel">
+  <div class="mob-toc-handle"></div>
+  <div class="mob-toc-head">
+    <span class="mob-toc-head-label">On this page</span>
+    <button class="mob-toc-close" id="mobTocClose" aria-label="Close">✕</button>
+  </div>
+  <div class="mob-toc-body">
+    <ul class="toc-list">
+      <li><a href="#why-si">Why a universal system?</a></li>
+      <li><a href="#base-units">The seven SI base units</a></li>
+      <li><a href="#prefixes">SI prefixes</a></li>
+      <li><a href="#derived">Derived units in the lab</a></li>
+      <li><a href="#conversions">Unit conversions</a></li>
+      <li><a href="#concentration">Concentration units</a></li>
+      <li><a href="#non-si">Common non-SI units</a></li>
+      <li><a href="#sig-figs">Significant figures in units</a></li>
+      <li><a href="#takeaways">Key takeaways</a></li>
+    </ul>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-logo">Lab<span>Learn</span></div>
+  <ul class="footer-links">
+    <li><a href="index.html">Tutorials</a></li>
+    <li><a href="../calculator.html">Calculators</a></li>
+    <li><a href="../apps.html">Apps</a></li>
+    <li><a href="../about.html">About</a></li>
+    <li><a href="../contact.html">Contact</a></li>
+    <li><a href="../index.html#donate">Donate</a></li>
+  </ul>
+  <div class="footer-copy">&copy; 2025 LabLearn. Free for students &amp; researchers.</div>
+</footer>
+<script src="../shared.js"></script>
+</body>
+</html>

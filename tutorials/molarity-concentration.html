@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Molarity, Molality & Normality Explained | LabLearn Tutorials</title>
+  <meta name="description" content="A clear guide to molarity, molality, and normality — with worked examples, comparison tables, and practical advice on when to use each concentration unit." />
+  <meta name="keywords" content="molarity, molality, normality, concentration units, chemistry tutorial, moles per litre" />
+  <meta name="author" content="Sani Sulaiman" />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="LabLearn" />
+  <meta property="og:title" content="Molarity, Molality & Normality Explained | LabLearn Tutorials" />
+  <meta property="og:description" content="A clear guide to molarity, molality, and normality — with worked examples, comparison tables, and practical advice on when to use each concentration unit." />
+  <meta property="og:url" content="https://lablearn.netlify.app/tutorials/molarity-concentration.html" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Molarity, Molality & Normality Explained | LabLearn Tutorials" />
+  <meta name="twitter:description" content="A clear guide to molarity, molality, and normality — with worked examples, comparison tables, and practical advice on when to use each concentration unit." />
+  <link rel="canonical" href="https://lablearn.netlify.app/tutorials/molarity-concentration.html" />
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+  <link rel="alternate icon" type="image/png"  href="../favicon.png" />
+    <link rel="stylesheet" href="../shared.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="tutorial.css" />
+  <meta name="theme-color" content="#0d1f2d" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="LabLearn" />
+</head>
+<body>
+  <nav>
+    <button class="nav-tut-btn" id="navTutBtn" aria-label="Browse tutorials" aria-expanded="false">
+      <svg class="nav-tut-icon" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect x="2" y="3" width="7" height="2" rx="1" fill="currentColor"/>
+        <rect x="2" y="9" width="11" height="2" rx="1" fill="currentColor"/>
+        <rect x="2" y="15" width="9" height="2" rx="1" fill="currentColor"/>
+        <circle cx="16" cy="4" r="2" fill="currentColor" opacity=".45"/>
+        <circle cx="16" cy="10" r="2" fill="currentColor" opacity=".45"/>
+        <circle cx="16" cy="16" r="2" fill="currentColor" opacity=".45"/>
+      </svg>
+    </button>
+    <a href="../index.html" class="nav-logo">Lab<span>Learn</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Tutorials</a></li>
+      <li><a href="../calculator.html">Calculators</a></li>
+      <li><a href="../apps.html">Apps</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+      <li><a href="../index.html#donate">Donate</a></li>
+	  <li><a href="index.html" class="nav-cta">Start Learning</a></li>
+    </ul>
+      <button class="nav-burger" id="navBurger" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </nav>
+
+  <div class="nav-mobile" id="navMobile">
+      <a href="../tutorials/index.html">Tutorials</a>
+      <a href="../calculator.html">Calculators</a>
+      <a href="../apps.html">Apps</a>
+      <a href="../about.html">About</a>
+	  <a href="../contact.html">Contact</a>
+      <a href="../index.html#donate">Donate</a>
+      <a href="../tutorials/index.html" class="mob-cta">Start Learning</a>
+  </div>
+  <!-- TUTORIAL LIST PANEL -->
+  <div class="tut-list-overlay" id="tutListOverlay"></div>
+  <div class="tut-list-panel" id="tutListPanel" aria-hidden="true">
+    <div class="tut-list-head">
+      <span class="tut-list-head-label">All Tutorials</span>
+      <button class="tut-list-close" id="tutListClose" aria-label="Close">&#x2715;</button>
+    </div>
+    <div class="tut-list-body">
+      <div class="tut-list-level">Beginner</div>
+      <ul class="tut-list-links">
+        <li><a href="molarity-concentration.html"      data-tut>Molarity, Molality &amp; Normality</a></li>
+        <li><a href="serial-dilutions.html"            data-tut>Serial Dilutions: Technique &amp; Calculation</a></li>
+        <li><a href="lab-safety.html"                  data-tut>Lab Safety: Chemical Hazard Classes</a></li>
+        <li><a href="molar-solutions-bench-guide.html" data-tut>Preparing Molar Solutions: Bench Guide</a></li>
+        <li><a href="serum-plasma-separation.html"     data-tut>Serum and Plasma Separation</a></li>
+        <li><a href="ph-meter-calibration.html"        data-tut>pH Meter Calibration and Use</a></li>
+        <li><a href="micropipette-technique.html"      data-tut>Micropipette Technique: Selection &amp; Calibration</a></li>
+        <li><a href="centrifuge-operation.html"        data-tut>Centrifuge: Operation, Safety &amp; Protocol</a></li>
+        <li><a href="acid-base-safe-handling.html"     data-tut>Safe Handling of Acids, Bases &amp; Corrosives</a></li>
+        <li><a href="balance-weighing-technique.html"  data-tut>Accurate Weighing: Balance Technique</a></li>
+      </ul>
+      <div class="tut-list-level">Intermediate</div>
+      <ul class="tut-list-links">
+        <li><a href="uv-vis-spectrophotometry.html"    data-tut>UV-Vis Spectrophotometry Explained</a></li>
+        <li><a href="standard-solutions.html"          data-tut>Preparing Standard Solutions Accurately</a></li>
+        <li><a href="buffer-preparation.html"          data-tut>Preparing Buffer Solutions: Calculation to Bench</a></li>
+        <li><a href="acid-base-titration.html"         data-tut>Acid-Base Titration: Technique &amp; Endpoints</a></li>
+        <li><a href="blood-glucose-determination.html" data-tut>Blood Glucose: Glucometer &amp; GOD Methods</a></li>
+        <li><a href="kjeldahl-protein.html"            data-tut>Protein Estimation by the Kjeldahl Method</a></li>
+        <li><a href="biological-sample-handling.html"  data-tut>Biological Sample Handling and Storage</a></li>
+        <li><a href="bradford-biuret-protein.html"     data-tut>Spectrophotometric Protein Determination</a></li>
+        <li><a href="enzyme-activity-assays.html"      data-tut>Enzyme Activity Assays: Principles &amp; Methods</a></li>
+        <li><a href="reagent-grade-water.html"         data-tut>Reagent-Grade Water: Preparation &amp; Quality</a></li>
+      </ul>
+      <div class="tut-list-level">Advanced</div>
+      <ul class="tut-list-links">
+        <li><a href="hplc-method-development.html"        data-tut>HPLC Method Development Fundamentals</a></li>
+        <li><a href="atomic-absorption-spectroscopy.html" data-tut>Mineral Analysis by Atomic Absorption Spectroscopy</a></li>
+        <li><a href="hplc-validation.html"                data-tut>HPLC Method Validation: Linearity &amp; Precision</a></li>
+        <li><a href="enzyme-kinetics.html"                data-tut>Enzyme Kinetics: Michaelis-Menten &amp; Inhibition</a></li>
+        <li><a href="sds-page-electrophoresis.html"       data-tut>Electrophoresis: SDS-PAGE and Agarose Gel</a></li>
+        <li><a href="spectrofluorimetry.html"             data-tut>Spectrofluorimetry: Principles &amp; Applications</a></li>
+        <li><a href="elisa-immunoassay.html"              data-tut>Immunoassay Techniques: ELISA Principles &amp; Protocol</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="page-header">
+    <div class="page-header-inner">
+      <div class="breadcrumb">
+        <a href="../index.html">Home</a><span>›</span>
+        <a href="index.html">Tutorials</a><span>›</span>
+        <span>Molarity, Molality & Normality</span>
+      </div>
+      <span class="level-badge level-basic">Beginner</span>
+      <h1>Molarity, Molality & Normality</h1>
+      <div class="page-header-meta">
+        <span class="meta-item">📖 12 min read</span>
+        <span class="meta-item">🔬 Quantitative Analysis</span>
+        <span class="meta-item">📅 Updated 2025</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="tutorial-layout">
+    <!-- SIDEBAR -->
+    <aside class="toc-sidebar">
+      <div class="toc-box">
+        <div class="toc-label">On this page</div>
+        <ul class="toc-list">
+          <li><a href="#intro">Introduction</a></li>
+          <li><a href="#molarity">Molarity (M)</a></li>
+          <li class="sub"><a href="#molarity-calc">Calculating molarity</a></li>
+          <li><a href="#molality">Molality (m)</a></li>
+          <li class="sub"><a href="#molality-vs">Molarity vs molality</a></li>
+          <li><a href="#normality">Normality (N)</a></li>
+          <li class="sub"><a href="#equivalents">Understanding equivalents</a></li>
+          <li><a href="#comparison">Side-by-side comparison</a></li>
+          <li><a href="#when-to-use">When to use each</a></li>
+          <li><a href="#takeaways">Key takeaways</a></li>
+        </ul>
+        <hr class="toc-divider" />
+        <a class="toc-calc-link" href="../calculator.html#molarity">
+          ⚗️ Open Molarity Calculator
+        </a>
+      </div>
+    </aside>
+
+    <!-- ARTICLE -->
+    <article class="article">
+
+      <h2 id="intro">Introduction</h2>
+      <p>When you prepare a reagent solution in the laboratory, you need a precise way to describe <em>how much solute</em> is dissolved in <em>how much solution or solvent</em>. Chemists use several different concentration expressions depending on what property matters most for the application at hand.</p>
+      <p>The three most important are <strong>molarity</strong>, <strong>molality</strong>, and <strong>normality</strong>. They are frequently confused by students because they look similar, but each serves a distinct purpose. This tutorial explains each one clearly with worked examples, and tells you exactly when to reach for each in your work.</p>
+
+      <h2 id="molarity">Molarity (M)</h2>
+      <p>Molarity is by far the most commonly used concentration unit in analytical chemistry, biochemistry, and general laboratory work. It expresses the number of moles of solute per <strong>litre of solution</strong>.</p>
+
+      <div class="box box-formula">
+        <div class="box-label">Definition</div>
+        <div class="formula">M = n / V(L)</div>
+        <div class="formula-note">Where n = moles of solute, V = total volume of solution in litres</div>
+      </div>
+
+      <p>Molarity is a <strong>solution-based</strong> measurement — the volume refers to the final volume of the entire solution, not just the solvent added.</p>
+
+      <h3 id="molarity-calc">Calculating molarity in practice</h3>
+      <p>To find moles from mass, divide the mass by the molar mass (molecular weight) of the compound:</p>
+
+      <div class="box box-formula">
+        <div class="box-label">Full formula</div>
+        <div class="formula">M = (mass in grams / molar mass) / V(L)</div>
+        <div class="formula-note">Molar mass (g/mol) is the sum of atomic masses of all atoms in the molecule</div>
+      </div>
+
+      <div class="box box-example">
+        <div class="box-label">Worked example — preparing 500 mL of 0.1 M NaCl</div>
+        <div class="step"><div class="step-n">1</div><div>Molar mass of NaCl = 23.00 (Na) + 35.45 (Cl) = <strong>58.44 g/mol</strong></div></div>
+        <div class="step"><div class="step-n">2</div><div>Moles needed = 0.1 mol/L × 0.500 L = <strong>0.05 mol</strong></div></div>
+        <div class="step"><div class="step-n">3</div><div>Mass = 0.05 mol × 58.44 g/mol = <strong>2.922 g</strong></div></div>
+        <div class="step"><div class="step-n">4</div><div>Weigh 2.922 g NaCl, dissolve in ~400 mL distilled water, then make up to 500 mL in a volumetric flask.</div></div>
+        <div class="result">Result: 0.1 mol/L NaCl solution</div>
+      </div>
+
+      <div class="box box-note">
+        <div class="box-label">⚠ Common mistake</div>
+        <p>Never add 500 mL of water to the solute — the final volume must be 500 mL. Adding a fixed volume of solvent changes the total volume unpredictably due to solvation effects. Always make up to the final volume in a calibrated volumetric flask.</p>
+      </div>
+
+      <h2 id="molality">Molality (m)</h2>
+      <p>Molality expresses the number of moles of solute per <strong>kilogram of solvent</strong> — not solution. This is a subtle but critical difference.</p>
+
+      <div class="box box-formula">
+        <div class="box-label">Definition</div>
+        <div class="formula">m = n / mass of solvent (kg)</div>
+        <div class="formula-note">Note the lowercase m — and that this is per kg of SOLVENT, not solution</div>
+      </div>
+
+      <div class="box box-example">
+        <div class="box-label">Worked example — molality of glucose solution</div>
+        <div class="step"><div class="step-n">1</div><div>36 g of glucose (MW = 180.16 g/mol) dissolved in 200 g of water.</div></div>
+        <div class="step"><div class="step-n">2</div><div>Moles of glucose = 36 / 180.16 = <strong>0.1999 mol</strong></div></div>
+        <div class="step"><div class="step-n">3</div><div>Mass of solvent = 200 g = <strong>0.200 kg</strong></div></div>
+        <div class="step"><div class="step-n">4</div><div>Molality = 0.1999 / 0.200 = <strong>≈ 1.0 mol/kg</strong></div></div>
+        <div class="result">Result: 1.0 m glucose solution (1.0 molal)</div>
+      </div>
+
+      <h3 id="molality-vs">Molarity vs molality — the key difference</h3>
+      <p>Molarity changes with <strong>temperature</strong> because liquid volumes expand and contract. If you prepare a 1 M solution at 20°C, its concentration at 50°C is slightly lower because the volume of liquid has increased.</p>
+      <p>Molality is <strong>temperature-independent</strong> because it is based on mass, which does not change with temperature. This makes it essential for calculations involving boiling point elevation, freezing point depression, and osmotic pressure.</p>
+
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead><tr><th>Property</th><th>Molarity (M)</th><th>Molality (m)</th></tr></thead>
+          <tbody>
+            <tr><td>Units</td><td>mol/L of solution</td><td>mol/kg of solvent</td></tr>
+            <tr><td>Temperature dependent?</td><td>Yes</td><td>No</td></tr>
+            <tr><td>Volume measured</td><td>Total solution</td><td>Not used</td></tr>
+            <tr><td>Mass measured</td><td>Solute only</td><td>Solvent only</td></tr>
+            <tr><td>Symbol</td><td>M (uppercase)</td><td>m (lowercase)</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 id="normality">Normality (N)</h2>
+      <p>Normality expresses the number of <strong>equivalents</strong> of solute per litre of solution. It was historically the dominant unit in titrimetry and is still commonly used in acid-base and redox analysis.</p>
+
+      <div class="box box-formula">
+        <div class="box-label">Definition</div>
+        <div class="formula">N = (equivalents of solute) / V(L)</div>
+        <div class="formula-note">Or equivalently: N = M × n-factor</div>
+      </div>
+
+      <h3 id="equivalents">Understanding equivalents and the n-factor</h3>
+      <p>The <strong>n-factor</strong> (equivalence factor) depends on the reaction type:</p>
+      <ul>
+        <li><strong>Acids/bases:</strong> number of H⁺ or OH⁻ ions donated or accepted per molecule</li>
+        <li><strong>Redox reactions:</strong> number of electrons transferred per molecule</li>
+        <li><strong>Precipitation:</strong> number of charged equivalents per formula unit</li>
+      </ul>
+
+      <div class="box box-example">
+        <div class="box-label">Worked example — normality of H₂SO₄</div>
+        <div class="step"><div class="step-n">1</div><div>H₂SO₄ is a diprotic acid — it donates 2 H⁺ ions per molecule. Therefore the n-factor = <strong>2</strong>.</div></div>
+        <div class="step"><div class="step-n">2</div><div>A 1 M H₂SO₄ solution has a normality of: N = 1 × 2 = <strong>2 N</strong></div></div>
+        <div class="step"><div class="step-n">3</div><div>For HCl (monoprotic, n-factor = 1): 1 M HCl = <strong>1 N</strong></div></div>
+        <div class="result">Key: 1 N of any acid always neutralises 1 N of any base — regardless of the specific compound.</div>
+      </div>
+
+      <div class="box box-note">
+        <div class="box-label">Note on normality</div>
+        <p>Normality is reaction-specific. The same H₂SO₄ solution has N = 2 in an acid-base reaction (donates 2 H⁺) but could have a different N in a redox context. Always specify the reaction type when stating a normality value.</p>
+      </div>
+
+      <h2 id="comparison">Side-by-side comparison</h2>
+
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead><tr><th>Unit</th><th>Symbol</th><th>Formula</th><th>Denominator</th><th>Temperature effect</th><th>Common use</th></tr></thead>
+          <tbody>
+            <tr><td>Molarity</td><td>M</td><td>mol/L soln</td><td>Volume of solution</td><td>Dependent</td><td>General lab, reagent prep</td></tr>
+            <tr><td>Molality</td><td>m</td><td>mol/kg solvent</td><td>Mass of solvent</td><td>Independent</td><td>Colligative properties, thermodynamics</td></tr>
+            <tr><td>Normality</td><td>N</td><td>eq/L soln</td><td>Volume of solution</td><td>Dependent</td><td>Titrations, acid-base, redox</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 id="when-to-use">When to use each unit</h2>
+      <p>As a practical rule, reach for each unit in these situations:</p>
+
+      <div class="box box-key">
+        <div class="box-label">Practical guide</div>
+        <ul>
+          <li><strong>Molarity (M)</strong> — use for almost everything: reagent preparation, standard solutions, dilutions, enzyme assays, cell culture media. Default choice.</li>
+          <li><strong>Molality (m)</strong> — use whenever temperature varies significantly, or when calculating boiling/freezing point changes, osmolality, or working with non-aqueous solvents.</li>
+          <li><strong>Normality (N)</strong> — use for acid-base and redox titrations where equivalence simplifies calculations. Common in alkalinity, acidity, hardness, and COD/BOD measurements.</li>
+        </ul>
+      </div>
+
+      <div class="calc-cta">
+        <div class="calc-cta-text">
+          <strong>Calculate molarity instantly</strong>
+          <p>Use the online molarity calculator to find concentration, mass, or volume.</p>
+        </div>
+        <a href="../calculator.html#molarity">Open calculator →</a>
+      </div>
+
+      <div class="takeaways">
+        <div class="takeaways-label">Key takeaways</div>
+        <h3>What to remember from this tutorial</h3>
+        <ul>
+          <li>Molarity (M) = moles of solute per litre of <em>solution</em> — the most widely used unit.</li>
+          <li>Molality (m) = moles of solute per kg of <em>solvent</em> — temperature-independent.</li>
+          <li>Normality (N) = equivalents per litre — reaction-specific, used in titrations.</li>
+          <li>M and N are both solution-based and change with temperature; m does not.</li>
+          <li>When making up a molar solution, always dilute to the final volume, never add a fixed volume of solvent.</li>
+          <li>N = M × n-factor; for monoprotic acids, N = M.</li>
+        </ul>
+      </div>
+	</article>
+      <div class="tut-nav">
+        <a class="tut-nav-card" href="index.html">
+          <span class="tut-nav-dir">&#x2190; All tutorials</span>
+          <span class="tut-nav-title">Browse the full tutorial library</span>
+        </a>
+        <a class="tut-nav-card next" href="serial-dilutions.html">
+          <span class="tut-nav-dir">Next &#x2192;</span>
+          <span class="tut-nav-title">Serial Dilutions: Technique & Calculation</span>
+        </a>
+      </div>
+	</div>  
+
+  <!-- MOBILE FLOATING TOC (visible ≤ 900px) -->
+  <button class="mob-toc-btn" id="mobTocBtn"
+          aria-label="Open table of contents" aria-expanded="false"
+          aria-controls="mobTocPanel">
+    <span class="mob-toc-icon">☰</span>
+    <span class="mob-toc-label">Contents</span></button>
+
+  <div class="mob-toc-overlay" id="mobTocOverlay" aria-hidden="true"></div>
+
+  <div class="mob-toc-panel" id="mobTocPanel" role="dialog"
+       aria-label="Table of contents" aria-modal="true">
+    <div class="mob-toc-handle"></div>
+    <div class="mob-toc-head">
+      <span class="mob-toc-head-label">On this page</span>
+      <button class="mob-toc-close" id="mobTocClose" aria-label="Close">✕</button>
+    </div>
+    <div class="mob-toc-body">
+            <ul class="toc-list">
+          <li><a href="#intro">Introduction</a></li>
+          <li><a href="#molarity">Molarity (M)</a></li>
+          <li class="sub"><a href="#molarity-calc">Calculating molarity</a></li>
+          <li><a href="#molality">Molality (m)</a></li>
+          <li class="sub"><a href="#molality-vs">Molarity vs molality</a></li>
+          <li><a href="#normality">Normality (N)</a></li>
+          <li class="sub"><a href="#equivalents">Understanding equivalents</a></li>
+          <li><a href="#comparison">Side-by-side comparison</a></li>
+          <li><a href="#when-to-use">When to use each</a></li>
+          <li><a href="#takeaways">Key takeaways</a></li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+  <footer>
+  <div class="footer-logo">Lab<span>Learn</span></div>
+  <ul class="footer-links">
+    <li><a href="index.html">Tutorials</a></li>
+    <li><a href="../calculator.html">Calculators</a></li>
+    <li><a href="../apps.html">Apps</a></li>
+    <li><a href="../about.html">About</a></li>
+    <li><a href="../contact.html">Contact</a></li>
+    <li><a href="../index.html#donate">Donate</a></li>
+  </ul>
+  <div class="footer-copy">&copy; 2025 LabLearn. Free for students &amp; researchers.</div>
+</footer>
+
+<script src="../shared.js" defer></script>
+</body>
+</html>

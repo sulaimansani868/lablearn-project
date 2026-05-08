@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Accurate Weighing with a Balance | LabLearn Tutorials</title>
+  <meta name="description" content="How to use analytical and top-loading balances correctly — levelling, calibration, taring, weighing technique, and avoiding common errors that compromise measurement accuracy." />
+  <meta name="keywords" content="analytical balance, weighing technique, laboratory balance, taring, calibration, mass measurement, laboratory practical" />
+  <meta name="author" content="Sani Sulaiman" />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="LabLearn" />
+  <meta property="og:title" content="Accurate Weighing with a Balance | LabLearn Tutorials" />
+  <meta property="og:description" content="How to use analytical and top-loading balances correctly in the laboratory." />
+  <meta property="og:url" content="https://lablearn.netlify.app/tutorials/accurate-weighing.html" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Accurate Weighing with a Balance | LabLearn Tutorials" />
+  <meta name="twitter:description" content="How to use analytical and top-loading balances correctly in the laboratory." />
+  <link rel="canonical" href="https://lablearn.netlify.app/tutorials/accurate-weighing.html" />
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+  <link rel="alternate icon" type="image/png" href="../favicon.png" />
+  <link rel="stylesheet" href="../shared.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="tutorial.css" />
+  <meta name="theme-color" content="#0d1f2d" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="LabLearn" />
+</head>
+<body>
+  <nav>
+    <button class="nav-tut-btn" id="navTutBtn" aria-label="Browse tutorials" aria-expanded="false">
+      <svg class="nav-tut-icon" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect x="2" y="3" width="7" height="2" rx="1" fill="currentColor"/>
+        <rect x="2" y="9" width="11" height="2" rx="1" fill="currentColor"/>
+        <rect x="2" y="15" width="9" height="2" rx="1" fill="currentColor"/>
+        <circle cx="16" cy="4" r="2" fill="currentColor" opacity=".45"/>
+        <circle cx="16" cy="10" r="2" fill="currentColor" opacity=".45"/>
+        <circle cx="16" cy="16" r="2" fill="currentColor" opacity=".45"/>
+      </svg>
+    </button>
+    <a href="../index.html" class="nav-logo">Lab<span>Learn</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Tutorials</a></li>
+      <li><a href="../calculator.html">Calculators</a></li>
+      <li><a href="../apps.html">Apps</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+      <li><a href="../index.html#donate">Donate</a></li>
+	  <li><a href="index.html" class="nav-cta">Start Learning</a></li>
+    </ul>
+    <button class="nav-burger" id="navBurger" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </nav>
+  <div class="nav-mobile" id="navMobile">
+    <a href="index.html">Tutorials</a>
+    <a href="../calculator.html">Calculators</a>
+    <a href="../apps.html">Apps</a>
+    <a href="../about.html">About</a>
+    <a href="../contact.html">Contact</a>
+    <a href="../index.html#donate">Donate</a>
+    <a href="index.html" class="mob-cta">Start Learning</a>
+  </div>
+  <!-- TUTORIAL LIST PANEL -->
+  <div class="tut-list-overlay" id="tutListOverlay"></div>
+  <div class="tut-list-panel" id="tutListPanel" aria-hidden="true">
+    <div class="tut-list-head">
+      <span class="tut-list-head-label">All Tutorials</span>
+      <button class="tut-list-close" id="tutListClose" aria-label="Close">&#x2715;</button>
+    </div>
+    <div class="tut-list-body">
+      <div class="tut-list-level">Beginner</div>
+      <ul class="tut-list-links">
+        <li><a href="molarity-concentration.html"      data-tut>Molarity, Molality &amp; Normality</a></li>
+        <li><a href="serial-dilutions.html"            data-tut>Serial Dilutions: Technique &amp; Calculation</a></li>
+        <li><a href="lab-safety.html"                  data-tut>Lab Safety: Chemical Hazard Classes</a></li>
+        <li><a href="molar-solutions-bench-guide.html" data-tut>Preparing Molar Solutions: Bench Guide</a></li>
+        <li><a href="serum-plasma-separation.html"     data-tut>Serum and Plasma Separation</a></li>
+        <li><a href="ph-meter-calibration.html"        data-tut>pH Meter Calibration and Use</a></li>
+        <li><a href="micropipette-technique.html"      data-tut>Micropipette Technique: Selection &amp; Calibration</a></li>
+        <li><a href="centrifuge-operation.html"        data-tut>Centrifuge: Operation, Safety &amp; Protocol</a></li>
+        <li><a href="acid-base-safe-handling.html"     data-tut>Safe Handling of Acids, Bases &amp; Corrosives</a></li>
+        <li><a href="balance-weighing-technique.html"  data-tut>Accurate Weighing: Balance Technique</a></li>
+      </ul>
+      <div class="tut-list-level">Intermediate</div>
+      <ul class="tut-list-links">
+        <li><a href="uv-vis-spectrophotometry.html"    data-tut>UV-Vis Spectrophotometry Explained</a></li>
+        <li><a href="standard-solutions.html"          data-tut>Preparing Standard Solutions Accurately</a></li>
+        <li><a href="buffer-preparation.html"          data-tut>Preparing Buffer Solutions: Calculation to Bench</a></li>
+        <li><a href="acid-base-titration.html"         data-tut>Acid-Base Titration: Technique &amp; Endpoints</a></li>
+        <li><a href="blood-glucose-determination.html" data-tut>Blood Glucose: Glucometer &amp; GOD Methods</a></li>
+        <li><a href="kjeldahl-protein.html"            data-tut>Protein Estimation by the Kjeldahl Method</a></li>
+        <li><a href="biological-sample-handling.html"  data-tut>Biological Sample Handling and Storage</a></li>
+        <li><a href="bradford-biuret-protein.html"     data-tut>Spectrophotometric Protein Determination</a></li>
+        <li><a href="enzyme-activity-assays.html"      data-tut>Enzyme Activity Assays: Principles &amp; Methods</a></li>
+        <li><a href="reagent-grade-water.html"         data-tut>Reagent-Grade Water: Preparation &amp; Quality</a></li>
+      </ul>
+      <div class="tut-list-level">Advanced</div>
+      <ul class="tut-list-links">
+        <li><a href="hplc-method-development.html"        data-tut>HPLC Method Development Fundamentals</a></li>
+        <li><a href="atomic-absorption-spectroscopy.html" data-tut>Mineral Analysis by Atomic Absorption Spectroscopy</a></li>
+        <li><a href="hplc-validation.html"                data-tut>HPLC Method Validation: Linearity &amp; Precision</a></li>
+        <li><a href="enzyme-kinetics.html"                data-tut>Enzyme Kinetics: Michaelis-Menten &amp; Inhibition</a></li>
+        <li><a href="sds-page-electrophoresis.html"       data-tut>Electrophoresis: SDS-PAGE and Agarose Gel</a></li>
+        <li><a href="spectrofluorimetry.html"             data-tut>Spectrofluorimetry: Principles &amp; Applications</a></li>
+        <li><a href="elisa-immunoassay.html"              data-tut>Immunoassay Techniques: ELISA Principles &amp; Protocol</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="page-header">
+    <div class="page-header-inner">
+      <div class="breadcrumb">
+        <a href="../index.html">Home</a><span>›</span>
+        <a href="index.html">Tutorials</a><span>›</span>
+        <span>Accurate Weighing</span>
+      </div>
+      <span class="level-badge level-basic">Beginner</span>
+      <h1>Accurate Weighing with a Laboratory Balance</h1>
+      <div class="page-header-meta">
+        <span class="meta-item">📖 12 min read</span>
+        <span class="meta-item">🔬 Basic Technique</span>
+        <span class="meta-item">📅 Updated 2025</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="tutorial-layout">
+    <aside class="toc-sidebar">
+      <div class="toc-box">
+        <div class="toc-label">On this page</div>
+        <ul class="toc-list">
+          <li><a href="#intro">Introduction</a></li>
+          <li><a href="#types">Types of balance</a></li>
+          <li><a href="#before">Before you weigh</a></li>
+          <li class="sub"><a href="#level">Levelling</a></li>
+          <li class="sub"><a href="#warm-up">Warm-up time</a></li>
+          <li class="sub"><a href="#calibration">Calibration</a></li>
+          <li><a href="#procedure">Weighing procedure</a></li>
+          <li class="sub"><a href="#tare">Taring</a></li>
+          <li class="sub"><a href="#adding">Adding the sample</a></li>
+          <li class="sub"><a href="#record">Recording the mass</a></li>
+          <li><a href="#hygroscopic">Weighing hygroscopic materials</a></li>
+          <li><a href="#errors">Sources of weighing error</a></li>
+          <li><a href="#care">Balance care and maintenance</a></li>
+          <li><a href="#takeaways">Key takeaways</a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <article class="article">
+
+      <h2 id="intro">Introduction</h2>
+      <p>Every quantitative laboratory result ultimately traces back to a mass measurement. An incorrectly weighed reagent produces an incorrectly prepared solution, which produces incorrect results in every subsequent analysis. Despite being the most fundamental operation in the laboratory, weighing is also among the most frequently performed incorrectly — usually because of simple procedural oversights rather than equipment failure.</p>
+      <p>This tutorial covers the correct technique for using both analytical and top-loading balances, the sources of weighing error, and how to avoid them.</p>
+
+      <h2 id="types">Types of balance</h2>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead><tr><th>Type</th><th>Readability</th><th>Typical capacity</th><th>Use</th></tr></thead>
+          <tbody>
+            <tr><td>Analytical balance</td><td>0.1 mg (4 decimal places)</td><td>Up to 200 g</td><td>Accurate weighing of small masses; primary standards; micro-quantities</td></tr>
+            <tr><td>Semi-micro balance</td><td>0.01 mg (5 decimal places)</td><td>Up to 50 g</td><td>Very precise weighing; trace analysis</td></tr>
+            <tr><td>Top-loading (precision) balance</td><td>0.01–0.1 g (2–3 decimal places)</td><td>Up to 6 kg</td><td>Larger masses where high precision is not critical; bulk reagent preparation</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Use the <strong>most appropriate balance</strong> for your purpose — an analytical balance for solution preparation and primary standards, a top-loading balance for larger quantities where the extra decimal places are not needed. Using a top-loading balance where an analytical balance is required introduces systematic error.</p>
+
+      <h2 id="before">Before you weigh</h2>
+
+      <h3 id="level">Levelling the balance</h3>
+      <p>All balances have a spirit level bubble (usually visible through a small window on the front or rear). The bubble must be centred within the circle before any weighing is done. Most balances have adjustable feet — turn them until the bubble is centred. A balance that is not level will give systematically incorrect readings because gravity acts at an angle to the weighing mechanism.</p>
+
+      <h3 id="warm-up">Warm-up time</h3>
+      <p>Analytical balances must warm up before use. Most manufacturers specify 30 minutes; some instruments require up to 2 hours after being powered on from cold. Check your balance's manual. Weighing on a cold balance gives unstable readings because the electronic components have not reached thermal equilibrium.</p>
+
+      <h3 id="calibration">Calibration</h3>
+      <p>Calibrate the balance at the start of each working day using certified reference weights. Most modern balances have an internal calibration function (press the CAL button); some require external weights. Record the calibration check in the balance logbook — mass, expected value, observed value, and pass/fail. If the balance fails calibration, tag it out of service and notify the laboratory supervisor.</p>
+      <div class="box box-note">
+        <div class="box-label">Calibration vs verification</div>
+        <p>Internal calibration adjusts the balance's internal reference. External verification checks whether the balance reads correctly using independently certified weights. Both should be done regularly — internal calibration daily, external verification as specified by your quality system (typically monthly or quarterly).</p>
+      </div>
+
+      <h2 id="procedure">Weighing procedure</h2>
+
+      <h3 id="tare">Taring the container</h3>
+      <div class="box box-example">
+        <div class="box-label">Correct taring procedure</div>
+        <div class="step"><div class="step-n">1</div><div>Ensure the balance pan is clean and the display reads zero with nothing on it. If not, press the Zero or Tare button with the pan empty.</div></div>
+        <div class="step"><div class="step-n">2</div><div>Close the draught shield (analytical balance). Place the empty weighing container (boat, flask, or paper) centrally on the pan.</div></div>
+        <div class="step"><div class="step-n">3</div><div>Wait for the display to stabilise, then press <strong>Tare</strong>. The display should return to 0.0000 g. The balance has subtracted the container weight and will now display only the mass of material you add.</div></div>
+        <div class="step"><div class="step-n">4</div><div>Do not move or lean on the bench while weighing — vibration affects the reading.</div></div>
+      </div>
+
+      <h3 id="adding">Adding the sample</h3>
+      <ul>
+        <li>Add solid material slowly using a clean, dry spatula — never a wet or contaminated one</li>
+        <li>Add material to the centre of the weighing boat — asymmetric loading can affect accuracy on some balances</li>
+        <li>Close the draught shield before taking the reading</li>
+        <li>Allow the display to stabilise fully before recording — the reading should not be fluctuating</li>
+        <li>If you overshoot the target mass, remove a small amount and re-stabilise — do not add more to compensate first</li>
+      </ul>
+
+      <h3 id="record">Recording the mass</h3>
+      <p>Always record the <strong>exact mass displayed</strong>, not the target mass you were aiming for. In accurate work, you use the actual mass to calculate the actual concentration. For primary standard preparation specifically: weigh out approximately the target amount, record what you actually weighed, and calculate the exact concentration from that mass. This is correct analytical practice.</p>
+
+      <h2 id="hygroscopic">Weighing hygroscopic and volatile materials</h2>
+      <p>Hygroscopic materials absorb moisture from the air. Examples include NaOH, CaCl₂, P₂O₅, many primary standards, and most dried reagents. They must be weighed quickly after removal from the desiccator, and the container should be capped between additions. The longer a hygroscopic material is exposed to air, the more its mass increases — giving a falsely high reading and a less concentrated solution than intended.</p>
+      <p>Volatile materials (ethanol, acetone, some organic solvents) evaporate during weighing, giving a mass that decreases over time. Weigh these in capped or tared containers and work quickly.</p>
+
+      <h2 id="errors">Sources of weighing error</h2>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead><tr><th>Error source</th><th>Effect</th><th>Prevention</th></tr></thead>
+          <tbody>
+            <tr><td>Balance not level</td><td>Systematic error in all readings</td><td>Check spirit level before every session; re-level if needed</td></tr>
+            <tr><td>Balance not warmed up</td><td>Unstable, drifting readings</td><td>Allow 30–120 min warm-up after power-on</td></tr>
+            <tr><td>Draughts and vibration</td><td>Fluctuating display; incorrect final reading</td><td>Close draught shield; do not bump the bench</td></tr>
+            <tr><td>Electrostatic charge on container</td><td>Erratic readings, especially with plastic boats</td><td>Use anti-static spray or earthed metal weighing boats; ground yourself</td></tr>
+            <tr><td>Temperature difference between sample and balance</td><td>Convection currents affect reading</td><td>Allow hot or cold samples to equilibrate to room temperature</td></tr>
+            <tr><td>Moisture absorption (hygroscopic)</td><td>Mass increases over time — solution too dilute</td><td>Weigh quickly from desiccator; cap container between additions</td></tr>
+            <tr><td>Contaminated pan</td><td>Tare includes residue; true mass of sample is less than displayed</td><td>Clean pan with dry cloth or brush before every session</td></tr>
+            <tr><td>Magnetic materials near balance</td><td>Attraction or repulsion affects reading</td><td>Keep magnets, motors, stirrers away from the balance area</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 id="care">Balance care and maintenance</h2>
+      <ul>
+        <li>Clean the pan after every session — use a dry, lint-free cloth or a soft brush. Never use wet cloths that could allow moisture into the mechanism</li>
+        <li>Clean spills immediately — corrosive vapours from acids or bases left on the pan or in the housing cause permanent damage</li>
+        <li>Log every use — record the date, user, materials weighed, and calibration check result</li>
+        <li>Never overload the balance — check the maximum capacity and stay well below it</li>
+        <li>Keep the area around the balance clean and free of air currents — do not place the balance near doors, fume hoods, or air conditioning outlets</li>
+        <li>Report faults immediately — a drifting, noisy, or inconsistent reading is a sign of a fault, not normal variation</li>
+      </ul>
+
+      <div class="takeaways">
+        <div class="takeaways-label">Key takeaways</div>
+        <h3>What to remember from this tutorial</h3>
+        <ul>
+          <li>Level the balance and check the spirit level before every weighing session.</li>
+          <li>Allow at least 30 minutes warm-up after switching on an analytical balance from cold.</li>
+          <li>Calibrate daily using internal or external weights; record in the logbook.</li>
+          <li>Tare the empty container first; then add sample slowly with a clean, dry spatula.</li>
+          <li>Always record the exact mass displayed — never the nominal target.</li>
+          <li>Weigh hygroscopic materials quickly from the desiccator and cap the container between additions.</li>
+          <li>Draughts, vibration, temperature gradients, and electrostatic charge are all sources of weighing error.</li>
+          <li>Clean the pan after every session and log every use.</li>
+        </ul>
+      </div>
+
+      <div class="tut-nav">
+        <a class="tut-nav-card" href="preparing-molar-solutions.html">
+          <span class="tut-nav-dir">← Previous</span>
+          <span class="tut-nav-title">Preparing Molar Solutions</span>
+        </a>
+        <a class="tut-nav-card next" href="micropipette-technique.html">
+          <span class="tut-nav-dir">Next tutorial →</span>
+          <span class="tut-nav-title">Micropipette Technique</span>
+        </a>
+      </div>
+    </article>
+  </div>
+
+  <footer>
+  <div class="footer-logo">Lab<span>Learn</span></div>
+  <ul class="footer-links">
+    <li><a href="index.html">Tutorials</a></li>
+    <li><a href="../calculator.html">Calculators</a></li>
+    <li><a href="../apps.html">Apps</a></li>
+    <li><a href="../about.html">About</a></li>
+    <li><a href="../contact.html">Contact</a></li>
+    <li><a href="../index.html#donate">Donate</a></li>
+  </ul>
+  <div class="footer-copy">&copy; 2025 LabLearn. Free for students &amp; researchers.</div>
+</footer>
+  <script src="../shared.js" defer></script>
+
+  <!-- ── MOBILE FLOATING TOC (visible ≤ 900px) ── -->
+  <button class="mob-toc-btn" id="mobTocBtn"
+          aria-label="Open table of contents" aria-expanded="false"
+          aria-controls="mobTocPanel">
+    <span class="mob-toc-icon">☰</span>
+    <span class="mob-toc-label">Contents</span></button>
+
+  <div class="mob-toc-overlay" id="mobTocOverlay" aria-hidden="true"></div>
+
+  <div class="mob-toc-panel" id="mobTocPanel" role="dialog"
+       aria-label="Table of contents" aria-modal="true">
+    <div class="mob-toc-handle"></div>
+    <div class="mob-toc-head">
+      <span class="mob-toc-head-label">On this page</span>
+      <button class="mob-toc-close" id="mobTocClose" aria-label="Close">&#x2715;</button>
+    </div>
+    <div class="mob-toc-body">
+		<ul class="toc-list">
+		<li><a href="#intro">Introduction</a></li>
+        <li><a href="#types">Types of balance</a></li>
+		<li><a href="#before">Before you weigh</a></li>
+		<li class="sub"><a href="#level">Levelling</a></li>
+		<li class="sub"><a href="#warm-up">Warm-up time</a></li>
+		<li class="sub"><a href="#calibration">Calibration</a></li>
+		<li><a href="#procedure">Weighing procedure</a></li>
+		<li class="sub"><a href="#tare">Taring</a></li>
+		<li class="sub"><a href="#adding">Adding the sample</a></li>
+		<li class="sub"><a href="#record">Recording the mass</a></li>
+		<li><a href="#hygroscopic">Weighing hygroscopic materials</a></li>
+		<li><a href="#errors">Sources of weighing error</a></li>
+		<li><a href="#care">Balance care and maintenance</a></li>
+		<li><a href="#takeaways">Key takeaways</a></li>
+      </ul>
+    </div>
+  </div>
+  
+  <footer>
+  <div class="footer-logo">Lab<span>Learn</span></div>
+  <ul class="footer-links">
+    <li><a href="index.html">Tutorials</a></li>
+    <li><a href="../calculator.html">Calculators</a></li>
+    <li><a href="../apps.html">Apps</a></li>
+    <li><a href="../about.html">About</a></li>
+    <li><a href="../contact.html">Contact</a></li>
+    <li><a href="../index.html#donate">Donate</a></li>
+  </ul>
+  <div class="footer-copy">&copy; 2025 LabLearn. Free for students &amp; researchers.</div>
+</footer>
+
+  <script src="../shared.js"></script>
+</body>
+</html>

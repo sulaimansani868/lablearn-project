@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spectrophotometric Protein Determination: Biuret and Bradford Methods | LabLearn Tutorials</title>
+  <meta name="description" content="How to perform Biuret and Bradford protein assays — reaction principles, procedures, calibration curves, interferences, and choosing the right method for your sample." />
+  <meta name="keywords" content="protein assay, Biuret method, Bradford method, Coomassie, BSA calibration, spectrophotometric protein, colorimetric protein assay" />
+  <meta name="author" content="Sani Sulaiman" />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="LabLearn" />
+  <meta property="og:title" content="Spectrophotometric Protein Determination: Biuret and Bradford Methods | LabLearn Tutorials" />
+  <meta property="og:description" content="How to perform Biuret and Bradford protein assays — reaction principles, procedures, calibration curves, interferences, and choosing the right method for your sample." />
+  <meta property="og:url" content="https://lablearn.netlify.app/tutorials/protein-spectrophotometric.html" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Spectrophotometric Protein Determination: Biuret and Bradford Methods | LabLearn Tutorials" />
+  <meta name="twitter:description" content="How to perform Biuret and Bradford protein assays — reaction principles, procedures, calibration curves, interferences, and choosing the right method for your sample." />
+  <link rel="canonical" href="https://lablearn.netlify.app/tutorials/protein-spectrophotometric.html" />
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+  <link rel="alternate icon" type="image/png" href="../favicon.png" />
+  <link rel="stylesheet" href="../shared.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="tutorial.css" />
+  <meta name="theme-color" content="#0d1f2d" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="LabLearn" />
+</head>
+<body>
+  <nav>
+    <button class="nav-tut-btn" id="navTutBtn" aria-label="Browse tutorials" aria-expanded="false">
+      <svg class="nav-tut-icon" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect x="2" y="3" width="7" height="2" rx="1" fill="currentColor"/>
+        <rect x="2" y="9" width="11" height="2" rx="1" fill="currentColor"/>
+        <rect x="2" y="15" width="9" height="2" rx="1" fill="currentColor"/>
+        <circle cx="16" cy="4" r="2" fill="currentColor" opacity=".45"/>
+        <circle cx="16" cy="10" r="2" fill="currentColor" opacity=".45"/>
+        <circle cx="16" cy="16" r="2" fill="currentColor" opacity=".45"/>
+      </svg>
+    </button>
+    <a href="../index.html" class="nav-logo">Lab<span>Learn</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Tutorials</a></li>
+      <li><a href="../calculator.html">Calculators</a></li>
+      <li><a href="../apps.html">Apps</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+      <li><a href="../index.html#donate">Donate</a></li>
+	  <li><a href="index.html" class="nav-cta">Start Learning</a></li>
+    </ul>
+    <button class="nav-burger" id="navBurger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <div class="nav-mobile" id="navMobile">
+    <a href="index.html">Tutorials</a>
+    <a href="../calculator.html">Calculators</a>
+    <a href="../apps.html">Apps</a>
+    <a href="../about.html">About</a>
+    <a href="../contact.html">Contact</a>
+    <a href="../index.html#donate">Donate</a>
+    <a href="index.html" class="mob-cta">Start Learning</a>
+  </div>
+  <!-- TUTORIAL LIST PANEL -->
+  <div class="tut-list-overlay" id="tutListOverlay"></div>
+  <div class="tut-list-panel" id="tutListPanel" aria-hidden="true">
+    <div class="tut-list-head">
+      <span class="tut-list-head-label">All Tutorials</span>
+      <button class="tut-list-close" id="tutListClose" aria-label="Close">&#x2715;</button>
+    </div>
+    <div class="tut-list-body">
+      <div class="tut-list-level">Beginner</div>
+      <ul class="tut-list-links">
+        <li><a href="molarity-concentration.html"      data-tut>Molarity, Molality &amp; Normality</a></li>
+        <li><a href="serial-dilutions.html"            data-tut>Serial Dilutions: Technique &amp; Calculation</a></li>
+        <li><a href="lab-safety.html"                  data-tut>Lab Safety: Chemical Hazard Classes</a></li>
+        <li><a href="molar-solutions-bench-guide.html" data-tut>Preparing Molar Solutions: Bench Guide</a></li>
+        <li><a href="serum-plasma-separation.html"     data-tut>Serum and Plasma Separation</a></li>
+        <li><a href="ph-meter-calibration.html"        data-tut>pH Meter Calibration and Use</a></li>
+        <li><a href="micropipette-technique.html"      data-tut>Micropipette Technique: Selection &amp; Calibration</a></li>
+        <li><a href="centrifuge-operation.html"        data-tut>Centrifuge: Operation, Safety &amp; Protocol</a></li>
+        <li><a href="acid-base-safe-handling.html"     data-tut>Safe Handling of Acids, Bases &amp; Corrosives</a></li>
+        <li><a href="balance-weighing-technique.html"  data-tut>Accurate Weighing: Balance Technique</a></li>
+      </ul>
+      <div class="tut-list-level">Intermediate</div>
+      <ul class="tut-list-links">
+        <li><a href="uv-vis-spectrophotometry.html"    data-tut>UV-Vis Spectrophotometry Explained</a></li>
+        <li><a href="standard-solutions.html"          data-tut>Preparing Standard Solutions Accurately</a></li>
+        <li><a href="buffer-preparation.html"          data-tut>Preparing Buffer Solutions: Calculation to Bench</a></li>
+        <li><a href="acid-base-titration.html"         data-tut>Acid-Base Titration: Technique &amp; Endpoints</a></li>
+        <li><a href="blood-glucose-determination.html" data-tut>Blood Glucose: Glucometer &amp; GOD Methods</a></li>
+        <li><a href="kjeldahl-protein.html"            data-tut>Protein Estimation by the Kjeldahl Method</a></li>
+        <li><a href="biological-sample-handling.html"  data-tut>Biological Sample Handling and Storage</a></li>
+        <li><a href="bradford-biuret-protein.html"     data-tut>Spectrophotometric Protein Determination</a></li>
+        <li><a href="enzyme-activity-assays.html"      data-tut>Enzyme Activity Assays: Principles &amp; Methods</a></li>
+        <li><a href="reagent-grade-water.html"         data-tut>Reagent-Grade Water: Preparation &amp; Quality</a></li>
+      </ul>
+      <div class="tut-list-level">Advanced</div>
+      <ul class="tut-list-links">
+        <li><a href="hplc-method-development.html"        data-tut>HPLC Method Development Fundamentals</a></li>
+        <li><a href="atomic-absorption-spectroscopy.html" data-tut>Mineral Analysis by Atomic Absorption Spectroscopy</a></li>
+        <li><a href="hplc-validation.html"                data-tut>HPLC Method Validation: Linearity &amp; Precision</a></li>
+        <li><a href="enzyme-kinetics.html"                data-tut>Enzyme Kinetics: Michaelis-Menten &amp; Inhibition</a></li>
+        <li><a href="sds-page-electrophoresis.html"       data-tut>Electrophoresis: SDS-PAGE and Agarose Gel</a></li>
+        <li><a href="spectrofluorimetry.html"             data-tut>Spectrofluorimetry: Principles &amp; Applications</a></li>
+        <li><a href="elisa-immunoassay.html"              data-tut>Immunoassay Techniques: ELISA Principles &amp; Protocol</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="page-header">
+    <div class="page-header-inner">
+      <div class="breadcrumb">
+        <a href="../index.html">Home</a><span>&#x203A;</span>
+        <a href="index.html">Tutorials</a><span>&#x203A;</span>
+        <span>Spectrophotometric Protein Determination</span>
+      </div>
+      <span class="level-badge level-intermediate">Intermediate</span>
+      <h1>Spectrophotometric Protein Determination: Biuret and Bradford Methods</h1>
+      <div class="page-header-meta">
+        <span class="meta-item">&#x1F4D6; 18 min read</span>
+        <span class="meta-item">&#x1F52C; Biochemical Analysis</span>
+        <span class="meta-item">&#x1F4C5; Updated 2025</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="tutorial-layout">
+    <aside class="toc-sidebar">
+      <div class="toc-box">
+        <div class="toc-label">On this page</div>
+        <ul class="toc-list">
+          <li><a href="#intro">Introduction</a></li>
+          <li><a href="#comparison">Method comparison</a></li>
+          <li><a href="#biuret">Biuret method</a></li>
+          <li class="sub"><a href="#biuret-principle">Principle</a></li>
+          <li class="sub"><a href="#biuret-procedure">Procedure</a></li>
+          <li class="sub"><a href="#biuret-calc">Calculation</a></li>
+          <li><a href="#bradford">Bradford method</a></li>
+          <li class="sub"><a href="#bradford-principle">Principle</a></li>
+          <li class="sub"><a href="#bradford-procedure">Procedure</a></li>
+          <li class="sub"><a href="#bradford-calc">Calculation</a></li>
+          <li><a href="#bsa-curve">BSA calibration curve</a></li>
+          <li><a href="#interferences">Interferences</a></li>
+          <li><a href="#choosing">Choosing the right method</a></li>
+          <li><a href="#takeaways">Key takeaways</a></li>
+        </ul>
+        <hr class="toc-divider" />
+        <a class="toc-calc-link" href="../calculator.html">&#x2697;&#xFE0F; Open Calculators</a>
+      </div>
+    </aside>
+
+    <article class="article">
+
+      <h2 id="intro">Introduction</h2>
+      <p>Spectrophotometric protein assays are the most widely used methods for estimating protein concentration in biochemical and clinical laboratories. Unlike the Kjeldahl method, which measures total nitrogen and requires digestion, these colorimetric assays are fast, require small sample volumes, and can process many samples simultaneously using a spectrophotometer or microplate reader.</p>
+      <p>This tutorial covers two complementary methods in detail: the <strong>Biuret method</strong> (suitable for crude protein extracts and when simplicity matters) and the <strong>Bradford method</strong> (faster, more sensitive, and widely used for purified proteins and column fractions). Both build directly on the UV-Vis spectrophotometry principles covered in the <a href="uv-vis-spectrophotometry.html">UV-Vis Spectrophotometry</a> tutorial.</p>
+
+      <h2 id="comparison">Method comparison at a glance</h2>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead><tr><th>Feature</th><th>Biuret</th><th>Bradford (Coomassie)</th><th>Lowry (Folin)</th><th>BCA</th></tr></thead>
+          <tbody>
+            <tr><td>Detection wavelength</td><td>540&ndash;560 nm</td><td>595 nm</td><td>750 nm</td><td>562 nm</td></tr>
+            <tr><td>Working range</td><td>1&ndash;20 mg/mL</td><td>0.1&ndash;1.5 mg/mL</td><td>0.01&ndash;1 mg/mL</td><td>0.02&ndash;2 mg/mL</td></tr>
+            <tr><td>Sensitivity</td><td>Low</td><td>High</td><td>Very high</td><td>High</td></tr>
+            <tr><td>Time</td><td>30 min</td><td>5 min</td><td>60 min</td><td>30 min (RT) / 10 min (37&deg;C)</td></tr>
+            <tr><td>Detergent compatible?</td><td>Partially</td><td>No (SDS interferes)</td><td>Partially</td><td>Yes</td></tr>
+            <tr><td>Reducing agent compatible?</td><td>No</td><td>Yes</td><td>No</td><td>No</td></tr>
+            <tr><td>What it detects</td><td>Peptide bonds</td><td>Basic/hydrophobic residues</td><td>Peptide bonds + Tyr/Trp</td><td>Peptide bonds (Cu&sup2;&spades;)</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- ══════ BIURET ══════ -->
+      <h2 id="biuret">Biuret Method</h2>
+
+      <h3 id="biuret-principle">Principle</h3>
+      <p>In alkaline solution, Cu&sup2;&spades; ions form a purple complex with the nitrogen atoms of peptide bonds. The intensity of the purple colour (measured at 540&ndash;560 nm) is directly proportional to the number of peptide bonds and therefore to the protein concentration. The name comes from biuret (H&#x2082;N&ndash;CO&ndash;NH&ndash;CO&ndash;NH&#x2082;), a dipeptide-like molecule that gives a positive reaction.</p>
+      <div class="box box-formula">
+        <div class="box-label">Biuret reaction</div>
+        <div class="formula">Protein (peptide bonds) + Cu&sup2;&spades; + NaOH &rarr; Violet/purple Cu&ndash;peptide complex</div>
+        <div class="formula-note">Absorbance measured at 540&ndash;560 nm &prop; [protein]
+This method measures all proteins approximately equally because it detects peptide bonds, not specific amino acid side chains.</div>
+      </div>
+
+      <h3 id="biuret-procedure">Biuret procedure</h3>
+      <div class="box box-key">
+        <div class="box-label">Reagents</div>
+        <ul>
+          <li>Biuret reagent: 3 g CuSO&#x2084;&middot;5H&#x2082;O + 9 g sodium potassium tartrate dissolved in 500 mL of 0.2 mol/L NaOH; make up to 1 L with 0.2 mol/L NaOH</li>
+          <li>BSA standard stock: 10 mg/mL in distilled water (store at 4&deg;C)</li>
+          <li>Distilled water (reagent blank)</li>
+          <li>Spectrophotometer set to 540 nm</li>
+        </ul>
+      </div>
+      <div class="box box-example">
+        <div class="box-label">Biuret assay procedure &mdash; tube method</div>
+        <div class="step"><div class="step-n">1</div><div><strong>Label tubes:</strong> Blank (B), Standards (S1&ndash;S5), and Test samples (T).</div></div>
+        <div class="step"><div class="step-n">2</div><div><strong>Pipette samples:</strong><br/>
+          Blank: 1.0 mL distilled water<br/>
+          Standards: 1.0 mL each of 2, 4, 6, 8, and 10 mg/mL BSA<br/>
+          Tests: 1.0 mL of sample (dilute if outside standard range)</div></div>
+        <div class="step"><div class="step-n">3</div><div>Add <strong>4.0 mL of Biuret reagent</strong> to every tube. Mix well by vortexing.</div></div>
+        <div class="step"><div class="step-n">4</div><div><strong>Incubate at room temperature for 30 minutes.</strong> Colour develops fully during this period. Protect from direct light.</div></div>
+        <div class="step"><div class="step-n">5</div><div>Read absorbance of all tubes at <strong>540 nm</strong>, zeroing against the blank.</div></div>
+        <div class="result">Colour is stable for approximately 1 hour after incubation. Read promptly. Construct the calibration curve and calculate sample concentration.</div>
+      </div>
+
+      <h3 id="biuret-calc">Calculation</h3>
+      <div class="box box-formula">
+        <div class="box-label">Protein concentration from calibration curve</div>
+        <div class="formula">[Protein] (mg/mL) = (A&#x209C; &minus; b) / m</div>
+        <div class="formula-note">Where m = slope and b = intercept of the BSA calibration line (A = m[C] + b)
+Alternatively: [Protein] = (A&#x209C; / A&#x209B;) &times; [Standard] if using single-point calculation
+Remember to multiply by the dilution factor if the sample was diluted before the assay.</div>
+      </div>
+
+      <!-- ══════ BRADFORD ══════ -->
+      <h2 id="bradford">Bradford Method (Coomassie Brilliant Blue G-250)</h2>
+
+      <h3 id="bradford-principle">Principle</h3>
+      <p>Coomassie Brilliant Blue G-250 (CBB G-250) dye exists in two forms: a red/brown form (absorbance max 465 nm) and a blue form (absorbance max 610 nm). In acidic solution, the red form predominates. When the dye binds to basic amino acid residues (Arg, Lys, His) and hydrophobic regions of proteins, it shifts to the blue form. The increase in absorbance at 595 nm is proportional to protein concentration.</p>
+      <div class="box box-formula">
+        <div class="box-label">Bradford reaction</div>
+        <div class="formula">CBB G-250 (red, 465 nm) + Protein &rarr; CBB&ndash;Protein complex (blue, 595 nm)</div>
+        <div class="formula-note">Absorbance measured at 595 nm &prop; [protein]
+The reaction is complete within 5 minutes and stable for approximately 1 hour.
+The Bradford assay is more sensitive than Biuret and requires far less sample volume.</div>
+      </div>
+      <div class="box box-note">
+        <div class="box-label">Protein-dependent response &mdash; BSA vs other standards</div>
+        <p>Unlike the Biuret method, the Bradford response varies between proteins because it depends on the amino acid composition (particularly the content of Arg and other basic residues). BSA is the conventional standard, but if your protein of interest has a very different composition, using an IgG standard or bovine gamma globulin (BGG) may give more accurate results. Always report which standard was used.</p>
+      </div>
+
+      <h3 id="bradford-procedure">Bradford procedure</h3>
+      <div class="box box-key">
+        <div class="box-label">Reagents</div>
+        <ul>
+          <li>Bradford reagent: 100 mg CBB G-250 dissolved in 50 mL 95% ethanol + 100 mL 85% phosphoric acid; make up to 1 L with distilled water; filter through Whatman No. 1 before use. Commercial reagents (Bio-Rad, Thermo) are convenient alternatives.</li>
+          <li>BSA standard: prepare a series at 0.1, 0.2, 0.4, 0.6, 0.8, 1.0, and 1.5 mg/mL from a 2 mg/mL stock</li>
+          <li>Spectrophotometer set to 595 nm</li>
+        </ul>
+      </div>
+      <div class="box box-example">
+        <div class="box-label">Bradford assay &mdash; microassay tube method</div>
+        <div class="step"><div class="step-n">1</div><div><strong>Label tubes:</strong> Blank, Standards, and Tests. Use 1.5 mL microcentrifuge tubes or test tubes.</div></div>
+        <div class="step"><div class="step-n">2</div><div><strong>Pipette 100 &micro;L</strong> of blank (distilled water), each standard, or each sample into the appropriate tube.</div></div>
+        <div class="step"><div class="step-n">3</div><div>Add <strong>1.0 mL of Bradford reagent</strong> to each tube. Mix immediately by vortexing or inversion 3&times;. Do not allow bubbles to form.</div></div>
+        <div class="step"><div class="step-n">4</div><div><strong>Incubate at room temperature for exactly 5 minutes.</strong> Read within 1 hour &mdash; absorbance increases slightly on prolonged standing (dye precipitates at high protein concentrations).</div></div>
+        <div class="step"><div class="step-n">5</div><div>Read absorbance at <strong>595 nm</strong>, zeroing against the blank. Record all values.</div></div>
+        <div class="result">Construct a calibration curve of absorbance vs BSA concentration. Read off or calculate unknown sample concentrations.</div>
+      </div>
+
+      <h3 id="bradford-calc">Calculation</h3>
+      <p>Because the Bradford assay is not perfectly linear across its range (the relationship between absorbance and concentration shows slight curvature at higher concentrations), plotting a proper calibration curve and reading values from it is more accurate than single-point calculation. Use a linear regression within the linear portion of the curve (typically 0.1&ndash;1.0 mg/mL BSA).</p>
+      <div class="box box-example">
+        <div class="box-label">Worked example</div>
+        <div class="step"><div class="step-n">1</div><div>BSA calibration: slope m = 0.782, intercept b = 0.012 (A = 0.782C + 0.012), R&sup2; = 0.9996.</div></div>
+        <div class="step"><div class="step-n">2</div><div>Sample absorbance A&#x209C; = 0.465. Sample was diluted 1:5 before assay.</div></div>
+        <div class="step"><div class="step-n">3</div><div>[Protein] in assay = (0.465 &minus; 0.012) / 0.782 = <strong>0.579 mg/mL</strong></div></div>
+        <div class="step"><div class="step-n">4</div><div>True [Protein] in original sample = 0.579 &times; 5 = <strong>2.90 mg/mL</strong></div></div>
+        <div class="result">The original sample protein concentration is 2.90 mg/mL.</div>
+      </div>
+
+      <h2 id="bsa-curve">Constructing a BSA calibration curve</h2>
+      <p>The calibration curve is the foundation of both assays. A poorly constructed curve propagates error into every result that depends on it. Key requirements:</p>
+      <ul>
+        <li>Use at least 6 standard concentrations including a zero blank. More points give a more reliable slope estimate.</li>
+        <li>Run standards in <strong>duplicate or triplicate</strong>. Average the duplicates before plotting.</li>
+        <li>Verify linearity by visual inspection and R&sup2; &ge; 0.999. If a point deviates significantly, investigate (pipetting error, wrong concentration) and repeat if necessary.</li>
+        <li>Ensure all samples fall <strong>within</strong> the calibration range. Do not extrapolate beyond the highest standard &mdash; response is non-linear above the working range. Dilute samples that fall above the upper standard.</li>
+        <li>Prepare a fresh calibration curve with every analytical session. Do not reuse a curve from a previous day.</li>
+      </ul>
+
+      <h2 id="interferences">Analytical interferences</h2>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead><tr><th>Interferent</th><th>Biuret effect</th><th>Bradford effect</th><th>Solution</th></tr></thead>
+          <tbody>
+            <tr><td>SDS (sodium dodecyl sulphate)</td><td>Interferes above 0.1%</td><td>Serious interference &mdash; dye precipitates</td><td>Use BCA or Lowry for SDS-containing samples</td></tr>
+            <tr><td>Reducing agents (DTT, BME)</td><td>Interferes above 1 mmol/L</td><td>Minimal at low concentrations</td><td>Remove by dialysis or use BCA (compatible with reducing agents)</td></tr>
+            <tr><td>High salt (NaCl &gt;1 mol/L)</td><td>Minor</td><td>Minor</td><td>Dilute sample</td></tr>
+            <tr><td>Tris buffer &gt;0.1 mol/L</td><td>Some interference</td><td>Interferes with dye binding</td><td>Dilute sample or subtract buffer blank in standards</td></tr>
+            <tr><td>Ammonium sulphate &gt;1 mol/L</td><td>Interferes</td><td>Moderate</td><td>Dilute or dialyse</td></tr>
+            <tr><td>Glycerol &gt;10%</td><td>Minor</td><td>Turbidity at high concentrations</td><td>Dilute sample</td></tr>
+            <tr><td>Free amino acids / small peptides (&lt;3 residues)</td><td>No reaction</td><td>Weak or no reaction</td><td>Accept limitation; Biuret requires &ge;3 peptide bonds minimum</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 id="choosing">Choosing the right method for your sample</h2>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead><tr><th>Scenario</th><th>Recommended method</th><th>Reason</th></tr></thead>
+          <tbody>
+            <tr><td>Crude tissue homogenate, high protein, no detergent</td><td>Biuret</td><td>Detects all proteins equally; robust in crude matrices</td></tr>
+            <tr><td>Purified protein fractions from chromatography, no SDS</td><td>Bradford</td><td>Sensitive enough for dilute fractions; fast; cheap</td></tr>
+            <tr><td>SDS-containing sample (gel elution, membrane protein)</td><td>BCA (not covered here)</td><td>Only widely used method compatible with SDS</td></tr>
+            <tr><td>Sample contains reducing agents (DTT, BME)</td><td>Bradford (if concentration &gt;0.1 mg/mL)</td><td>Bradford is less affected than Biuret or Lowry</td></tr>
+            <tr><td>Very dilute sample (&lt;0.1 mg/mL)</td><td>Lowry or BCA</td><td>Bradford and Biuret lack sensitivity at this range</td></tr>
+            <tr><td>Need for equal response to different proteins</td><td>Biuret</td><td>Detects peptide bonds uniformly; Bradford response varies with amino acid composition</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="calc-cta">
+        <div class="calc-cta-text">
+          <strong>Performing UV-Vis spectrophotometry?</strong>
+          <p>Review Beer-Lambert law, cuvette selection, and blanking technique in the companion tutorial.</p>
+        </div>
+        <a href="uv-vis-spectrophotometry.html">UV-Vis Tutorial &rarr;</a>
+      </div>
+
+      <div class="takeaways">
+        <div class="takeaways-label">Key takeaways</div>
+        <h3>What to remember from this tutorial</h3>
+        <ul>
+          <li>Biuret detects peptide bonds via Cu&sup2;&spades; complex formation (540&ndash;560 nm, 1&ndash;20 mg/mL range). It gives equal response to all proteins and is robust in crude matrices but insensitive.</li>
+          <li>Bradford detects basic/hydrophobic residues via CBB G-250 dye shift (595 nm, 0.1&ndash;1.5 mg/mL). It is fast (5 min) and sensitive but protein-dependent and incompatible with SDS and high Tris concentrations.</li>
+          <li>Always construct a fresh BSA calibration curve with at least 6 points per session. Run standards in duplicate. Verify R&sup2; &ge; 0.999 and linearity before accepting results.</li>
+          <li>All unknowns must fall within the calibration range. Dilute samples above the highest standard and multiply results by the dilution factor.</li>
+          <li>Match the method to your sample matrix: Biuret for crude extracts, Bradford for purified fractions, BCA for SDS-containing samples.</li>
+          <li>Interferences vary between methods. When in doubt, compare two methods on the same sample &mdash; good agreement confirms the result; discrepancy indicates interference.</li>
+        </ul>
+      </div>
+
+      </article>
+
+
+            <div class="tut-nav">
+        <a class="tut-nav-card" href="biological-sample-handling.html">
+          <span class="tut-nav-dir">&#x2190; Previous</span>
+          <span class="tut-nav-title">Biological Sample Handling and Storage</span>
+        </a>
+        <a class="tut-nav-card next" href="enzyme-activity-assays.html">
+          <span class="tut-nav-dir">Next &#x2192;</span>
+          <span class="tut-nav-title">Enzyme Activity Assays: Principles and Protocol</span>
+        </a>
+      </div>
+
+  </div><!-- /tutorial-layout -->
+
+  <script src="../shared.js" defer></script>
+
+  <!-- MOBILE FLOATING TOC (visible ≤ 900px) -->
+  <button class="mob-toc-btn" id="mobTocBtn"
+          aria-label="Open table of contents" aria-expanded="false"
+          aria-controls="mobTocPanel">
+    <span class="mob-toc-icon">☰</span>
+    <span class="mob-toc-label">Contents</span></button>
+
+  <div class="mob-toc-overlay" id="mobTocOverlay" aria-hidden="true"></div>
+
+  <div class="mob-toc-panel" id="mobTocPanel" role="dialog"
+       aria-label="Table of contents" aria-modal="true">
+    <div class="mob-toc-handle"></div>
+    <div class="mob-toc-head">
+      <span class="mob-toc-head-label">On this page</span>
+      <button class="mob-toc-close" id="mobTocClose" aria-label="Close">✕</button>
+    </div>
+    <div class="mob-toc-body">
+            <ul class="toc-list">
+          <li><a href="#intro">Introduction</a></li>
+          <li><a href="#comparison">Method comparison</a></li>
+          <li><a href="#biuret">Biuret method</a></li>
+          <li class="sub"><a href="#biuret-principle">Principle</a></li>
+          <li class="sub"><a href="#biuret-procedure">Procedure</a></li>
+          <li class="sub"><a href="#biuret-calc">Calculation</a></li>
+          <li><a href="#bradford">Bradford method</a></li>
+          <li class="sub"><a href="#bradford-principle">Principle</a></li>
+          <li class="sub"><a href="#bradford-procedure">Procedure</a></li>
+          <li class="sub"><a href="#bradford-calc">Calculation</a></li>
+          <li><a href="#bsa-curve">BSA calibration curve</a></li>
+          <li><a href="#interferences">Interferences</a></li>
+          <li><a href="#choosing">Choosing the right method</a></li>
+          <li><a href="#takeaways">Key takeaways</a></li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+  <footer>
+  <div class="footer-logo">Lab<span>Learn</span></div>
+  <ul class="footer-links">
+    <li><a href="index.html">Tutorials</a></li>
+    <li><a href="../calculator.html">Calculators</a></li>
+    <li><a href="../apps.html">Apps</a></li>
+    <li><a href="../about.html">About</a></li>
+    <li><a href="../contact.html">Contact</a></li>
+    <li><a href="../index.html#donate">Donate</a></li>
+  </ul>
+  <div class="footer-copy">&copy; 2025 LabLearn. Free for students &amp; researchers.</div>
+</footer>
+
+
+</body>
+</html>
